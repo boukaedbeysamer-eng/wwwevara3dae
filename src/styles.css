@@ -101,8 +101,9 @@
   }
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
-    font-feature-settings: "ss01";
-    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-weight: 400;
   }
 }
 
