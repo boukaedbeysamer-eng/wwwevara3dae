@@ -1,0 +1,170 @@
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  FRAME_FINISHES,
+  MAP_COLORS,
+  TRACK_COLORS,
+  getProduct,
+  type FrameFinish,
+  type MapColor,
+  type TrackColor,
+} from "@/data/products";
+import { FrameVisual } from "@/components/frame-visual";
+import { useCart } from "@/lib/cart";
+import { toast } from "sonner";
+
+export const Route = createFileRoute("/shop/$slug")({
+  loader: ({ params }) => {
+    const product = getProduct(params.slug);
+    if (!product) throw notFound();
+    return { product };
+  },
+  head: ({ loaderData }) => {
+    const p = loaderData?.product;
+    const title = p ? `${p.name} — Evara3D` : "Frame — Evara3D";
+    const desc = p ? `${p.tagline} ${p.frameSize}, ${p.mapSize}.` : "";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+      ],
+    };
+  },
+  component: ProductPage,
+});
+
+function ProductPage() {
+  const { product } = Route.useLoaderData();
+  const navigate = useNavigate();
+  const add = useCart((s) => s.add);
+
+  const [frameFinish, setFrameFinish] = useState<FrameFinish>("Wooden");
+  const [mapColor, setMapColor] = useState<MapColor>("Black");
+  const [trackColor, setTrackColor] = useState<TrackColor>("Orange");
+  const [qty, setQty] = useState(1);
+
+  const handleAdd = (goToCart: boolean) => {
+    add({
+      productSlug: product.slug,
+      name: product.name,
+      priceAed: product.priceAed,
+      qty,
+      frameFinish,
+      mapColor,
+      trackColor,
+    });
+    toast.success(`${product.name} added to cart`);
+    if (goToCart) navigate({ to: "/cart" });
+  };
+
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-14">
+      <Link to="/shop" className="text-xs uppercase tracking-[0.22em] text-ink/60 hover:text-terrain">
+        ← Back to shop
+      </Link>
+
+      <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
+        <div className="bg-secondary/60 p-10">
+          <FrameVisual size="lg" frameFinish={frameFinish} mapColor={mapColor} trackColor={trackColor} />
+        </div>
+
+        <div>
+          <span className="text-xs uppercase tracking-[0.28em] text-terrain">{product.frameSize}</span>
+          <h1 className="mt-3 font-display text-5xl text-ink">{product.name}</h1>
+          <p className="mt-2 font-display text-lg text-ink/70">{product.tagline}</p>
+          <div className="mt-6 text-2xl text-ink">AED {product.priceAed}</div>
+
+          <p className="mt-8 leading-relaxed text-ink/75">{product.story}</p>
+
+          <div className="mt-8 border-t border-ink/10 pt-6">
+            <div className="text-xs uppercase tracking-[0.22em] text-ink/50">What's included</div>
+            <ul className="mt-3 space-y-2 text-sm text-ink/80">
+              {product.includes.map((line) => (
+                <li key={line} className="flex gap-3">
+                  <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
+                  <span>{line}</span>
+                </li>
+              ))}
+              <li className="flex gap-3">
+                <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
+                <span>White background with black topographic contour lines.</span>
+              </li>
+            </ul>
+          </div>
+
+          <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
+          <Selector label="3D relief color" value={mapColor} options={MAP_COLORS} onChange={setMapColor} />
+          <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
+
+          <div className="mt-10 flex items-center gap-4">
+            <div className="flex items-center border border-ink/30">
+              <button
+                onClick={() => setQty((q) => Math.max(1, q - 1))}
+                className="px-4 py-3 text-ink hover:bg-ink hover:text-paper"
+                aria-label="Decrease quantity"
+              >−</button>
+              <span className="w-10 text-center text-sm">{qty}</span>
+              <button
+                onClick={() => setQty((q) => Math.min(20, q + 1))}
+                className="px-4 py-3 text-ink hover:bg-ink hover:text-paper"
+                aria-label="Increase quantity"
+              >+</button>
+            </div>
+            <button
+              onClick={() => handleAdd(false)}
+              className="flex-1 bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+            >
+              Add to cart
+            </button>
+          </div>
+          <button
+            onClick={() => handleAdd(true)}
+            className="mt-3 w-full border border-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-ink hover:bg-ink hover:text-paper"
+          >
+            Add & request now
+          </button>
+
+          <p className="mt-6 text-xs text-ink/50">
+            We'll collect your GPX file and run details on the next step.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Selector<T extends string>({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: T;
+  options: readonly T[];
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div className="mt-8">
+      <div className="text-xs uppercase tracking-[0.22em] text-ink/50">{label}</div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {options.map((opt) => (
+          <button
+            key={opt}
+            type="button"
+            onClick={() => onChange(opt)}
+            className={`border px-4 py-2 text-sm transition-colors ${
+              value === opt
+                ? "border-ink bg-ink text-paper"
+                : "border-ink/30 text-ink hover:border-ink"
+            }`}
+          >
+            {opt}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
