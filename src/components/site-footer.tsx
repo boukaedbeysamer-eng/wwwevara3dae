@@ -25,7 +25,7 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="mt-32 border-t border-ink/15 bg-ink text-paper">
+    <footer className="mt-32 border-t border-foreground/30/15 bg-terrain text-paper">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-20 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="font-display text-3xl tracking-tight">

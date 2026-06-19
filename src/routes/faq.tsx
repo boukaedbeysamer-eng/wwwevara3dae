@@ -41,15 +41,15 @@ function FAQ() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-24">
       <span className="text-xs uppercase tracking-[0.28em] text-terrain">Help</span>
-      <h1 className="mt-3 font-display text-5xl text-ink">Frequently asked.</h1>
-      <div className="mt-12 divide-y divide-ink/10 border-y border-ink/10">
+      <h1 className="mt-3 font-display text-5xl text-foreground">Frequently asked.</h1>
+      <div className="mt-12 divide-y divide-ink/10 border-y border-foreground/30/10">
         {faqs.map((f) => (
           <details key={f.q} className="group py-6">
-            <summary className="flex cursor-pointer items-baseline justify-between gap-6 font-display text-xl text-ink">
+            <summary className="flex cursor-pointer items-baseline justify-between gap-6 font-display text-xl text-foreground">
               {f.q}
               <span className="text-terrain transition-transform group-open:rotate-45">+</span>
             </summary>
-            <p className="mt-4 leading-relaxed text-ink/75">{f.a}</p>
+            <p className="mt-4 leading-relaxed text-foreground/75">{f.a}</p>
           </details>
         ))}
       </div>

@@ -18,10 +18,10 @@ function Shop() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
       <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
-      <h1 className="mt-3 max-w-2xl font-display text-5xl text-ink md:text-6xl">
+      <h1 className="mt-3 max-w-2xl font-display text-5xl text-foreground md:text-6xl">
         Choose your frame.
       </h1>
-      <p className="mt-4 max-w-xl text-base text-ink/70">
+      <p className="mt-4 max-w-xl text-base text-foreground/70">
         Each frame is made to order, in the UAE, from your GPX file. Prices in AED;
         worldwide shipping quoted on request.
       </p>
@@ -37,11 +37,11 @@ function Shop() {
               />
             </div>
             <div className="mt-6 flex items-baseline justify-between">
-              <h2 className="font-display text-2xl text-ink">{p.name}</h2>
-              <span className="text-sm text-ink/70">AED {p.priceAed}</span>
+              <h2 className="font-display text-2xl text-foreground">{p.name}</h2>
+              <span className="text-sm text-foreground/70">AED {p.priceAed}</span>
             </div>
-            <p className="mt-2 text-sm text-ink/60">{p.tagline}</p>
-            <div className="mt-3 text-xs uppercase tracking-[0.22em] text-ink/50">
+            <p className="mt-2 text-sm text-foreground/60">{p.tagline}</p>
+            <div className="mt-3 text-xs uppercase tracking-[0.22em] text-foreground/50">
               {p.frameSize}
             </div>
           </Link>

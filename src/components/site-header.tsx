@@ -16,12 +16,12 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-paper/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <Link to="/" className="font-display text-2xl tracking-tight text-ink">
+        <Link to="/" className="font-display text-2xl tracking-tight text-foreground">
           Evara<span className="text-terrain">3D</span>
         </Link>
-        <nav className="hidden gap-10 text-sm uppercase tracking-[0.18em] text-ink/70 md:flex">
+        <nav className="hidden gap-10 text-sm uppercase tracking-[0.18em] text-foreground/70 md:flex">
           {nav.map((n) => (
             <Link
               key={n.to}
@@ -36,10 +36,10 @@ export function SiteHeader() {
         </nav>
         <Link
           to="/cart"
-          className="group relative inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-ink hover:text-terrain"
+          className="group relative inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain"
         >
           Cart
-          <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-ink px-2 text-xs text-paper group-hover:bg-terrain">
+          <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper group-hover:bg-terrain">
             {count}
           </span>
         </Link>

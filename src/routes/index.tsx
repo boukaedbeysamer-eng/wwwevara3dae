@@ -18,17 +18,17 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-ink/10">
+      <section className="relative overflow-hidden border-b border-foreground/30/10">
         <div className="topo-lines absolute inset-0 opacity-60" />
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32 lg:py-40">
           <div className="flex flex-col justify-center">
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">
               Evara3D · Studio édition
             </span>
-            <h1 className="mt-6 font-display text-5xl leading-[0.95] text-ink md:text-7xl">
+            <h1 className="mt-6 font-display text-5xl leading-[0.95] text-foreground md:text-7xl">
               The route you ran,<br />sculpted in relief.
             </h1>
-            <p className="mt-8 max-w-lg text-base leading-relaxed text-ink/70">
+            <p className="mt-8 max-w-lg text-base leading-relaxed text-foreground/70">
               Upload a GPX file from any run. We translate the terrain you crossed into
               a precision 3D-printed topographic frame — your distance, elevation, and
               date set in type beneath it.
@@ -36,13 +36,13 @@ function Home() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/shop"
-                className="bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper transition-colors hover:bg-terrain"
+                className="bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper transition-colors hover:bg-terrain"
               >
                 Shop the frames
               </Link>
               <Link
                 to="/about"
-                className="border border-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-ink transition-colors hover:bg-ink hover:text-paper"
+                className="border border-foreground/30 px-6 py-4 text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-terrain hover:text-paper"
               >
                 How it's made
               </Link>
@@ -59,13 +59,13 @@ function Home() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
-            <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
+            <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
               Three frames. One memory.
             </h2>
           </div>
           <Link
             to="/shop"
-            className="hidden text-xs uppercase tracking-[0.22em] text-ink hover:text-terrain md:inline"
+            className="hidden text-xs uppercase tracking-[0.22em] text-foreground hover:text-terrain md:inline"
           >
             See all →
           </Link>
@@ -86,20 +86,20 @@ function Home() {
                 />
               </div>
               <div className="mt-6 flex items-baseline justify-between">
-                <h3 className="font-display text-2xl text-ink">{p.name}</h3>
-                <span className="text-sm text-ink/70">AED {p.priceAed}</span>
+                <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
+                <span className="text-sm text-foreground/70">AED {p.priceAed}</span>
               </div>
-              <p className="mt-2 text-sm text-ink/60">{p.tagline}</p>
+              <p className="mt-2 text-sm text-foreground/60">{p.tagline}</p>
             </Link>
           ))}
         </div>
       </section>
 
       {/* How it works */}
-      <section className="border-y border-ink/10 bg-secondary/40">
+      <section className="border-y border-foreground/30/10 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <span className="text-xs uppercase tracking-[0.28em] text-terrain">The process</span>
-          <h2 className="mt-3 max-w-2xl font-display text-4xl text-ink md:text-5xl">
+          <h2 className="mt-3 max-w-2xl font-display text-4xl text-foreground md:text-5xl">
             From GPX to gallery wall in four steps.
           </h2>
           <div className="mt-16 grid gap-12 md:grid-cols-4">
@@ -111,8 +111,8 @@ function Home() {
             ].map((s) => (
               <div key={s.n}>
                 <div className="font-display text-terrain">{s.n}</div>
-                <div className="mt-2 font-display text-xl text-ink">{s.t}</div>
-                <p className="mt-3 text-sm leading-relaxed text-ink/70">{s.d}</p>
+                <div className="mt-2 font-display text-xl text-foreground">{s.t}</div>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/70">{s.d}</p>
               </div>
             ))}
           </div>
@@ -121,11 +121,11 @@ function Home() {
 
       {/* Quote block */}
       <section className="mx-auto max-w-4xl px-6 py-32 text-center">
-        <p className="font-display text-3xl leading-snug text-ink md:text-4xl">
+        <p className="font-display text-3xl leading-snug text-foreground md:text-4xl">
           "Strava remembers the data. Evara3D remembers the terrain — the climb that
           broke you, the descent that brought you back."
         </p>
-        <div className="mt-6 text-xs uppercase tracking-[0.22em] text-ink/50">
+        <div className="mt-6 text-xs uppercase tracking-[0.22em] text-foreground/50">
           — From the studio, Sharjah
         </div>
       </section>
