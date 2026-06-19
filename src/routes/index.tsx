@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
+import heroFrame from "@/assets/hero-frame.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
