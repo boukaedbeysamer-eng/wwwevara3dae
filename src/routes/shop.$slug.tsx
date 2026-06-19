@@ -81,7 +81,7 @@ function ProductPage() {
           <div className="mt-8 border-t border-ink/10 pt-6">
             <div className="text-xs uppercase tracking-[0.22em] text-ink/50">What's included</div>
             <ul className="mt-3 space-y-2 text-sm text-ink/80">
-              {product.includes.map((line) => (
+              {product.includes.map((line: string) => (
                 <li key={line} className="flex gap-3">
                   <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
                   <span>{line}</span>
