@@ -50,7 +50,11 @@ function Home() {
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-md">
-            <FrameVisual size="lg" frameFinish="Wooden" mapColor="Black" trackColor="Orange" />
+            <img
+              src={heroFrame.url}
+              alt="3D-printed topographic running route frame by Evara3D"
+              className="w-full h-auto object-cover shadow-2xl"
+            />
           </div>
         </div>
       </section>
