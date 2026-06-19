@@ -9,12 +9,11 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import "@fontsource/fraunces/400.css";
-import "@fontsource/fraunces/500.css";
-import "@fontsource/fraunces/600.css";
+import "@fontsource/bebas-neue/400.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -26,7 +25,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl text-ink">404</h1>
+        <h1 className="font-display text-7xl text-foreground">404</h1>
         <h2 className="mt-4 font-display text-2xl">Off the map</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           This route doesn't exist — but yours could be on a wall.
@@ -34,7 +33,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-ink px-5 py-3 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+            className="inline-flex items-center justify-center bg-terrain px-5 py-3 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
           >
             Back to base
           </Link>
@@ -61,13 +60,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="bg-ink px-5 py-3 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+            className="bg-terrain px-5 py-3 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
           >
             Try again
           </button>
           <a
             href="/"
-            className="border border-ink px-5 py-3 text-xs uppercase tracking-[0.22em] text-ink hover:bg-ink hover:text-paper"
+            className="border border-foreground/30 px-5 py-3 text-xs uppercase tracking-[0.22em] text-foreground hover:bg-terrain hover:text-paper"
           >
             Go home
           </a>
@@ -116,7 +115,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-paper text-ink">
+      <div className="flex min-h-screen flex-col bg-background text-foreground">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />

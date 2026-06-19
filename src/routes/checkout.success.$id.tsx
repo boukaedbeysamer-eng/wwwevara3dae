@@ -16,17 +16,17 @@ function Success() {
   return (
     <section className="mx-auto max-w-2xl px-6 py-32 text-center">
       <span className="text-xs uppercase tracking-[0.28em] text-terrain">Request received</span>
-      <h1 className="mt-4 font-display text-5xl text-ink">Thank you.</h1>
-      <p className="mt-6 text-ink/70">
+      <h1 className="mt-4 font-display text-5xl text-foreground">Thank you.</h1>
+      <p className="mt-6 text-foreground/70">
         We've got your run. Our studio will review the details and WhatsApp you within 24
         hours to confirm everything and arrange payment & shipping.
       </p>
-      <div className="mt-10 inline-block border border-ink/20 px-6 py-4">
-        <div className="text-xs uppercase tracking-[0.22em] text-ink/55">Reference</div>
-        <div className="mt-1 font-display text-2xl text-ink">EVR-{ref}</div>
+      <div className="mt-10 inline-block border border-foreground/30/20 px-6 py-4">
+        <div className="text-xs uppercase tracking-[0.22em] text-foreground/55">Reference</div>
+        <div className="mt-1 font-display text-2xl text-foreground">EVR-{ref}</div>
       </div>
       <div className="mt-12">
-        <Link to="/" className="bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
+        <Link to="/" className="bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
           Back to home
         </Link>
       </div>

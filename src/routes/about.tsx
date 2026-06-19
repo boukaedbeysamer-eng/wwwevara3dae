@@ -16,10 +16,10 @@ function About() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-24">
       <span className="text-xs uppercase tracking-[0.28em] text-terrain">Our story</span>
-      <h1 className="mt-3 font-display text-5xl text-ink md:text-6xl">
+      <h1 className="mt-3 font-display text-5xl text-foreground md:text-6xl">
         A studio for the runs you remember.
       </h1>
-      <div className="mt-12 space-y-6 text-lg leading-relaxed text-ink/80">
+      <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/80">
         <p>
           Evara3D is a small design and fabrication studio in the UAE. We make one
           thing: precision 3D-printed topographic relief maps of the routes our
@@ -40,7 +40,7 @@ function About() {
         </p>
       </div>
       <div className="mt-14">
-        <Link to="/shop" className="bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
+        <Link to="/shop" className="bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
           See the collection
         </Link>
       </div>

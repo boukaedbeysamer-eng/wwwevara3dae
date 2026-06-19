@@ -61,7 +61,7 @@ function ProductPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-14">
-      <Link to="/shop" className="text-xs uppercase tracking-[0.22em] text-ink/60 hover:text-terrain">
+      <Link to="/shop" className="text-xs uppercase tracking-[0.22em] text-foreground/60 hover:text-terrain">
         ← Back to shop
       </Link>
 
@@ -72,15 +72,15 @@ function ProductPage() {
 
         <div>
           <span className="text-xs uppercase tracking-[0.28em] text-terrain">{product.frameSize}</span>
-          <h1 className="mt-3 font-display text-5xl text-ink">{product.name}</h1>
-          <p className="mt-2 font-display text-lg text-ink/70">{product.tagline}</p>
-          <div className="mt-6 text-2xl text-ink">AED {product.priceAed}</div>
+          <h1 className="mt-3 font-display text-5xl text-foreground">{product.name}</h1>
+          <p className="mt-2 font-display text-lg text-foreground/70">{product.tagline}</p>
+          <div className="mt-6 text-2xl text-foreground">AED {product.priceAed}</div>
 
-          <p className="mt-8 leading-relaxed text-ink/75">{product.story}</p>
+          <p className="mt-8 leading-relaxed text-foreground/75">{product.story}</p>
 
-          <div className="mt-8 border-t border-ink/10 pt-6">
-            <div className="text-xs uppercase tracking-[0.22em] text-ink/50">What's included</div>
-            <ul className="mt-3 space-y-2 text-sm text-ink/80">
+          <div className="mt-8 border-t border-foreground/30/10 pt-6">
+            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">What's included</div>
+            <ul className="mt-3 space-y-2 text-sm text-foreground/80">
               {product.includes.map((line: string) => (
                 <li key={line} className="flex gap-3">
                   <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
@@ -99,34 +99,34 @@ function ProductPage() {
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
           <div className="mt-10 flex items-center gap-4">
-            <div className="flex items-center border border-ink/30">
+            <div className="flex items-center border border-foreground/30/30">
               <button
                 onClick={() => setQty((q) => Math.max(1, q - 1))}
-                className="px-4 py-3 text-ink hover:bg-ink hover:text-paper"
+                className="px-4 py-3 text-foreground hover:bg-terrain hover:text-paper"
                 aria-label="Decrease quantity"
               >−</button>
               <span className="w-10 text-center text-sm">{qty}</span>
               <button
                 onClick={() => setQty((q) => Math.min(20, q + 1))}
-                className="px-4 py-3 text-ink hover:bg-ink hover:text-paper"
+                className="px-4 py-3 text-foreground hover:bg-terrain hover:text-paper"
                 aria-label="Increase quantity"
               >+</button>
             </div>
             <button
               onClick={() => handleAdd(false)}
-              className="flex-1 bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+              className="flex-1 bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
             >
               Add to cart
             </button>
           </div>
           <button
             onClick={() => handleAdd(true)}
-            className="mt-3 w-full border border-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-ink hover:bg-ink hover:text-paper"
+            className="mt-3 w-full border border-foreground/30 px-6 py-4 text-xs uppercase tracking-[0.22em] text-foreground hover:bg-terrain hover:text-paper"
           >
             Add & request now
           </button>
 
-          <p className="mt-6 text-xs text-ink/50">
+          <p className="mt-6 text-xs text-foreground/50">
             We'll collect your GPX file and run details on the next step.
           </p>
         </div>
@@ -148,7 +148,7 @@ function Selector<T extends string>({
 }) {
   return (
     <div className="mt-8">
-      <div className="text-xs uppercase tracking-[0.22em] text-ink/50">{label}</div>
+      <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">{label}</div>
       <div className="mt-3 flex flex-wrap gap-2">
         {options.map((opt) => (
           <button
@@ -157,8 +157,8 @@ function Selector<T extends string>({
             onClick={() => onChange(opt)}
             className={`border px-4 py-2 text-sm transition-colors ${
               value === opt
-                ? "border-ink bg-ink text-paper"
-                : "border-ink/30 text-ink hover:border-ink"
+                ? "border-foreground/30 bg-terrain text-paper"
+                : "border-foreground/30/30 text-foreground hover:border-foreground/30"
             }`}
           >
             {opt}

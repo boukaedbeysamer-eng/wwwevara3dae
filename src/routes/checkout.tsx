@@ -61,8 +61,8 @@ function Checkout() {
     return (
       <section className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl">Nothing to send yet</h1>
-        <p className="mt-3 text-ink/70">Add a frame first, then come back to send your run details.</p>
-        <Link to="/shop" className="mt-8 inline-block bg-ink px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
+        <p className="mt-3 text-foreground/70">Add a frame first, then come back to send your run details.</p>
+        <Link to="/shop" className="mt-8 inline-block bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
           Choose a frame
         </Link>
       </section>
@@ -147,8 +147,8 @@ function Checkout() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-14">
-      <h1 className="font-display text-5xl text-ink">Send your request</h1>
-      <p className="mt-3 max-w-xl text-ink/70">
+      <h1 className="font-display text-5xl text-foreground">Send your request</h1>
+      <p className="mt-3 max-w-xl text-foreground/70">
         No payment now. Once we receive your run details, we'll WhatsApp you within 24
         hours to confirm everything and arrange payment & shipping.
       </p>
@@ -177,15 +177,15 @@ function Checkout() {
           {/* Items */}
           <div>
             <SectionLabel n="02" t="Your runs" />
-            <p className="mt-3 text-sm text-ink/60">
+            <p className="mt-3 text-sm text-foreground/60">
               Tell us about the run for each frame, and attach the GPX file (.gpx, max 5 MB).
             </p>
             <div className="mt-6 space-y-8">
               {items.map((it, idx) => (
-                <div key={it.id} className="border border-ink/15 bg-secondary/40 p-6">
+                <div key={it.id} className="border border-foreground/30/15 bg-secondary/40 p-6">
                   <div className="flex items-baseline justify-between">
-                    <div className="font-display text-xl text-ink">{it.name}</div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-ink/55">
+                    <div className="font-display text-xl text-foreground">{it.name}</div>
+                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/55">
                       {it.frameFinish} · {it.mapColor} · {it.trackColor} · ×{it.qty}
                     </div>
                   </div>
@@ -214,7 +214,7 @@ function Checkout() {
                           type="file"
                           accept=".gpx,application/gpx+xml,application/xml,text/xml"
                           onChange={(e) => setFiles((prev) => ({ ...prev, [idx]: e.target.files?.[0] || null }))}
-                          className="block w-full text-sm text-ink file:mr-4 file:border-0 file:bg-ink file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
+                          className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
                         />
                       </Field>
                     </div>
@@ -226,27 +226,27 @@ function Checkout() {
         </div>
 
         <aside className="h-fit bg-secondary/60 p-8">
-          <div className="text-xs uppercase tracking-[0.22em] text-ink/50">Your request</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Your request</div>
           <ul className="mt-5 space-y-3 text-sm">
             {items.map((i) => (
               <li key={i.id} className="flex justify-between gap-4">
-                <span className="text-ink">{i.name} × {i.qty}</span>
-                <span className="text-ink/80">AED {i.priceAed * i.qty}</span>
+                <span className="text-foreground">{i.name} × {i.qty}</span>
+                <span className="text-foreground/80">AED {i.priceAed * i.qty}</span>
               </li>
             ))}
           </ul>
-          <div className="mt-6 border-t border-ink/15 pt-4 flex justify-between font-display text-xl">
+          <div className="mt-6 border-t border-foreground/30/15 pt-4 flex justify-between font-display text-xl">
             <span>Estimated total</span>
             <span>AED {total}</span>
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="mt-8 block w-full bg-ink px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
+            className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send request"}
           </button>
-          <p className="mt-4 text-xs text-ink/55">
+          <p className="mt-4 text-xs text-foreground/55">
             By sending, you agree we may contact you via email and WhatsApp about this order.
           </p>
         </aside>
@@ -255,13 +255,13 @@ function Checkout() {
   );
 }
 
-const inp = "w-full border-b border-ink/25 bg-transparent px-0 py-2 text-sm text-ink placeholder:text-ink/40 focus:border-terrain focus:outline-none";
+const inp = "w-full border-b border-foreground/30/25 bg-transparent px-0 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:border-terrain focus:outline-none";
 
 function SectionLabel({ n, t }: { n: string; t: string }) {
   return (
-    <div className="flex items-baseline gap-4 border-b border-ink/10 pb-3">
+    <div className="flex items-baseline gap-4 border-b border-foreground/30/10 pb-3">
       <span className="font-display text-terrain">{n}</span>
-      <span className="font-display text-2xl text-ink">{t}</span>
+      <span className="font-display text-2xl text-foreground">{t}</span>
     </div>
   );
 }
@@ -269,7 +269,7 @@ function SectionLabel({ n, t }: { n: string; t: string }) {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="block text-xs uppercase tracking-[0.18em] text-ink/55">{label}</span>
+      <span className="block text-xs uppercase tracking-[0.18em] text-foreground/55">{label}</span>
       <div className="mt-1">{children}</div>
       {error && <span className="mt-1 block text-xs text-destructive">{error}</span>}
     </label>
