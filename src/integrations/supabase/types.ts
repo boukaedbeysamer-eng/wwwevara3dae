@@ -14,7 +14,122 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      newsletter_subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+        }
+        Relationships: []
+      }
+      order_request_items: {
+        Row: {
+          frame_finish: string
+          gpx_path: string | null
+          id: string
+          map_color: string
+          product_name: string
+          product_slug: string
+          qty: number
+          request_id: string
+          run_date: string | null
+          run_distance_km: number | null
+          run_elevation_m: number | null
+          run_location: string | null
+          run_name: string | null
+          run_time: string | null
+          track_color: string
+          unit_price_aed: number
+        }
+        Insert: {
+          frame_finish: string
+          gpx_path?: string | null
+          id?: string
+          map_color: string
+          product_name: string
+          product_slug: string
+          qty: number
+          request_id: string
+          run_date?: string | null
+          run_distance_km?: number | null
+          run_elevation_m?: number | null
+          run_location?: string | null
+          run_name?: string | null
+          run_time?: string | null
+          track_color: string
+          unit_price_aed: number
+        }
+        Update: {
+          frame_finish?: string
+          gpx_path?: string | null
+          id?: string
+          map_color?: string
+          product_name?: string
+          product_slug?: string
+          qty?: number
+          request_id?: string
+          run_date?: string | null
+          run_distance_km?: number | null
+          run_elevation_m?: number | null
+          run_location?: string | null
+          run_name?: string | null
+          run_time?: string | null
+          track_color?: string
+          unit_price_aed?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_request_items_request_id_fkey"
+            columns: ["request_id"]
+            isOneToOne: false
+            referencedRelation: "order_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      order_requests: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          notes: string | null
+          status: string
+          total_aed: number
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          notes?: string | null
+          status?: string
+          total_aed: number
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          notes?: string | null
+          status?: string
+          total_aed?: number
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
