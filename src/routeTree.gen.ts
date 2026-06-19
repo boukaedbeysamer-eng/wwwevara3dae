@@ -15,7 +15,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
+import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
 
 const ShopRoute = ShopRouteImport.update({
@@ -49,9 +49,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopSlugRoute = ShopSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ShopRoute,
+  id: '/shop_/$slug',
+  path: '/shop/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutSuccessIdRoute = CheckoutSuccessIdRouteImport.update({
   id: '/success/$id',
@@ -65,7 +65,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
-  '/shop': typeof ShopRouteWithChildren
+  '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
 }
@@ -75,7 +75,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
-  '/shop': typeof ShopRouteWithChildren
+  '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
 }
@@ -86,8 +86,8 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
-  '/shop': typeof ShopRouteWithChildren
-  '/shop/$slug': typeof ShopSlugRoute
+  '/shop': typeof ShopRoute
+  '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
 }
 export interface FileRouteTypes {
@@ -119,7 +119,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/faq'
     | '/shop'
-    | '/shop/$slug'
+    | '/shop_/$slug'
     | '/checkout/success/$id'
   fileRoutesById: FileRoutesById
 }
@@ -129,7 +129,8 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRouteWithChildren
   FaqRoute: typeof FaqRoute
-  ShopRoute: typeof ShopRouteWithChildren
+  ShopRoute: typeof ShopRoute
+  ShopSlugRoute: typeof ShopSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -176,12 +177,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/shop/$slug': {
-      id: '/shop/$slug'
-      path: '/$slug'
+    '/shop_/$slug': {
+      id: '/shop_/$slug'
+      path: '/shop/$slug'
       fullPath: '/shop/$slug'
       preLoaderRoute: typeof ShopSlugRouteImport
-      parentRoute: typeof ShopRoute
+      parentRoute: typeof rootRouteImport
     }
     '/checkout/success/$id': {
       id: '/checkout/success/$id'
@@ -205,23 +206,14 @@ const CheckoutRouteWithChildren = CheckoutRoute._addFileChildren(
   CheckoutRouteChildren,
 )
 
-interface ShopRouteChildren {
-  ShopSlugRoute: typeof ShopSlugRoute
-}
-
-const ShopRouteChildren: ShopRouteChildren = {
-  ShopSlugRoute: ShopSlugRoute,
-}
-
-const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRouteWithChildren,
   FaqRoute: FaqRoute,
-  ShopRoute: ShopRouteWithChildren,
+  ShopRoute: ShopRoute,
+  ShopSlugRoute: ShopSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

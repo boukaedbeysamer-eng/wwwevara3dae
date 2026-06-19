@@ -13,7 +13,7 @@ import { FrameVisual } from "@/components/frame-visual";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/shop/$slug")({
+export const Route = createFileRoute("/shop_/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();
