@@ -61,7 +61,7 @@ export function SiteFooter() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@trailhead.com"
+              placeholder="info@evara3d.ae"
               maxLength={255}
               className="w-full rounded-none border-b border-paper/30 bg-transparent px-0 py-2 text-sm text-paper placeholder:text-paper/40 focus:border-terrain focus:outline-none"
             />
