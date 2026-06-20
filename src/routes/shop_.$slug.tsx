@@ -9,7 +9,8 @@ import {
   type MapColor,
   type TrackColor,
 } from "@/data/products";
-import { DynamicFrameSample } from "@/components/dynamic-frame-sample";
+import { DynamicFrameSample, type FrameDetails } from "@/components/dynamic-frame-sample";
+import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 
