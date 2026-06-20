@@ -24,7 +24,7 @@ function Home() {
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32 lg:py-40">
           <div className="flex flex-col justify-center">
             <span className="text-[25px] uppercase tracking-[0.28em] text-terrain">
-              Evara3D · Studio édition
+              EVARA3D · PLACE . MOMENTS . MEMORIES
             </span>
             <h1 className="mt-6 font-display text-xl uppercase leading-relaxed text-foreground">
               EVARA TURNS MEANINGFUL MOMENTS INTO<br />
