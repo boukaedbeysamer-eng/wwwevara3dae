@@ -199,7 +199,6 @@ function ProductPage() {
             </div>
           </div>
 
-
           <div className="mt-10 flex items-center gap-4">
             <div className="flex items-center border border-foreground/30/30">
               <button
