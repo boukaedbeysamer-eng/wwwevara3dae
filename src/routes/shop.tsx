@@ -30,7 +30,7 @@ function Shop() {
       <div className="mt-16 grid gap-14 md:grid-cols-3">
         {PRODUCTS.map((p, i) => (
           <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
-            <div className="bg-secondary/60 p-8 transition-colors group-hover:bg-secondary">
+            <div className={\`bg-secondary/60 transition-colors group-hover:bg-secondary \${i === 0 ? "" : "p-8"}\`}>
               {i === 0 ? (
                 <img
                   src={keepsakerFrame.url}
