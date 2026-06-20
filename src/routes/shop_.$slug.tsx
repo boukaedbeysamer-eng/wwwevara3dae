@@ -75,6 +75,7 @@ function ProductPage() {
       frameFinish,
       mapColor,
       trackColor,
+      ...frameDetails,
     });
     toast.success(`${product.name} added to cart`);
     if (goToCart) navigate({ to: "/cart" });
