@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
       "Printed run stats: name, distance, elevation gain, date, location",
       "Deep shadow-box frame, ready to hang",
     ],
-    story: "A first marathon. A new trail. The route you ran the morning your daughter was born. Keepsaker turns a single run into a piece that lives on the wall, not in your phone.",
+    story: "Frame your first Run, first Race or first Ultra.",
   },
   {
     slug: "achiever",
