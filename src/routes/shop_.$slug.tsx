@@ -89,7 +89,8 @@ function ProductPage() {
               ))}
               <li className="flex gap-3">
                 <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
-                <span>White background with black topographic contour lines.</span>
+                <span>
+                </span>
               </li>
             </ul>
           </div>
