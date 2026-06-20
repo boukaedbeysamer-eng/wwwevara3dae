@@ -87,11 +87,6 @@ function ProductPage() {
                   <span>{line}</span>
                 </li>
               ))}
-              <li className="flex gap-3">
-                <span className="mt-2 inline-block h-1 w-3 bg-terrain" />
-                <span>
-                </span>
-              </li>
             </ul>
           </div>
 
