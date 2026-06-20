@@ -9,7 +9,7 @@ import {
   type MapColor,
   type TrackColor,
 } from "@/data/products";
-import { FrameVisual } from "@/components/frame-visual";
+import mapSample from "@/assets/map-sample.jpg.asset.json";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 
@@ -66,8 +66,12 @@ function ProductPage() {
       </Link>
 
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
-        <div className="bg-secondary/60 p-10">
-          <FrameVisual size="lg" frameFinish={frameFinish} mapColor={mapColor} trackColor={trackColor} />
+        <div className="bg-secondary/60 p-10 flex items-center justify-center">
+          <img
+            src={mapSample.url}
+            alt={`${product.name} sample frame preview`}
+            className="w-full h-auto object-contain"
+          />
         </div>
 
         <div>
