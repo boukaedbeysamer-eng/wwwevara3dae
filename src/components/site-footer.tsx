@@ -70,7 +70,7 @@ export function SiteFooter() {
               disabled={loading}
               className="ml-3 whitespace-nowrap border-b border-terrain pb-2 text-xs uppercase tracking-[0.22em] text-terrain hover:text-paper hover:border-paper disabled:opacity-50"
             >
-              {loading ? "..." : "Sign up"}
+              {loading ? "..." : "SIGN UP"}
             </button>
           </form>
         </div>
