@@ -115,8 +115,8 @@ function Home() {
             {[
               { n: "01", t: "Pick a frame", d: "Choose Keepsaker, Achiever, or Legacy — and your frame, relief, and track colors." },
               { n: "02", t: "Send your run", d: "Upload a GPX file from Strava or any app, with your run name, distance, date, and location." },
-              { n: "03", t: "We sculpt it", d: "Our studio renders the terrain, prints it in 3D, and assembles the deep-frame in the UAE." },
-              { n: "04", t: "Hang it", d: "Your finished frame arrives ready to hang — medal hanger and BIB display included on higher tiers." },
+              { n: "03", t: "We sculpt it", d: "Our studio renders the terrain, prints it in 3D, and assembles the deep-frame." },
+              { n: "04", t: "Hang it", d: "Your finished frame arrives ready to hang." },
             ].map((s) => (
               <div key={s.n}>
                 <div className="font-display text-terrain">{s.n}</div>
@@ -131,11 +131,10 @@ function Home() {
       {/* Quote block */}
       <section className="mx-auto max-w-4xl px-6 py-32 text-center">
         <p className="font-display text-3xl leading-snug text-foreground md:text-4xl">
-          "Strava remembers the data. Evara3D remembers the terrain — the climb that
-          broke you, the descent that brought you back."
+          "STRAVA REMEMBERS THE DATA. EVARA3D DISPLAY IT"
         </p>
         <div className="mt-6 text-xs uppercase tracking-[0.22em] text-foreground/50">
-          — From the studio, Sharjah
+          — PLACES . MOMENTS . MEMORIES .
         </div>
       </section>
     </>
