@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "How long does it take?",
-    a: "Production takes 7–10 working days from confirmation. Shipping within the UAE is 1–3 days; international is quoted per destination.",
+    a: "Production takes 48 hours from confirmation. Shipping within the UAE is in 1 day.",
   },
   {
     q: "Can I see a preview before you print?",
