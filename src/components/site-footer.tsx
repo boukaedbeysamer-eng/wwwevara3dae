@@ -29,7 +29,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-20 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="font-display text-3xl tracking-tight">
-            Evara<span className="text-terrain">3D</span>
+            EVARA&nbsp;3D
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper/70">
             Topographic relief maps of your runs — engineered, 3D-printed, and framed in
