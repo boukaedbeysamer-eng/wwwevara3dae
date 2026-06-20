@@ -9,7 +9,8 @@ import {
   type MapColor,
   type TrackColor,
 } from "@/data/products";
-import { DynamicFrameSample } from "@/components/dynamic-frame-sample";
+import { DynamicFrameSample, type FrameDetails } from "@/components/dynamic-frame-sample";
+import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 
@@ -45,6 +46,26 @@ function ProductPage() {
   const [trackColor, setTrackColor] = useState<TrackColor>("Orange");
   const [qty, setQty] = useState(1);
 
+  const [raceName, setRaceName] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [date, setDate] = useState("");
+  const [distance, setDistance] = useState("");
+  const [time, setTime] = useState("");
+  const [duration, setDuration] = useState("");
+  const [location, setLocation] = useState("");
+  const [elevation, setElevation] = useState("");
+
+  const frameDetails: FrameDetails = {
+    raceName,
+    customerName,
+    date,
+    distance,
+    time,
+    duration,
+    location,
+    elevation,
+  };
+
   const handleAdd = (goToCart: boolean) => {
     add({
       productSlug: product.slug,
@@ -54,6 +75,7 @@ function ProductPage() {
       frameFinish,
       mapColor,
       trackColor,
+      ...frameDetails,
     });
     toast.success(`${product.name} added to cart`);
     if (goToCart) navigate({ to: "/cart" });
@@ -71,6 +93,7 @@ function ProductPage() {
             frameFinish={frameFinish}
             mapColor={mapColor}
             trackColor={trackColor}
+            {...frameDetails}
           />
         </div>
 
@@ -97,6 +120,84 @@ function ProductPage() {
           <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
           <Selector label="3D relief color" value={mapColor} options={MAP_COLORS} onChange={setMapColor} />
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
+
+          <div className="mt-8 border-t border-foreground/30/10 pt-6">
+            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Personalize your frame</div>
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="col-span-2">
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Race name</label>
+                <Input
+                  value={raceName}
+                  onChange={(e) => setRaceName(e.target.value)}
+                  placeholder="e.g. Dubai Marathon"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Your name</label>
+                <Input
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  placeholder="e.g. Ahmed Al Mansouri"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Date</label>
+                <Input
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder="e.g. 12.03.2026"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Distance</label>
+                <Input
+                  value={distance}
+                  onChange={(e) => setDistance(e.target.value)}
+                  placeholder="e.g. 42.2 km"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Time</label>
+                <Input
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  placeholder="e.g. 04:15:00"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Duration</label>
+                <Input
+                  value={duration}
+                  onChange={(e) => setDuration(e.target.value)}
+                  placeholder="e.g. 3h 45m"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Location</label>
+                <Input
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="e.g. Dubai"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Elevation</label>
+                <Input
+                  value={elevation}
+                  onChange={(e) => setElevation(e.target.value)}
+                  placeholder="e.g. 245 m"
+                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
+                />
+              </div>
+            </div>
+          </div>
 
           <div className="mt-10 flex items-center gap-4">
             <div className="flex items-center border border-foreground/30/30">
