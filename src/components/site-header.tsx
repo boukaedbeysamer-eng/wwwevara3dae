@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useCart, cartCount } from "@/lib/cart";
 import { useEffect, useState } from "react";
+import evaraLogo from "@/assets/evara-logo.png.asset.json";
 
 export function SiteHeader() {
   const items = useCart((s) => s.items);
@@ -18,8 +19,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <Link to="/" className="font-display text-2xl tracking-tight text-foreground">
-          Evara<span className="text-terrain">3D</span>
+        <Link to="/" className="flex items-center" aria-label="Evara — home">
+          <img src={evaraLogo.url} alt="Evara" className="h-12 w-auto" />
         </Link>
         <nav className="hidden gap-10 text-sm uppercase tracking-[0.18em] text-foreground/70 md:flex">
           {nav.map((n) => (
