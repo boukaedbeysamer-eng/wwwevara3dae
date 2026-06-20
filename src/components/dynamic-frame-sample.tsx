@@ -70,109 +70,118 @@ export function DynamicFrameSample({
         aspectRatio: "3 / 4.2",
       }}
     >
-      <div
-        className="relative h-full w-full overflow-hidden"
-        style={{ backgroundColor: "#fafaf7" }}
-      >
-        {/* topographic background */}
-        <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 300 420"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden
-        >
-          <defs>
-            <pattern id="topo" x="0" y="0" width="300" height="420" patternUnits="userSpaceOnUse">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <ellipse
-                  key={i}
-                  cx={150 + (i % 2 === 0 ? -10 : 12)}
-                  cy={210 + (i % 3) * 4}
-                  rx={40 + i * 14}
-                  ry={28 + i * 10}
-                  fill="none"
-                  stroke="#d8d2c4"
-                  strokeWidth="0.6"
-                />
-              ))}
-              {Array.from({ length: 8 }).map((_, i) => (
-                <ellipse
-                  key={`b${i}`}
-                  cx={60 + i * 8}
-                  cy={80 + i * 6}
-                  rx={30 + i * 10}
-                  ry={22 + i * 8}
-                  fill="none"
-                  stroke="#e2ddd1"
-                  strokeWidth="0.5"
-                />
-              ))}
-            </pattern>
-          </defs>
-          <rect width="300" height="420" fill="url(#topo)" />
-        </svg>
-
-        {/* Title + name */}
-        <div className="relative z-10 px-6 pt-7 text-center" style={{ color: textColor }}>
-          <div
-            className="font-display tracking-wider"
-            style={{ fontSize: "26px", lineHeight: 1, letterSpacing: "0.04em" }}
-          >
-            TITLE HERE
-          </div>
-          <div
-            className="mt-2 text-[10px] tracking-[0.32em]"
-            style={{ color: textColor, opacity: 0.85 }}
-          >
-            YOUR NAME HERE
-          </div>
-        </div>
-
-        {/* Hexagon with route */}
-        <div className="relative z-10 mt-4 flex items-center justify-center px-6">
-          <svg viewBox="0 0 200 180" className="w-[72%]">
-            <polygon
-              points="100,8 188,54 188,146 100,192 12,146 12,54"
-              fill={relief}
-              stroke={mapColor === "White" ? "#ddd" : "none"}
-              strokeWidth="1"
-            />
-            {/* sample route line */}
-            <path
-              d="M55,130 C70,90 95,80 110,95 C125,110 140,75 155,60"
-              fill="none"
-              stroke={reliefOutline}
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              opacity="0.9"
-            />
-            {/* track color overlay route */}
-            <path
-              d="M50,140 C72,110 88,118 105,98 C120,80 138,92 160,70"
-              fill="none"
-              stroke={track}
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-
-        {/* Stats row */}
         <div
-          className="absolute inset-x-0 bottom-5 z-10 flex justify-around px-5 text-[8px] tracking-[0.18em]"
-          style={{ color: textColor }}
+          className="relative flex h-full w-full flex-col overflow-hidden"
+          style={{ backgroundColor: "#fafaf7" }}
         >
-          {["DATE", "DISTANCE", "TIME", "LOCATION", "ELEVATION"].map((label) => (
-            <div key={label} className="flex flex-col items-center gap-1">
-              <div
-                className="h-3 w-3 rounded-sm"
-                style={{ backgroundColor: textColor, opacity: 0.85 }}
-              />
-              <span>{label}</span>
+          {/* topographic background */}
+          <svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 300 420"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden
+          >
+            <defs>
+              <pattern id="topo" x="0" y="0" width="300" height="420" patternUnits="userSpaceOnUse">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <ellipse
+                    key={i}
+                    cx={150 + (i % 2 === 0 ? -10 : 12)}
+                    cy={210 + (i % 3) * 4}
+                    rx={40 + i * 14}
+                    ry={28 + i * 10}
+                    fill="none"
+                    stroke="#d8d2c4"
+                    strokeWidth="0.6"
+                  />
+                ))}
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <ellipse
+                    key={`b${i}`}
+                    cx={60 + i * 8}
+                    cy={80 + i * 6}
+                    rx={30 + i * 10}
+                    ry={22 + i * 8}
+                    fill="none"
+                    stroke="#e2ddd1"
+                    strokeWidth="0.5"
+                  />
+                ))}
+              </pattern>
+            </defs>
+            <rect width="300" height="420" fill="url(#topo)" />
+          </svg>
+
+          {/* Title + name */}
+          <div className="relative z-10 px-6 pt-7 text-center" style={{ color: textColor }}>
+            <div
+              className="break-words font-display tracking-wider"
+              style={{ fontSize: "26px", lineHeight: 1, letterSpacing: "0.04em" }}
+            >
+              {raceName}
             </div>
-          ))}
+            <div
+              className="mt-2 break-words text-[10px] tracking-[0.32em]"
+              style={{ color: textColor, opacity: 0.85 }}
+            >
+              {customerName}
+            </div>
+          </div>
+
+          {/* Hexagon with route */}
+          <div className="relative z-10 flex flex-1 items-center justify-center px-6">
+            <svg viewBox="0 0 200 180" className="w-[72%]">
+              <polygon
+                points="100,8 188,54 188,146 100,192 12,146 12,54"
+                fill={relief}
+                stroke={mapColor === "White" ? "#ddd" : "none"}
+                strokeWidth="1"
+              />
+              {/* sample route line */}
+              <path
+                d="M55,130 C70,90 95,80 110,95 C125,110 140,75 155,60"
+                fill="none"
+                stroke={reliefOutline}
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+              {/* track color overlay route */}
+              <path
+                d="M50,140 C72,110 88,118 105,98 C120,80 138,92 160,70"
+                fill="none"
+                stroke={track}
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+
+          {/* Stats grid */}
+          <div className="relative z-10 px-5 pb-5" style={{ color: textColor }}>
+            <div className="grid grid-cols-3 gap-y-3 text-center">
+              {[
+                { label: "DATE", value: date },
+                { label: "DISTANCE", value: distance },
+                { label: "TIME", value: time },
+                { label: "DURATION", value: duration },
+                { label: "LOCATION", value: location },
+                { label: "ELEVATION", value: elevation },
+              ].map(({ label, value }) => (
+                <div key={label} className="flex flex-col items-center gap-1">
+                  <div
+                    className="h-2 w-2 rounded-sm"
+                    style={{ backgroundColor: textColor, opacity: 0.85 }}
+                  />
+                  <span className="text-[7px] tracking-[0.14em]">{label}</span>
+                  <span className="max-w-full truncate text-[9px] font-medium tracking-[0.04em]">
+                    {value || label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
     </div>
   );
 }
