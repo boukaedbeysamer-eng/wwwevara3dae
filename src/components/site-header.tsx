@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useCart, cartCount } from "@/lib/cart";
 import { useEffect, useState } from "react";
-import evaraLogo from "@/assets/evara-logo.png.asset.json";
+import evaraLogo from "@/assets/evara-logo-blue.png.asset.json";
 
 export function SiteHeader() {
   const items = useCart((s) => s.items);
