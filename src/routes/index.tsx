@@ -26,7 +26,7 @@ function Home() {
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">
               Evara3D · Studio édition
             </span>
-            <h1 className="mt-6 font-display text-xs uppercase leading-relaxed text-foreground">
+            <h1 className="mt-6 font-display text-xl uppercase leading-relaxed text-foreground">
               EVARA TURNS MEANINGFUL MOMENTS INTO<br />
               PERSONALIZED PIECES MADE TO LAST.<br />
               FROM THE PLACES YOU LOVE, TO THE<br />
