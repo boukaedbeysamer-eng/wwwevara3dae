@@ -35,7 +35,7 @@ function Home() {
             </h1>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-foreground/70">
               Upload a GPX file from any run. We translate the terrain you crossed into
-              a precision 3D-printed topographic frame — your distance, elevation, and
+              a precision&nbsp; 3D-printed topographic frame — your distance, elevation, and
               date set in type beneath it.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
