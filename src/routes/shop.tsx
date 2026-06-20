@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
+import keepsakerFrame from "@/assets/keepsaker-frame.png.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -30,11 +31,19 @@ function Shop() {
         {PRODUCTS.map((p, i) => (
           <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
             <div className="bg-secondary/60 p-8 transition-colors group-hover:bg-secondary">
-              <FrameVisual
-                frameFinish={i === 0 ? "White Matt" : i === 1 ? "Matte Black" : "Wooden"}
-                mapColor={i === 1 ? "White" : "Black"}
-                trackColor={i === 2 ? "Red" : "Orange"}
-              />
+              {i === 0 ? (
+                <img
+                  src={keepsakerFrame.url}
+                  alt={`${p.name} 3D-printed topographic frame`}
+                  className="aspect-square w-full object-cover"
+                />
+              ) : (
+                <FrameVisual
+                  frameFinish={i === 1 ? "Matte Black" : "Wooden"}
+                  mapColor={i === 1 ? "White" : "Black"}
+                  trackColor={i === 2 ? "Red" : "Orange"}
+                />
+              )}
             </div>
             <div className="mt-6 flex items-baseline justify-between">
               <h2 className="font-display text-2xl text-foreground">{p.name}</h2>
