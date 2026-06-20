@@ -93,6 +93,7 @@ function ProductPage() {
             frameFinish={frameFinish}
             mapColor={mapColor}
             trackColor={trackColor}
+            {...frameDetails}
           />
         </div>
 
