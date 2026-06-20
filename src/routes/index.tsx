@@ -26,8 +26,12 @@ function Home() {
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">
               Evara3D · Studio édition
             </span>
-            <h1 className="mt-6 font-display text-5xl leading-[0.95] text-foreground md:text-7xl">
-              The route you ran,<br />sculpted in relief.
+            <h1 className="mt-6 font-display text-xs uppercase leading-relaxed text-foreground">
+              EVARA TURNS MEANINGFUL MOMENTS INTO<br />
+              PERSONALIZED PIECES MADE TO LAST.<br />
+              FROM THE PLACES YOU LOVE, TO THE<br />
+              MEMORIES YOU NEVER WANT TO FORGET.<br />
+              YOUR STORY. BEAUTIFULLY PRESERVED.
             </h1>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-foreground/70">
               Upload a GPX file from any run. We translate the terrain you crossed into
