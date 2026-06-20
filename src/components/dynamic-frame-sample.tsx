@@ -1,5 +1,16 @@
 import type { FrameFinish, MapColor, TrackColor } from "@/data/products";
 
+export type FrameDetails = {
+  raceName?: string;
+  customerName?: string;
+  date?: string;
+  distance?: string;
+  time?: string;
+  duration?: string;
+  location?: string;
+  elevation?: string;
+};
+
 const FRAME_COLOR: Record<FrameFinish, string> = {
   "White Matt": "#f4f2ee",
   "Matte Black": "#111111",
@@ -31,11 +42,19 @@ export function DynamicFrameSample({
   frameFinish,
   mapColor,
   trackColor,
+  raceName = "TITLE HERE",
+  customerName = "YOUR NAME HERE",
+  date = "DATE",
+  distance = "DISTANCE",
+  time = "TIME",
+  duration = "DURATION",
+  location = "LOCATION",
+  elevation = "ELEVATION",
 }: {
   frameFinish: FrameFinish;
   mapColor: MapColor;
   trackColor: TrackColor;
-}) {
+} & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const relief = RELIEF_COLOR[mapColor];
   const reliefOutline = RELIEF_STROKE[mapColor];
