@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "What if I don't have a GPX file?",
-    a: "Get in touch — for famous courses (Dubai Marathon, RAK Half, etc.) we can usually source the route. Just send us the race name and year.",
+    a: "Get in touch with us. we can usually source the route. Just send us the race name and year.",
   },
 ];
 
