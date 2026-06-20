@@ -67,10 +67,10 @@ function ProductPage() {
 
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
         <div className="bg-secondary/60 p-10 flex items-center justify-center">
-          <img
-            src={mapSample.url}
-            alt={`${product.name} sample frame preview`}
-            className="w-full h-auto object-contain"
+          <DynamicFrameSample
+            frameFinish={frameFinish}
+            mapColor={mapColor}
+            trackColor={trackColor}
           />
         </div>
 
