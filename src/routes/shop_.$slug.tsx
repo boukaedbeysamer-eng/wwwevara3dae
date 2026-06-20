@@ -46,6 +46,26 @@ function ProductPage() {
   const [trackColor, setTrackColor] = useState<TrackColor>("Orange");
   const [qty, setQty] = useState(1);
 
+  const [raceName, setRaceName] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [date, setDate] = useState("");
+  const [distance, setDistance] = useState("");
+  const [time, setTime] = useState("");
+  const [duration, setDuration] = useState("");
+  const [location, setLocation] = useState("");
+  const [elevation, setElevation] = useState("");
+
+  const frameDetails: FrameDetails = {
+    raceName,
+    customerName,
+    date,
+    distance,
+    time,
+    duration,
+    location,
+    elevation,
+  };
+
   const handleAdd = (goToCart: boolean) => {
     add({
       productSlug: product.slug,
