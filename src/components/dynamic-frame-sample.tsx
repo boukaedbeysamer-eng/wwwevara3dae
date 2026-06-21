@@ -46,7 +46,6 @@ export function DynamicFrameSample({
   date = "DATE",
   distance = "DISTANCE",
   time = "TIME",
-  duration = "DURATION",
   location = "LOCATION",
   elevation = "ELEVATION",
 }: {
