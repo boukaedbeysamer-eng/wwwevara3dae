@@ -72,43 +72,8 @@ export function DynamicFrameSample({
           className="relative flex h-full w-full flex-col overflow-hidden"
           style={{ backgroundColor: "#fafaf7" }}
         >
-          {/* topographic background */}
-          <svg
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 300 420"
-            preserveAspectRatio="xMidYMid slice"
-            aria-hidden
-          >
-            <defs>
-              <pattern id="topo" x="0" y="0" width="300" height="420" patternUnits="userSpaceOnUse">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <ellipse
-                    key={i}
-                    cx={150 + (i % 2 === 0 ? -10 : 12)}
-                    cy={210 + (i % 3) * 4}
-                    rx={40 + i * 14}
-                    ry={28 + i * 10}
-                    fill="none"
-                    stroke="#d8d2c4"
-                    strokeWidth="0.6"
-                  />
-                ))}
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <ellipse
-                    key={`b${i}`}
-                    cx={60 + i * 8}
-                    cy={80 + i * 6}
-                    rx={30 + i * 10}
-                    ry={22 + i * 8}
-                    fill="none"
-                    stroke="#e2ddd1"
-                    strokeWidth="0.5"
-                  />
-                ))}
-              </pattern>
-            </defs>
-            <rect width="300" height="420" fill="url(#topo)" />
-          </svg>
+          {/* clean white background */}
+          <div className="absolute inset-0 h-full w-full" style={{ backgroundColor: "#fafaf7" }} />
 
           {/* Title + name */}
           <div className="relative z-10 px-6 pt-7 text-center" style={{ color: textColor }}>
