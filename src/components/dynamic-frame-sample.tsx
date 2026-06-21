@@ -93,7 +93,7 @@ export function DynamicFrameSample({
 
           {/* Two hexagon shapes: original black hexagon + medal hanger hexagon */}
           <div className="relative z-10 flex flex-1 items-center justify-center px-6">
-            <svg viewBox="0 0 280 160" className="w-[78%]">
+            <svg viewBox="0 0 280 160" className="w-[88%]">
               <defs>
                 <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor={relief} stopOpacity="1" />
