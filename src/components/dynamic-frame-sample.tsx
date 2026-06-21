@@ -6,7 +6,6 @@ export type FrameDetails = {
   date?: string;
   distance?: string;
   time?: string;
-  duration?: string;
   location?: string;
   elevation?: string;
 };
@@ -164,7 +163,6 @@ export function DynamicFrameSample({
                 { label: "DATE", value: date },
                 { label: "DISTANCE", value: distance },
                 { label: "TIME", value: time },
-                { label: "DURATION", value: duration },
                 { label: "LOCATION", value: location },
                 { label: "ELEVATION", value: elevation },
               ].map(({ label, value }) => (
