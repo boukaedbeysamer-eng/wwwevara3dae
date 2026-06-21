@@ -78,8 +78,8 @@ export function DynamicFrameSample({
           {/* Title + name */}
           <div className="relative z-10 px-6 pt-7 text-center" style={{ color: textColor }}>
             <div
-              className="break-words font-display tracking-wider"
-              style={{ fontSize: "26px", lineHeight: 1, letterSpacing: "0.04em" }}
+              className="break-words font-display font-bold tracking-wider"
+              style={{ fontSize: "26px", lineHeight: 1, letterSpacing: "0.04em", color: "#111111" }}
             >
               {raceName}
             </div>
