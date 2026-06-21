@@ -91,38 +91,63 @@ export function DynamicFrameSample({
             </div>
           </div>
 
-          {/* Hexagon with route */}
+          {/* 3D Medal with hanger ribbon */}
           <div className="relative z-10 flex flex-1 items-center justify-center px-6">
-            <svg viewBox="0 0 200 180" className="w-[72%]">
-              <polygon
-                points="100,8 188,54 188,146 100,192 12,146 12,54"
-                fill={relief}
-                stroke={mapColor === "White" ? "#ddd" : "none"}
-                strokeWidth="1"
-              />
-              {/* sample route line */}
+            <svg viewBox="0 0 200 220" className="w-[70%]">
+              <defs>
+                <radialGradient id="medalGrad" cx="40%" cy="35%" r="70%">
+                  <stop offset="0%" stopColor={track} stopOpacity="1" />
+                  <stop offset="55%" stopColor={track} stopOpacity="0.85" />
+                  <stop offset="100%" stopColor="#000" stopOpacity="0.85" />
+                </radialGradient>
+                <radialGradient id="medalInner" cx="50%" cy="50%" r="55%">
+                  <stop offset="0%" stopColor={relief} stopOpacity="1" />
+                  <stop offset="100%" stopColor={relief} stopOpacity="0.7" />
+                </radialGradient>
+                <linearGradient id="ribbonGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor={track} stopOpacity="0.95" />
+                  <stop offset="100%" stopColor={track} stopOpacity="0.55" />
+                </linearGradient>
+              </defs>
+
+              {/* Hanger ribbon - inverted V */}
+              <polygon points="70,5 100,95 130,5 115,5 100,75 85,5" fill="url(#ribbonGrad)" />
+              <polygon points="70,5 85,5 100,75" fill="#000" opacity="0.18" />
+
+              {/* Ribbon loop ring */}
+              <circle cx="100" cy="90" r="8" fill="none" stroke="#333" strokeWidth="2" opacity="0.5" />
+
+              {/* Medal 3D */}
+              <circle cx="100" cy="145" r="60" fill="url(#medalGrad)" />
+              <circle cx="100" cy="145" r="60" fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="1.5" />
+              <circle cx="100" cy="145" r="46" fill="url(#medalInner)" stroke={reliefOutline} strokeOpacity="0.4" strokeWidth="1" />
+              <ellipse cx="100" cy="208" rx="42" ry="4" fill="#000" opacity="0.18" />
+
+              {/* route on medal face */}
               <path
-                d="M55,130 C70,90 95,80 110,95 C125,110 140,75 155,60"
+                d="M70,160 C82,135 100,148 112,135 C124,122 132,140 142,128"
                 fill="none"
                 stroke={reliefOutline}
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 opacity="0.9"
               />
-              {/* track color overlay route */}
               <path
-                d="M50,140 C72,110 88,118 105,98 C120,80 138,92 160,70"
+                d="M68,168 C84,148 96,156 110,140 C124,124 138,132 144,120"
                 fill="none"
                 stroke={track}
-                strokeWidth="3"
+                strokeWidth="2.4"
                 strokeLinecap="round"
               />
+
+              {/* gloss */}
+              <ellipse cx="80" cy="120" rx="22" ry="10" fill="#fff" opacity="0.22" />
             </svg>
           </div>
 
-          {/* Stats grid */}
-          <div className="relative z-10 px-5 pb-5" style={{ color: textColor }}>
-            <div className="grid grid-cols-3 gap-y-3 text-center">
+          {/* Stats single row */}
+          <div className="relative z-10 px-3 pb-5" style={{ color: textColor }}>
+            <div className="flex items-start justify-between gap-1.5 text-center">
               {[
                 { label: "DATE", value: date },
                 { label: "DISTANCE", value: distance },
@@ -130,13 +155,9 @@ export function DynamicFrameSample({
                 { label: "LOCATION", value: location },
                 { label: "ELEVATION", value: elevation },
               ].map(({ label, value }) => (
-                <div key={label} className="flex flex-col items-center gap-1">
-                  <div
-                    className="h-2 w-2 rounded-sm"
-                    style={{ backgroundColor: textColor, opacity: 0.85 }}
-                  />
-                  <span className="text-[7px] tracking-[0.14em]">{label}</span>
-                  <span className="max-w-full truncate text-[9px] font-medium tracking-[0.04em]">
+                <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-0.5">
+                  <span className="text-[6px] tracking-[0.14em] opacity-75">{label}</span>
+                  <span className="max-w-full truncate text-[8px] font-semibold tracking-[0.04em]">
                     {value || label}
                   </span>
                 </div>
