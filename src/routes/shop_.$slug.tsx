@@ -93,6 +93,7 @@ function ProductPage() {
             trackColor={trackColor}
             showMedal={product.slug !== "keepsaker"}
             showSecondHex={product.slug !== "keepsaker"}
+            showBibSquare={product.slug === "legacy"}
             {...frameDetails}
           />
         </div>
