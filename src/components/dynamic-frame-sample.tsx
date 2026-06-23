@@ -181,7 +181,7 @@ export function DynamicFrameSample({
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill="#ffffff"
-                  fontSize="32"
+                  fontSize="20"
                   fontWeight="700"
                   letterSpacing="0.05em"
                   fontFamily="system-ui, sans-serif"
