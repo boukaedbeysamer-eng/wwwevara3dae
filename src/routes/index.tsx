@@ -198,8 +198,8 @@ function FrameCarousel() {
           >
             <img src={item.img} alt={`${item.name} frame`} className="w-full h-auto object-cover" />
             <div className="p-5">
-              <h3 className="font-display text-xl font-bold text-foreground">{item.name}</h3>
-              <p className="mt-1 text-sm text-foreground/70">{item.desc}</p>
+              <h3 className="font-display text-xl font-bold text-black">{item.name}</h3>
+              <p className="mt-1 text-sm text-black/70">{item.desc}</p>
             </div>
           </article>
         ))}
