@@ -100,9 +100,9 @@ export function DynamicFrameSample({
 
           {/* Shapes area: hexagons + optional BIB square */}
           <div
-            className={`relative z-10 flex flex-1 items-center justify-center px-6 ${showBibSquare ? "flex-row gap-1" : "flex-col"}`}
+            className={`relative z-10 flex flex-1 items-center justify-center px-6 ${showBibSquare ? "flex-col gap-3" : "flex-col"}`}
           >
-            <svg viewBox="0 0 280 160" className={showBibSquare ? "w-1/3" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-1cm)" }}>
+            <svg viewBox="0 0 280 160" className={showBibSquare ? "w-[85%]" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-1cm)" }}>
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
@@ -122,7 +122,7 @@ export function DynamicFrameSample({
             </svg>
 
             {showSecondHex && (
-              <svg viewBox="0 0 280 160" className={showBibSquare ? "w-1/3" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-0.5cm)" }}>
+              <svg viewBox="0 0 280 160" className={showBibSquare ? "w-[85%]" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-0.5cm)" }}>
                 <g transform="translate(140, 80)">
                   <polygon
                     points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
@@ -151,7 +151,7 @@ export function DynamicFrameSample({
             )}
 
             {showBibSquare && (
-              <svg viewBox="0 0 140 180" className="w-1/3">
+              <svg viewBox="0 0 140 180" className="w-[55%]">
                 <rect
                   x="10"
                   y="10"
@@ -181,7 +181,7 @@ export function DynamicFrameSample({
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill="#ffffff"
-                  fontSize="32"
+                  fontSize="20"
                   fontWeight="700"
                   letterSpacing="0.05em"
                   fontFamily="system-ui, sans-serif"
