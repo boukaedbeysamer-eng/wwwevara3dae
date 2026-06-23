@@ -92,9 +92,27 @@ export function DynamicFrameSample({
             </div>
           </div>
 
-          {/* Single black hexagon with orange track line */}
-          <div className="relative z-10 flex flex-1 items-center justify-center px-6">
+          {/* Two black hexagons with orange track lines */}
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6">
             <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-3cm)" }}>
+              <g transform="translate(140, 80)">
+                <polygon
+                  points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
+                  fill={hexFill}
+                  stroke={hexStroke}
+                  strokeWidth="1"
+                />
+                <path
+                  d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
+                  fill="none"
+                  stroke={track}
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                />
+                <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
+              </g>
+            </svg>
+            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(2.5cm)" }}>
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
