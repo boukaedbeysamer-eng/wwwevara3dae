@@ -151,7 +151,7 @@ export function DynamicFrameSample({
             )}
 
             {showBibSquare && (
-              <svg viewBox="0 0 140 180" className="w-1/3">
+              <svg viewBox="0 0 140 180" className="w-[55%]">
                 <rect
                   x="10"
                   y="10"
