@@ -94,7 +94,7 @@ export function DynamicFrameSample({
 
           {/* Single black hexagon with orange track line */}
           <div className="relative z-10 flex flex-1 items-center justify-center px-6">
-            <svg viewBox="0 0 280 160" className="w-[96%]">
+            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-2cm)" }}>
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
