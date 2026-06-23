@@ -28,15 +28,15 @@ function About() {
           terrain. Real ground. Real moments frozen in geography.
         </p>
         <p>
-          Evara3D was born from a simple but powerful belief — that the most
+          Evara3D was born from a simple but powerful belief, that the most
           meaningful moments of your life deserve to be more than a photo on your
           phone or a file on an app. Whether you're a runner, a cyclist, a swimmer,
           a traveler, or simply a human being with a story worth telling, Evara3D is
           here for you.
         </p>
         <p>
-          We take any location or route that matters to you — a race, a ride, a
-          first meeting, a hometown, a place that changed your life — and transform
+          We take any location or route that matters to you. A race, a ride, a
+          first meeting, a hometown, a place that changed your life and transform
           it into a handcrafted 3D topographic map, custom framed with the details
           that make it yours. Because your story didn't happen in the air. It happened
           somewhere.
