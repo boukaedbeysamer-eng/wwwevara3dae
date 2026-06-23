@@ -122,7 +122,7 @@ export function DynamicFrameSample({
             </svg>
 
             {showSecondHex && (
-              <svg viewBox="0 0 280 160" className={showBibSquare ? "w-1/3" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-0.5cm)" }}>
+              <svg viewBox="0 0 280 160" className={showBibSquare ? "w-[85%]" : "w-[96%]"} style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-0.5cm)" }}>
                 <g transform="translate(140, 80)">
                   <polygon
                     points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
