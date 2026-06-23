@@ -55,6 +55,9 @@ export function DynamicFrameSample({
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const track = TRACK_COLOR_HEX[trackColor];
+  const hexFill = RELIEF_COLOR[mapColor];
+  const hexStroke = mapColor === "White" ? "#111111" : "none";
+  const glossColor = mapColor === "White" ? "#111111" : "#ffffff";
   const textColor = frameFinish === "Matte Black" ? "#f4f2ee" : "#111111";
 
   return (
@@ -95,7 +98,9 @@ export function DynamicFrameSample({
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
-                  fill="#111111"
+                  fill={hexFill}
+                  stroke={hexStroke}
+                  strokeWidth="1"
                 />
                 <path
                   d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
@@ -104,7 +109,7 @@ export function DynamicFrameSample({
                   strokeWidth="2.4"
                   strokeLinecap="round"
                 />
-                <ellipse cx="-12" cy="-26" rx="16" ry="7" fill="#ffffff" opacity="0.18" />
+                <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
               </g>
             </svg>
           </div>
