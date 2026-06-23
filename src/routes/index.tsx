@@ -194,13 +194,9 @@ function FrameCarousel() {
         {CAROUSEL_ITEMS.map((item) => (
           <article
             key={item.name}
-            className="snap-center shrink-0 w-[78%] sm:w-[60%] md:w-[78%] lg:w-[70%] bg-paper shadow-2xl"
+            className="snap-center shrink-0 w-[78%] sm:w-[60%] md:w-[78%] lg:w-[70%] shadow-2xl"
           >
             <img src={item.img} alt={`${item.name} frame`} className="w-full h-auto object-cover" />
-            <div>
-              <h3 className="font-display text-xl font-bold text-black">{item.name}</h3>
-              <p className="mt-1 text-sm text-black/70">{item.desc}</p>
-            </div>
           </article>
         ))}
       </div>
