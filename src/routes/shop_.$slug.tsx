@@ -92,6 +92,7 @@ function ProductPage() {
             mapColor={mapColor}
             trackColor={trackColor}
             showMedal={product.slug !== "keepsaker"}
+            showSecondHex={product.slug !== "keepsaker"}
             {...frameDetails}
           />
         </div>
