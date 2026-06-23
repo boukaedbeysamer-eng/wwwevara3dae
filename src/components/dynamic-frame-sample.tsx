@@ -112,7 +112,7 @@ export function DynamicFrameSample({
                 <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
               </g>
             </svg>
-            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(2.5cm)" }}>
+            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-0.5cm)" }}>
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
