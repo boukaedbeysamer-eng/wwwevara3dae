@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
+import { PRODUCTS } from "@/data/products";
 
 const contactSchema = z.object({
   fullName: z.string().trim().min(1).max(120),
@@ -11,9 +12,7 @@ const contactSchema = z.object({
 
 const itemSchema = z.object({
   productSlug: z.string().min(1).max(60),
-  productName: z.string().min(1).max(120),
   qty: z.number().int().min(1).max(20),
-  unitPriceAed: z.number().min(0).max(100000),
   frameFinish: z.string().min(1).max(40),
   mapColor: z.string().min(1).max(40),
   trackColor: z.string().min(1).max(40),
@@ -40,7 +39,14 @@ export const submitOrderRequest = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => submitSchema.parse(d))
   .handler(async ({ data }) => {
     const supabase = serverClient();
-    const total = data.items.reduce((s, i) => s + i.unitPriceAed * i.qty, 0);
+
+    const resolved = data.items.map((i) => {
+      const product = PRODUCTS.find((p) => p.slug === i.productSlug);
+      if (!product) throw new Error(`Unknown product: ${i.productSlug}`);
+      return { item: i, product };
+    });
+
+    const total = resolved.reduce((s, { item, product }) => s + product.priceAed * item.qty, 0);
 
     const { data: req, error: reqErr } = await supabase
       .from("order_requests")
@@ -60,12 +66,12 @@ export const submitOrderRequest = createServerFn({ method: "POST" })
       throw new Error("Could not submit request. Please try again.");
     }
 
-    const itemRows = data.items.map((i) => ({
+    const itemRows = resolved.map(({ item: i, product }) => ({
       request_id: req.id,
-      product_slug: i.productSlug,
-      product_name: i.productName,
+      product_slug: product.slug,
+      product_name: product.name,
       qty: i.qty,
-      unit_price_aed: i.unitPriceAed,
+      unit_price_aed: product.priceAed,
       frame_finish: i.frameFinish,
       map_color: i.mapColor,
       track_color: i.trackColor,
