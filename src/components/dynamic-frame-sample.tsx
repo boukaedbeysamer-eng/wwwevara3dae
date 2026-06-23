@@ -120,13 +120,6 @@ export function DynamicFrameSample({
                   stroke={hexStroke}
                   strokeWidth="1"
                 />
-                <path
-                  d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
-                  fill="none"
-                  stroke={track}
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                />
                 <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
               </g>
             </svg>
