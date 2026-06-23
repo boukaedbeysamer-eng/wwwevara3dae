@@ -94,9 +94,7 @@ export function DynamicFrameSample({
 
           {/* Two black hexagons with orange track lines */}
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6">
-            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: visible? I need to be careful here. Let me just make the change correctly.
-
-The user wants to lower the first SVG by 2cm. It's currently at translateY(-3cm). Lowering means moving down, so less negative: -3 + 2 = -1cm.
+            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-1cm)" }}>
               <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
