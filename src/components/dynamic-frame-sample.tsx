@@ -54,8 +54,6 @@ export function DynamicFrameSample({
   trackColor: TrackColor;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
-  const relief = RELIEF_COLOR[mapColor];
-  const reliefOutline = RELIEF_STROKE[mapColor];
   const track = TRACK_COLOR_HEX[trackColor];
   const textColor = frameFinish === "Matte Black" ? "#f4f2ee" : "#111111";
 
@@ -91,37 +89,13 @@ export function DynamicFrameSample({
             </div>
           </div>
 
-          {/* Two hexagon shapes: original black hexagon + medal hanger hexagon */}
+          {/* Single black hexagon with orange track line */}
           <div className="relative z-10 flex flex-1 items-center justify-center px-6">
             <svg viewBox="0 0 280 160" className="w-[88%]">
-              <defs>
-                <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={relief} stopOpacity="1" />
-                  <stop offset="100%" stopColor="#000000" stopOpacity="0.85" />
-                </linearGradient>
-                <linearGradient id="hangerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={track} stopOpacity="1" />
-                  <stop offset="100%" stopColor="#000000" stopOpacity="0.8" />
-                </linearGradient>
-              </defs>
-
-              {/* Left: original black hexagon (relief/map) */}
-              <g transform="translate(80, 80)">
+              <g transform="translate(140, 80)">
                 <polygon
                   points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
-                  fill="url(#hexGrad)"
-                  stroke={reliefOutline}
-                  strokeWidth="1.5"
-                  strokeOpacity="0.5"
-                />
-                {/* route line inside left hexagon */}
-                <path
-                  d="M-32,16 C-16,-10 0,6 16,-10 C32,-26 40,-8 46,-18"
-                  fill="none"
-                  stroke={reliefOutline}
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  opacity="0.9"
+                  fill="#111111"
                 />
                 <path
                   d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
@@ -130,54 +104,7 @@ export function DynamicFrameSample({
                   strokeWidth="2.4"
                   strokeLinecap="round"
                 />
-                {/* gloss */}
                 <ellipse cx="-12" cy="-26" rx="16" ry="7" fill="#ffffff" opacity="0.18" />
-              </g>
-
-              {/* Right: medal hanger hexagon (separate object) */}
-              <g transform="translate(200, 80)">
-                {/* Ribbon hanger */}
-                <polygon points="-18,-58 0,-16 18,-58 10,-58 0,-30 -10,-58" fill="url(#hangerGrad)" />
-                <polygon points="-18,-58 -10,-58 0,-30" fill="#000000" opacity="0.18" />
-                {/* Ribbon loop ring */}
-                <circle cx="0" cy="-16" r="5" fill="none" stroke="#333333" strokeWidth="1.5" opacity="0.5" />
-
-                {/* Hexagon medal */}
-                <polygon
-                  points="0,-44 38.1,-22 38.1,22 0,44 -38.1,22 -38.1,-22"
-                  fill="url(#hangerGrad)"
-                  stroke="#ffffff"
-                  strokeWidth="1"
-                  strokeOpacity="0.35"
-                />
-                {/* Inner hexagon face */}
-                <polygon
-                  points="0,-28 24.2,-14 24.2,14 0,28 -24.2,14 -24.2,-14"
-                  fill={relief}
-                  stroke={reliefOutline}
-                  strokeOpacity="0.4"
-                  strokeWidth="1"
-                />
-                {/* route line on hanger hexagon */}
-                <path
-                  d="M-22,14 C-12,-4 0,4 12,-8 C22,-18 28,-6 32,-12"
-                  fill="none"
-                  stroke={reliefOutline}
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  opacity="0.9"
-                />
-                <path
-                  d="M-24,20 C-14,4 0,10 10,-2 C20,-14 30,-8 34,-16"
-                  fill="none"
-                  stroke={track}
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-                {/* gloss */}
-                <ellipse cx="-10" cy="-28" rx="12" ry="5" fill="#ffffff" opacity="0.22" />
-                {/* ground shadow */}
-                <ellipse cx="0" cy="52" rx="34" ry="3" fill="#000000" opacity="0.15" />
               </g>
             </svg>
           </div>
