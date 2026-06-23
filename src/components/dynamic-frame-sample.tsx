@@ -98,28 +98,12 @@ export function DynamicFrameSample({
             </div>
           </div>
 
-          {/* Two black hexagons with orange track lines */}
-          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6">
-            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-1cm)" }}>
-              <g transform="translate(140, 80)">
-                <polygon
-                  points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
-                  fill={hexFill}
-                  stroke={hexStroke}
-                  strokeWidth="1"
-                />
-                <path
-                  d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
-                  fill="none"
-                  stroke={track}
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                />
-                <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
-              </g>
-            </svg>
-            {showSecondHex && (
-              <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-0.5cm)" }}>
+          {/* Shapes area: hexagons + optional BIB square */}
+          <div
+            className={`relative z-10 flex flex-1 items-center justify-center px-6 ${showBibSquare ? "flex-row gap-2" : "flex-col"}`}
+          >
+            <div className={`flex flex-col items-center justify-center ${showBibSquare ? "w-[55%]" : "w-full"}`}>
+              <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-1cm)" }}>
                 <g transform="translate(140, 80)">
                   <polygon
                     points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
@@ -127,24 +111,87 @@ export function DynamicFrameSample({
                     stroke={hexStroke}
                     strokeWidth="1"
                   />
+                  <path
+                    d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
+                    fill="none"
+                    stroke={track}
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
                   <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
-                  {showMedal && (
-                    <text
-                      x="0"
-                      y="6"
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fill="#ffffff"
-                      fontSize="18"
-                      fontWeight="700"
-                      letterSpacing="0.15em"
-                      fontFamily="system-ui, sans-serif"
-                    >
-                      MEDAL
-                    </text>
-                  )}
                 </g>
               </svg>
+              {showSecondHex && (
+                <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: showBibSquare ? "translateY(0)" : "translateY(-0.5cm)" }}>
+                  <g transform="translate(140, 80)">
+                    <polygon
+                      points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
+                      fill={hexFill}
+                      stroke={hexStroke}
+                      strokeWidth="1"
+                    />
+                    <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
+                    {showMedal && (
+                      <text
+                        x="0"
+                        y="6"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="#ffffff"
+                        fontSize="18"
+                        fontWeight="700"
+                        letterSpacing="0.15em"
+                        fontFamily="system-ui, sans-serif"
+                      >
+                        MEDAL
+                      </text>
+                    )}
+                  </g>
+                </svg>
+              )}
+            </div>
+
+            {showBibSquare && (
+              <div className="flex w-[40%] items-center justify-center">
+                <svg viewBox="0 0 140 180" className="w-full">
+                  <rect
+                    x="10"
+                    y="10"
+                    width="120"
+                    height="160"
+                    rx="4"
+                    fill="#111111"
+                    stroke={hexStroke}
+                    strokeWidth="1"
+                  />
+                  <text
+                    x="70"
+                    y="55"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="#ffffff"
+                    fontSize="10"
+                    fontWeight="600"
+                    letterSpacing="0.1em"
+                    fontFamily="system-ui, sans-serif"
+                  >
+                    BIB
+                  </text>
+                  <text
+                    x="70"
+                    y="100"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="#ffffff"
+                    fontSize="32"
+                    fontWeight="700"
+                    letterSpacing="0.05em"
+                    fontFamily="system-ui, sans-serif"
+                  >
+                    2847
+                  </text>
+                </svg>
+              </div>
             )}
           </div>
 
