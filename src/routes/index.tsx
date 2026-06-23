@@ -149,3 +149,92 @@ function Home() {
     </>
   );
 }
+
+function FrameCarousel() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const scrollToIndex = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.children[i] as HTMLElement | undefined;
+    if (card) el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: "smooth" });
+  };
+
+  const handleNav = (dir: -1 | 1) => {
+    const next = Math.min(CAROUSEL_ITEMS.length - 1, Math.max(0, activeIndex + dir));
+    scrollToIndex(next);
+  };
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const children = Array.from(el.children) as HTMLElement[];
+      const center = el.scrollLeft + el.clientWidth / 2;
+      let nearest = 0;
+      let min = Infinity;
+      children.forEach((c, idx) => {
+        const cCenter = c.offsetLeft - el.offsetLeft + c.clientWidth / 2;
+        const d = Math.abs(center - cCenter);
+        if (d < min) { min = d; nearest = idx; }
+      });
+      setActiveIndex(nearest);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div className="relative">
+      <div
+        ref={scrollerRef}
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {CAROUSEL_ITEMS.map((item) => (
+          <article
+            key={item.name}
+            className="snap-center shrink-0 w-[78%] sm:w-[60%] md:w-[78%] lg:w-[70%] bg-paper shadow-2xl"
+          >
+            <img src={item.img} alt={`${item.name} frame`} className="w-full h-auto object-cover" />
+            <div className="p-5">
+              <h3 className="font-display text-xl font-bold text-foreground">{item.name}</h3>
+              <p className="mt-1 text-sm text-foreground/70">{item.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        aria-label="Previous"
+        onClick={() => handleNav(-1)}
+        disabled={activeIndex === 0}
+        className="absolute left-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-paper text-foreground shadow-lg transition-opacity disabled:opacity-40 hover:bg-paper/90"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        aria-label="Next"
+        onClick={() => handleNav(1)}
+        disabled={activeIndex === CAROUSEL_ITEMS.length - 1}
+        className="absolute right-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-paper text-foreground shadow-lg transition-opacity disabled:opacity-40 hover:bg-paper/90"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      <div className="mt-4 flex justify-center gap-2">
+        {CAROUSEL_ITEMS.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => scrollToIndex(i)}
+            className={`h-2 rounded-full transition-all ${i === activeIndex ? "w-6 bg-paper" : "w-2 bg-paper/40"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
