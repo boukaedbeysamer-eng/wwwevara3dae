@@ -125,8 +125,8 @@ export function DynamicFrameSample({
                 { label: "ELEVATION", value: elevation },
               ].map(({ label, value }) => (
                 <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-0.5">
-                  <span className="text-[6px] tracking-[0.14em] opacity-75">{label}</span>
-                  <span className="max-w-full truncate text-[8px] font-semibold tracking-[0.04em]">
+                  <span className="text-[6px] tracking-[0.14em] opacity-75" style={{ color: "#111111" }}>{label}</span>
+                  <span className="max-w-full truncate text-[8px] font-semibold tracking-[0.04em]" style={{ color: "#111111" }}>
                     {value || "—"}
                   </span>
                 </div>
