@@ -17,7 +17,7 @@ function About() {
     <section className="mx-auto max-w-3xl px-6 py-24">
       <span className="text-xs uppercase tracking-[0.28em] text-terrain">Our story</span>
       <h1 className="mt-3 font-display text-5xl text-foreground md:text-6xl">
-        A studio for the runs you remember.
+        Every Moment Has a Place. Every Place Has a Story.
       </h1>
       <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/80">
         <p>{"\n"}</p>
