@@ -65,13 +65,10 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md">
-            <img
-              src={heroFrame.url}
-              alt="3D-printed topographic running route frame by Evara3D"
-              className="w-full h-auto object-cover shadow-2xl"
-            />
+          <div className="relative w-full">
+            <FrameCarousel />
           </div>
+
         </div>
       </section>
 
