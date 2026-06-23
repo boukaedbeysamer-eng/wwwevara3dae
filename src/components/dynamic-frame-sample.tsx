@@ -48,10 +48,12 @@ export function DynamicFrameSample({
   time = "TIME",
   location = "LOCATION",
   elevation = "ELEVATION",
+  showMedal = true,
 }: {
   frameFinish: FrameFinish;
   mapColor: MapColor;
   trackColor: TrackColor;
+  showMedal?: boolean;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const track = TRACK_COLOR_HEX[trackColor];
