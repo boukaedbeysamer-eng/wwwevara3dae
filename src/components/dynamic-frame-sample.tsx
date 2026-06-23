@@ -1,4 +1,5 @@
 import type { FrameFinish, MapColor, TrackColor } from "@/data/products";
+import type { ReactNode } from "react";
 
 export type FrameDetails = {
   raceName?: string;
