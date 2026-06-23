@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
+import { PRODUCTS } from "@/data/products";
 
 const contactSchema = z.object({
   fullName: z.string().trim().min(1).max(120),
@@ -11,9 +12,7 @@ const contactSchema = z.object({
 
 const itemSchema = z.object({
   productSlug: z.string().min(1).max(60),
-  productName: z.string().min(1).max(120),
   qty: z.number().int().min(1).max(20),
-  unitPriceAed: z.number().min(0).max(100000),
   frameFinish: z.string().min(1).max(40),
   mapColor: z.string().min(1).max(40),
   trackColor: z.string().min(1).max(40),
