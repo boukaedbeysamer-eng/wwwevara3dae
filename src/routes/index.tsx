@@ -6,7 +6,7 @@ import { FrameVisual } from "@/components/frame-visual";
 import frameKeepsaker from "@/assets/carousel/frame-keepsaker.jpg.asset.json";
 import frameMilestone from "@/assets/carousel/frame-milestone.jpg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
-import frameClassic from "@/assets/carousel/frame-classic.png.asset.json";
+import frameClassic from "@/assets/carousel/frame-classic.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
   { img: frameKeepsaker.url, name: "Keepsaker", desc: "A timeless wooden frame for your first milestone run." },
