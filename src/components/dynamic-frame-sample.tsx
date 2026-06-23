@@ -151,7 +151,7 @@ export function DynamicFrameSample({
             )}
 
             {showBibSquare && (
-              <svg viewBox="0 0 140 180" className="w-[55%]">
+              <svg viewBox="0 0 140 180" className="w-[28%]">
                 <rect
                   x="10"
                   y="10"
@@ -164,7 +164,7 @@ export function DynamicFrameSample({
                 />
                 <text
                   x="70"
-                  y="55"
+                  y="90"
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill="#ffffff"
@@ -174,19 +174,6 @@ export function DynamicFrameSample({
                   fontFamily="system-ui, sans-serif"
                 >
                   BIB
-                </text>
-                <text
-                  x="70"
-                  y="100"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill="#ffffff"
-                  fontSize="20"
-                  fontWeight="700"
-                  letterSpacing="0.05em"
-                  fontFamily="system-ui, sans-serif"
-                >
-                  2847
                 </text>
               </svg>
             )}
