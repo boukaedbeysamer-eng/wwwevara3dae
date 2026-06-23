@@ -49,11 +49,13 @@ export function DynamicFrameSample({
   location = "LOCATION",
   elevation = "ELEVATION",
   showMedal = true,
+  showSecondHex = true,
 }: {
   frameFinish: FrameFinish;
   mapColor: MapColor;
   trackColor: TrackColor;
   showMedal?: boolean;
+  showSecondHex?: boolean;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const track = TRACK_COLOR_HEX[trackColor];
@@ -114,32 +116,34 @@ export function DynamicFrameSample({
                 <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
               </g>
             </svg>
-            <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-0.5cm)" }}>
-              <g transform="translate(140, 80)">
-                <polygon
-                  points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
-                  fill={hexFill}
-                  stroke={hexStroke}
-                  strokeWidth="1"
-                />
-                <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
-                {showMedal && (
-                  <text
-                    x="0"
-                    y="6"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="#ffffff"
-                    fontSize="18"
-                    fontWeight="700"
-                    letterSpacing="0.15em"
-                    fontFamily="system-ui, sans-serif"
-                  >
-                    MEDAL
-                  </text>
-                )}
-              </g>
-            </svg>
+            {showSecondHex && (
+              <svg viewBox="0 0 280 160" className="w-[96%]" style={{ transform: "translateY(-0.5cm)" }}>
+                <g transform="translate(140, 80)">
+                  <polygon
+                    points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
+                    fill={hexFill}
+                    stroke={hexStroke}
+                    strokeWidth="1"
+                  />
+                  <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
+                  {showMedal && (
+                    <text
+                      x="0"
+                      y="6"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      fill="#ffffff"
+                      fontSize="18"
+                      fontWeight="700"
+                      letterSpacing="0.15em"
+                      fontFamily="system-ui, sans-serif"
+                    >
+                      MEDAL
+                    </text>
+                  )}
+                </g>
+              </svg>
+            )}
           </div>
 
           {/* Stats single row */}
