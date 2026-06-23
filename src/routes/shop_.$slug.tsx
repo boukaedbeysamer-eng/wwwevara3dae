@@ -91,6 +91,7 @@ function ProductPage() {
             frameFinish={frameFinish}
             mapColor={mapColor}
             trackColor={trackColor}
+            showMedal={product.slug !== "keepsaker"}
             {...frameDetails}
           />
         </div>
