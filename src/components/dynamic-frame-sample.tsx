@@ -50,12 +50,14 @@ export function DynamicFrameSample({
   elevation = "ELEVATION",
   showMedal = true,
   showSecondHex = true,
+  showBibSquare = false,
 }: {
   frameFinish: FrameFinish;
   mapColor: MapColor;
   trackColor: TrackColor;
   showMedal?: boolean;
   showSecondHex?: boolean;
+  showBibSquare?: boolean;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const track = TRACK_COLOR_HEX[trackColor];
