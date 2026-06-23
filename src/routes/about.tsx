@@ -20,24 +20,10 @@ function About() {
         A studio for the runs you remember.
       </h1>
       <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/80">
-        <p>
-          Evara3D is a small design and fabrication studio in the UAE. We make one
-          thing: precision 3D-printed topographic relief maps of the routes our
-          customers run, framed and ready to hang.
-        </p>
-        <p>
-          We started because race medals end up in drawers, and Strava activities end
-          up forgotten in the feed. The terrain you crossed — the climb that broke
-          you, the descent that brought you back — deserves more than a screenshot.
-        </p>
-        <p>
-          Every piece is made to order from your GPX file: we render the elevation,
-          print it in layers, set the type for your stats, and assemble it into a
-          deep shadow-box frame in our workshop. No two are the same.
-        </p>
-        <p>
-          We're runners. We hope you frame the route that meant the most.
-        </p>
+        <p>{"\n"}</p>
+        <p>{"\n"}</p>
+        <p>{"\n"}</p>
+        <p>{"\n"}</p>
       </div>
       <div className="mt-14">
         <Link to="/shop" className="bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
