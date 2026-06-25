@@ -14,6 +14,7 @@ export function SiteHeader() {
 
   const nav = [
     { to: "/shop", label: "Shop" },
+    { to: "/gallery", label: "Gallery" },
     { to: "/about", label: "Story" },
     { to: "/faq", label: "FAQ" },
   ];
