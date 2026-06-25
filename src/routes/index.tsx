@@ -5,10 +5,26 @@ import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameClassic from "@/assets/carousel/frame-classic.jpg.asset.json";
+import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
+import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
+import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
+import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
+import frameLisKalbaCloseup from "@/assets/carousel/frame-lis-kalba-closeup.jpg.asset.json";
+import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
+import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
+import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
   { img: frameLegendary.url, name: "Legendary", desc: "Premium stand-mounted relief for your proudest moment." },
   { img: frameClassic.url, name: "Classic Oak", desc: "Clean topographic detail in a warm oak finish." },
+  { img: frameSlmt.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
+  { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
+  { img: frameGoatTrailRace.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
+  { img: frameGoatUltra.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
+  { img: frameGoatUltraStand.url, name: "GOAT Ultra with Stand", desc: "Hex relief paired with a honeycomb display stand." },
+  { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
+  { img: frameLisKalbaStand.url, name: "Lis Kalba with Stand", desc: "Kalba hex paired with a honeycomb display stand." },
+  { img: frameLisKalbaCloseup.url, name: "Lis Kalba Detail", desc: "Close-up of the topographic relief and trail line." },
 ];
 
 export const Route = createFileRoute("/")({
