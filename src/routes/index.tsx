@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
-import frameClassic from "@/assets/carousel/frame-classic.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
@@ -15,7 +14,6 @@ import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asse
 
 const CAROUSEL_ITEMS = [
   { img: frameLegendary.url, name: "Legendary", desc: "Premium stand-mounted relief for your proudest moment." },
-  { img: frameClassic.url, name: "Classic Oak", desc: "Clean topographic detail in a warm oak finish." },
   { img: frameSlmt.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
   { img: frameGoatTrailRace.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
