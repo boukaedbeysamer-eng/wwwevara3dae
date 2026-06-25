@@ -3,12 +3,10 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
-import frameMilestone from "@/assets/carousel/frame-milestone.jpg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameClassic from "@/assets/carousel/frame-classic.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
-  { img: frameMilestone.url, name: "Milestone", desc: "Bold black frame celebrating long-distance achievements." },
   { img: frameLegendary.url, name: "Legendary", desc: "Premium stand-mounted relief for your proudest moment." },
   { img: frameClassic.url, name: "Classic Oak", desc: "Clean topographic detail in a warm oak finish." },
 ];
