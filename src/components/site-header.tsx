@@ -1,11 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useCart, cartCount } from "@/lib/cart";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import evaraLogo from "@/assets/evara-logo-blue-transparent.png.asset.json";
 
 export function SiteHeader() {
   const items = useCart((s) => s.items);
   const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => setMounted(true), []);
   const count = mounted ? cartCount(items) : 0;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -15,6 +17,10 @@ export function SiteHeader() {
     { to: "/about", label: "Story" },
     { to: "/faq", label: "FAQ" },
   ];
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
@@ -37,14 +43,41 @@ export function SiteHeader() {
         </nav>
         <Link
           to="/cart"
-          className="group relative inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain"
+          className="group relative hidden items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain md:inline-flex"
         >
           Cart
           <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper group-hover:bg-terrain">
             {count}
           </span>
         </Link>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/60 text-foreground hover:text-terrain md:hidden"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+      {open && (
+        <div className="border-t border-border/60 bg-background md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4 text-sm uppercase tracking-[0.18em]">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className={`py-3 transition-colors hover:text-terrain ${
+                  pathname.startsWith(n.to) ? "text-terrain" : "text-foreground/80"
+                }`}
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
