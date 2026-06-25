@@ -9,7 +9,6 @@ import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
-import frameLisKalbaCloseup from "@/assets/carousel/frame-lis-kalba-closeup.jpg.asset.json";
 import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
@@ -24,7 +23,6 @@ const CAROUSEL_ITEMS = [
   { img: frameGoatUltraStand.url, name: "GOAT Ultra with Stand", desc: "Hex relief paired with a honeycomb display stand." },
   { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
   { img: frameLisKalbaStand.url, name: "Lis Kalba with Stand", desc: "Kalba hex paired with a honeycomb display stand." },
-  { img: frameLisKalbaCloseup.url, name: "Lis Kalba Detail", desc: "Close-up of the topographic relief and trail line." },
 ];
 
 export const Route = createFileRoute("/")({
