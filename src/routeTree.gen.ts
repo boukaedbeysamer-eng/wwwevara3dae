@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
@@ -21,6 +22,11 @@ import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/gallery'
     | '/shop'
     | '/shop/$slug'
     | '/checkout/success/$id'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/gallery'
     | '/shop'
     | '/shop/$slug'
     | '/checkout/success/$id'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/gallery'
     | '/shop'
     | '/shop_/$slug'
     | '/checkout/success/$id'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRouteWithChildren
   FaqRoute: typeof FaqRoute
+  GalleryRoute: typeof GalleryRoute
   ShopRoute: typeof ShopRoute
   ShopSlugRoute: typeof ShopSlugRoute
 }
@@ -140,6 +153,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -212,9 +232,20 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRouteWithChildren,
   FaqRoute: FaqRoute,
+  GalleryRoute: GalleryRoute,
   ShopRoute: ShopRoute,
   ShopSlugRoute: ShopSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
