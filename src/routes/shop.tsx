@@ -38,6 +38,7 @@ function Shop() {
               )}
               {p.slug === "achiever" && <AchieverFrameVisual />}
               {p.slug === "legacy" && <LegacyFrameVisual />}
+              {p.slug === "3d-map-display" && <FrameVisual frameFinish="Matte Black" mapColor="Black" trackColor="Orange" />}
             </div>
             <div className="mt-6 flex items-baseline justify-between">
               <h2 className="font-display text-2xl text-foreground">{p.name}</h2>
