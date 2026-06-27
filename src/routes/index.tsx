@@ -86,7 +86,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Three frames. One memory.
+              Four frames. One memory.
             </h2>
           </div>
           <Link
@@ -130,7 +130,7 @@ function Home() {
           </h2>
           <div className="mt-16 grid gap-12 md:grid-cols-4">
             {[
-              { n: "01", t: "Pick a frame", d: "Choose Keepsaker, Achiever, or Legacy — and your frame, relief, and track colors." },
+              { n: "01", t: "Pick a frame", d: "Choose Keepsaker, Achiever, Legacy, or 3D MAP display — and your frame, relief, and track colors." },
               { n: "02", t: "Send your run", d: "Upload a GPX file from Strava or any app, with your run name, distance, date, and location." },
               { n: "03", t: "We sculpt it", d: "Our studio renders the terrain, prints it in 3D, and assembles the deep-frame." },
               { n: "04", t: "Hang it", d: "Your finished frame arrives ready to hang." },

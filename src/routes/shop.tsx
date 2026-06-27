@@ -3,12 +3,13 @@ import { PRODUCTS } from "@/data/products";
 import { KeepsakerFrameVisual } from "@/components/keepsaker-frame-visual";
 import { AchieverFrameVisual } from "@/components/achiever-frame-visual";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
+import { FrameVisual } from "@/components/frame-visual";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — Evara3D" },
-      { name: "description", content: "Browse the Evara3D collection of 3D-printed topographic running route frames: Keepsaker, Achiever, and Legacy." },
+      { name: "description", content: "Browse the Evara3D collection of 3D-printed topographic running route frames: Keepsaker, Achiever, Legacy, and 3D MAP display." },
       { property: "og:title", content: "Shop — Evara3D" },
       { property: "og:description", content: "Browse 3D-printed topographic running route frames designed for athletes." },
     ],
@@ -37,6 +38,7 @@ function Shop() {
               )}
               {p.slug === "achiever" && <AchieverFrameVisual />}
               {p.slug === "legacy" && <LegacyFrameVisual />}
+              {p.slug === "3d-map-display" && <FrameVisual frameFinish="Matte Black" mapColor="Black" trackColor="Orange" />}
             </div>
             <div className="mt-6 flex items-baseline justify-between">
               <h2 className="font-display text-2xl text-foreground">{p.name}</h2>

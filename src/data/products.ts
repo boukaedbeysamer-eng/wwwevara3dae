@@ -63,6 +63,20 @@ export const PRODUCTS: Product[] = [
     ],
     story: "The full memory: the course beneath your feet, the number on your chest, the medal around your neck. Built for the races you'll be telling stories about in twenty years.",
   },
+  {
+    slug: "3d-map-display",
+    name: "3D MAP display",
+    tagline: "Your route, standing tall.",
+    priceAed: 100,
+    frameSize: "130 × 110 × 30 mm",
+    mapSize: "3D-printed terrain with stand",
+    includes: [
+      "Custom 3D-printed topographic terrain of your run",
+      "Integrated display stand",
+      "Printed run stats: name, distance, elevation gain, date, location",
+    ],
+    story: "A 3D-printed map of your run, mounted on its own stand — perfect for desks, shelves, or anywhere you want to relive the route.",
+  },
 ];
 
 export const getProduct = (slug: string) => PRODUCTS.find((p) => p.slug === slug);
