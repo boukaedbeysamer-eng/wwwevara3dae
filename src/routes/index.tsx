@@ -130,7 +130,7 @@ function Home() {
           </h2>
           <div className="mt-16 grid gap-12 md:grid-cols-4">
             {[
-              { n: "01", t: "Pick a frame", d: "Choose Keepsaker, Achiever, or Legacy — and your frame, relief, and track colors." },
+              { n: "01", t: "Pick a frame", d: "Choose Keepsaker, Achiever, Legacy, or 3D MAP display — and your frame, relief, and track colors." },
               { n: "02", t: "Send your run", d: "Upload a GPX file from Strava or any app, with your run name, distance, date, and location." },
               { n: "03", t: "We sculpt it", d: "Our studio renders the terrain, prints it in 3D, and assembles the deep-frame." },
               { n: "04", t: "Hang it", d: "Your finished frame arrives ready to hang." },
