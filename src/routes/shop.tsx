@@ -3,6 +3,7 @@ import { PRODUCTS } from "@/data/products";
 import { KeepsakerFrameVisual } from "@/components/keepsaker-frame-visual";
 import { AchieverFrameVisual } from "@/components/achiever-frame-visual";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
+import { FrameVisual } from "@/components/frame-visual";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
