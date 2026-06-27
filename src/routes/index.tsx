@@ -86,7 +86,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Three frames. One memory.
+              Four frames. One memory.
             </h2>
           </div>
           <Link
