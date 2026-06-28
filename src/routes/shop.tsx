@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRODUCTS } from "@/data/products";
-import { KeepsakerFrameVisual } from "@/components/keepsaker-frame-visual";
-import { AchieverFrameVisual } from "@/components/achiever-frame-visual";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
 import frame3dMap from "@/assets/carousel/frame-3d-map.jpg.asset.json";
 import keepsakerImg from "@/assets/carousel/goat-ultra-keepsaker.jpeg.asset.json";
+import achieverImg from "@/assets/carousel/frame-achiever-goat.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -37,7 +36,9 @@ function Shop() {
               {p.slug === "keepsaker" && (
                 <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
               )}
-              {p.slug === "achiever" && <AchieverFrameVisual />}
+              {p.slug === "achiever" && (
+                <img src={achieverImg.url} alt={`${p.name} 3D-printed topographic frame with medal`} className="aspect-square w-full object-cover" />
+              )}
               {p.slug === "legacy" && <LegacyFrameVisual />}
               {p.slug === "3d-map-display" && (
                 <img src={frame3dMap.url} alt={`${p.name} 3D-printed topographic hex plaque`} className="aspect-square w-full object-cover" />
