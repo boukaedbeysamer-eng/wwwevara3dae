@@ -126,7 +126,9 @@ function ProductPage() {
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
-            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Personalize your frame</div>
+            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">
+              {product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
+            </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
                 <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Race name</label>

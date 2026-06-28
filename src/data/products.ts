@@ -27,7 +27,7 @@ export const PRODUCTS: Product[] = [
     mapSize: "10 × 11 cm 3D-printed terrain",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
-      "Printed run stats: name, distance, elevation gain, date, location",
+      "Printed run stats: Race name, distance, elevation gain, date.",
       "Deep shadow-box frame, ready to hang",
     ],
     story: "Frame your first Run, first Race or first Ultra.",
@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
     mapSize: "11 × 12 cm 3D-printed terrain",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
-      "Printed run stats: name, distance, elevation gain, date, location",
+      "Printed run stats: Race name, distance, elevation gain, date.",
       "Integrated medal hanger",
       "Deep shadow-box frame, ready to hang",
     ],
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     mapSize: "11 × 12 cm 3D-printed terrain",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
-      "Printed run stats: name, distance, elevation gain, date, location",
+      "Printed run stats: Race name, distance, elevation gain, date.",
       "Integrated medal hanger",
       "BIB number display",
       "Deep shadow-box frame, ready to hang",
@@ -72,8 +72,8 @@ export const PRODUCTS: Product[] = [
     mapSize: "3D-printed terrain with stand",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
-      "Integrated display stand",
-      "Printed run stats: name, distance, elevation gain, date, location",
+      "Movable display stand",
+      "Printed run stats: Race name, distance, elevation gain, date.",
     ],
     story: "A 3D-printed map of your run, mounted on its own stand — perfect for desks, shelves, or anywhere you want to relive the route.",
   },
