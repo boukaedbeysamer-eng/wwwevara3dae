@@ -16,7 +16,6 @@ export type CartItem = {
   date?: string;
   distance?: string;
   time?: string;
-  location?: string;
   elevation?: string;
 };
 
