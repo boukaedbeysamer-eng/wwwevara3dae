@@ -94,6 +94,7 @@ function ProductPage() {
             showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
             showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
             showBibSquare={product.slug === "legacy"}
+            minimal={product.slug === "3d-map-display"}
             {...frameDetails}
           />
         </div>
