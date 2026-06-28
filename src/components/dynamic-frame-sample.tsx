@@ -217,7 +217,6 @@ export function DynamicFrameSample({
               {[
                 { label: "DATE", value: date },
                 { label: "DISTANCE", value: distance },
-                { label: "TIME", value: time },
                 { label: "LOCATION", value: location },
                 { label: "ELEVATION", value: elevation },
               ].map(({ label, value }) => (

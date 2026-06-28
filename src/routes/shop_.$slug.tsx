@@ -49,7 +49,6 @@ function ProductPage() {
   const [raceName, setRaceName] = useState("");
   const [date, setDate] = useState("");
   const [distance, setDistance] = useState("");
-  const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [elevation, setElevation] = useState("");
 
@@ -57,7 +56,6 @@ function ProductPage() {
     raceName,
     date,
     distance,
-    time,
     location,
     elevation,
   };
@@ -152,15 +150,6 @@ function ProductPage() {
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
                   placeholder="e.g. 42.2 km"
-                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
-                />
-              </div>
-              <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Time</label>
-                <Input
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  placeholder="e.g. 04:15:00"
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
