@@ -49,14 +49,12 @@ function ProductPage() {
   const [raceName, setRaceName] = useState("");
   const [date, setDate] = useState("");
   const [distance, setDistance] = useState("");
-  const [location, setLocation] = useState("");
   const [elevation, setElevation] = useState("");
 
   const frameDetails: FrameDetails = {
     raceName,
     date,
     distance,
-    location,
     elevation,
   };
 
