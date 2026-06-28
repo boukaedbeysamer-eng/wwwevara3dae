@@ -6,7 +6,6 @@ export type FrameDetails = {
   date?: string;
   distance?: string;
   time?: string;
-  location?: string;
   elevation?: string;
 };
 
