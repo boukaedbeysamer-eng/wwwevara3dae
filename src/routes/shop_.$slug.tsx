@@ -47,7 +47,6 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
 
   const [raceName, setRaceName] = useState("");
-  const [customerName, setCustomerName] = useState("");
   const [date, setDate] = useState("");
   const [distance, setDistance] = useState("");
   const [time, setTime] = useState("");
@@ -56,7 +55,6 @@ function ProductPage() {
 
   const frameDetails: FrameDetails = {
     raceName,
-    customerName,
     date,
     distance,
     time,
