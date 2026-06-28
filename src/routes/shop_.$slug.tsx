@@ -49,7 +49,6 @@ function ProductPage() {
   const [raceName, setRaceName] = useState("");
   const [date, setDate] = useState("");
   const [distance, setDistance] = useState("");
-  const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [elevation, setElevation] = useState("");
 
@@ -57,7 +56,6 @@ function ProductPage() {
     raceName,
     date,
     distance,
-    time,
     location,
     elevation,
   };
