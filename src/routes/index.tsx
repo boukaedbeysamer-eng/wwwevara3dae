@@ -18,9 +18,9 @@ const CAROUSEL_ITEMS = [
   { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
   { img: frameGoatTrailRace.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
   { img: frameGoatUltra.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
-  { img: frameGoatUltraStand.url, name: "GOAT Ultra with Stand", desc: "Hex relief paired with a honeycomb display stand." },
+  { img: frameGoatUltraStand.url, name: "GOAT ULTRA HEX WITH STAND", desc: "Hex relief paired with a honeycomb display stand." },
   { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
-  { img: frameLisKalbaStand.url, name: "Lis Kalba with Stand", desc: "Kalba hex paired with a honeycomb display stand." },
+  { img: frameLisKalbaStand.url, name: "LIS KALBA HEX\u00a0 WITH STAND", desc: "Kalba hex paired with a honeycomb display stand." },
 ];
 
 export const Route = createFileRoute("/")({
