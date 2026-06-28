@@ -51,6 +51,7 @@ export function DynamicFrameSample({
   showMedal = true,
   showSecondHex = true,
   showBibSquare = false,
+  minimal = false,
 }: {
   frameFinish: FrameFinish;
   mapColor: MapColor;
@@ -58,6 +59,7 @@ export function DynamicFrameSample({
   showMedal?: boolean;
   showSecondHex?: boolean;
   showBibSquare?: boolean;
+  minimal?: boolean;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
   const track = TRACK_COLOR_HEX[trackColor];
@@ -65,6 +67,36 @@ export function DynamicFrameSample({
   const hexStroke = mapColor === "White" ? "#111111" : "none";
   const glossColor = mapColor === "White" ? "#111111" : "#ffffff";
   const textColor = frameFinish === "Matte Black" ? "#f4f2ee" : "#111111";
+
+  if (minimal) {
+    return (
+      <div
+        className="mx-auto w-full max-w-[420px]"
+        style={{ backgroundColor: "#fafaf7", aspectRatio: "3 / 4.2" }}
+      >
+        <div className="flex h-full w-full items-center justify-center">
+          <svg viewBox="0 0 280 160" className="w-[96%]">
+            <g transform="translate(140, 80)">
+              <polygon
+                points="0,-58 50.2,-29 50.2,29 0,58 -50.2,29 -50.2,-29"
+                fill={hexFill}
+                stroke={hexStroke}
+                strokeWidth="1"
+              />
+              <path
+                d="M-34,24 C-18,2 0,12 14,-6 C28,-24 42,-16 48,-26"
+                fill="none"
+                stroke={track}
+                strokeWidth="2.4"
+                strokeLinecap="round"
+              />
+              <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
