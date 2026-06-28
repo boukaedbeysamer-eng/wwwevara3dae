@@ -118,7 +118,9 @@ function ProductPage() {
             </ul>
           </div>
 
-          <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
+          {product.slug !== "3d-map-display" && (
+            <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
+          )}
           <Selector label="3D relief color" value={mapColor} options={MAP_COLORS} onChange={setMapColor} />
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
