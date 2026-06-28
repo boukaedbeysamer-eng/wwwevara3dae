@@ -152,15 +152,6 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Location</label>
-                <Input
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  placeholder="e.g. Dubai"
-                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
-                />
-              </div>
-              <div>
                 <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Elevation</label>
                 <Input
                   value={elevation}
