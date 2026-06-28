@@ -10,7 +10,7 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — Evara3D" },
-      { name: "description", content: "Browse the Evara3D collection of 3D-printed topographic running route frames: Keepsaker, Achiever, Legacy, and 3D MAP display." },
+      { name: "description", content: "Browse the Evara3D collection of 3D-printed topographic running route frames: Keepsaker, Achiever, Legacy, and 3D HEX MAP DISPLAY WITH STAND." },
       { property: "og:title", content: "Shop — Evara3D" },
       { property: "og:description", content: "Browse 3D-printed topographic running route frames designed for athletes." },
     ],
