@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat.jpg.asset.json";
+import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal.jpg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -105,18 +106,24 @@ function Home() {
               params={{ slug: p.slug }}
               className="group block"
             >
-              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 ? "" : "p-8"}`}>
+              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 ? "" : "p-8"}`}>
                 {i === 0 ? (
                   <img
                     src={frameKeepsakerGoat.url}
                     alt={`${p.name} 3D-printed topographic frame`}
                     className="aspect-square w-full object-cover"
                   />
+                ) : i === 1 ? (
+                  <img
+                    src={frameAchieverMedal.url}
+                    alt={`${p.name} 3D-printed topographic frame with medal`}
+                    className="aspect-square w-full object-cover"
+                  />
                 ) : (
                   <FrameVisual
-                    frameFinish={i === 1 ? "Matte Black" : "Wooden"}
-                    mapColor={i === 1 ? "White" : "Black"}
-                    trackColor={i === 2 ? "Red" : "Orange"}
+                    frameFinish="Wooden"
+                    mapColor="Black"
+                    trackColor="Red"
                   />
                 )}
               </div>
