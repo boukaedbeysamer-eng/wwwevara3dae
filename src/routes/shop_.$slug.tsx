@@ -47,7 +47,6 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
 
   const [raceName, setRaceName] = useState("");
-  const [customerName, setCustomerName] = useState("");
   const [date, setDate] = useState("");
   const [distance, setDistance] = useState("");
   const [time, setTime] = useState("");
@@ -56,7 +55,6 @@ function ProductPage() {
 
   const frameDetails: FrameDetails = {
     raceName,
-    customerName,
     date,
     distance,
     time,
@@ -136,15 +134,6 @@ function ProductPage() {
                   value={raceName}
                   onChange={(e) => setRaceName(e.target.value)}
                   placeholder="e.g. Dubai Marathon"
-                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
-                />
-              </div>
-              <div className="col-span-2">
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Your name</label>
-                <Input
-                  value={customerName}
-                  onChange={(e) => setCustomerName(e.target.value)}
-                  placeholder="e.g. Ahmed Al Mansouri"
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
