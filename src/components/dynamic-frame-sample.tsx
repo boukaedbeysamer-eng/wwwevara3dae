@@ -6,7 +6,6 @@ export type FrameDetails = {
   date?: string;
   distance?: string;
   time?: string;
-  location?: string;
   elevation?: string;
 };
 
@@ -46,7 +45,6 @@ export function DynamicFrameSample({
   date = "DATE",
   distance = "DISTANCE",
   time = "TIME",
-  location = "LOCATION",
   elevation = "ELEVATION",
   showMedal = true,
   showSecondHex = true,
@@ -214,10 +212,9 @@ export function DynamicFrameSample({
           {/* Stats single row */}
           <div className="relative z-10 px-3 pb-5" style={{ color: textColor }}>
             <div className="flex items-start justify-between gap-1.5 text-center">
-              {[
+            {[
                 { label: "DATE", value: date },
                 { label: "DISTANCE", value: distance },
-                { label: "LOCATION", value: location },
                 { label: "ELEVATION", value: elevation },
               ].map(({ label, value }) => (
                 <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-0.5">
