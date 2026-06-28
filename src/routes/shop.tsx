@@ -3,7 +3,7 @@ import { PRODUCTS } from "@/data/products";
 import { KeepsakerFrameVisual } from "@/components/keepsaker-frame-visual";
 import { AchieverFrameVisual } from "@/components/achiever-frame-visual";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
-import { FrameVisual } from "@/components/frame-visual";
+import frame3dMap from "@/assets/carousel/frame-3d-map.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
