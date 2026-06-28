@@ -3,7 +3,7 @@ import { PRODUCTS } from "@/data/products";
 import { KeepsakerFrameVisual } from "@/components/keepsaker-frame-visual";
 import { AchieverFrameVisual } from "@/components/achiever-frame-visual";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
-import { FrameVisual } from "@/components/frame-visual";
+import frame3dMap from "@/assets/carousel/frame-3d-map.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -38,7 +38,9 @@ function Shop() {
               )}
               {p.slug === "achiever" && <AchieverFrameVisual />}
               {p.slug === "legacy" && <LegacyFrameVisual />}
-              {p.slug === "3d-map-display" && <FrameVisual frameFinish="Matte Black" mapColor="Black" trackColor="Orange" />}
+              {p.slug === "3d-map-display" && (
+                <img src={frame3dMap.url} alt={`${p.name} 3D-printed topographic hex plaque`} className="aspect-square w-full object-cover" />
+              )}
             </div>
             <div className="mt-6 flex items-baseline justify-between">
               <h2 className="font-display text-2xl text-foreground">{p.name}</h2>
