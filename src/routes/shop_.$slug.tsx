@@ -91,8 +91,8 @@ function ProductPage() {
             frameFinish={frameFinish}
             mapColor={mapColor}
             trackColor={trackColor}
-            showMedal={product.slug !== "keepsaker"}
-            showSecondHex={product.slug !== "keepsaker"}
+            showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
+            showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
             showBibSquare={product.slug === "legacy"}
             {...frameDetails}
           />
