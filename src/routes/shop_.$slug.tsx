@@ -154,15 +154,6 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Time</label>
-                <Input
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  placeholder="e.g. 04:15:00"
-                  className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
-                />
-              </div>
-              <div>
                 <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Location</label>
                 <Input
                   value={location}
