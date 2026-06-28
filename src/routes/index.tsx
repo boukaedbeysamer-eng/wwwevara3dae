@@ -5,6 +5,7 @@ import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat.jpg.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal.jpg.asset.json";
+import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -106,7 +107,7 @@ function Home() {
               params={{ slug: p.slug }}
               className="group block"
             >
-              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 ? "" : "p-8"}`}>
+              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 3 ? "" : "p-8"}`}>
                 {i === 0 ? (
                   <img
                     src={frameKeepsakerGoat.url}
@@ -117,6 +118,12 @@ function Home() {
                   <img
                     src={frameAchieverMedal.url}
                     alt={`${p.name} 3D-printed topographic frame with medal`}
+                    className="aspect-square w-full object-cover"
+                  />
+                ) : i === 3 ? (
+                  <img
+                    src={frame3dMapGoatHex.url}
+                    alt={`${p.name} 3D-printed topographic hex plaque`}
                     className="aspect-square w-full object-cover"
                   />
                 ) : (
