@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { FrameVisual } from "@/components/frame-visual";
+import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat.jpg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -104,12 +105,20 @@ function Home() {
               params={{ slug: p.slug }}
               className="group block"
             >
-              <div className="bg-secondary/60 p-8 transition-colors group-hover:bg-secondary">
-                <FrameVisual
-                  frameFinish={i === 0 ? "White Matt" : i === 1 ? "Matte Black" : "Wooden"}
-                  mapColor={i === 1 ? "White" : "Black"}
-                  trackColor={i === 2 ? "Red" : "Orange"}
-                />
+              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 ? "" : "p-8"}`}>
+                {i === 0 ? (
+                  <img
+                    src={frameKeepsakerGoat.url}
+                    alt={`${p.name} 3D-printed topographic frame`}
+                    className="aspect-square w-full object-cover"
+                  />
+                ) : (
+                  <FrameVisual
+                    frameFinish={i === 1 ? "Matte Black" : "Wooden"}
+                    mapColor={i === 1 ? "White" : "Black"}
+                    trackColor={i === 2 ? "Red" : "Orange"}
+                  />
+                )}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
                 <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
