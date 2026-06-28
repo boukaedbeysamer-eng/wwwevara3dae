@@ -36,7 +36,9 @@ function Shop() {
               {p.slug === "keepsaker" && (
                 <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
               )}
-              {p.slug === "achiever" && <AchieverFrameVisual />}
+              {p.slug === "achiever" && (
+                <img src={achieverImg.url} alt={`${p.name} 3D-printed topographic frame with medal`} className="aspect-square w-full object-cover" />
+              )}
               {p.slug === "legacy" && <LegacyFrameVisual />}
               {p.slug === "3d-map-display" && (
                 <img src={frame3dMap.url} alt={`${p.name} 3D-printed topographic hex plaque`} className="aspect-square w-full object-cover" />
