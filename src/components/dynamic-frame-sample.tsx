@@ -45,7 +45,6 @@ export function DynamicFrameSample({
   date = "DATE",
   distance = "DISTANCE",
   time = "TIME",
-  location = "LOCATION",
   elevation = "ELEVATION",
   showMedal = true,
   showSecondHex = true,
