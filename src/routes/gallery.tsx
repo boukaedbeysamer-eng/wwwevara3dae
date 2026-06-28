@@ -1,4 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -32,6 +38,9 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function GalleryPage() {
+  const [openImage, setOpenImage] = useState<string | null>(null);
+  const active = GALLERY_IMAGES.find((img) => img.src === openImage);
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
       <div className="text-center">
@@ -46,7 +55,11 @@ function GalleryPage() {
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {GALLERY_IMAGES.map((img) => (
-          <div key={img.title} className="group">
+          <button
+            key={img.title}
+            className="group text-left"
+            onClick={() => setOpenImage(img.src)}
+          >
             <div className="overflow-hidden bg-secondary/60">
               <img
                 src={img.src}
@@ -58,9 +71,22 @@ function GalleryPage() {
               <h3 className="font-display text-lg text-foreground">{img.title}</h3>
               <p className="mt-1 text-sm text-foreground/60">{img.caption}</p>
             </div>
-          </div>
+          </button>
         ))}
       </div>
+
+      <Dialog open={!!openImage} onOpenChange={(open) => !open && setOpenImage(null)}>
+        <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
+          <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
+          {active && (
+            <img
+              src={active.src}
+              alt={active.title}
+              className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
