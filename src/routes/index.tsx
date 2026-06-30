@@ -14,9 +14,10 @@ import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asse
 import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
+import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
-  { img: frameLegendary.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
+  { img: frameGoatUltraTrailRace.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
   { img: frameSlmt.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
   { img: frameGoatTrailRace.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
