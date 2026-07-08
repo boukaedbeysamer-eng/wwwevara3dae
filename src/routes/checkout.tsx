@@ -178,7 +178,7 @@ function Checkout() {
           <div>
             <SectionLabel n="02" t="Your runs" />
             <p className="mt-3 text-sm text-foreground/60">
-              Attach your GPX file (max 50MB).
+              GPX file is optional — once we receive your order request we will contact you for the GPX file.
             </p>
             <div className="mt-6 space-y-8">
               {items.map((it, idx) => (
