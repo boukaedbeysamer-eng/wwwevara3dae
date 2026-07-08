@@ -48,23 +48,24 @@ export const submitOrderRequest = createServerFn({ method: "POST" })
 
     const total = resolved.reduce((s, { item, product }) => s + product.priceAed * item.qty, 0);
 
-    const { data: req, error: reqErr } = await supabase
+    const requestId = crypto.randomUUID();
+    const { error: reqErr } = await supabase
       .from("order_requests")
       .insert({
+        id: requestId,
         full_name: data.contact.fullName,
         email: data.contact.email,
         whatsapp: data.contact.whatsapp,
         notes: data.contact.notes || null,
         total_aed: total,
         status: "new",
-      })
-      .select("id")
-      .single();
+      });
 
-    if (reqErr || !req) {
+    if (reqErr) {
       console.error("order_requests insert failed", reqErr);
       throw new Error("Could not submit request. Please try again.");
     }
+    const req = { id: requestId };
 
     const itemRows = resolved.map(({ item: i, product }) => ({
       request_id: req.id,
