@@ -76,8 +76,8 @@ function Checkout() {
     try {
       // Validate file sizes
       for (const [k, f] of Object.entries(files)) {
-        if (f && f.size > 5 * 1024 * 1024) {
-          toast.error(`GPX file for item ${Number(k) + 1} exceeds 5 MB.`);
+        if (f && f.size > 50 * 1024 * 1024) {
+          toast.error(`GPX file for item ${Number(k) + 1} exceeds 50 MB.`);
           setSubmitting(false);
           return;
         }
