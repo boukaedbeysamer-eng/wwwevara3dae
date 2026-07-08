@@ -178,7 +178,7 @@ function Checkout() {
           <div>
             <SectionLabel n="02" t="Your runs" />
             <p className="mt-3 text-sm text-foreground/60">
-              Tell us about the run for each frame, and attach the GPX file (.gpx, max 5 MB).
+              Attach your GPX file (max 50MB).
             </p>
             <div className="mt-6 space-y-8">
               {items.map((it, idx) => (
