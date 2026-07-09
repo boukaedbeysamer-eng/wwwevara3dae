@@ -4,6 +4,7 @@ import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
 import keepsakerImg from "@/assets/carousel/keepsaker-goat-ultra.png.asset.json";
 import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
+import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
