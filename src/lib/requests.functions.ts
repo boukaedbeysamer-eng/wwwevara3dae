@@ -91,8 +91,43 @@ export const submitOrderRequest = createServerFn({ method: "POST" })
       throw new Error("Could not save order items. Please try again.");
     }
 
+    // Fire-and-log emails via edge function; do not fail the request if email fails.
+    try {
+      const emailRes = await fetch(`${process.env.SUPABASE_URL}/functions/v1/send-order-emails`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${process.env.SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          requestId: req.id,
+          contact: data.contact,
+          items: resolved.map(({ item: i, product }) => ({
+            productName: product.name,
+            qty: i.qty,
+            unitPriceAed: product.priceAed,
+            frameFinish: i.frameFinish,
+            mapColor: i.mapColor,
+            trackColor: i.trackColor,
+            runName: i.runName ?? null,
+            runLocation: i.runLocation ?? null,
+            runDistanceKm: i.runDistanceKm ?? null,
+            runElevationM: i.runElevationM ?? null,
+            runDate: i.runDate ?? null,
+            runTime: i.runTime ?? null,
+            gpxPath: i.gpxPath ?? null,
+          })),
+          totalAed: total,
+        }),
+      });
+      if (!emailRes.ok) console.error("send-order-emails non-ok", emailRes.status, await emailRes.text());
+    } catch (e) {
+      console.error("send-order-emails invoke failed", e);
+    }
+
     return { id: req.id as string };
   });
+
 
 export const subscribeNewsletter = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) =>
