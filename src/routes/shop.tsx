@@ -60,6 +60,7 @@ function Shop() {
             </div>
           </Link>
         ))}
+        </div>
       </div>
     </section>
   );
