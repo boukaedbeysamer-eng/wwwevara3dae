@@ -6,6 +6,7 @@ import { FrameVisual } from "@/components/frame-visual";
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
+import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -123,7 +124,7 @@ function Home() {
                   />
                 ) : i === 3 ? (
                   <img
-                    src={frame3dMapGoatHex.url}
+                    src={frame3dHexMap.url}
                     alt={`${p.name} 3D-printed topographic hex plaque`}
                     className="aspect-square w-full object-cover"
                   />
