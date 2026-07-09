@@ -8,7 +8,7 @@ const CORS = {
 };
 
 const ADMIN_TO = "info@evara3d.ae";
-const FROM = "Evara3D <onboarding@resend.dev>"; // TODO: swap to notify@evara3d.ae once domain verified in Resend
+const FROM = "Evara3D <notify@evara3d.ae>";
 
 type Item = {
   productName: string;
