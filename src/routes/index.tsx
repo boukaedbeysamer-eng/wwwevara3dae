@@ -173,7 +173,7 @@ function Home() {
       {/* Quote block */}
       <section className="mx-auto max-w-4xl px-6 py-32 text-center">
         <p className="font-display text-3xl leading-snug text-foreground md:text-4xl">
-          "STRAVA REMEMBERS THE DATA. EVARA DISPLAY IT"
+          "STRAVA KEEPS THE DATA. EVARA DISPLAY IT"
         </p>
         <div className="mt-6 text-xs uppercase tracking-[0.22em] text-foreground/50">
           — PLACES . MOMENTS . MEMORIES .
