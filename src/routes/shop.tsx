@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRODUCTS } from "@/data/products";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
 import frame3dMap from "@/assets/carousel/frame-3d-map.jpg.asset.json";
-import keepsakerImg from "@/assets/carousel/goat-ultra-keepsaker.jpeg.asset.json";
+import keepsakerImg from "@/assets/carousel/keepsaker-goat-ultra.png.asset.json";
 import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
 
 export const Route = createFileRoute("/shop")({
