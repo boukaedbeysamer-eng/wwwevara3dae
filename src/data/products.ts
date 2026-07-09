@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     name: "Legacy",
     tagline: "Map, medal, and BIB — together.",
     priceAed: 350,
-    frameSize: "28 × 50 cm deep frame",
+    frameSize: "28 × 55 CM DEEP FRAME",
     mapSize: "11 × 12 cm 3D-printed terrain",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
