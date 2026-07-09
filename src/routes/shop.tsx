@@ -32,7 +32,7 @@ function Shop() {
       <div className="mt-16 grid gap-14 md:grid-cols-3">
         {PRODUCTS.map((p) => (
           <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
-            <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${p.slug === "keepsaker" || p.slug === "3d-map-display" ? "" : "p-8"}`}>
+            <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${p.slug === "keepsaker" || p.slug === "achiever" || p.slug === "3d-map-display" ? "" : "p-8"}`}>
               {p.slug === "keepsaker" && (
                 <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
               )}
