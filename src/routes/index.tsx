@@ -124,7 +124,7 @@ function Home() {
                   />
                 ) : i === 3 ? (
                   <img
-                    src={frame3dMapGoatHex.url}
+                    src={frame3dHexMap.url}
                     alt={`${p.name} 3D-printed topographic hex plaque`}
                     className="aspect-square w-full object-cover"
                   />
