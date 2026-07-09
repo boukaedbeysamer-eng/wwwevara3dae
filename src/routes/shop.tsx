@@ -3,7 +3,7 @@ import { PRODUCTS } from "@/data/products";
 import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
 import frame3dMap from "@/assets/carousel/frame-3d-map.jpg.asset.json";
 import keepsakerImg from "@/assets/carousel/goat-ultra-keepsaker.jpeg.asset.json";
-import achieverImg from "@/assets/carousel/frame-achiever-goat.jpg.asset.json";
+import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
