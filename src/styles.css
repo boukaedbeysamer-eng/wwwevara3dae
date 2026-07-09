@@ -117,6 +117,14 @@
   animation: whatsapp-pulse 2s infinite;
 }
 
+@utility text-shadow-sm {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+@utility text-shadow-md {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
 /* Topographic contour decoration */
 .topo-lines {
   background-image:
