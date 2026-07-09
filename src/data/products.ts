@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
     slug: "keepsaker",
     name: "Keepsaker",
     tagline: "The first finish line, framed.",
-    priceAed: 200,
+    priceAed: 220,
     frameSize: "21 × 30 cm deep frame",
     mapSize: "10 × 11 cm 3D-printed terrain",
     includes: [
