@@ -20,8 +20,13 @@ export const Route = createFileRoute("/shop")({
 
 function Shop() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
-      <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
+    <section
+      className="relative mx-auto max-w-7xl px-6 py-20 bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgImg.url})` }}
+    >
+      <div className="absolute inset-0 bg-ink/80" />
+      <div className="relative">
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
       <h1 className="mt-3 max-w-2xl font-display text-5xl text-foreground md:text-6xl">
         Choose your frame.
       </h1>
