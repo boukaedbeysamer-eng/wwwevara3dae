@@ -29,7 +29,7 @@ const trackHex = (t?: TrackColor) => {
 
 export function FrameVisual({
   size = "md",
-  frameFinish = "White Matt",
+  frameFinish = "White Matte",
   mapColor = "Black",
   trackColor = "Red",
   className = "",
@@ -38,7 +38,7 @@ export function FrameVisual({
   const fc = frameColor(frameFinish);
   const rc = reliefColor(mapColor);
   const tc = trackHex(trackColor);
-  const isLight = frameFinish === "White Matt";
+  const isLight = frameFinish === "White Matte";
 
   return (
     <div className={`relative w-full ${aspect} ${className}`}>

@@ -10,7 +10,7 @@ export type FrameDetails = {
 };
 
 const FRAME_COLOR: Record<FrameFinish, string> = {
-  "White Matt": "#f4f2ee",
+  "White Matte": "#f4f2ee",
   "Matte Black": "#111111",
   Wooden: "#8a5a2b",
 };

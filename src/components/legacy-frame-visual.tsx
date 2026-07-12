@@ -38,7 +38,7 @@ export function LegacyFrameVisual({
   const fc = frameColor(frameFinish);
   const rc = reliefColor(mapColor);
   const tc = trackHex(trackColor);
-  const isLight = frameFinish === "White Matt";
+  const isLight = frameFinish === "White Matte";
 
   return (
     <div className={`relative w-full ${aspect} ${className}`}>
