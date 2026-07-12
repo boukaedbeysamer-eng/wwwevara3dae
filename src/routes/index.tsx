@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
-import { FrameVisual } from "@/components/frame-visual";
+
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
@@ -16,6 +16,7 @@ import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
 import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
+import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
   { img: frameGoatUltraTrailRace.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
@@ -109,7 +110,7 @@ function Home() {
               params={{ slug: p.slug }}
               className="group block"
             >
-              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 3 ? "" : "p-8"}`}>
+              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 2 || i === 3 ? "" : "p-8"}`}>
                 {i === 0 ? (
                   <img
                     src={frameKeepsakerGoat.url}
@@ -122,19 +123,19 @@ function Home() {
                     alt={`${p.name} 3D-printed topographic frame with medal`}
                     className="aspect-square w-full object-cover"
                   />
+                ) : i === 2 ? (
+                  <img
+                    src={heroLegacy.url}
+                    alt={`${p.name} 3D-printed topographic frame with medal and BIB`}
+                    className="aspect-square w-full object-cover"
+                  />
                 ) : i === 3 ? (
                   <img
                     src={frame3dHexMap.url}
                     alt={`${p.name} 3D-printed topographic hex plaque`}
                     className="aspect-square w-full object-cover"
                   />
-                ) : (
-                  <FrameVisual
-                    frameFinish="Wooden"
-                    mapColor="Black"
-                    trackColor="Red"
-                  />
-                )}
+                ) : null}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
                 <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
