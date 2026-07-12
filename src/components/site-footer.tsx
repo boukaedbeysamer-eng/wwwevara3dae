@@ -52,8 +52,9 @@ export function SiteFooter() {
 
         <div>
           <div className="text-xs uppercase tracking-[0.22em] text-paper/40">Field notes</div>
-          <p className="mt-5 text-sm text-paper/70">
-            New drops, race-day frames, and shop stories — twice a month, never more.
+          <p className="mt-5 text-sm leading-relaxed text-paper/70">
+            Real runs. Real terrain. Real stories.<br />
+            Be first to see new frame drops, featured athlete moments, and exclusive community offers. No noise, just the good stuff.
           </p>
           <form onSubmit={onSubmit} className="mt-5 flex">
             <input
