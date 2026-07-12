@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
-import { FrameVisual } from "@/components/frame-visual";
+
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
