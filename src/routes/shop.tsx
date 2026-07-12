@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRODUCTS } from "@/data/products";
-import { LegacyFrameVisual } from "@/components/legacy-frame-visual";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
 import keepsakerImg from "@/assets/carousel/keepsaker-goat-ultra.png.asset.json";
 import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
+import legacyImg from "@/assets/carousel/legacy-goat-ultra-peaks.jpg.asset.json";
 import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
 
 export const Route = createFileRoute("/shop")({
@@ -38,14 +38,16 @@ function Shop() {
         <div className="mt-16 grid gap-14 md:grid-cols-3">
           {PRODUCTS.map((p) => (
             <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
-              <div className={`bg-card transition-colors group-hover:bg-secondary ${p.slug === "keepsaker" || p.slug === "achiever" || p.slug === "3d-map-display" ? "" : "p-8"}`}>
+              <div className={`bg-card transition-colors group-hover:bg-secondary ${p.slug === "keepsaker" || p.slug === "achiever" || p.slug === "legacy" || p.slug === "3d-map-display" ? "" : "p-8"}`}>
                 {p.slug === "keepsaker" && (
                   <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
                 )}
                 {p.slug === "achiever" && (
                   <img src={achieverImg.url} alt={`${p.name} 3D-printed topographic frame with medal`} className="aspect-square w-full object-cover" />
                 )}
-                {p.slug === "legacy" && <LegacyFrameVisual />}
+                {p.slug === "legacy" && (
+                  <img src={legacyImg.url} alt={`${p.name} 3D-printed topographic frame with medal and BIB`} className="aspect-square w-full object-cover" />
+                )}
                 {p.slug === "3d-map-display" && (
                   <img src={frame3dMap.url} alt={`${p.name} 3D-printed topographic hex plaque`} className="aspect-square w-full object-cover" />
                 )}
