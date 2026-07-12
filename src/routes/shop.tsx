@@ -40,7 +40,7 @@ function Shop() {
             <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
               <div className={`bg-card transition-colors group-hover:bg-secondary ${p.slug === "keepsaker" || p.slug === "achiever" || p.slug === "3d-map-display" ? "" : "p-8"}`}>
                 {p.slug === "keepsaker" && (
-                  <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-contain" />
+                  <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
                 )}
                 {p.slug === "achiever" && (
                   <img src={achieverImg.url} alt={`${p.name} 3D-printed topographic frame with medal`} className="aspect-square w-full object-cover" />
