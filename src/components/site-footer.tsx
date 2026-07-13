@@ -79,7 +79,7 @@ export function SiteFooter() {
       <div className="border-t border-paper/10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-2 px-6 py-6 text-xs text-paper/40 md:flex-row">
           <span>© {new Date().getFullYear()} Evara3D FZC. All rights reserved.</span>
-          <span>Built for runners, by runners.</span>
+          <span></span>
         </div>
       </div>
     </footer>
