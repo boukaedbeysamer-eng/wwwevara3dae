@@ -17,6 +17,7 @@ import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.as
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
 import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
 import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
+import legacyFrame from "@/assets/carousel/IMG_6699.jpg.asset.json";
 
 const CAROUSEL_ITEMS = [
   { img: frameGoatUltraTrailRace.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
