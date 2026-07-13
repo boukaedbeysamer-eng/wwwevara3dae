@@ -92,17 +92,17 @@ function Home() {
       </section>
 
       {/* Trio of products */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="bg-terrain mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
+            <span className="text-xs uppercase tracking-[0.28em] text-foreground">The collection</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
               Four frames. One memory.
             </h2>
           </div>
           <Link
             to="/shop"
-            className="hidden text-xs uppercase tracking-[0.22em] text-foreground hover:text-terrain md:inline"
+            className="hidden text-xs uppercase tracking-[0.22em] text-foreground hover:text-foreground/80 md:inline"
           >
             See all →
           </Link>
