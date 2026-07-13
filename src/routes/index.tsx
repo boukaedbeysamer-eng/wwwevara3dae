@@ -126,7 +126,7 @@ function Home() {
                   />
                 ) : i === 2 ? (
                   <img
-                    src={heroLegacy.url}
+                    src={legacyFrame.url}
                     alt={`${p.name} 3D-printed topographic frame with medal and BIB`}
                     className="aspect-square w-full object-cover"
                   />
