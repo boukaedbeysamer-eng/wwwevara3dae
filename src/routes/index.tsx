@@ -92,7 +92,7 @@ function Home() {
       </section>
 
       {/* Trio of products */}
-      <section className="bg-terrain mx-auto max-w-7xl px-6 py-24">
+      <section className="bg-background mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-foreground">The collection</span>
