@@ -14,6 +14,7 @@ import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asse
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
 import frameGoatMedal from "@/assets/carousel/frame-goat-medal.jpg.asset.json";
+import frameLegacyGoat from "@/assets/gallery/legacy-goat-ultra.jpg.asset.json";
 
 const GALLERY_IMAGES = [
   { src: frameLegendary.url, title: "PORTABLE 3D HEX MAP DISPLAY", caption: "Premium stand-mounted relief for your proudest moment." },
