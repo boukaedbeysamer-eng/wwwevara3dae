@@ -28,7 +28,7 @@ const GALLERY_IMAGES = [
   { src: frameGoatUltraStand.url, title: "GOAT ULTRA HEX WITH STAND", caption: "Hex relief paired with a honeycomb display stand." },
   { src: frameLisKalba.url, title: "Lis Kalba Hex", caption: "Hex relief plaque of the 8.7KM Kalba route." },
   { src: frameLisKalbaStand.url, title: "LIS KALBA HEX\u00a0 WITH STAND", caption: "Kalba hex paired with a honeycomb display stand." },
-  { src: frameGoatYellow.url, title: "GOAT Ultra — Yellow Frame", caption: "50KM finisher display in a bold yellow shadow-box frame." },
+  { src: frameGoatYellow.url, title: "GOAT ULTRA TRAIL RACE 50KM\u00a0 — WHITE FRAME\u00a0", caption: "50KM finisher medal display with a 3D Printed relief in a bold white frame." },
 ];
 
 export const Route = createFileRoute("/gallery")({
