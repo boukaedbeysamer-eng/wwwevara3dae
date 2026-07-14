@@ -4,7 +4,7 @@ import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json
 import keepsakerImg from "@/assets/carousel/keepsaker-goat-ultra.png.asset.json";
 import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
 import legacyImg from "@/assets/carousel/legacy-goat-ultra-race-director-2.jpg.asset.json";
-import bgImg from "@/assets/shop-topo-bg.jpg.asset.json";
+import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -22,13 +22,9 @@ function Shop() {
   return (
     <section
       className="relative mx-auto max-w-7xl px-6 py-20 bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${bgImg.url})`,
-        opacity: 1,
-        filter: "grayscale(100%) contrast(4) brightness(1.8) drop-shadow(0 0 4px rgba(255,255,255,0.6))",
-      }}
+      style={{ backgroundImage: `url(${bgImg.url})` }}
     >
-      <div className="absolute inset-0 bg-background/80" />
+      <div className="absolute inset-0 bg-ink/92 backdrop-blur-[2px]" />
       <div className="relative">
         <span className="text-xs uppercase tracking-[0.28em] text-terrain text-shadow-sm">The collection</span>
         <h1 className="mt-3 max-w-2xl font-display text-5xl text-foreground text-shadow-md md:text-6xl">
