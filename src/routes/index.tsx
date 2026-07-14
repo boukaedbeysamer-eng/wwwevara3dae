@@ -54,14 +54,14 @@ function Home() {
       {/* Hero */}
       <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden border-b border-foreground/10">
         <img
-          src={heroTerrainBg}
+          src={heroTerrainBg.url}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-right"
           width={1920}
           height={1200}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/60 to-background/30" />
         <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-center px-6 py-24 md:py-32">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.32em] text-terrain md:text-sm">
