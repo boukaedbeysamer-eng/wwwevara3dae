@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
+import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
@@ -112,7 +113,14 @@ function Home() {
       </section>
 
       {/* Trio of products */}
-      <section className="bg-background mx-auto max-w-7xl px-6 py-24">
+      <section className="relative bg-background overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: `url(${collectionTopoBg.url})` }}
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-foreground">The collection</span>
@@ -169,6 +177,7 @@ function Home() {
               <p className="mt-2 text-sm text-foreground/90">{p.tagline}</p>
             </Link>
           ))}
+        </div>
         </div>
       </section>
 
