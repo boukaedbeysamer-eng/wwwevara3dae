@@ -8,6 +8,7 @@ import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-goat-v2.png.asset.json";
+import frameAchieverMedalV3 from "@/assets/carousel/frame-achiever-goat-v3.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
@@ -18,7 +19,6 @@ import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asse
 import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
-import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
 import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
 import legacyFrame from "@/assets/carousel/IMG_6699.jpg.asset.json";
 import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-director.png.asset.json";
@@ -26,7 +26,7 @@ import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-directo
 
 const CAROUSEL_ITEMS = [
   { img: legacyRaceDirector.url, name: "Legacy — Race Director Edition", desc: "GOAT Ultra Trail Race framed with medal, map, and BIB." },
-  { img: frameGoatUltraTrailRace.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
+  { img: frameAchieverMedalV3.url, name: "GOAT Ultra Trail Race — Achiever", desc: "Medal, hex map, and your race stats — framed together." },
 
   { img: frameSlmt.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
