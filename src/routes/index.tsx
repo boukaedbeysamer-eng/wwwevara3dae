@@ -52,7 +52,7 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-foreground/30/10">
+      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden border-b border-foreground/10">
         <img
           src={heroTerrainBg}
           alt=""
@@ -61,47 +61,47 @@ function Home() {
           height={1200}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-transparent" />
-        <div className="topo-lines absolute inset-0 opacity-10" />
-        <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32 lg:py-40">
-          <div className="flex flex-col justify-center">
-            <span className="text-[20px] uppercase tracking-[0.28em] text-terrain">
-              PLACES . MOMENTS . MEMORIES .
+        <div className="absolute inset-0 bg-background/50" />
+        <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-center px-6 py-24 md:py-32">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-[0.32em] text-terrain md:text-sm">
+              Places . Moments . Memories .
             </span>
             <h1
-              className="mt-6 font-display text-2xl uppercase leading-relaxed text-foreground drop-shadow-2xl md:text-3xl"
-              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.45)" }}
+              className="mt-6 font-display text-5xl font-bold uppercase leading-[0.95] text-foreground md:text-7xl lg:text-8xl"
+              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.55)" }}
             >
-              EVARA TURNS MEANINGFUL MOMENTS INTO<br />
-              PERSONALIZED PIECES MADE TO LAST.<br />
-              FROM THE PLACES YOU LOVE, TO THE<br />
-              MEMORIES YOU NEVER WANT TO FORGET.<br />
-              YOUR STORY. BEAUTIFULLY PRESERVED.
+              Preserve the route.
+              <br />
+              Honor the effort.
             </h1>
-            <p className="mt-8 max-w-lg text-base leading-relaxed text-foreground/70">
-              Upload a GPX file from any run. We translate the terrain you crossed into
-              a precision&nbsp; 3D-printed topographic frame — your distance, elevation, and
-              date set in type beneath it.
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/85 md:text-lg">
+              Evara turns meaningful moments into personalized pieces made to last. We
+              transform your athletic achievements and digital GPS data into precision
+              3D-printed topographic art.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/shop"
-                className="bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper transition-colors hover:bg-terrain"
+                className="bg-terrain px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
               >
-                Shop the frames
+                Explore Collection
               </Link>
               <Link
                 to="/about"
-                className="border border-foreground/30 px-6 py-4 text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-terrain hover:text-paper"
+                className="border border-foreground/70 bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                How it's made
+                Our Story
               </Link>
             </div>
           </div>
-          <div className="relative w-full">
-            <FrameCarousel />
-          </div>
+        </div>
+      </section>
 
+      {/* Featured frames carousel */}
+      <section className="relative overflow-hidden bg-background border-b border-foreground/10">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <FrameCarousel />
         </div>
       </section>
 
