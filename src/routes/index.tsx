@@ -53,7 +53,16 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-foreground/30/10">
-        <div className="topo-lines absolute inset-0 opacity-60" />
+        <img
+          src={heroTerrainBg}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={1200}
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-transparent" />
+        <div className="topo-lines absolute inset-0 opacity-10" />
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32 lg:py-40">
           <div className="flex flex-col justify-center">
             <span className="text-[20px] uppercase tracking-[0.28em] text-terrain">
