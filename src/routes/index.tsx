@@ -119,11 +119,12 @@ function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${collectionTopoBg.url})`,
-            opacity: 0.65,
-            filter: "grayscale(100%) contrast(2.4) brightness(1.7)",
+            opacity: 0.8,
+            mixBlendMode: "screen",
+            filter: "grayscale(100%) contrast(2.5) brightness(1.5)",
           }}
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background/35 to-background" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
         <div className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
