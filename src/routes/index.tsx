@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 
+import heroTerrainBg from "@/assets/hero-terrain-bg.jpg";
+
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
@@ -51,13 +53,25 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-foreground/30/10">
-        <div className="topo-lines absolute inset-0 opacity-60" />
+        <img
+          src={heroTerrainBg}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={1200}
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-transparent" />
+        <div className="topo-lines absolute inset-0 opacity-10" />
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32 lg:py-40">
           <div className="flex flex-col justify-center">
             <span className="text-[20px] uppercase tracking-[0.28em] text-terrain">
               PLACES . MOMENTS . MEMORIES .
             </span>
-            <h1 className="mt-6 font-display text-xl uppercase leading-relaxed text-foreground">
+            <h1
+              className="mt-6 font-display text-2xl uppercase leading-relaxed text-foreground drop-shadow-2xl md:text-3xl"
+              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.45)" }}
+            >
               EVARA TURNS MEANINGFUL MOMENTS INTO<br />
               PERSONALIZED PIECES MADE TO LAST.<br />
               FROM THE PLACES YOU LOVE, TO THE<br />
