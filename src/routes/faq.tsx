@@ -40,7 +40,7 @@ const faqs = [
 function FAQ() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-24">
-      <span className="text-xs uppercase tracking-[0.28em] text-terrain">Help</span>
+      <span className="text-[40px] uppercase tracking-[0.28em] text-terrain">Help</span>
       <h1 className="mt-3 font-display text-5xl text-foreground">Frequently asked.</h1>
       <div className="mt-12 divide-y divide-ink/10 border-y border-foreground/30/10">
         {faqs.map((f) => (
