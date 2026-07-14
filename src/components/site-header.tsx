@@ -15,7 +15,7 @@ export function SiteHeader() {
   const nav = [
     { to: "/about", label: "The Studio" },
     { to: "/shop", label: "Collection" },
-    { to: "/gallery", label: "Community" },
+    { to: "/gallery", label: "Gallery" },
     { to: "/faq", label: "Process" },
   ];
 
