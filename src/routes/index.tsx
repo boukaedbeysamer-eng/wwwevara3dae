@@ -19,7 +19,6 @@ import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asse
 import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
-import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
 import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
 import legacyFrame from "@/assets/carousel/IMG_6699.jpg.asset.json";
 import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-director.png.asset.json";
