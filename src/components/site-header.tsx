@@ -13,7 +13,7 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const nav = [
-    { to: "/about", label: "The Studio" },
+    { to: "/about", label: "Our Story" },
     { to: "/shop", label: "Collection" },
     { to: "/gallery", label: "Gallery" },
     { to: "/faq", label: "Process" },
