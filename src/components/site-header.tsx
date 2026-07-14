@@ -13,10 +13,10 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const nav = [
-    { to: "/shop", label: "Shop" },
-    { to: "/gallery", label: "Gallery" },
-    { to: "/about", label: "Story" },
-    { to: "/faq", label: "FAQ" },
+    { to: "/about", label: "The Studio" },
+    { to: "/shop", label: "Collection" },
+    { to: "/gallery", label: "Community" },
+    { to: "/faq", label: "Process" },
   ];
 
   useEffect(() => {
@@ -42,15 +42,23 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link
-          to="/cart"
-          className="group relative hidden items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain md:inline-flex"
-        >
-          Cart
-          <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper group-hover:bg-terrain">
-            {count}
-          </span>
-        </Link>
+        <div className="hidden items-center gap-4 md:flex">
+          <Link
+            to="/shop"
+            className="bg-terrain px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+          >
+            Shop Online
+          </Link>
+          <Link
+            to="/cart"
+            className="group relative inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain"
+          >
+            Cart
+            <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper">
+              {count}
+            </span>
+          </Link>
+        </div>
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
