@@ -75,10 +75,16 @@ function Home() {
               <br />
               Honor the effort.
             </h1>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/85 md:text-lg">
-              Evara turns meaningful moments into personalized pieces made to last. We
-              transform your athletic achievements and digital GPS data into precision
-              3D-printed topographic art.
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/85 md:text-lg uppercase">
+              Evara turns meaningful moments into
+              <br />
+              personalized pieces made to last.
+              <br />
+              From the places you love, to the
+              <br />
+              memories you never want to forget.
+              <br />
+              Your story. Beautifully preserved.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
