@@ -19,6 +19,7 @@ import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 import frameGoatTrailRace from "@/assets/carousel/frame-goat-trail-race.jpg.asset.json";
 import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
+import frameCarouselHexMedal from "@/assets/carousel/IMG_6592-4.PNG.asset.json";
 import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
 import legacyFrame from "@/assets/carousel/IMG_6699.jpg.asset.json";
 import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-director.png.asset.json";
@@ -26,7 +27,7 @@ import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-directo
 
 const CAROUSEL_ITEMS = [
   { img: legacyRaceDirector.url, name: "Legacy — Race Director Edition", desc: "GOAT Ultra Trail Race framed with medal, map, and BIB." },
-  { img: frameGoatUltraTrailRace.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
+  { img: frameCarouselHexMedal.url, name: "PORTABLE 3D HEX MAP DISPLAY", desc: "Premium stand-mounted relief for your proudest moment." },
 
   { img: frameSlmt.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: frameMushrif.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
