@@ -178,6 +178,7 @@ function Home() {
             </Link>
           ))}
         </div>
+        </div>
       </section>
 
       {/* How it works */}
