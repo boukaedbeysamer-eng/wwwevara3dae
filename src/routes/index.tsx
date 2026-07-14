@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 
-import heroTerrainBg from "@/assets/hero-terrain-bg.jpg";
+import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-medal-goat.png.asset.json";
