@@ -68,7 +68,10 @@ function Home() {
             <span className="text-[20px] uppercase tracking-[0.28em] text-terrain">
               PLACES . MOMENTS . MEMORIES .
             </span>
-            <h1 className="mt-6 font-display text-xl uppercase leading-relaxed text-foreground">
+            <h1
+              className="mt-6 font-display text-2xl uppercase leading-relaxed text-foreground drop-shadow-2xl md:text-3xl"
+              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.45)" }}
+            >
               EVARA TURNS MEANINGFUL MOMENTS INTO<br />
               PERSONALIZED PIECES MADE TO LAST.<br />
               FROM THE PLACES YOU LOVE, TO THE<br />
