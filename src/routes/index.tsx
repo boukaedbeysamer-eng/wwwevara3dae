@@ -34,7 +34,7 @@ const CAROUSEL_ITEMS = [
 
   { img: pomelliPhotoshootImage9_16.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: pomelliPhotoshoot0715.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
-  { img: frameGoatTrailRace.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
+  { img: pomelliPhotoshoot0715_2.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
   { img: frameGoatUltra.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
   { img: frameGoatUltraStand.url, name: "GOAT ULTRA HEX WITH STAND", desc: "Hex relief paired with a honeycomb display stand." },
   { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
