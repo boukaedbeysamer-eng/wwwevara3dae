@@ -18,7 +18,6 @@ import pomelliPhotoshoot0715_2 from "@/assets/carousel/pomelli-photoshoot-0715_2
 import pomelliPhotoshootImage9_16 from "@/assets/carousel/pomelli-photoshoot-image-9-16-0715.png.asset.json";
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
-import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
 import goatUltraHex0715 from "@/assets/carousel/goat-ultra-hex-0715.png.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 
