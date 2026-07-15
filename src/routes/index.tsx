@@ -18,7 +18,7 @@ import pomelliPhotoshoot0715_2 from "@/assets/carousel/pomelli-photoshoot-0715_2
 import pomelliPhotoshootImage9_16 from "@/assets/carousel/pomelli-photoshoot-image-9-16-0715.png.asset.json";
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
-import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
+import goatUltraHex0715 from "@/assets/carousel/goat-ultra-hex-0715.png.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
 
 import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
@@ -35,7 +35,7 @@ const CAROUSEL_ITEMS = [
   { img: pomelliPhotoshootImage9_16.url, name: "Spring Lebanon Mountain Trail", desc: "Framed relief of the SLMT route — Choucrallah Karam." },
   { img: pomelliPhotoshoot0715.url, name: "Mushrif Park Run", desc: "Oak-framed 8KM Mushrif Park route in the UAE." },
   { img: pomelliPhotoshoot0715_2.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
-  { img: frameGoatUltra.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
+  { img: goatUltraHex0715.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
   { img: frameGoatUltraStand.url, name: "GOAT ULTRA HEX WITH STAND", desc: "Hex relief paired with a honeycomb display stand." },
   { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
   { img: frameLisKalbaStand.url, name: "LIS KALBA HEX\u00a0 WITH STAND", desc: "Kalba hex paired with a honeycomb display stand." },
