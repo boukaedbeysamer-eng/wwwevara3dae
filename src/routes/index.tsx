@@ -16,7 +16,7 @@ import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
 import pomelliPhotoshoot0715 from "@/assets/carousel/pomelli-photoshoot-0715.png.asset.json";
 import pomelliPhotoshoot0715_2 from "@/assets/carousel/pomelli-photoshoot-0715_2.png.asset.json";
 import pomelliPhotoshootImage9_16 from "@/assets/carousel/pomelli-photoshoot-image-9-16-0715.png.asset.json";
-import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
+import pomelliPhotoshootLisKalba from "@/assets/carousel/pomelli-photoshoot-lis-kalba-0715.png.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
 import goatUltraHex0715 from "@/assets/carousel/goat-ultra-hex-0715.png.asset.json";
 import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.asset.json";
@@ -37,7 +37,7 @@ const CAROUSEL_ITEMS = [
   { img: pomelliPhotoshoot0715_2.url, name: "GOAT Ultra Trail Race", desc: "98.61KM ultra in a deep shadow-box frame." },
   { img: goatUltraHex0715.url, name: "GOAT Ultra Hex", desc: "Standalone hex plaque — 100KM, 6450M elevation." },
   { img: frameGoatUltraStand.url, name: "GOAT ULTRA HEX WITH STAND", desc: "Hex relief paired with a honeycomb display stand." },
-  { img: frameLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
+  { img: pomelliPhotoshootLisKalba.url, name: "Lis Kalba Hex", desc: "Hex relief plaque of the 8.7KM Kalba route." },
   { img: frameLisKalbaStand.url, name: "LIS KALBA HEX\u00a0 WITH STAND", desc: "Kalba hex paired with a honeycomb display stand." },
 ];
 
