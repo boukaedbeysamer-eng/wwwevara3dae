@@ -84,6 +84,18 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
+            <Link
+              to="/cart"
+              onClick={() => setOpen(false)}
+              className={`flex items-center gap-2 py-3 transition-colors hover:text-terrain ${
+                pathname.startsWith("/cart") ? "text-terrain" : "text-foreground/80"
+              }`}
+            >
+              Cart
+              <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper">
+                {count}
+              </span>
+            </Link>
           </nav>
         </div>
       )}
