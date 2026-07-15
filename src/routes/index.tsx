@@ -14,6 +14,7 @@ import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
 import pomelliPhotoshoot0715 from "@/assets/carousel/pomelli-photoshoot-0715.png.asset.json";
+import pomelliPhotoshootImage9_16 from "@/assets/carousel/pomelli-photoshoot-image-9-16-0715.png.asset.json";
 import frameLisKalba from "@/assets/carousel/frame-lis-kalba.jpg.asset.json";
 import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asset.json";
 import frameGoatUltra from "@/assets/carousel/frame-goat-ultra.jpg.asset.json";
