@@ -20,6 +20,10 @@ import photoLisKalbaHex from "@/assets/gallery/lis-kalba-hex-photoshoot.png.asse
 import photoGoatUltraTrail from "@/assets/gallery/goat-ultra-trail-photoshoot.png.asset.json";
 import photoSlmt from "@/assets/gallery/slmt-photoshoot.png.asset.json";
 import photoMushrif from "@/assets/gallery/mushrif-photoshoot.png.asset.json";
+import photoGoatMedalWhite from "@/assets/gallery/goat-ultra-medal-white-frame.jpeg.asset.json";
+import photoGoatKarisBlack from "@/assets/gallery/goat-ultra-karis-black-frame.jpeg.asset.json";
+
+
 
 const GALLERY_IMAGES = [
   { src: frameLegendary.url, title: "PORTABLE 3D HEX MAP DISPLAY", caption: "Premium stand-mounted relief for your proudest moment." },
