@@ -77,15 +77,16 @@ function GalleryPage() {
         {GALLERY_IMAGES.map((img) => (
           <button
             key={img.title}
-            className="group flex items-center justify-center overflow-hidden bg-secondary/60 p-4"
+            className="group aspect-[4/5] overflow-hidden bg-secondary/60"
             onClick={() => setOpenImage(img.src)}
           >
             <img
               src={img.src}
               alt={img.title}
-              className="max-h-[320px] w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </button>
+
         ))}
       </div>
 
