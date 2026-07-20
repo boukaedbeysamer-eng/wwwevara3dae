@@ -16,9 +16,17 @@ import frameLisKalbaStand from "@/assets/carousel/frame-lis-kalba-stand.jpg.asse
 import frameGoatMedal from "@/assets/carousel/frame-goat-medal.jpg.asset.json";
 import frameLegacyGoat from "@/assets/gallery/IMG_6698-2.PNG.asset.json";
 import frameGoatYellow from "@/assets/gallery/goat-yellow-frame.png.asset.json";
+import photoLisKalbaHex from "@/assets/gallery/lis-kalba-hex-photoshoot.png.asset.json";
+import photoGoatUltraTrail from "@/assets/gallery/goat-ultra-trail-photoshoot.png.asset.json";
+import photoSlmt from "@/assets/gallery/slmt-photoshoot.png.asset.json";
+import photoMushrif from "@/assets/gallery/mushrif-photoshoot.png.asset.json";
 
 const GALLERY_IMAGES = [
   { src: frameLegendary.url, title: "PORTABLE 3D HEX MAP DISPLAY", caption: "Premium stand-mounted relief for your proudest moment." },
+  { src: photoGoatUltraTrail.url, title: "GOAT Ultra Trail Race — Framed", caption: "98.61KM ultra in a deep shadow-box frame." },
+  { src: photoSlmt.url, title: "Spring Lebanon Mountain Trail — Framed", caption: "Framed relief of the SLMT route — Choucrallah Karam." },
+  { src: photoMushrif.url, title: "Mushrif Park Run — Oak Frame", caption: "Oak-framed 8KM Mushrif Park route." },
+  { src: photoLisKalbaHex.url, title: "Lis Kalba Hex — 8.7KM", caption: "Hex relief plaque of the 8.7KM Kalba route." },
   { src: frameSlmt.url, title: "Spring Lebanon Mountain Trail", caption: "Framed relief of the SLMT route — Choucrallah Karam." },
   { src: frameMushrif.url, title: "Mushrif Park Run", caption: "Oak-framed 8KM Mushrif Park route in the UAE." },
   { src: frameGoatTrailRace.url, title: "GOAT Ultra Trail Race", caption: "98.61KM ultra in a deep shadow-box frame." },
