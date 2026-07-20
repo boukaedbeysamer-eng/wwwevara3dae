@@ -20,8 +20,14 @@ import photoLisKalbaHex from "@/assets/gallery/lis-kalba-hex-photoshoot.png.asse
 import photoGoatUltraTrail from "@/assets/gallery/goat-ultra-trail-photoshoot.png.asset.json";
 import photoSlmt from "@/assets/gallery/slmt-photoshoot.png.asset.json";
 import photoMushrif from "@/assets/gallery/mushrif-photoshoot.png.asset.json";
+import photoGoatMedalWhite from "@/assets/gallery/goat-ultra-medal-white-frame.jpeg.asset.json";
+import photoGoatKarisBlack from "@/assets/gallery/goat-ultra-karis-black-frame.jpeg.asset.json";
+
+
 
 const GALLERY_IMAGES = [
+  { src: photoGoatMedalWhite.url, title: "GOAT Ultra Trail Race — White Frame with Medal", caption: "White frame with hex relief and 100KM finisher medal." },
+  { src: photoGoatKarisBlack.url, title: "GOAT Ultra Trail Race — Karis Miriam Brown", caption: "Black frame with hex relief — 98.61KM." },
   { src: frameLegendary.url, title: "PORTABLE 3D HEX MAP DISPLAY", caption: "Premium stand-mounted relief for your proudest moment." },
   { src: photoGoatUltraTrail.url, title: "GOAT Ultra Trail Race — Framed", caption: "98.61KM ultra in a deep shadow-box frame." },
   { src: photoSlmt.url, title: "Spring Lebanon Mountain Trail — Framed", caption: "Framed relief of the SLMT route — Choucrallah Karam." },
