@@ -59,24 +59,18 @@ function GalleryPage() {
         </p>
       </div>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {GALLERY_IMAGES.map((img) => (
           <button
             key={img.title}
-            className="group text-left"
+            className="group flex items-center justify-center overflow-hidden bg-secondary/60 p-4"
             onClick={() => setOpenImage(img.src)}
           >
-            <div className="overflow-hidden bg-secondary/60">
-              <img
-                src={img.src}
-                alt={img.title}
-                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="mt-3">
-              <h3 className="font-display text-lg text-foreground">{img.title}</h3>
-              <p className="mt-1 text-sm text-foreground/60">{img.caption}</p>
-            </div>
+            <img
+              src={img.src}
+              alt={img.title}
+              className="max-h-[320px] w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
           </button>
         ))}
       </div>
