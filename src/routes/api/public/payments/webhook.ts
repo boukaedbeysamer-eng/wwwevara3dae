@@ -72,6 +72,7 @@ async function sendOrderEmails(requestId: string) {
         headers: {
           "content-type": "application/json",
           Authorization: `Bearer ${process.env.SUPABASE_PUBLISHABLE_KEY}`,
+          "x-webhook-secret": process.env.EMAIL_WEBHOOK_SECRET ?? "",
         },
         body: JSON.stringify(payload),
       },
@@ -111,6 +112,24 @@ async function handleSessionCompleted(session: any) {
   await sendOrderEmails(requestId);
 }
 
+async function handleSessionTerminal(session: any, newStatus: "expired" | "payment_failed") {
+  const requestId: string | undefined = session.metadata?.orderRequestId;
+  if (!requestId) return;
+  const supabase = getSupabase();
+  const { data: existing } = await supabase
+    .from("order_requests")
+    .select("status")
+    .eq("id", requestId)
+    .maybeSingle();
+  const current = (existing as any)?.status;
+  // Never overwrite a paid order; don't churn on repeat deliveries either.
+  if (current === "paid" || current === newStatus) return;
+  const { error } = await (supabase.from("order_requests") as any)
+    .update({ status: newStatus })
+    .eq("id", requestId);
+  if (error) console.error(`failed to mark order ${newStatus}`, requestId, error);
+}
+
 export const Route = createFileRoute("/api/public/payments/webhook")({
   server: {
     handlers: {
@@ -128,6 +147,12 @@ export const Route = createFileRoute("/api/public/payments/webhook")({
             case "checkout.session.async_payment_succeeded":
               await handleSessionCompleted(event.data.object);
               break;
+            case "checkout.session.expired":
+              await handleSessionTerminal(event.data.object, "expired");
+              break;
+            case "checkout.session.async_payment_failed":
+              await handleSessionTerminal(event.data.object, "payment_failed");
+              break;
             default:
               console.log("Unhandled payment event", event.type);
           }
@@ -140,3 +165,4 @@ export const Route = createFileRoute("/api/public/payments/webhook")({
     },
   },
 });
+
