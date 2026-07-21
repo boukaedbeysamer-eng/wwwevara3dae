@@ -1,19 +1,21 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useCallback, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
+import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import { useCart, cartTotal } from "@/lib/cart";
-import { submitOrderRequest } from "@/lib/requests.functions";
+import { createOrderCheckout } from "@/lib/payments.functions";
 import { supabase } from "@/integrations/supabase/client";
+import { getStripe, getStripeEnvironment } from "@/lib/stripe";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
-      { title: "Request your order — Evara3D" },
-      { name: "description", content: "Send your run details and GPX file to begin your custom Evara3D frame." },
+      { title: "Checkout — Evara3D" },
+      { name: "description", content: "Complete your Evara3D order and pay securely." },
     ],
   }),
   component: Checkout,
@@ -39,12 +41,12 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function Checkout() {
-  const navigate = useNavigate();
   const items = useCart((s) => s.items);
   const clear = useCart((s) => s.clear);
-  const submit = useServerFn(submitOrderRequest);
+  const createCheckout = useServerFn(createOrderCheckout);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -57,11 +59,18 @@ function Checkout() {
     },
   });
 
-  if (items.length === 0) {
+  const stripePromise = useMemo(() => getStripe(), []);
+  const checkoutOptions = useMemo(
+    () => (clientSecret ? { clientSecret, onComplete: () => clear() } : null),
+    [clientSecret, clear],
+  );
+  const fetchClientSecret = useCallback(async () => clientSecret ?? "", [clientSecret]);
+
+  if (items.length === 0 && !clientSecret) {
     return (
       <section className="mx-auto max-w-3xl px-6 py-32 text-center">
-        <h1 className="font-display text-4xl">Nothing to send yet</h1>
-        <p className="mt-3 text-foreground/70">Add a frame first, then come back to send your run details.</p>
+        <h1 className="font-display text-4xl">Nothing to check out</h1>
+        <p className="mt-3 text-foreground/70">Add a frame first, then come back to complete your order.</p>
         <Link to="/shop" className="mt-8 inline-block bg-terrain px-6 py-4 text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain">
           Choose a frame
         </Link>
@@ -74,7 +83,6 @@ function Checkout() {
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
     try {
-      // Validate file sizes
       for (const [k, f] of Object.entries(files)) {
         if (f && f.size > 50 * 1024 * 1024) {
           toast.error(`GPX file for item ${Number(k) + 1} exceeds 50 MB.`);
@@ -83,7 +91,6 @@ function Checkout() {
         }
       }
 
-      // Upload GPX files (best-effort)
       const uploadedPaths: (string | null)[] = await Promise.all(
         items.map(async (_, idx) => {
           const file = files[idx];
@@ -107,9 +114,7 @@ function Checkout() {
         const elevation = d.runElevationM ? Number(d.runElevationM) : null;
         return {
           productSlug: it.productSlug,
-          productName: it.name,
           qty: it.qty,
-          unitPriceAed: it.priceAed,
           frameFinish: it.frameFinish,
           mapColor: it.mapColor,
           trackColor: it.trackColor,
@@ -123,7 +128,7 @@ function Checkout() {
         };
       });
 
-      const res = await submit({
+      const res = await createCheckout({
         data: {
           contact: {
             fullName: values.fullName,
@@ -132,30 +137,52 @@ function Checkout() {
             notes: values.notes || null,
           },
           items: payloadItems,
+          environment: getStripeEnvironment(),
+          origin: window.location.origin,
         },
       });
 
-      clear();
-      navigate({ to: "/checkout/success/$id", params: { id: res.id } });
+      if ("error" in res) {
+        toast.error(res.error);
+        setSubmitting(false);
+        return;
+      }
+
+      setClientSecret(res.clientSecret);
     } catch (err) {
       console.error(err);
-      toast.error("Could not send request. Please try again.");
+      toast.error("Could not start checkout. Please try again.");
     } finally {
       setSubmitting(false);
     }
   };
 
+  if (clientSecret && checkoutOptions) {
+    return (
+      <section className="mx-auto max-w-3xl px-4 py-14">
+        <h1 className="font-display text-4xl text-foreground">Complete your payment</h1>
+        <p className="mt-3 text-foreground/70">
+          Pay securely below. You'll be taken to your confirmation page once payment succeeds.
+        </p>
+        <div className="mt-8 bg-white p-2">
+          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
+            <EmbeddedCheckout />
+          </EmbeddedCheckoutProvider>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-14">
-      <h1 className="font-display text-5xl text-foreground">Send your request</h1>
+      <h1 className="font-display text-5xl text-foreground">Checkout</h1>
       <p className="mt-3 max-w-xl text-foreground/70">
-        No payment now. Once we receive your run details, we'll WhatsApp you within 24
-        hours to confirm everything and arrange payment & shipping.
+        Enter your details and run information, then pay securely to confirm your order. We'll WhatsApp
+        you within 24 hours to arrange production and shipping.
       </p>
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 grid gap-12 md:grid-cols-[1.6fr_1fr]">
         <div className="space-y-12">
-          {/* Contact */}
           <div>
             <SectionLabel n="01" t="Your details" />
             <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -174,11 +201,10 @@ function Checkout() {
             </div>
           </div>
 
-          {/* Items */}
           <div>
             <SectionLabel n="02" t="Your runs" />
             <p className="mt-3 text-sm text-foreground/60">
-              GPX file is optional — once we receive your order request we will contact you for the GPX file.
+              GPX file is optional — once we receive your order we will contact you for the GPX file.
             </p>
             <div className="mt-6 space-y-8">
               {items.map((it, idx) => (
@@ -217,7 +243,7 @@ function Checkout() {
                           className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
                         />
                         <p className="mt-2 text-xs text-foreground/50">
-                          Once we receive your order request we will contact you for the GPX file.
+                          Once we receive your order we will contact you for the GPX file.
                         </p>
                       </Field>
                     </div>
@@ -229,7 +255,7 @@ function Checkout() {
         </div>
 
         <aside className="h-fit bg-secondary/60 p-8">
-          <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Your request</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Your order</div>
           <ul className="mt-5 space-y-3 text-sm">
             {items.map((i) => (
               <li key={i.id} className="flex justify-between gap-4">
@@ -239,7 +265,7 @@ function Checkout() {
             ))}
           </ul>
           <div className="mt-6 border-t border-foreground/30/15 pt-4 flex justify-between font-display text-xl">
-            <span>Estimated total</span>
+            <span>Total</span>
             <span>AED {total}</span>
           </div>
           <button
@@ -247,10 +273,10 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Sending…" : "Send request"}
+            {submitting ? "Preparing checkout…" : "Continue to payment"}
           </button>
           <p className="mt-4 text-xs text-foreground/55">
-            By sending, you agree we may contact you via email and WhatsApp about this order.
+            You'll pay securely on the next step. Shipping is arranged over WhatsApp after payment.
           </p>
         </aside>
       </form>
