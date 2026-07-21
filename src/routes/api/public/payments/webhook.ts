@@ -17,20 +17,22 @@ function getSupabase() {
 async function sendOrderEmails(requestId: string) {
   const supabase = getSupabase();
 
-  const { data: req, error: reqErr } = await supabase
+  const { data: reqRaw, error: reqErr } = await supabase
     .from("order_requests")
     .select("id, full_name, email, whatsapp, notes, total_aed")
     .eq("id", requestId)
     .maybeSingle();
+  const req = reqRaw as any;
   if (reqErr || !req) {
     console.error("order_requests fetch failed for email", requestId, reqErr);
     return;
   }
 
-  const { data: items, error: itemsErr } = await supabase
+  const { data: itemsRaw, error: itemsErr } = await supabase
     .from("order_request_items")
     .select("*")
     .eq("request_id", requestId);
+  const items = itemsRaw as any[] | null;
   if (itemsErr || !items) {
     console.error("order_request_items fetch failed for email", requestId, itemsErr);
     return;
