@@ -116,6 +116,16 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
   if (req.method !== "POST") return new Response("Method not allowed", { status: 405, headers: CORS });
 
+  // Shared-secret gate: only the payment webhook (which knows EMAIL_WEBHOOK_SECRET) can call this.
+  const expected = Deno.env.get("EMAIL_WEBHOOK_SECRET");
+  const provided = req.headers.get("x-webhook-secret");
+  if (!expected || !provided || provided !== expected) {
+    return new Response(JSON.stringify({ error: "unauthorized" }), {
+      status: 401,
+      headers: { ...CORS, "content-type": "application/json" },
+    });
+  }
+
   const apiKey = Deno.env.get("RESEND_API_KEY");
   if (!apiKey) {
     console.error("RESEND_API_KEY missing");
