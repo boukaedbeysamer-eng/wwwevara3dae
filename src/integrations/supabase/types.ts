@@ -107,7 +107,9 @@ export type Database = {
           full_name: string
           id: string
           notes: string | null
+          paid_at: string | null
           status: string
+          stripe_session_id: string | null
           total_aed: number
           whatsapp: string
         }
@@ -117,7 +119,9 @@ export type Database = {
           full_name: string
           id?: string
           notes?: string | null
+          paid_at?: string | null
           status?: string
+          stripe_session_id?: string | null
           total_aed: number
           whatsapp: string
         }
@@ -127,7 +131,9 @@ export type Database = {
           full_name?: string
           id?: string
           notes?: string | null
+          paid_at?: string | null
           status?: string
+          stripe_session_id?: string | null
           total_aed?: number
           whatsapp?: string
         }
