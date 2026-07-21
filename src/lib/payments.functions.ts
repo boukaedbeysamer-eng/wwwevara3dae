@@ -160,3 +160,18 @@ export const subscribeNewsletter = createServerFn({ method: "POST" })
     }
     return { ok: true };
   });
+
+const orderStatusSchema = z.object({ id: z.string().uuid() });
+
+export const getOrderStatus = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => orderStatusSchema.parse(d))
+  .handler(async ({ data }): Promise<{ status: string | null; paidAt: string | null }> => {
+    const supabase = serverClient();
+    const { data: row } = await supabase
+      .from("order_requests")
+      .select("status, paid_at")
+      .eq("id", data.id)
+      .maybeSingle();
+    const r = row as { status?: string; paid_at?: string } | null;
+    return { status: r?.status ?? null, paidAt: r?.paid_at ?? null };
+  });
