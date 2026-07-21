@@ -18,6 +18,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
+import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
@@ -64,6 +65,12 @@ const CheckoutSuccessIdRoute = CheckoutSuccessIdRouteImport.update({
   path: '/success/$id',
   getParentRoute: () => CheckoutRoute,
 } as any)
+const ApiPublicPaymentsWebhookRoute =
+  ApiPublicPaymentsWebhookRouteImport.update({
+    id: '/api/public/payments/webhook',
+    path: '/api/public/payments/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/shop': typeof ShopRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +107,7 @@ export interface FileRoutesById {
   '/shop': typeof ShopRoute
   '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/shop/$slug'
     | '/checkout/success/$id'
+    | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +133,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/shop/$slug'
     | '/checkout/success/$id'
+    | '/api/public/payments/webhook'
   id:
     | '__root__'
     | '/'
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/shop_/$slug'
     | '/checkout/success/$id'
+    | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +157,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   ShopRoute: typeof ShopRoute
   ShopSlugRoute: typeof ShopSlugRoute
+  ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -211,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutSuccessIdRouteImport
       parentRoute: typeof CheckoutRoute
     }
+    '/api/public/payments/webhook': {
+      id: '/api/public/payments/webhook'
+      path: '/api/public/payments/webhook'
+      fullPath: '/api/public/payments/webhook'
+      preLoaderRoute: typeof ApiPublicPaymentsWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -235,6 +256,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   ShopRoute: ShopRoute,
   ShopSlugRoute: ShopSlugRoute,
+  ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
