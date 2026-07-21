@@ -97,13 +97,12 @@ async function handleSessionCompleted(session: any) {
   if ((existing as any)?.status === "paid") {
     return; // idempotent
   }
-  const { error } = await supabase
-    .from("order_requests")
+  const { error } = await (supabase.from("order_requests") as any)
     .update({
       status: "paid",
       paid_at: new Date().toISOString(),
       stripe_session_id: session.id,
-    } as any)
+    })
     .eq("id", requestId);
   if (error) {
     console.error("failed to mark order paid", requestId, error);
