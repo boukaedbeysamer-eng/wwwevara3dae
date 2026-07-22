@@ -52,7 +52,9 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "Explore custom 3D-printed topographic relief frames created by Evara3D." },
       { property: "og:title", content: "Gallery — Evara3D" },
       { property: "og:description", content: "Explore custom 3D-printed topographic relief frames created by Evara3D." },
+      { property: "og:url", content: "https://evara3d.ae/gallery" },
     ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/gallery" }],
   }),
   component: GalleryPage,
 });

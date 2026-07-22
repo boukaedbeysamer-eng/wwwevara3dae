@@ -13,7 +13,9 @@ export const Route = createFileRoute("/shop")({
       { name: "description", content: "Browse the Evara3D collection of 3D-printed topographic running route frames: Keepsaker, Achiever, Legacy, and 3D HEX MAP DISPLAY WITH STAND." },
       { property: "og:title", content: "Shop — Evara3D" },
       { property: "og:description", content: "Browse 3D-printed topographic running route frames designed for athletes." },
+      { property: "og:url", content: "https://evara3d.ae/shop" },
     ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/shop" }],
   }),
   component: Shop,
 });

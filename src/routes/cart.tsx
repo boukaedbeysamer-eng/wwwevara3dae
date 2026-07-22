@@ -7,7 +7,11 @@ export const Route = createFileRoute("/cart")({
     meta: [
       { title: "Cart — Evara3D" },
       { name: "description", content: "Review the frames in your Evara3D cart and continue to the order request." },
+      { property: "og:title", content: "Cart — Evara3D" },
+      { property: "og:description", content: "Review the frames in your Evara3D cart and continue to the order request." },
+      { property: "og:url", content: "https://evara3d.ae/cart" },
     ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/cart" }],
   }),
   component: CartPage,
 });

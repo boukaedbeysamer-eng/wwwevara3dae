@@ -1,0 +1,15 @@
+# Evara3D
+
+> Evara3D FZC is a UAE studio that turns Strava runs into custom 3D-printed topographic relief map frames — designed and made in the UAE.
+
+## Pages
+
+- [Home](/): Overview of Evara3D's 3D-printed topographic map frames.
+- [Shop](/shop): The collection — Keepsaker, Achiever, Legacy, and the 3D Hex Map Display with stand.
+- [Keepsaker frame](/shop/keepsaker): 21×30 cm deep shadow-box frame with a 10×11 cm 3D-printed terrain of your run.
+- [Achiever frame](/shop/achiever): 30×40 cm deep frame with 3D terrain and integrated medal hanger.
+- [Legacy frame](/shop/legacy): 28×55 cm deep frame with 3D terrain, medal hanger, and BIB number display.
+- [3D Hex Map Display](/shop/3d-map-display): 130×110×30 mm 3D-printed hex map on a movable display stand.
+- [Gallery](/gallery): Photos of finished frames.
+- [About](/about): The studio's story.
+- [FAQ](/faq): Answers on GPX files, finishes, lead times, shipping, and payment.

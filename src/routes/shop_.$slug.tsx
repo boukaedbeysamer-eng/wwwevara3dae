@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useId, useState } from "react";
 import {
   FRAME_FINISHES,
   MAP_COLORS,
@@ -20,17 +20,42 @@ export const Route = createFileRoute("/shop_/$slug")({
     if (!product) throw notFound();
     return { product };
   },
-  head: ({ loaderData }) => {
+  head: ({ params, loaderData }) => {
     const p = loaderData?.product;
-    const title = p ? `${p.name} — Evara3D` : "Frame — Evara3D";
+    const title = p ? `${p.name} — 3D Topographic Map Frame — Evara3D` : "Frame — Evara3D";
     const desc = p ? `${p.tagline} ${p.frameSize}, ${p.mapSize}.` : "";
+    const url = `https://evara3d.ae/shop/${params.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: p
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: p.name,
+                description: `${p.tagline} ${p.story}`,
+                brand: { "@type": "Brand", name: "Evara3D" },
+                offers: {
+                  "@type": "Offer",
+                  price: p.priceAed,
+                  priceCurrency: "AED",
+                  availability: "https://schema.org/InStock",
+                  url,
+                },
+              }),
+            },
+          ]
+        : [],
     };
   },
   component: ProductPage,
@@ -73,6 +98,11 @@ function ProductPage() {
     if (goToCart) navigate({ to: "/cart" });
   };
 
+  const raceNameId = useId();
+  const dateId = useId();
+  const distanceId = useId();
+  const elevationId = useId();
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-14">
       <Link to="/shop" className="text-xs uppercase tracking-[0.22em] text-foreground/60 hover:text-terrain">
@@ -95,7 +125,7 @@ function ProductPage() {
 
         <div>
           <span className="text-xs uppercase tracking-[0.28em] text-terrain">{product.frameSize}</span>
-          <h1 className="mt-3 font-display text-5xl text-foreground">{product.name}</h1>
+          <h1 className="mt-3 font-display text-5xl text-foreground">{product.name} — 3D Topographic Map Frame</h1>
           <p className="mt-2 font-display text-lg text-foreground/70">{product.tagline}</p>
           <div className="mt-6 text-2xl text-foreground">AED {product.priceAed}</div>
 
@@ -125,8 +155,9 @@ function ProductPage() {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Race name</label>
+                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Race name</label>
                 <Input
+                  id={raceNameId}
                   value={raceName}
                   onChange={(e) => setRaceName(e.target.value)}
                   placeholder="e.g. Dubai Marathon"
@@ -134,8 +165,9 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Date</label>
+                <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Date</label>
                 <Input
+                  id={dateId}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   placeholder="e.g. 12.03.2026"
@@ -143,8 +175,9 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Distance</label>
+                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Distance</label>
                 <Input
+                  id={distanceId}
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
                   placeholder="e.g. 42.2 km"
@@ -152,8 +185,9 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Elevation</label>
+                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Elevation</label>
                 <Input
+                  id={elevationId}
                   value={elevation}
                   onChange={(e) => setElevation(e.target.value)}
                   placeholder="e.g. 245 m"
