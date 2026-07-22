@@ -35,13 +35,13 @@ export function SiteFooter() {
             Topographic relief maps of your runs — engineered, 3D-printed, and framed in
             the UAE. Built for athletes who treat their routes as memory.
           </p>
-          <p className="mt-6 text-xs uppercase tracking-[0.22em] text-paper/40">
+          <p className="mt-6 text-xs uppercase tracking-[0.22em] text-paper/70">
             Made in UAE · Prices in AED
           </p>
         </div>
 
         <div>
-          <div className="text-xs uppercase tracking-[0.22em] text-paper/40">Explore</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-paper/70">Explore</div>
           <ul className="mt-5 space-y-3 text-sm text-paper/85">
             <li><Link to="/shop" className="hover:text-terrain">Shop frames</Link></li>
             <li><Link to="/about" className="hover:text-terrain">Our story</Link></li>
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-xs uppercase tracking-[0.22em] text-paper/40">Field notes</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-paper/70">Field notes</div>
           <p className="mt-5 text-sm leading-relaxed text-paper/70">
             Real runs. Real terrain. Real stories.<br />
             Be first to see new frame drops, featured athlete moments, and exclusive community offers. No noise, just the good stuff.
@@ -64,7 +64,7 @@ export function SiteFooter() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="info@evara3d.ae"
               maxLength={255}
-              className="w-full rounded-none border-b border-paper/30 bg-transparent px-0 py-2 text-sm text-paper placeholder:text-paper/40 focus:border-terrain focus:outline-none"
+              className="w-full rounded-none border-b border-paper/30 bg-transparent px-0 py-2 text-sm text-paper placeholder:text-paper/70 focus:border-terrain focus:outline-none"
             />
             <button
               type="submit"
@@ -77,7 +77,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-paper/10">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-2 px-6 py-6 text-xs text-paper/40 md:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-2 px-6 py-6 text-xs text-paper/70 md:flex-row">
           <span>© {new Date().getFullYear()} Evara3D FZC. All rights reserved.</span>
           <span></span>
         </div>

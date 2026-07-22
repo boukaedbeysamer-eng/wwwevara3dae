@@ -50,7 +50,7 @@ function CartPage() {
               </div>
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
-                <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/55">
+                <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                   {i.frameFinish} · {i.mapColor} relief · {i.trackColor} track
                 </div>
                 <div className="mt-4 flex items-center gap-4">
@@ -61,7 +61,7 @@ function CartPage() {
                   </div>
                   <button
                     onClick={() => remove(i.id)}
-                    className="text-xs uppercase tracking-[0.18em] text-foreground/55 hover:text-terrain"
+                    className="text-xs uppercase tracking-[0.18em] text-foreground/70 hover:text-terrain"
                   >
                     Remove
                   </button>
@@ -69,14 +69,14 @@ function CartPage() {
               </div>
               <div className="text-right">
                 <div className="text-foreground">AED {i.priceAed * i.qty}</div>
-                <div className="mt-1 text-xs text-foreground/50">AED {i.priceAed} each</div>
+                <div className="mt-1 text-xs text-foreground/70">AED {i.priceAed} each</div>
               </div>
             </div>
           ))}
         </div>
 
         <aside className="h-fit bg-secondary/60 p-8">
-          <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Order summary</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Order summary</div>
           <div className="mt-6 flex justify-between text-sm">
             <span className="text-foreground/70">Subtotal</span>
             <span className="text-foreground">AED {total}</span>
@@ -95,7 +95,7 @@ function CartPage() {
           >
             Send order request
           </Link>
-          <p className="mt-4 text-xs text-foreground/55">
+          <p className="mt-4 text-xs text-foreground/70">
             No payment now. We'll WhatsApp you to confirm details, shipping, and payment.
           </p>
         </aside>
