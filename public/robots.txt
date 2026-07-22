@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /checkout/success/
+Disallow: /cart
+
+Sitemap: https://evara3d.ae/sitemap.xml
