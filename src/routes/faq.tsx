@@ -5,6 +5,24 @@ export const Route = createFileRoute("/faq")({
     meta: [
       { title: "FAQ — Evara3D" },
       { name: "description", content: "Answers about GPX files, frame finishes, lead times, shipping, and payment for Evara3D topographic frames." },
+      { property: "og:title", content: "FAQ — Evara3D" },
+      { property: "og:description", content: "Answers about GPX files, frame finishes, lead times, shipping, and payment." },
+      { property: "og:url", content: "https://evara3d.ae/faq" },
+    ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: FAQ,

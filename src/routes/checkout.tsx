@@ -15,8 +15,12 @@ export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
       { title: "Checkout — Evara3D" },
-      { name: "description", content: "Complete your Evara3D order and pay securely." },
+      { name: "description", content: "Complete your Evara3D order and pay securely with Stripe. We'll confirm details over WhatsApp and ship your custom 3D-printed frame within 48 hours." },
+      { property: "og:title", content: "Checkout — Evara3D" },
+      { property: "og:description", content: "Complete your Evara3D order and pay securely with Stripe. We'll confirm details over WhatsApp within 24 hours." },
+      { property: "og:url", content: "https://evara3d.ae/checkout" },
     ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/checkout" }],
   }),
   component: Checkout,
 });

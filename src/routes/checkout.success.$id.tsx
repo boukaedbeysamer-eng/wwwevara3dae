@@ -7,11 +7,16 @@ export const Route = createFileRoute("/checkout/success/$id")({
   validateSearch: (search: Record<string, unknown>): { session_id?: string } => ({
     session_id: typeof search.session_id === "string" ? search.session_id : undefined,
   }),
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "Order status — Evara3D" },
-      { name: "description", content: "Your Evara3D order status." },
+      { title: "Order confirmed — Evara3D" },
+      { name: "description", content: "Your Evara3D order is confirmed. Our studio will WhatsApp you within 24 hours to confirm run details and arrange shipping of your custom 3D-printed frame." },
+      { property: "og:title", content: "Order confirmed — Evara3D" },
+      { property: "og:description", content: "Your Evara3D order is confirmed. We'll WhatsApp you within 24 hours to arrange your custom 3D-printed frame." },
+      { property: "og:url", content: `https://evara3d.ae/checkout/success/${params.id}` },
+      { name: "robots", content: "noindex" },
     ],
+    links: [{ rel: "canonical", href: `https://evara3d.ae/checkout/success/${params.id}` }],
   }),
   component: Success,
 });

@@ -8,7 +8,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Evara3D FZC is a UAE studio turning Strava runs into 3D-printed topographic relief map frames." },
       { property: "og:title", content: "Our story — Evara3D" },
       { property: "og:description", content: "A UAE studio for runners who treat their routes as memory." },
+      { property: "og:url", content: "https://evara3d.ae/about" },
     ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/about" }],
   }),
   component: About,
 });

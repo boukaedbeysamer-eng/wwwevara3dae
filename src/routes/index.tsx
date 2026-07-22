@@ -48,6 +48,29 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Custom 3D-printed topographic relief maps of your Strava runs, framed and ready to hang. Designed and made in the UAE." },
       { property: "og:title", content: "Evara3D — Run it. Frame it." },
       { property: "og:description", content: "Custom 3D-printed topographic relief maps of your Strava runs, framed and ready to hang." },
+      { property: "og:url", content: "https://evara3d.ae/" },
+    ],
+    links: [{ rel: "canonical", href: "https://evara3d.ae/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Evara3D FZC",
+          url: "https://evara3d.ae/",
+          description: "UAE studio turning Strava runs into 3D-printed topographic relief map frames.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Evara3D",
+          url: "https://evara3d.ae/",
+        }),
+      },
     ],
   }),
   component: Home,
