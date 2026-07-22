@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -20,6 +21,11 @@ import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/shop'
+    | '/sitemap.xml'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/shop'
+    | '/sitemap.xml'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/shop'
+    | '/sitemap.xml'
     | '/shop_/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -156,12 +168,20 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ShopSlugRoute: typeof ShopSlugRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop': {
       id: '/shop'
       path: '/shop'
@@ -255,6 +275,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ShopSlugRoute: ShopSlugRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
