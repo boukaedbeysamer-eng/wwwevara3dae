@@ -98,6 +98,11 @@ function ProductPage() {
     if (goToCart) navigate({ to: "/cart" });
   };
 
+  const raceNameId = useId();
+  const dateId = useId();
+  const distanceId = useId();
+  const elevationId = useId();
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-14">
       <Link to="/shop" className="text-xs uppercase tracking-[0.22em] text-foreground/60 hover:text-terrain">
