@@ -50,7 +50,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Custom 3D-printed topographic relief maps of your Strava runs, framed and ready to hang." },
       { property: "og:url", content: "https://evara3d.ae/" },
     ],
-    links: [{ rel: "canonical", href: "https://evara3d.ae/" }],
+    links: [
+      { rel: "canonical", href: "https://evara3d.ae/" },
+      { rel: "preload", as: "image", href: heroTerrainBg.url, fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
