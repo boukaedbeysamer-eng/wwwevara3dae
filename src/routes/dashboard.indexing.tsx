@@ -58,7 +58,9 @@ function fmtDate(iso: string | null) {
 }
 
 function IndexingDashboard() {
-  const { summaries, totals, lastRun } = Route.useLoaderData();
+  const { summaries, totals, lastRun } = Route.useLoaderData() as Awaited<
+    ReturnType<typeof getIndexingDashboard>
+  >;
   const router = useRouter();
   const refresh = useServerFn(refreshIndexingStatus);
   const [loading, setLoading] = useState(false);

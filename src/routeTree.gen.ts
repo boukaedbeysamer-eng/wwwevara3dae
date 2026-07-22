@@ -18,6 +18,7 @@ import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
+import { Route as DashboardIndexingRouteImport } from './routes/dashboard.indexing'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
@@ -66,6 +67,11 @@ const ShopSlugRoute = ShopSlugRouteImport.update({
   path: '/shop/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardIndexingRoute = DashboardIndexingRouteImport.update({
+  id: '/dashboard/indexing',
+  path: '/dashboard/indexing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckoutSuccessIdRoute = CheckoutSuccessIdRouteImport.update({
   id: '/success/$id',
   path: '/success/$id',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/dashboard/indexing': typeof DashboardIndexingRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/dashboard/indexing': typeof DashboardIndexingRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/dashboard/indexing': typeof DashboardIndexingRoute
   '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
+    | '/dashboard/indexing'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
+    | '/dashboard/indexing'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
+    | '/dashboard/indexing'
     | '/shop_/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  DashboardIndexingRoute: typeof DashboardIndexingRoute
   ShopSlugRoute: typeof ShopSlugRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
@@ -238,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/indexing': {
+      id: '/dashboard/indexing'
+      path: '/dashboard/indexing'
+      fullPath: '/dashboard/indexing'
+      preLoaderRoute: typeof DashboardIndexingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/checkout/success/$id': {
       id: '/checkout/success/$id'
       path: '/success/$id'
@@ -276,6 +296,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  DashboardIndexingRoute: DashboardIndexingRoute,
   ShopSlugRoute: ShopSlugRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
