@@ -132,7 +132,7 @@ function ProductPage() {
           <p className="mt-8 leading-relaxed text-foreground/75">{product.story}</p>
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
-            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">What's included</div>
+            <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">What's included</div>
             <ul className="mt-3 space-y-2 text-sm text-foreground/80">
               {product.includes.map((line: string) => (
                 <li key={line} className="flex gap-3">
@@ -150,12 +150,12 @@ function ProductPage() {
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
-            <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">
+            <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">
               {product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Race name</label>
+                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Race name</label>
                 <Input
                   id={raceNameId}
                   value={raceName}
@@ -165,7 +165,7 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Date</label>
+                <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Date</label>
                 <Input
                   id={dateId}
                   value={date}
@@ -175,7 +175,7 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Distance</label>
+                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Distance</label>
                 <Input
                   id={distanceId}
                   value={distance}
@@ -185,7 +185,7 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/50">Elevation</label>
+                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Elevation</label>
                 <Input
                   id={elevationId}
                   value={elevation}
@@ -225,7 +225,7 @@ function ProductPage() {
             Add & request now
           </button>
 
-          <p className="mt-6 text-xs text-foreground/50">
+          <p className="mt-6 text-xs text-foreground/70">
             We'll collect your GPX file and run details on the next step.
           </p>
         </div>
@@ -247,7 +247,7 @@ function Selector<T extends string>({
 }) {
   return (
     <div className="mt-8">
-      <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">{label}</div>
+      <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">{label}</div>
       <div className="mt-3 flex flex-wrap gap-2">
         {options.map((opt) => (
           <button

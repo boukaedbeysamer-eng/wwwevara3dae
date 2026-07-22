@@ -80,7 +80,7 @@ function Success() {
     <section className="mx-auto max-w-2xl px-6 py-32 text-center">
       <StatusHeader state={state} />
       <div className="mt-10 inline-block border border-foreground/30/20 px-6 py-4">
-        <div className="text-xs uppercase tracking-[0.22em] text-foreground/55">Reference</div>
+        <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Reference</div>
         <div className="mt-1 font-display text-2xl text-foreground">EVR-{ref}</div>
       </div>
       <div className="mt-12 flex justify-center gap-4">
