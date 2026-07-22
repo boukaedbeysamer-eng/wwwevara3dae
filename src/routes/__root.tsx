@@ -82,6 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "PTfXT6jjrwia1yAJM2SauU6wvXTAh32BT-Z1Hs_T2RA" },
       { title: "Evara3D — 3D-printed topographic maps of your runs" },
       { name: "description", content: "Turn your Strava run into a custom 3D-printed topographic relief map, framed for the wall. Designed and made in the UAE." },
       { name: "author", content: "Evara3D FZC" },
