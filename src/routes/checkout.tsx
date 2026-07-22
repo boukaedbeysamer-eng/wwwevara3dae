@@ -215,7 +215,7 @@ function Checkout() {
                 <div key={it.id} className="border border-foreground/30/15 bg-secondary/40 p-6">
                   <div className="flex items-baseline justify-between">
                     <div className="font-display text-xl text-foreground">{it.name}</div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/55">
+                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/70">
                       {it.frameFinish} · {it.mapColor} · {it.trackColor} · ×{it.qty}
                     </div>
                   </div>
@@ -246,7 +246,7 @@ function Checkout() {
                           onChange={(e) => setFiles((prev) => ({ ...prev, [idx]: e.target.files?.[0] || null }))}
                           className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
                         />
-                        <p className="mt-2 text-xs text-foreground/50">
+                        <p className="mt-2 text-xs text-foreground/70">
                           Once we receive your order we will contact you for the GPX file.
                         </p>
                       </Field>
@@ -259,7 +259,7 @@ function Checkout() {
         </div>
 
         <aside className="h-fit bg-secondary/60 p-8">
-          <div className="text-xs uppercase tracking-[0.22em] text-foreground/50">Your order</div>
+          <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Your order</div>
           <ul className="mt-5 space-y-3 text-sm">
             {items.map((i) => (
               <li key={i.id} className="flex justify-between gap-4">
@@ -279,7 +279,7 @@ function Checkout() {
           >
             {submitting ? "Preparing checkout…" : "Continue to payment"}
           </button>
-          <p className="mt-4 text-xs text-foreground/55">
+          <p className="mt-4 text-xs text-foreground/70">
             You'll pay securely on the next step. Shipping is arranged over WhatsApp after payment.
           </p>
         </aside>
@@ -302,7 +302,7 @@ function SectionLabel({ n, t }: { n: string; t: string }) {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="block text-xs uppercase tracking-[0.18em] text-foreground/55">{label}</span>
+      <span className="block text-xs uppercase tracking-[0.18em] text-foreground/70">{label}</span>
       <div className="mt-1">{children}</div>
       {error && <span className="mt-1 block text-xs text-destructive">{error}</span>}
     </label>

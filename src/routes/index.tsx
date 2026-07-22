@@ -241,7 +241,7 @@ function Home() {
         <p className="font-display text-3xl leading-snug text-foreground md:text-4xl">
           "STRAVA KEEPS THE DATA. EVARA DISPLAYS IT"
         </p>
-        <div className="mt-6 text-xs uppercase tracking-[0.22em] text-foreground/50">
+        <div className="mt-6 text-xs uppercase tracking-[0.22em] text-foreground/70">
           — PLACES . MOMENTS . MEMORIES .
         </div>
       </section>
