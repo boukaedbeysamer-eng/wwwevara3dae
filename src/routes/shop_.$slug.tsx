@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useId, useState } from "react";
 import {
   FRAME_FINISHES,
   MAP_COLORS,
@@ -20,17 +20,42 @@ export const Route = createFileRoute("/shop_/$slug")({
     if (!product) throw notFound();
     return { product };
   },
-  head: ({ loaderData }) => {
+  head: ({ params, loaderData }) => {
     const p = loaderData?.product;
-    const title = p ? `${p.name} — Evara3D` : "Frame — Evara3D";
+    const title = p ? `${p.name} — 3D Topographic Map Frame — Evara3D` : "Frame — Evara3D";
     const desc = p ? `${p.tagline} ${p.frameSize}, ${p.mapSize}.` : "";
+    const url = `https://evara3d.ae/shop/${params.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: p
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: p.name,
+                description: `${p.tagline} ${p.story}`,
+                brand: { "@type": "Brand", name: "Evara3D" },
+                offers: {
+                  "@type": "Offer",
+                  price: p.priceAed,
+                  priceCurrency: "AED",
+                  availability: "https://schema.org/InStock",
+                  url,
+                },
+              }),
+            },
+          ]
+        : [],
     };
   },
   component: ProductPage,
