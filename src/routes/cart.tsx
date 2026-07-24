@@ -96,7 +96,7 @@ function CartPage() {
             Send order request
           </Link>
           <p className="mt-4 text-xs text-foreground/70">
-            No payment now. We'll WhatsApp you to confirm details, shipping, and payment.
+            We'll WhatsApp you to confirm details, shipping, and order specifications. Make sure you type your WhatsApp number correctly.
           </p>
         </aside>
       </div>
