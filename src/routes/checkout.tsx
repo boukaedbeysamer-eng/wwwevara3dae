@@ -280,7 +280,7 @@ function Checkout() {
             {submitting ? "Preparing checkout…" : "Continue to payment"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            You'll pay securely on the next step. Shipping is arranged over WhatsApp after payment.
+            You'll pay securely on the next step. We will reach you out over WhatsApp after payment.
           </p>
         </aside>
       </form>
