@@ -249,11 +249,12 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Preparing checkout…" : "Continue to payment"}
+            {submitting ? "Sending request…" : "Send request now"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            You'll pay securely on the next step. We will reach you out over WhatsApp after payment.
+            No payment now. We'll receive your order and send you a secure payment link over WhatsApp.
           </p>
+
         </aside>
       </form>
     </section>
