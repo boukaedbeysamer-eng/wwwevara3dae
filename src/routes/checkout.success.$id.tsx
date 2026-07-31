@@ -4,9 +4,11 @@ import { useServerFn } from "@tanstack/react-start";
 import { getOrderStatus } from "@/lib/payments.functions";
 
 export const Route = createFileRoute("/checkout/success/$id")({
-  validateSearch: (search: Record<string, unknown>): { session_id?: string } => ({
+  validateSearch: (search: Record<string, unknown>): { session_id?: string; request?: string } => ({
     session_id: typeof search.session_id === "string" ? search.session_id : undefined,
+    request: typeof search.request === "string" ? search.request : undefined,
   }),
+
   head: ({ params }) => ({
     meta: [
       { title: "Order confirmed — Evara3D" },
@@ -23,6 +25,7 @@ export const Route = createFileRoute("/checkout/success/$id")({
 
 type State =
   | { kind: "loading" }
+  | { kind: "requested" }
   | { kind: "paid" }
   | { kind: "pending" }
   | { kind: "failed"; label: string }
@@ -30,11 +33,14 @@ type State =
 
 function Success() {
   const { id } = Route.useParams();
+  const { request } = Route.useSearch();
+  const isRequest = request === "1";
   const ref = id.slice(0, 8).toUpperCase();
   const fetchStatus = useServerFn(getOrderStatus);
-  const [state, setState] = useState<State>({ kind: "loading" });
+  const [state, setState] = useState<State>(isRequest ? { kind: "requested" } : { kind: "loading" });
 
   useEffect(() => {
+    if (isRequest) return;
     let cancelled = false;
     let attempts = 0;
 
@@ -74,7 +80,9 @@ function Success() {
     return () => {
       cancelled = true;
     };
-  }, [id, fetchStatus]);
+  }, [id, fetchStatus, isRequest]);
+
+
 
   return (
     <section className="mx-auto max-w-2xl px-6 py-32 text-center">
@@ -98,7 +106,20 @@ function Success() {
 }
 
 function StatusHeader({ state }: { state: State }) {
+  if (state.kind === "requested") {
+    return (
+      <>
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">Request received</span>
+        <h1 className="mt-4 font-display text-5xl text-foreground">Thank you.</h1>
+        <p className="mt-6 text-foreground/70">
+          Your order request is with our studio. We'll WhatsApp you within 24 hours to confirm run
+          details, shipping, and send you a secure payment link.
+        </p>
+      </>
+    );
+  }
   if (state.kind === "loading" || state.kind === "pending") {
+
     return (
       <>
         <span className="text-xs uppercase tracking-[0.28em] text-terrain">Confirming payment…</span>

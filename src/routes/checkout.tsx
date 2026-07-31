@@ -1,15 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useMemo, useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import { useCart, cartTotal } from "@/lib/cart";
-import { createOrderCheckout } from "@/lib/payments.functions";
+import { submitOrderRequest } from "@/lib/requests.functions";
 import { supabase } from "@/integrations/supabase/client";
-import { getStripe, getStripeEnvironment } from "@/lib/stripe";
+
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -47,10 +46,10 @@ type FormValues = z.infer<typeof formSchema>;
 function Checkout() {
   const items = useCart((s) => s.items);
   const clear = useCart((s) => s.clear);
-  const createCheckout = useServerFn(createOrderCheckout);
+  const navigate = useNavigate();
+  const sendRequest = useServerFn(submitOrderRequest);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -63,14 +62,7 @@ function Checkout() {
     },
   });
 
-  const stripePromise = useMemo(() => getStripe(), []);
-  const checkoutOptions = useMemo(
-    () => (clientSecret ? { clientSecret, onComplete: () => clear() } : null),
-    [clientSecret, clear],
-  );
-  const fetchClientSecret = useCallback(async () => clientSecret ?? "", [clientSecret]);
-
-  if (items.length === 0 && !clientSecret) {
+  if (items.length === 0) {
     return (
       <section className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl">Nothing to check out</h1>
@@ -81,6 +73,7 @@ function Checkout() {
       </section>
     );
   }
+
 
   const total = cartTotal(items);
 
@@ -132,7 +125,7 @@ function Checkout() {
         };
       });
 
-      const res = await createCheckout({
+      const res = await sendRequest({
         data: {
           contact: {
             fullName: values.fullName,
@@ -141,49 +134,29 @@ function Checkout() {
             notes: values.notes || null,
           },
           items: payloadItems,
-          environment: getStripeEnvironment(),
-          origin: window.location.origin,
         },
       });
 
-      if ("error" in res) {
-        toast.error(res.error);
-        setSubmitting(false);
-        return;
-      }
-
-      setClientSecret(res.clientSecret);
+      clear();
+      navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
     } catch (err) {
       console.error(err);
-      toast.error("Could not start checkout. Please try again.");
+      toast.error("Could not send your request. Please try again.");
     } finally {
       setSubmitting(false);
     }
   };
 
-  if (clientSecret && checkoutOptions) {
-    return (
-      <section className="mx-auto max-w-3xl px-4 py-14">
-        <h1 className="font-display text-4xl text-foreground">Complete your payment</h1>
-        <p className="mt-3 text-foreground/70">
-          Pay securely below. You'll be taken to your confirmation page once payment succeeds.
-        </p>
-        <div className="mt-8 bg-white p-2">
-          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
-            <EmbeddedCheckout />
-          </EmbeddedCheckoutProvider>
-        </div>
-      </section>
-    );
-  }
+
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="font-display text-5xl text-foreground">Checkout</h1>
       <p className="mt-3 max-w-xl text-foreground/70">
-        Enter your details and run information, then pay securely to confirm your order. We'll WhatsApp
-        you within 24 hours to arrange production and shipping.
+        Enter your details and run information, then send your request — no payment needed now. We'll
+        WhatsApp you within 24 hours with a payment link, production and shipping details.
       </p>
+
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 grid gap-12 md:grid-cols-[1.6fr_1fr]">
         <div className="space-y-12">
@@ -277,11 +250,12 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Preparing checkout…" : "Continue to payment"}
+            {submitting ? "Sending request…" : "Send request now"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            You'll pay securely on the next step. We will reach you out over WhatsApp after payment.
+            No payment now. We'll receive your order and send you a secure payment link over WhatsApp.
           </p>
+
         </aside>
       </form>
     </section>
