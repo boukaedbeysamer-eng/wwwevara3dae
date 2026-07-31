@@ -46,10 +46,10 @@ type FormValues = z.infer<typeof formSchema>;
 function Checkout() {
   const items = useCart((s) => s.items);
   const clear = useCart((s) => s.clear);
-  const createCheckout = useServerFn(createOrderCheckout);
+  const navigate = useNavigate();
+  const sendRequest = useServerFn(submitOrderRequest);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -62,14 +62,7 @@ function Checkout() {
     },
   });
 
-  const stripePromise = useMemo(() => getStripe(), []);
-  const checkoutOptions = useMemo(
-    () => (clientSecret ? { clientSecret, onComplete: () => clear() } : null),
-    [clientSecret, clear],
-  );
-  const fetchClientSecret = useCallback(async () => clientSecret ?? "", [clientSecret]);
-
-  if (items.length === 0 && !clientSecret) {
+  if (items.length === 0) {
     return (
       <section className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl">Nothing to check out</h1>
@@ -80,6 +73,7 @@ function Checkout() {
       </section>
     );
   }
+
 
   const total = cartTotal(items);
 
