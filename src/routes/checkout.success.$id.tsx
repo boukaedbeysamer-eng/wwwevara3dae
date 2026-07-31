@@ -106,7 +106,20 @@ function Success() {
 }
 
 function StatusHeader({ state }: { state: State }) {
+  if (state.kind === "requested") {
+    return (
+      <>
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">Request received</span>
+        <h1 className="mt-4 font-display text-5xl text-foreground">Thank you.</h1>
+        <p className="mt-6 text-foreground/70">
+          Your order request is with our studio. We'll WhatsApp you within 24 hours to confirm run
+          details, shipping, and send you a secure payment link.
+        </p>
+      </>
+    );
+  }
   if (state.kind === "loading" || state.kind === "pending") {
+
     return (
       <>
         <span className="text-xs uppercase tracking-[0.28em] text-terrain">Confirming payment…</span>
