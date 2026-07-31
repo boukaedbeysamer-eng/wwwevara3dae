@@ -4,9 +4,11 @@ import { useServerFn } from "@tanstack/react-start";
 import { getOrderStatus } from "@/lib/payments.functions";
 
 export const Route = createFileRoute("/checkout/success/$id")({
-  validateSearch: (search: Record<string, unknown>): { session_id?: string } => ({
+  validateSearch: (search: Record<string, unknown>): { session_id?: string; request?: string } => ({
     session_id: typeof search.session_id === "string" ? search.session_id : undefined,
+    request: typeof search.request === "string" ? search.request : undefined,
   }),
+
   head: ({ params }) => ({
     meta: [
       { title: "Order confirmed — Evara3D" },
