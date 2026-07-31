@@ -25,6 +25,7 @@ export const Route = createFileRoute("/checkout/success/$id")({
 
 type State =
   | { kind: "loading" }
+  | { kind: "requested" }
   | { kind: "paid" }
   | { kind: "pending" }
   | { kind: "failed"; label: string }
@@ -32,11 +33,14 @@ type State =
 
 function Success() {
   const { id } = Route.useParams();
+  const { request } = Route.useSearch();
+  const isRequest = request === "1";
   const ref = id.slice(0, 8).toUpperCase();
   const fetchStatus = useServerFn(getOrderStatus);
-  const [state, setState] = useState<State>({ kind: "loading" });
+  const [state, setState] = useState<State>(isRequest ? { kind: "requested" } : { kind: "loading" });
 
   useEffect(() => {
+    if (isRequest) return;
     let cancelled = false;
     let attempts = 0;
 
@@ -76,7 +80,9 @@ function Success() {
     return () => {
       cancelled = true;
     };
-  }, [id, fetchStatus]);
+  }, [id, fetchStatus, isRequest]);
+
+
 
   return (
     <section className="mx-auto max-w-2xl px-6 py-32 text-center">
