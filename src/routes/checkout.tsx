@@ -125,7 +125,7 @@ function Checkout() {
         };
       });
 
-      const res = await createCheckout({
+      const res = await sendRequest({
         data: {
           contact: {
             fullName: values.fullName,
@@ -134,41 +134,20 @@ function Checkout() {
             notes: values.notes || null,
           },
           items: payloadItems,
-          environment: getStripeEnvironment(),
-          origin: window.location.origin,
         },
       });
 
-      if ("error" in res) {
-        toast.error(res.error);
-        setSubmitting(false);
-        return;
-      }
-
-      setClientSecret(res.clientSecret);
+      clear();
+      navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
     } catch (err) {
       console.error(err);
-      toast.error("Could not start checkout. Please try again.");
+      toast.error("Could not send your request. Please try again.");
     } finally {
       setSubmitting(false);
     }
   };
 
-  if (clientSecret && checkoutOptions) {
-    return (
-      <section className="mx-auto max-w-3xl px-4 py-14">
-        <h1 className="font-display text-4xl text-foreground">Complete your payment</h1>
-        <p className="mt-3 text-foreground/70">
-          Pay securely below. You'll be taken to your confirmation page once payment succeeds.
-        </p>
-        <div className="mt-8 bg-white p-2">
-          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
-            <EmbeddedCheckout />
-          </EmbeddedCheckoutProvider>
-        </div>
-      </section>
-    );
-  }
+
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-14">
