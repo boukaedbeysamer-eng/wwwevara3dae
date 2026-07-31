@@ -153,9 +153,10 @@ function Checkout() {
     <section className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="font-display text-5xl text-foreground">Checkout</h1>
       <p className="mt-3 max-w-xl text-foreground/70">
-        Enter your details and run information, then pay securely to confirm your order. We'll WhatsApp
-        you within 24 hours to arrange production and shipping.
+        Enter your details and run information, then send your request — no payment needed now. We'll
+        WhatsApp you within 24 hours with a payment link, production and shipping details.
       </p>
+
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 grid gap-12 md:grid-cols-[1.6fr_1fr]">
         <div className="space-y-12">
