@@ -1,15 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useMemo, useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import { useCart, cartTotal } from "@/lib/cart";
-import { createOrderCheckout } from "@/lib/payments.functions";
+import { submitOrderRequest } from "@/lib/requests.functions";
 import { supabase } from "@/integrations/supabase/client";
-import { getStripe, getStripeEnvironment } from "@/lib/stripe";
+
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
