@@ -83,7 +83,7 @@ function Shop() {
             <FrameSeries />
           </Accordion>
 
-          <Accordion id="glow" title="Glow Series" open={open === "glow"} onToggle={() => toggle("glow")}>
+          <Accordion id="glow" title="Glow Series" open={open === "glow"} onToggle={() => toggle("glow")} light titleBold>
             <ComingSoon
               title="Glow Series"
               note="Luminous relief maps that light up your route after dark. Launching soon."
@@ -112,6 +112,7 @@ function Accordion({
   open,
   onToggle,
   light = false,
+  titleBold = false,
   children,
 }: {
   id: string;
@@ -119,6 +120,7 @@ function Accordion({
   open: boolean;
   onToggle: () => void;
   light?: boolean;
+  titleBold?: boolean;
   children: React.ReactNode;
 }) {
   const innerRef = useRef<HTMLDivElement>(null);
@@ -148,7 +150,7 @@ function Accordion({
           light ? "text-ink" : "text-foreground"
         }`}
       >
-        <span className="font-display text-2xl uppercase tracking-wide md:text-3xl">{title}</span>
+        <span className={`font-display text-2xl uppercase tracking-wide md:text-3xl ${light && titleBold ? "font-bold text-black" : ""}`}>{title}</span>
         <ChevronDown
           className={`h-6 w-6 shrink-0 text-terrain transition-transform duration-300 ease-out ${
             open ? "rotate-180" : ""
