@@ -93,6 +93,7 @@ function Shop() {
 
           <Accordion id="hyrox" title="Hyrox Series" open={open === "hyrox"} onToggle={() => toggle("hyrox")}>
             <ComingSoon
+              light
               title="Hyrox Series"
               note="Built for the Hyrox floor — stations, splits, and finish time in 3D. Launching soon."
             />
