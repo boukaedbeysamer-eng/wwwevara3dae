@@ -83,7 +83,7 @@ function Shop() {
             <FrameSeries />
           </Accordion>
 
-          <Accordion id="glow" title="Glow Series" open={open === "glow"} onToggle={() => toggle("glow")}>
+          <Accordion id="glow" title="Glow Series" open={open === "glow"} onToggle={() => toggle("glow")} light titleBold>
             <ComingSoon
               title="Glow Series"
               note="Luminous relief maps that light up your route after dark. Launching soon."
