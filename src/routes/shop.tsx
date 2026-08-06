@@ -63,11 +63,11 @@ function Shop() {
     >
       <div className="absolute inset-0 bg-ink/92 backdrop-blur-[2px]" />
       <div className="relative">
-        <span className="text-sm uppercase tracking-[0.28em] text-terrain">The collection</span>
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">The collection</span>
         <h1 className="mt-3 max-w-2xl font-display text-5xl text-foreground md:text-6xl">
           Choose your series.
         </h1>
-        <p className="mt-4 max-w-xl text-lg text-foreground/90">
+        <p className="mt-4 max-w-xl text-base text-foreground/90">
           Each frame is made to order, in the UAE, from your GPX file. Prices in AED;
           worldwide shipping quoted on request.
         </p>
@@ -149,7 +149,7 @@ function Accordion({
           light ? "text-ink" : "text-foreground"
         }`}
       >
-        <span className="font-display text-3xl uppercase tracking-wide md:text-4xl">{title}</span>
+        <span className="font-display text-2xl uppercase tracking-wide md:text-3xl">{title}</span>
         <ChevronDown
           className={`h-6 w-6 shrink-0 text-terrain transition-transform duration-300 ease-out ${
             open ? "rotate-180" : ""
@@ -189,11 +189,11 @@ function FrameSeries() {
             )}
           </div>
           <div className="mt-6 flex items-baseline justify-between">
-            <h2 className="font-display text-3xl text-ink">{p.name}</h2>
-            <span className="text-base font-semibold text-terrain">AED {p.priceAed}</span>
+            <h2 className="font-display text-2xl text-ink">{p.name}</h2>
+            <span className="text-sm font-semibold text-terrain">AED {p.priceAed}</span>
           </div>
-          <p className="mt-2 text-base text-ink/80">{p.tagline}</p>
-          <div className="mt-3 text-sm uppercase tracking-[0.22em] text-ink/60">{p.frameSize}</div>
+          <p className="mt-2 text-sm text-ink/80">{p.tagline}</p>
+          <div className="mt-3 text-xs uppercase tracking-[0.22em] text-ink/60">{p.frameSize}</div>
         </Link>
       ))}
     </div>
@@ -215,9 +215,9 @@ function ComingSoon({ title, note, light = false }: { title: string; note: strin
     <div className={`relative overflow-hidden border border-border/60 px-6 py-16 text-center md:py-20 ${light ? "bg-paper" : "bg-ink"}`}>
       {!light && <TopoBackdrop />}
       <div className="relative">
-        <span className="text-sm uppercase tracking-[0.28em] text-terrain">Coming soon</span>
-        <h3 className={`mt-4 font-display text-5xl uppercase md:text-6xl ${light ? "text-ink" : "text-foreground"}`}>{title}</h3>
-        <p className={`mx-auto mt-4 max-w-md text-base leading-relaxed ${light ? "text-ink/80" : "text-foreground/75"}`}>{note}</p>
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">Coming soon</span>
+        <h3 className={`mt-4 font-display text-4xl uppercase md:text-5xl ${light ? "text-ink" : "text-foreground"}`}>{title}</h3>
+        <p className={`mx-auto mt-4 max-w-md text-sm leading-relaxed ${light ? "text-ink/80" : "text-foreground/75"}`}>{note}</p>
       </div>
     </div>
   );
@@ -228,11 +228,11 @@ function CustomProject() {
     <div className="relative overflow-hidden border border-border/60 bg-ink px-6 py-14 md:px-12">
       <TopoBackdrop />
       <div className="relative max-w-2xl">
-        <span className="text-sm uppercase tracking-[0.28em] text-terrain">Custom my project</span>
-        <h3 className="mt-4 font-display text-5xl uppercase text-foreground md:text-6xl">
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">Custom my project</span>
+        <h3 className="mt-4 font-display text-4xl uppercase text-foreground md:text-5xl">
           Have something else in mind?
         </h3>
-        <p className="mt-4 text-base leading-relaxed text-foreground/80">
+        <p className="mt-4 text-sm leading-relaxed text-foreground/80">
           Tell us about your idea — a bespoke route, a corporate gift set, an event trophy, or a
           shape we've never printed before. Reach out by phone or email and our studio will get
           back to you as soon as possible to start working on it.
@@ -240,13 +240,13 @@ function CustomProject() {
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href="tel:+971553949060"
-            className="inline-flex items-center gap-2 bg-terrain px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
           >
             <Phone className="h-4 w-4" /> +971 55 394 9060
           </a>
           <a
             href="mailto:info@evara3d.ae"
-            className="inline-flex items-center gap-2 border border-foreground/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-ink"
+            className="inline-flex items-center gap-2 border border-foreground/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-ink"
           >
             <Mail className="h-4 w-4" /> info@evara3d.ae
           </a>
