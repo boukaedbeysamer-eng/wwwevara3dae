@@ -85,6 +85,7 @@ function Shop() {
 
           <Accordion id="glow" title="Glow Series" open={open === "glow"} onToggle={() => toggle("glow")}>
             <ComingSoon
+              light
               title="Glow Series"
               note="Luminous relief maps that light up your route after dark. Launching soon."
             />
@@ -209,14 +210,14 @@ function TopoBackdrop() {
   );
 }
 
-function ComingSoon({ title, note }: { title: string; note: string }) {
+function ComingSoon({ title, note, light = false }: { title: string; note: string; light?: boolean }) {
   return (
-    <div className="relative overflow-hidden border border-border/60 bg-ink px-6 py-16 text-center md:py-20">
-      <TopoBackdrop />
+    <div className={`relative overflow-hidden border border-border/60 px-6 py-16 text-center md:py-20 ${light ? "bg-paper" : "bg-ink"}`}>
+      {!light && <TopoBackdrop />}
       <div className="relative">
         <span className="text-xs uppercase tracking-[0.28em] text-terrain">Coming soon</span>
-        <h3 className="mt-4 font-display text-4xl uppercase text-foreground md:text-5xl">{title}</h3>
-        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-foreground/75">{note}</p>
+        <h3 className={`mt-4 font-display text-4xl uppercase md:text-5xl ${light ? "text-ink" : "text-foreground"}`}>{title}</h3>
+        <p className={`mx-auto mt-4 max-w-md text-sm leading-relaxed ${light ? "text-ink/80" : "text-foreground/75"}`}>{note}</p>
       </div>
     </div>
   );
