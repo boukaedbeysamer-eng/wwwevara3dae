@@ -87,7 +87,7 @@ function Shop() {
             <ComingSoon
               light
               title="Glow Series"
-              note="Luminous relief maps that light up your route after dark. Launching soon."
+              note="\n"
             />
           </Accordion>
 
