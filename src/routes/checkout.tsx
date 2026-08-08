@@ -193,8 +193,8 @@ function Checkout() {
                     </div>
                   </div>
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
-                    <Field label="Run name">
-                      <input className={inp} {...form.register(`items.${idx}.runName`)} placeholder="Dubai Marathon 2025" maxLength={200} />
+                    <Field label={it.productSlug === "hyrox-hex" ? "ATHLETE NAME" : "Run name"}>
+                      <input className={inp} {...form.register(`items.${idx}.runName`)} placeholder={it.productSlug === "hyrox-hex" ? "AMIR BOURESLAN" : "Dubai Marathon 2025"} maxLength={200} />
                     </Field>
                     <Field label="Location">
                       <input className={inp} {...form.register(`items.${idx}.runLocation`)} placeholder="Dubai, UAE" maxLength={200} />
