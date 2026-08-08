@@ -1,11 +1,11 @@
 import { createServerFn } from "@tanstack/react-start";
-import { PRODUCTS } from "@/data/products";
+import { ALL_PRODUCTS } from "@/data/products";
 
 const SITE_URL = "https://evara3d.ae/";
 const BASE = "https://evara3d.ae";
 
 function sitemapUrls(): string[] {
-  const paths = ["/", "/shop", "/gallery", "/about", "/faq", ...PRODUCTS.map((p) => `/shop/${p.slug}`)];
+  const paths = ["/", "/shop", "/gallery", "/about", "/faq", ...ALL_PRODUCTS.map((p) => `/shop/${p.slug}`)];
   return paths.map((p) => `${BASE}${p === "/" ? "" : p}`);
 }
 
