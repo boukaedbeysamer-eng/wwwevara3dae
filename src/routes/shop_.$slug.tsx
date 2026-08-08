@@ -177,12 +177,14 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Distance</label>
+                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "TIME" : "Distance"}
+                </label>
                 <Input
                   id={distanceId}
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
-                  placeholder="e.g. 42.2 km"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. 1:06:56" : "e.g. 42.2 km"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
