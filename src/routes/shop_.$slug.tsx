@@ -13,6 +13,7 @@ import { DynamicFrameSample, type FrameDetails } from "@/components/dynamic-fram
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
+import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 
 export const Route = createFileRoute("/shop_/$slug")({
   loader: ({ params }) => {
