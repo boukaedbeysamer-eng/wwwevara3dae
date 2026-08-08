@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
+import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
