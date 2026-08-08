@@ -285,7 +285,7 @@ function HyroxSeries() {
             </Link>
           </div>
         </div>
-        <p className="mt-10 text-xs uppercase tracking-[0.28em] text-foreground/50">More coming soon</p>
+        <p className="mt-10 text-xs uppercase tracking-[0.28em] text-foreground/50">{"\n"}</p>
       </div>
     </div>
   );
