@@ -155,12 +155,14 @@ function ProductPage() {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Race name</label>
+                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "ATHLETE NAME" : "Race name"}
+                </label>
                 <Input
                   id={raceNameId}
                   value={raceName}
                   onChange={(e) => setRaceName(e.target.value)}
-                  placeholder="e.g. Dubai Marathon"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. John Doe" : "e.g. Dubai Marathon"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
