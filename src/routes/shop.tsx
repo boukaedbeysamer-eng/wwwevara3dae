@@ -94,7 +94,7 @@ function Shop() {
             <ComingSoon
               light
               title="Hyrox Series"
-              note="Built for the Hyrox floor — stations, splits, and finish time in 3D. Launching soon."
+              note=""
             />
           </Accordion>
 
