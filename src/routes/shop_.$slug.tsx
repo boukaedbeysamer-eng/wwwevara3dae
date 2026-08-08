@@ -153,7 +153,12 @@ function ProductPage() {
           </div>
 
           {product.slug !== "3d-map-display" && product.slug !== "hyrox-hex" && (
-            <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
+            <Selector 
+              label="Frame finish" 
+              value={frameFinish} 
+              options={FRAME_FINISHES.filter(f => f !== "Wooden")} 
+              onChange={setFrameFinish} 
+            />
           )}
           <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? MAP_COLORS.filter(c => c !== "Green") : MAP_COLORS} onChange={setMapColor} />
           <Selector 
