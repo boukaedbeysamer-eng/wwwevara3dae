@@ -79,4 +79,25 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-export const getProduct = (slug: string) => PRODUCTS.find((p) => p.slug === slug);
+export const HYROX_PRODUCTS: Product[] = [
+  {
+    slug: "hyrox-hex",
+    name: "Hyrox Hex",
+    tagline: "Your Hyrox race, in 3D.",
+    priceAed: 125,
+    frameSize: "17 × 15 × 1.5 cm",
+    mapSize: "3D-printed hexagonal display with stand",
+    includes: [
+      "Custom 3D-printed hexagonal Hyrox display",
+      "Personalised athlete name, race location, division/season",
+      "Race date and finish time",
+      "Display stand included — wall-mountable",
+    ],
+    story:
+      "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalised with the athlete's name, race location, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
+  },
+];
+
+export const ALL_PRODUCTS: Product[] = [...PRODUCTS, ...HYROX_PRODUCTS];
+
+export const getProduct = (slug: string) => ALL_PRODUCTS.find((p) => p.slug === slug);
