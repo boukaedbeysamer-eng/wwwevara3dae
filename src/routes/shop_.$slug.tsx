@@ -189,12 +189,14 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Elevation</label>
+                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "\n" : "Elevation"}
+                </label>
                 <Input
                   id={elevationId}
                   value={elevation}
                   onChange={(e) => setElevation(e.target.value)}
-                  placeholder="e.g. 245 m"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. Istanbul" : "e.g. 245 m"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
