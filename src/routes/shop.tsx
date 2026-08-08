@@ -68,8 +68,7 @@ function Shop() {
           Choose your series.
         </h1>
         <p className="mt-4 max-w-xl text-base text-foreground/90">
-          Each frame is made to order, in the UAE, from your GPX file. Prices in AED;
-          worldwide shipping quoted on request.
+          {"\n"}
         </p>
 
         <div className="mt-12 space-y-4">
