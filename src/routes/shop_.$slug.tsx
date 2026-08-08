@@ -146,7 +146,7 @@ function ProductPage() {
           {product.slug !== "3d-map-display" && (
             <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
           )}
-          <Selector label="3D relief color" value={mapColor} options={MAP_COLORS} onChange={setMapColor} />
+          <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? MAP_COLORS.filter(c => c !== "Green") : MAP_COLORS} onChange={setMapColor} />
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
@@ -155,12 +155,14 @@ function ProductPage() {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Race name</label>
+                <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "ATHLETE NAME" : "Race name"}
+                </label>
                 <Input
                   id={raceNameId}
                   value={raceName}
                   onChange={(e) => setRaceName(e.target.value)}
-                  placeholder="e.g. Dubai Marathon"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. John Doe" : "e.g. Dubai Marathon"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
@@ -175,22 +177,26 @@ function ProductPage() {
                 />
               </div>
               <div>
-                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Distance</label>
+                <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "TIME" : "Distance"}
+                </label>
                 <Input
                   id={distanceId}
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
-                  placeholder="e.g. 42.2 km"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. 1:06:56" : "e.g. 42.2 km"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
               <div>
-                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Elevation</label>
+                <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "\n" : "Elevation"}
+                </label>
                 <Input
                   id={elevationId}
                   value={elevation}
                   onChange={(e) => setElevation(e.target.value)}
-                  placeholder="e.g. 245 m"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. Istanbul" : "e.g. 245 m"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
