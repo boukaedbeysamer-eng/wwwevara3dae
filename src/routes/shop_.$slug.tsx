@@ -111,16 +111,24 @@ function ProductPage() {
 
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
         <div className="bg-secondary/60 p-10 flex items-center justify-center">
-          <DynamicFrameSample
-            frameFinish={frameFinish}
-            mapColor={mapColor}
-            trackColor={trackColor}
-            showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display" && product.slug !== "hyrox-hex"}
-            showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display" && product.slug !== "hyrox-hex"}
-            showBibSquare={product.slug === "legacy"}
-            minimal={product.slug === "3d-map-display" || product.slug === "hyrox-hex"}
-            {...frameDetails}
-          />
+          {product.slug === "hyrox-hex" ? (
+            <img
+              src={hyroxHexAsset.url}
+              alt="Hyrox Hex 3D-printed hexagonal race display with stand"
+              className="w-full max-w-lg object-contain"
+            />
+          ) : (
+            <DynamicFrameSample
+              frameFinish={frameFinish}
+              mapColor={mapColor}
+              trackColor={trackColor}
+              showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
+              showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
+              showBibSquare={product.slug === "legacy"}
+              minimal={product.slug === "3d-map-display"}
+              {...frameDetails}
+            />
+          )}
         </div>
 
         <div>
