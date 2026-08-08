@@ -91,12 +91,9 @@ function Shop() {
           </Accordion>
 
           <Accordion id="hyrox" title="Hyrox Series" open={open === "hyrox"} onToggle={() => toggle("hyrox")}>
-            <ComingSoon
-              light
-              title="Hyrox Series"
-              note=""
-            />
+            <HyroxSeries />
           </Accordion>
+
 
           <Accordion id="custom" title="Custom My Project" open={open === "custom"} onToggle={() => toggle("custom")}>
             <CustomProject />
