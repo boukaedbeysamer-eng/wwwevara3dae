@@ -86,7 +86,7 @@ function Shop() {
             <ComingSoon
               light
               title="Glow Series"
-              note="\n"
+              note=""
             />
           </Accordion>
 
