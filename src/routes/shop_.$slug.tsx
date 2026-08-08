@@ -146,7 +146,7 @@ function ProductPage() {
           {product.slug !== "3d-map-display" && (
             <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
           )}
-          <Selector label="3D relief color" value={mapColor} options={MAP_COLORS} onChange={setMapColor} />
+          <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? MAP_COLORS.filter(c => c !== "Green") : MAP_COLORS} onChange={setMapColor} />
           <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
