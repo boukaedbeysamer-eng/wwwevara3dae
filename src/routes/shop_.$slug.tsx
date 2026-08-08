@@ -115,10 +115,10 @@ function ProductPage() {
             frameFinish={frameFinish}
             mapColor={mapColor}
             trackColor={trackColor}
-            showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
-            showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display"}
+            showMedal={product.slug !== "keepsaker" && product.slug !== "3d-map-display" && product.slug !== "hyrox-hex"}
+            showSecondHex={product.slug !== "keepsaker" && product.slug !== "3d-map-display" && product.slug !== "hyrox-hex"}
             showBibSquare={product.slug === "legacy"}
-            minimal={product.slug === "3d-map-display"}
+            minimal={product.slug === "3d-map-display" || product.slug === "hyrox-hex"}
             {...frameDetails}
           />
         </div>

@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
-import { PRODUCTS, FRAME_FINISHES, MAP_COLORS, TRACK_COLORS } from "@/data/products";
+import { ALL_PRODUCTS, FRAME_FINISHES, MAP_COLORS, TRACK_COLORS } from "@/data/products";
 import { createStripeClient, getStripeErrorMessage, type StripeEnv } from "@/lib/stripe.server";
 
 const PRICE_MAP: Record<string, string> = {
@@ -53,7 +53,7 @@ export const createOrderCheckout = createServerFn({ method: "POST" })
     const supabase = serverClient();
 
     const resolved = data.items.map((i) => {
-      const product = PRODUCTS.find((p) => p.slug === i.productSlug);
+      const product = ALL_PRODUCTS.find((p) => p.slug === i.productSlug);
       const priceLookup = PRICE_MAP[i.productSlug];
       if (!product || !priceLookup) throw new Error(`Unknown product: ${i.productSlug}`);
       return { item: i, product, priceLookup };

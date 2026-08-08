@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Mail, Phone } from "lucide-react";
-import { PRODUCTS } from "@/data/products";
+import { PRODUCTS, HYROX_PRODUCTS } from "@/data/products";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
 import keepsakerImg from "@/assets/carousel/keepsaker-goat-ultra.png.asset.json";
 import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
 import legacyImg from "@/assets/carousel/legacy-goat-ultra-race-director-2.jpg.asset.json";
 import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
+import hyroxHexImg from "@/assets/hyrox/hyrox-hex.png.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
@@ -91,12 +92,9 @@ function Shop() {
           </Accordion>
 
           <Accordion id="hyrox" title="Hyrox Series" open={open === "hyrox"} onToggle={() => toggle("hyrox")}>
-            <ComingSoon
-              light
-              title="Hyrox Series"
-              note=""
-            />
+            <HyroxSeries />
           </Accordion>
+
 
           <Accordion id="custom" title="Custom My Project" open={open === "custom"} onToggle={() => toggle("custom")}>
             <CustomProject />
@@ -251,6 +249,43 @@ function CustomProject() {
             <Mail className="h-4 w-4" /> info@evara3d.ae
           </a>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function HyroxSeries() {
+  const p = HYROX_PRODUCTS[0];
+  return (
+    <div className="relative overflow-hidden border border-border/60 bg-ink px-6 py-12 md:px-12">
+      <TopoBackdrop />
+      <div className="relative">
+        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+          <Link to="/shop/$slug" params={{ slug: p.slug }} className="group block">
+            <div className="bg-foreground/5 transition-colors group-hover:bg-foreground/10">
+              <img
+                src={hyroxHexImg.url}
+                alt={`${p.name} 3D-printed hexagonal Hyrox race display`}
+                className="aspect-square w-full object-cover"
+              />
+            </div>
+          </Link>
+          <div>
+            <span className="text-xs uppercase tracking-[0.28em] text-terrain">Hyrox series</span>
+            <h3 className="mt-3 font-display text-4xl uppercase text-foreground md:text-5xl">{p.name}</h3>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/80">{p.story}</p>
+            <div className="mt-5 text-xs uppercase tracking-[0.22em] text-foreground/60">{p.frameSize}</div>
+            <div className="mt-2 text-lg font-semibold text-terrain">AED {p.priceAed}</div>
+            <Link
+              to="/shop/$slug"
+              params={{ slug: p.slug }}
+              className="mt-7 inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Order now
+            </Link>
+          </div>
+        </div>
+        <p className="mt-10 text-xs uppercase tracking-[0.28em] text-foreground/50">More coming soon</p>
       </div>
     </div>
   );
