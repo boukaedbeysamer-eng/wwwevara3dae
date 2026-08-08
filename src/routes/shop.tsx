@@ -4,7 +4,7 @@ import { ChevronDown, Mail, Phone } from "lucide-react";
 import { PRODUCTS, HYROX_PRODUCTS } from "@/data/products";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
 import keepsakerImg from "@/assets/carousel/keepsaker-pomelli-photoshoot-3.png.asset.json";
-import achieverImg from "@/assets/carousel/frame-achiever-goat-ultra.webp.asset.json";
+import achieverImg from "@/assets/carousel/achiever-pomelli-photoshoot-2.png.asset.json";
 import legacyImg from "@/assets/carousel/legacy-goat-ultra-race-director-2.jpg.asset.json";
 import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
 import hyroxHexImg from "@/assets/hyrox/hyrox-hex.png.asset.json";
