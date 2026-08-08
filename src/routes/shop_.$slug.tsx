@@ -156,7 +156,7 @@ function ProductPage() {
             <Selector 
               label="Frame finish" 
               value={frameFinish} 
-              options={product.slug === "hyrox-hex" ? [] : FRAME_FINISHES} 
+              options={FRAME_FINISHES.filter(f => f !== "Wooden")} 
               onChange={setFrameFinish} 
             />
           )}
