@@ -199,12 +199,16 @@ function Checkout() {
                     <Field label="Location">
                       <input className={inp} {...form.register(`items.${idx}.runLocation`)} placeholder="Dubai, UAE" maxLength={200} />
                     </Field>
-                    <Field label={it.productSlug === "hyrox-hex" ? "\n" : "Distance (km)"}>
-                      <input type="number" step="0.01" min="0" className={inp} {...form.register(`items.${idx}.runDistanceKm`)} placeholder="42.20" />
-                    </Field>
-                    <Field label={it.productSlug === "hyrox-hex" ? "\n" : "Elevation gain (m)"}>
-                      <input type="number" step="1" min="0" className={inp} {...form.register(`items.${idx}.runElevationM`)} placeholder="184" />
-                    </Field>
+                    {it.productSlug !== "hyrox-hex" && (
+                      <>
+                        <Field label="Distance (km)">
+                          <input type="number" step="0.01" min="0" className={inp} {...form.register(`items.${idx}.runDistanceKm`)} placeholder="42.20" />
+                        </Field>
+                        <Field label="Elevation gain (m)">
+                          <input type="number" step="1" min="0" className={inp} {...form.register(`items.${idx}.runElevationM`)} placeholder="184" />
+                        </Field>
+                      </>
+                    )}
                     <Field label="Run date">
                       <input type="date" className={inp} {...form.register(`items.${idx}.runDate`)} />
                     </Field>
