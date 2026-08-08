@@ -208,7 +208,7 @@ function Home() {
                 <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
                 <span className="text-sm text-foreground/90">AED {p.priceAed}</span>
               </div>
-              <p className="mt-2 text-sm text-foreground/90">{p.tagline}</p>
+              <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
             </Link>
           ))}
         </div>
