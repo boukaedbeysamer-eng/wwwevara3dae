@@ -215,16 +215,18 @@ function Checkout() {
                     <Field label="Run time (hh:mm:ss)">
                       <input className={inp} {...form.register(`items.${idx}.runTime`)} placeholder="03:42:11" maxLength={20} />
                     </Field>
-                    <div className="md:col-span-2">
-                      <Field label="">
-                        <input
-                          type="file"
-                          accept=".gpx,application/gpx+xml,application/xml,text/xml"
-                          onChange={(e) => setFiles((prev) => ({ ...prev, [idx]: e.target.files?.[0] || null }))}
-                          className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
-                        />
-                      </Field>
-                    </div>
+                    {it.productSlug !== "hyrox-hex" && (
+                      <div className="md:col-span-2">
+                        <Field label="">
+                          <input
+                            type="file"
+                            accept=".gpx,application/gpx+xml,application/xml,text/xml"
+                            onChange={(e) => setFiles((prev) => ({ ...prev, [idx]: e.target.files?.[0] || null }))}
+                            className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
+                          />
+                        </Field>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
