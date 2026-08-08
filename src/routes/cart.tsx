@@ -46,8 +46,16 @@ function CartPage() {
         <div className="divide-y divide-ink/10 border-y border-foreground/30/10">
           {items.map((i) => (
             <div key={i.id} className="grid grid-cols-[120px_1fr_auto] gap-6 py-8">
-              <div className="bg-secondary/60 p-2">
-                <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
+              <div className="bg-secondary/60 p-2 flex items-center justify-center">
+                {i.productSlug === "hyrox-hex" ? (
+                  <img
+                    src={hyroxHexAsset.url}
+                    alt="Hyrox Hex 3D-printed hexagonal race display"
+                    className="h-full w-full object-contain"
+                  />
+                ) : (
+                  <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
+                )}
               </div>
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
