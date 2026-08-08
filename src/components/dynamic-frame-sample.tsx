@@ -68,12 +68,13 @@ export function DynamicFrameSample({
   const textColor = frameFinish === "Matte Black" ? "#f4f2ee" : "#111111";
 
   if (minimal) {
+    const isHyrox = minimal && showMedal === false && showSecondHex === false;
     return (
       <div
         className="mx-auto w-full max-w-[420px]"
         style={{ backgroundColor: "#fafaf7", aspectRatio: "3 / 4.2" }}
       >
-        <div className="flex h-full w-full items-center justify-center">
+        <div className="flex h-full w-full flex-col items-center justify-center p-6">
           <svg viewBox="0 0 280 160" className="w-[96%]">
             <g transform="translate(140, 80)">
               <polygon
@@ -92,6 +93,17 @@ export function DynamicFrameSample({
               <ellipse cx="-12" cy="-26" rx="16" ry="7" fill={glossColor} opacity="0.18" />
             </g>
           </svg>
+          
+          {isHyrox && (
+            <div className="mt-8 flex w-full flex-col items-center text-center text-ink">
+              <div className="font-display text-2xl font-bold uppercase tracking-wider">{raceName}</div>
+              <div className="mt-6 flex w-full items-baseline justify-between border-t border-ink/10 pt-4 text-[10px] font-medium tracking-[0.2em] uppercase">
+                <span>{date}</span>
+                <span>{elevation}</span>
+                <span>{distance}</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
