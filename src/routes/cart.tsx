@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
+import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -45,13 +46,21 @@ function CartPage() {
         <div className="divide-y divide-ink/10 border-y border-foreground/30/10">
           {items.map((i) => (
             <div key={i.id} className="grid grid-cols-[120px_1fr_auto] gap-6 py-8">
-              <div className="bg-secondary/60 p-2">
-                <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
+              <div className="bg-secondary/60 p-2 flex items-center justify-center">
+                {i.productSlug === "hyrox-hex" ? (
+                  <img
+                    src={hyroxHexAsset.url}
+                    alt="Hyrox Hex 3D-printed hexagonal race display"
+                    className="h-full w-full object-contain"
+                  />
+                ) : (
+                  <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
+                )}
               </div>
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                  {i.frameFinish} · {i.mapColor} relief · {i.trackColor} track
+                  {i.productSlug === "hyrox-hex" ? "" : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
                 </div>
                 <div className="mt-4 flex items-center gap-4">
                   <div className="flex items-center border border-foreground/30/30">
