@@ -30,10 +30,11 @@ const RELIEF_STROKE: Record<MapColor, string> = {
   Wooden: "#ffffff",
 };
 
-const TRACK_COLOR_HEX: Record<TrackColor, string> = {
+const TRACK_COLOR_HEX: Record<TrackColor | "White", string> = {
   Red: "#c0392b",
   Black: "#111111",
   Orange: "#d97706",
+  White: "#ffffff",
 };
 
 export function DynamicFrameSample({
