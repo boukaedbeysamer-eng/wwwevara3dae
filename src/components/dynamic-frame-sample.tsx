@@ -61,7 +61,7 @@ export function DynamicFrameSample({
   minimal?: boolean;
 } & FrameDetails) {
   const frame = FRAME_COLOR[frameFinish];
-  const track = TRACK_COLOR_HEX[trackColor];
+  const track = (TRACK_COLOR_HEX as any)[trackColor] || TRACK_COLOR_HEX.Orange;
   const hexFill = RELIEF_COLOR[mapColor];
   const hexStroke = mapColor === "White" ? "#111111" : "none";
   const glossColor = mapColor === "White" ? "#111111" : "#ffffff";
