@@ -252,9 +252,11 @@ function ProductPage() {
             Add & request now
           </button>
 
-          <p className="mt-6 text-xs text-foreground/70">
-            We'll collect your GPX file and run details on the next step.
-          </p>
+          {product.slug !== "hyrox-hex" && (
+            <p className="mt-6 text-xs text-foreground/70">
+              We'll collect your GPX file and run details on the next step.
+            </p>
+          )}
         </div>
       </div>
     </section>
