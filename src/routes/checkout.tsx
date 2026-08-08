@@ -216,7 +216,7 @@ function Checkout() {
                       <input className={inp} {...form.register(`items.${idx}.runTime`)} placeholder="03:42:11" maxLength={20} />
                     </Field>
                     <div className="md:col-span-2">
-                      <Field label="GPX file (optional)">
+                      <Field label="">
                         <input
                           type="file"
                           accept=".gpx,application/gpx+xml,application/xml,text/xml"
