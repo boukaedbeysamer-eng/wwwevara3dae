@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "3d-map-display",
     name: "3D HEX MAP DISPLAY WITH STAND",
-    tagline: "Your route, standing tall.",
+    tagline: "Your route, standing tall.\u00a0\n13 × 11 × 3 CM\u00a0",
     priceAed: 100,
     frameSize: "130 × 110 × 30 mm",
     mapSize: "3D-printed terrain with stand",
