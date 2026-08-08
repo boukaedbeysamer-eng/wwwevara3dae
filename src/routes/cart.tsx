@@ -60,7 +60,7 @@ function CartPage() {
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                  {i.frameFinish} · {i.mapColor} relief · {i.trackColor} track
+                  {i.productSlug === "hyrox-hex" ? "" : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
                 </div>
                 <div className="mt-4 flex items-center gap-4">
                   <div className="flex items-center border border-foreground/30/30">
