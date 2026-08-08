@@ -6,7 +6,7 @@ import { PRODUCTS } from "@/data/products";
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
-import frameKeepsakerGoat from "@/assets/carousel/frame-keepsaker-goat-ultra.png.asset.json";
+import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.json";
 import frameAchieverMedal from "@/assets/carousel/frame-achiever-goat-v2.png.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
