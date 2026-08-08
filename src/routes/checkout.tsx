@@ -223,9 +223,6 @@ function Checkout() {
                           onChange={(e) => setFiles((prev) => ({ ...prev, [idx]: e.target.files?.[0] || null }))}
                           className="block w-full text-sm text-foreground file:mr-4 file:border-0 file:bg-terrain file:px-4 file:py-2 file:text-xs file:uppercase file:tracking-[0.18em] file:text-paper hover:file:bg-terrain"
                         />
-                        <p className="mt-2 text-xs text-foreground/70">
-                          Once we receive your order we will contact you for the GPX file.
-                        </p>
                       </Field>
                     </div>
                   </div>
