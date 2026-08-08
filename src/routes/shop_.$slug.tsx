@@ -147,11 +147,16 @@ function ProductPage() {
             <Selector label="Frame finish" value={frameFinish} options={FRAME_FINISHES} onChange={setFrameFinish} />
           )}
           <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? MAP_COLORS.filter(c => c !== "Green") : MAP_COLORS} onChange={setMapColor} />
-          <Selector label="Strava track color" value={trackColor} options={TRACK_COLORS} onChange={setTrackColor} />
+          <Selector 
+            label={product.slug === "hyrox-hex" ? "TEXT COLOR" : "Strava track color"} 
+            value={trackColor} 
+            options={product.slug === "hyrox-hex" ? ["White", "Black"] as any[] : TRACK_COLORS} 
+            onChange={setTrackColor} 
+          />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
             <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">
-              {product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
+              {product.slug === "hyrox-hex" ? "Personalise your display" : product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
@@ -166,13 +171,15 @@ function ProductPage() {
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
-              <div>
-                <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">Date</label>
+              <div className={product.slug === "hyrox-hex" ? "col-span-2" : ""}>
+                <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                  {product.slug === "hyrox-hex" ? "RACE LOCATION & DIVISION / SEASON" : "Date"}
+                </label>
                 <Input
                   id={dateId}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  placeholder="e.g. 12.03.2026"
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. Hyrox Istanbul - Pro Men" : "e.g. 12.03.2026"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
@@ -190,13 +197,13 @@ function ProductPage() {
               </div>
               <div>
                 <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
-                  {product.slug === "hyrox-hex" ? "\n" : "Elevation"}
+                  {product.slug === "hyrox-hex" ? "DATE" : "Elevation"}
                 </label>
                 <Input
                   id={elevationId}
                   value={elevation}
                   onChange={(e) => setElevation(e.target.value)}
-                  placeholder={product.slug === "hyrox-hex" ? "e.g. Istanbul" : "e.g. 245 m"}
+                  placeholder={product.slug === "hyrox-hex" ? "e.g. 12.03.2026" : "e.g. 245 m"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
