@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "achiever",
     name: "Achiever",
-    tagline: "Your medal deserves a home.\u00a0\n30 × 40 CM DEEP FRAME\u00a0",
+    tagline: "Your medal deserves to be well preserved.\u00a0 30 × 40 CM DEEP FRAME\u00a0",
     priceAed: 260,
     frameSize: "30 × 40 cm deep frame",
     mapSize: "11 × 12 cm 3D-printed terrain",
