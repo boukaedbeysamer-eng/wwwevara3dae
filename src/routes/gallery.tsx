@@ -22,6 +22,10 @@ import photoSlmt from "@/assets/gallery/slmt-photoshoot.png.asset.json";
 import photoMushrif from "@/assets/gallery/mushrif-photoshoot.png.asset.json";
 import photoGoatMedalWhite from "@/assets/gallery/goat-ultra-medal-white-frame.jpeg.asset.json";
 import photoGoatKarisBlack from "@/assets/gallery/goat-ultra-karis-black-frame.jpeg.asset.json";
+import photoCappadociaWallWhite from "@/assets/gallery/IMG_7290.jpeg.asset.json";
+import photoCappadociaDesk from "@/assets/gallery/IMG_7292-2.jpeg.asset.json";
+import photoCappadociaAngle from "@/assets/gallery/IMG_7310.jpeg.asset.json";
+import photoCappadociaMedalAngle from "@/assets/gallery/IMG_7311.jpeg.asset.json";
 
 type GalleryImage = {
   src: string;
