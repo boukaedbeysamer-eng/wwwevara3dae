@@ -22,6 +22,10 @@ import photoSlmt from "@/assets/gallery/slmt-photoshoot.png.asset.json";
 import photoMushrif from "@/assets/gallery/mushrif-photoshoot.png.asset.json";
 import photoGoatMedalWhite from "@/assets/gallery/goat-ultra-medal-white-frame.jpeg.asset.json";
 import photoGoatKarisBlack from "@/assets/gallery/goat-ultra-karis-black-frame.jpeg.asset.json";
+import photoCappadociaWallWhite from "@/assets/gallery/IMG_7290.jpeg.asset.json";
+import photoCappadociaDesk from "@/assets/gallery/IMG_7292-2.jpeg.asset.json";
+import photoCappadociaAngle from "@/assets/gallery/IMG_7310.jpeg.asset.json";
+import photoCappadociaMedalAngle from "@/assets/gallery/IMG_7311.jpeg.asset.json";
 
 type GalleryImage = {
   src: string;
@@ -37,6 +41,10 @@ type GalleryFolder = {
 };
 
 const TRAIL_RUNNING_IMAGES: GalleryImage[] = [
+  { src: photoCappadociaWallWhite.url, title: "Cappadocia Ultra Trail Run — White Frame", caption: "63KM ultra with finisher medal in a white deep frame." },
+  { src: photoCappadociaDesk.url, title: "Cappadocia Ultra Trail Run — Desk Display", caption: "Hex relief and medal, framed in white." },
+  { src: photoCappadociaAngle.url, title: "Cappadocia Ultra Trail Run — Angle View", caption: "Blue hex relief with orange route line." },
+  { src: photoCappadociaMedalAngle.url, title: "Cappadocia Ultra Trail Run — Medal Detail", caption: "Salomon Cappadocia finisher medal mounted on the hex." },
   { src: photoGoatMedalWhite.url, title: "GOAT Ultra Trail Race — White Frame with Medal", caption: "White frame with hex relief and 100KM finisher medal." },
   { src: photoGoatKarisBlack.url, title: "GOAT Ultra Trail Race — Karis Miriam Brown", caption: "Black frame with hex relief — 98.61KM." },
   { src: frameLegendary.url, title: "PORTABLE 3D HEX MAP DISPLAY", caption: "Premium stand-mounted relief for your proudest moment." },
