@@ -7,7 +7,7 @@ import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.json";
-import frameAchieverMedal from "@/assets/pomelli-photoshoot-image-1-1-0808_1.png.asset.json";
+import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
