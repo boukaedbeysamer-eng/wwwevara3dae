@@ -60,7 +60,7 @@ const FOLDERS: GalleryFolder[] = [
   {
     id: "trail-running",
     label: "Trail Running",
-    description: "Every frame tells a story. Browse real pieces made for runners, hikers, and adventurers across the region.",
+    description: "Every frame tells a story. Browse real pieces made for runners, athletes, and adventurers across the region.",
     images: TRAIL_RUNNING_IMAGES,
   },
   {
