@@ -26,6 +26,10 @@ import photoCappadociaWallWhite from "@/assets/gallery/IMG_7290.jpeg.asset.json"
 import photoCappadociaDesk from "@/assets/gallery/IMG_7292-2.jpeg.asset.json";
 import photoCappadociaAngle from "@/assets/gallery/IMG_7310.jpeg.asset.json";
 import photoCappadociaMedalAngle from "@/assets/gallery/IMG_7311.jpeg.asset.json";
+import hyroxArena from "@/assets/gallery/hyrox-istanbul-arena.png.asset.json";
+import hyroxAmir from "@/assets/gallery/hyrox-istanbul-amir.jpeg.asset.json";
+import hyroxRawad from "@/assets/gallery/hyrox-istanbul-rawad.jpg.asset.json";
+import hyroxRawadAngle from "@/assets/gallery/hyrox-istanbul-rawad-angle.jpg.asset.json";
 
 type GalleryImage = {
   src: string;
