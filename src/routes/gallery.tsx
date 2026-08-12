@@ -68,6 +68,13 @@ const TRAIL_RUNNING_IMAGES: GalleryImage[] = [
   { src: frameGoatYellow.url, title: "GOAT ULTRA TRAIL RACE 50KM — WHITE FRAME", caption: "50KM finisher medal display with a 3D Printed relief in a bold white frame." },
 ];
 
+const HYROX_IMAGES: GalleryImage[] = [
+  { src: hyroxArena.url, title: "HYROX Istanbul — Amir Boureslan", caption: "3D-printed hex display photographed at the HYROX Istanbul arena." },
+  { src: hyroxAmir.url, title: "HYROX Istanbul — Open Singles 2026/2027", caption: "Black hex display with race date and finish time." },
+  { src: hyroxRawad.url, title: "HYROX Istanbul — Rawad Eid", caption: "Pro Singles hex display with white race plate." },
+  { src: hyroxRawadAngle.url, title: "HYROX Istanbul — Hex Display Angle", caption: "Stand-mounted hex display, side view." },
+];
+
 const FOLDERS: GalleryFolder[] = [
   {
     id: "trail-running",
