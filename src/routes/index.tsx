@@ -202,6 +202,12 @@ function Home() {
                     alt={`${p.name} 3D-printed topographic hex plaque`}
                     className="aspect-square w-full object-cover"
                   />
+                ) : i === 4 ? (
+                  <img
+                    src={hyroxHexProduct.url}
+                    alt={`${p.name} 3D-printed Hyrox hex display`}
+                    className="aspect-square w-full object-cover"
+                  />
                 ) : null}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
