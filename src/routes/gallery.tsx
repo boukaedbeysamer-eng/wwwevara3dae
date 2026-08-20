@@ -30,6 +30,9 @@ import hyroxArena from "@/assets/gallery/hyrox-istanbul-arena.png.asset.json";
 import hyroxAmir from "@/assets/gallery/hyrox-istanbul-amir.jpeg.asset.json";
 import hyroxRawad from "@/assets/gallery/hyrox-istanbul-rawad.jpg.asset.json";
 import hyroxRawadAngle from "@/assets/gallery/hyrox-istanbul-rawad-angle.jpg.asset.json";
+import hyroxDoublesStudio from "@/assets/gallery/hyrox-istanbul-doubles-studio.png.asset.json";
+import hyroxDoublesHand from "@/assets/gallery/hyrox-istanbul-doubles-hand.jpg.asset.json";
+import hyroxDoublesShelf from "@/assets/gallery/hyrox-istanbul-doubles-shelf.jpg.asset.json";
 
 type GalleryImage = {
   src: string;
