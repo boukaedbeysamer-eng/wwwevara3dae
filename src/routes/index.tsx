@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { PRODUCTS } from "@/data/products";
+import { ALL_PRODUCTS } from "@/data/products";
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
