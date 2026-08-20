@@ -10,6 +10,7 @@ import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.
 import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
+import hyroxHexProduct from "@/assets/hyrox/hyrox-hex-product.jpeg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
