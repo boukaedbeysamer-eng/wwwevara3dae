@@ -82,8 +82,8 @@ export const PRODUCTS: Product[] = [
 export const HYROX_PRODUCTS: Product[] = [
   {
     slug: "hyrox-hex",
-    name: "Hyrox Hex",
-    tagline: "Your Hyrox race, in 3D.",
+    name: "HYROX HEX DISPLAY WITH STAND",
+    tagline: "Your HYROX race keepsake in 3D.",
     priceAed: 125,
     frameSize: "17 × 15 × 1.5 cm",
     mapSize: "3D-printed hexagonal display with stand",
