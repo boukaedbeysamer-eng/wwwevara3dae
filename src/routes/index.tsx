@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { PRODUCTS } from "@/data/products";
+import { ALL_PRODUCTS } from "@/data/products";
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
@@ -10,6 +10,7 @@ import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.
 import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
+import hyroxHexProduct from "@/assets/hyrox/hyrox-hex-product.jpeg.asset.json";
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -159,7 +160,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">OUR PRODUCTS</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Four frames. One memory.
+              Five pieces. One memory.
             </h2>
           </div>
           <Link
@@ -170,7 +171,7 @@ function Home() {
           </Link>
         </div>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
-          {PRODUCTS.map((p, i) => (
+          {ALL_PRODUCTS.map((p, i) => (
             <Link
               key={p.slug}
               to="/shop/$slug"
@@ -200,6 +201,12 @@ function Home() {
                   <img
                     src={frame3dHexMap.url}
                     alt={`${p.name} 3D-printed topographic hex plaque`}
+                    className="aspect-square w-full object-cover"
+                  />
+                ) : i === 4 ? (
+                  <img
+                    src={hyroxHexProduct.url}
+                    alt={`${p.name} 3D-printed Hyrox hex display`}
                     className="aspect-square w-full object-cover"
                   />
                 ) : null}
