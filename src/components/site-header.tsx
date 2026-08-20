@@ -67,7 +67,7 @@ export function SiteHeader() {
                 pathname.startsWith("/shop") ? "text-terrain" : ""
               }`}
             >
-              Collection
+              PRODUCTS
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-300 ease-out ${collectionOpen ? "rotate-180" : ""}`}
               />
@@ -153,7 +153,7 @@ export function SiteHeader() {
                 pathname.startsWith("/shop") ? "text-terrain" : "text-foreground/80"
               }`}
             >
-              Collection
+              PRODUCTS
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-300 ease-out ${
                   mobileCollectionOpen ? "rotate-180" : ""
