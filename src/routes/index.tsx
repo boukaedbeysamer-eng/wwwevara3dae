@@ -160,7 +160,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">OUR PRODUCTS</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Four frames. One memory.
+              Five pieces. One memory.
             </h2>
           </div>
           <Link
