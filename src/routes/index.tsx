@@ -170,7 +170,7 @@ function Home() {
           </Link>
         </div>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
-          {PRODUCTS.map((p, i) => (
+          {ALL_PRODUCTS.map((p, i) => (
             <Link
               key={p.slug}
               to="/shop/$slug"
