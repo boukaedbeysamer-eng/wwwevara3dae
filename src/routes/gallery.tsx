@@ -72,6 +72,9 @@ const TRAIL_RUNNING_IMAGES: GalleryImage[] = [
 ];
 
 const HYROX_IMAGES: GalleryImage[] = [
+  { src: hyroxDoublesStudio.url, title: "HYROX Istanbul — Manuel & Tarek", caption: "Pro Doubles hex display with stand — 1 AUG 2026, 1:01:46." },
+  { src: hyroxDoublesHand.url, title: "HYROX Istanbul — Doubles Hex In Hand", caption: "Black hex display with white race plate and gold lettering." },
+  { src: hyroxDoublesShelf.url, title: "HYROX Istanbul — Shelf Display", caption: "Stand-mounted hex display alongside race trophies." },
   { src: hyroxArena.url, title: "HYROX Istanbul — Amir Boureslan", caption: "3D-printed hex display photographed at the HYROX Istanbul arena." },
   { src: hyroxAmir.url, title: "HYROX Istanbul — Open Singles 2026/2027", caption: "Black hex display with race date and finish time." },
   { src: hyroxRawad.url, title: "HYROX Istanbul — Rawad Eid", caption: "Pro Singles hex display with white race plate." },
