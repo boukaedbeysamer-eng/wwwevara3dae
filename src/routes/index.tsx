@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
+import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
+import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
 
 const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
@@ -352,6 +354,25 @@ function FrameCarousel() {
 
 function FlaskDryStandCard() {
   const [qty, setQty] = useState(1);
+  const [imgIndex, setImgIndex] = useState(0);
+  const imgContainerRef = useRef<HTMLDivElement>(null);
+
+  const images = [
+    { src: flaskDryStand.url, alt: "Flask Dry Stand — 3D-printed detachable soft flask drying stand" },
+    { src: flaskDryStand1.url, alt: "Flask Dry Stand — empty drying stand with honeycomb base" },
+    { src: flaskDryStand2.url, alt: "Flask Dry Stand — two soft flasks air-drying upright" },
+  ];
+
+  const scrollToImage = (index: number) => {
+    const next = Math.max(0, Math.min(images.length - 1, index));
+    setImgIndex(next);
+    const container = imgContainerRef.current;
+    if (!container) return;
+    const img = container.children[next] as HTMLElement;
+    if (img) {
+      container.scrollTo({ left: img.offsetLeft, behavior: "smooth" });
+    }
+  };
 
   const buy = () => {
     window.open(`${FLASK_STRIPE_LINK}?quantity=${qty}`, "_blank", "noopener,noreferrer");
@@ -359,15 +380,58 @@ function FlaskDryStandCard() {
 
   return (
     <div className="group block">
-      <div className="bg-secondary/60 transition-colors group-hover:bg-secondary">
-        <img
-          src={flaskDryStand.url}
-          alt="Flask Dry Stand — 3D-printed detachable soft flask drying stand"
-          className="aspect-square w-full object-cover"
-          loading="lazy"
-          width={1024}
-          height={1024}
-        />
+      <div className="relative bg-secondary/60 transition-colors group-hover:bg-secondary">
+        <div
+          ref={imgContainerRef}
+          className="flex aspect-square w-full snap-x snap-mandatory overflow-x-hidden scroll-smooth"
+        >
+          {images.map((img) => (
+            <img
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              className="aspect-square w-full flex-shrink-0 snap-start object-cover"
+              loading="lazy"
+              width={1024}
+              height={1024}
+            />
+          ))}
+        </div>
+
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => scrollToImage(imgIndex - 1)}
+              disabled={imgIndex === 0}
+              className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => scrollToImage(imgIndex + 1)}
+              disabled={imgIndex === images.length - 1}
+              className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
+            <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Go to image ${i + 1}`}
+                  onClick={() => scrollToImage(i)}
+                  className={`h-1.5 rounded-full transition-all ${i === imgIndex ? "w-4 bg-paper" : "w-1.5 bg-paper/50"}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <div className="mt-6 flex items-baseline justify-between">
         <h3 className="font-display text-2xl text-foreground">Flask Dry Stand</h3>
