@@ -276,14 +276,13 @@ function HyroxSeries() {
             <p className="mt-4 text-sm leading-relaxed text-foreground/80">{p.story}</p>
             <div className="mt-5 text-xs uppercase tracking-[0.22em] text-foreground/60">{p.frameSize}</div>
             <div className="mt-2 text-lg font-semibold text-terrain">AED {p.priceAed}</div>
-            <a
-              href="https://buy.stripe.com/9B64gA6VA5hc5uz6esf7i04"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/shop/$slug"
+              params={{ slug: p.slug }}
               className="mt-7 inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
-              Place Your Order & Secure Your Payment
-            </a>
+              Order now
+            </Link>
           </div>
         </div>
         <p className="mt-10 text-xs uppercase tracking-[0.28em] text-foreground/50">{"\n"}</p>
