@@ -164,7 +164,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">OUR PRODUCTS</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Five pieces. One memory.
+              Six pieces. One memory.
             </h2>
           </div>
           <Link
