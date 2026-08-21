@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
+import flaskDryStand from "@/assets/flask-dry-stand.jpg.asset.json";
+
+const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
+
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
