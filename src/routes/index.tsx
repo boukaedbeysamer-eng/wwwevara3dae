@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
+import flaskDryStand from "@/assets/flask-dry-stand.jpg.asset.json";
+
+const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
+
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
@@ -160,7 +164,7 @@ function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.28em] text-terrain">OUR PRODUCTS</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              Five pieces. One memory.
+              Six pieces. One memory.
             </h2>
           </div>
           <Link
@@ -218,6 +222,8 @@ function Home() {
               <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
             </Link>
           ))}
+          <FlaskDryStandCard />
+
         </div>
         </div>
       </section>
@@ -340,6 +346,68 @@ function FrameCarousel() {
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+function FlaskDryStandCard() {
+  const [qty, setQty] = useState(1);
+
+  const buy = () => {
+    window.open(`${FLASK_STRIPE_LINK}?quantity=${qty}`, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <div className="group block">
+      <div className="bg-secondary/60 transition-colors group-hover:bg-secondary">
+        <img
+          src={flaskDryStand.url}
+          alt="Flask Dry Stand — 3D-printed detachable soft flask drying stand"
+          className="aspect-square w-full object-cover"
+          loading="lazy"
+          width={1024}
+          height={1024}
+        />
+      </div>
+      <div className="mt-6 flex items-baseline justify-between">
+        <h3 className="font-display text-2xl text-foreground">Flask Dry Stand</h3>
+        <span className="text-sm text-foreground/90">AED 75</span>
+      </div>
+      <p className="mt-2 text-sm text-foreground/90">
+        3D printed soft flask drying stand, fully detachable — designed to hold and air-dry
+        insulated flasks/bottles upright, keeping them stable and ventilated between uses.
+      </p>
+
+      <div className="mt-5 flex items-center gap-4">
+        <span className="text-xs uppercase tracking-[0.22em] text-foreground/70">Qty</span>
+        <div className="flex items-center border border-foreground/30">
+          <button
+            type="button"
+            aria-label="Decrease quantity"
+            onClick={() => setQty((q) => Math.max(1, q - 1))}
+            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
+          >
+            <Minus className="h-4 w-4" />
+          </button>
+          <span className="w-10 text-center text-sm text-foreground">{qty}</span>
+          <button
+            type="button"
+            aria-label="Increase quantity"
+            onClick={() => setQty((q) => Math.min(20, q + 1))}
+            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
+          >
+            <Plus className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={buy}
+        className="mt-4 w-full bg-terrain px-6 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+      >
+        Place Your Order & Secure Your Payment
+      </button>
     </div>
   );
 }
