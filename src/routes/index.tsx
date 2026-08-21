@@ -222,6 +222,8 @@ function Home() {
               <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
             </Link>
           ))}
+          <FlaskDryStandCard />
+
         </div>
         </div>
       </section>
