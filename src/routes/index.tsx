@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
+import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
+import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
 
 const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
