@@ -33,6 +33,17 @@ function CartPage() {
   const remove = useCart((s) => s.remove);
   const setQty = useCart((s) => s.setQty);
   const total = cartTotal(items);
+  const flaskItems = items.filter((i) => i.productSlug === "flask-dry-stand");
+  const frameItems = items.filter((i) => i.productSlug !== "flask-dry-stand");
+  const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
+  const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
+
+  const payFlask = () => {
+    const url = `${FLASK_STRIPE_LINK}?quantity=${flaskQty}&prefilled_promo_code=&client_reference_id=${encodeURIComponent(
+      flaskBreakdown.replace(/[^a-zA-Z0-9]/g, "-"),
+    )}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   if (items.length === 0) {
     return (
@@ -119,12 +130,23 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          <Link
-            to="/checkout"
-            className="mt-8 block bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
-          >
-            Send order request
-          </Link>
+          {flaskItems.length > 0 && (
+            <button
+              type="button"
+              onClick={payFlask}
+              className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Place Your Order &amp; Secure Your Payment
+            </button>
+          )}
+          {frameItems.length > 0 && (
+            <Link
+              to="/checkout"
+              className="mt-4 block bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+            >
+              Send order request
+            </Link>
+          )}
           <p className="mt-4 text-xs text-foreground/70">
             We'll WhatsApp you to confirm details, shipping, and order specifications. Make sure you type your WhatsApp number correctly.
           </p>
