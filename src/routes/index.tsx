@@ -409,7 +409,7 @@ function FlaskDryStandCard() {
               aria-label="Previous image"
               onClick={() => scrollToImage(imgIndex - 1)}
               disabled={imgIndex === 0}
-              className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+              className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-black text-white shadow transition-opacity disabled:opacity-30 hover:bg-black/90"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -418,7 +418,7 @@ function FlaskDryStandCard() {
               aria-label="Next image"
               onClick={() => scrollToImage(imgIndex + 1)}
               disabled={imgIndex === images.length - 1}
-              className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+              className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-black text-white shadow transition-opacity disabled:opacity-30 hover:bg-black/90"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
