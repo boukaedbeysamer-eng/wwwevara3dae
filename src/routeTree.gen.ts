@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FlaskDryStandRouteImport } from './routes/flask-dry-stand'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
@@ -35,6 +36,11 @@ const ShopRoute = ShopRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlaskDryStandRoute = FlaskDryStandRouteImport.update({
+  id: '/flask-dry-stand',
+  path: '/flask-dry-stand',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRouteWithChildren
   '/faq': typeof FaqRoute
+  '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/flask-dry-stand'
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/flask-dry-stand'
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/faq'
+    | '/flask-dry-stand'
     | '/gallery'
     | '/shop'
     | '/sitemap.xml'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRouteWithChildren
   FaqRoute: typeof FaqRoute
+  FlaskDryStandRoute: typeof FlaskDryStandRoute
   GalleryRoute: typeof GalleryRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -207,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flask-dry-stand': {
+      id: '/flask-dry-stand'
+      path: '/flask-dry-stand'
+      fullPath: '/flask-dry-stand'
+      preLoaderRoute: typeof FlaskDryStandRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -293,6 +313,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRouteWithChildren,
   FaqRoute: FaqRoute,
+  FlaskDryStandRoute: FlaskDryStandRoute,
   GalleryRoute: GalleryRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

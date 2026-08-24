@@ -2,6 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
+import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
+import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
+import flaskBlueAsset from "@/assets/flask-dry-stand.png.asset.json";
+
+const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
+
+const FLASK_IMAGES: Record<string, string> = {
+  Black: flaskBlackAsset.url,
+  White: flaskWhiteAsset.url,
+  Blue: flaskBlueAsset.url,
+};
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -53,6 +64,12 @@ function CartPage() {
                     alt="Hyrox Hex 3D-printed hexagonal race display"
                     className="h-full w-full object-contain"
                   />
+                ) : i.productSlug === "flask-dry-stand" ? (
+                  <img
+                    src={FLASK_IMAGES[i.color ?? "Black"] ?? flaskBlackAsset.url}
+                    alt={`Flask Dry Stand — ${i.color ?? "Black"}`}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
                   <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
                 )}
@@ -60,7 +77,11 @@ function CartPage() {
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                  {i.productSlug === "hyrox-hex" ? "" : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
+                  {i.productSlug === "hyrox-hex"
+                    ? ""
+                    : i.productSlug === "flask-dry-stand"
+                      ? `Color: ${i.color ?? "Black"}`
+                      : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
                 </div>
                 <div className="mt-4 flex items-center gap-4">
                   <div className="flex items-center border border-foreground/30/30">
