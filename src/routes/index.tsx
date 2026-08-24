@@ -360,6 +360,8 @@ function FlaskDryStandCard() {
   const imgContainerRef = useRef<HTMLDivElement>(null);
 
   const images = [
+    { src: flaskDryStandBlack.url, alt: "Flask Dry Stand — black 3D-printed soft flask drying stand" },
+    { src: flaskDryStandWhite.url, alt: "Flask Dry Stand — white 3D-printed soft flask drying stand" },
     { src: flaskDryStand.url, alt: "Flask Dry Stand — 3D-printed detachable soft flask drying stand" },
     { src: flaskDryStand1.url, alt: "Flask Dry Stand — empty drying stand with honeycomb base" },
     { src: flaskDryStand2.url, alt: "Flask Dry Stand — two soft flasks air-drying upright" },
