@@ -5,6 +5,8 @@ import { ALL_PRODUCTS } from "@/data/products";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
 import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
+import flaskDryStandBlack from "@/assets/flask-dry-stand-black.png.asset.json";
+import flaskDryStandWhite from "@/assets/flask-dry-stand-white.png.asset.json";
 
 const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
@@ -358,6 +360,8 @@ function FlaskDryStandCard() {
   const imgContainerRef = useRef<HTMLDivElement>(null);
 
   const images = [
+    { src: flaskDryStandBlack.url, alt: "Flask Dry Stand — black 3D-printed soft flask drying stand" },
+    { src: flaskDryStandWhite.url, alt: "Flask Dry Stand — white 3D-printed soft flask drying stand" },
     { src: flaskDryStand.url, alt: "Flask Dry Stand — 3D-printed detachable soft flask drying stand" },
     { src: flaskDryStand1.url, alt: "Flask Dry Stand — empty drying stand with honeycomb base" },
     { src: flaskDryStand2.url, alt: "Flask Dry Stand — two soft flasks air-drying upright" },
@@ -405,7 +409,7 @@ function FlaskDryStandCard() {
               aria-label="Previous image"
               onClick={() => scrollToImage(imgIndex - 1)}
               disabled={imgIndex === 0}
-              className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+              className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-black text-white shadow transition-opacity disabled:opacity-30 hover:bg-black/90"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -414,7 +418,7 @@ function FlaskDryStandCard() {
               aria-label="Next image"
               onClick={() => scrollToImage(imgIndex + 1)}
               disabled={imgIndex === images.length - 1}
-              className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-paper text-foreground shadow transition-opacity disabled:opacity-30 hover:bg-paper/90"
+              className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-black text-white shadow transition-opacity disabled:opacity-30 hover:bg-black/90"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -426,7 +430,7 @@ function FlaskDryStandCard() {
                   type="button"
                   aria-label={`Go to image ${i + 1}`}
                   onClick={() => scrollToImage(i)}
-                  className={`h-1.5 rounded-full transition-all ${i === imgIndex ? "w-4 bg-paper" : "w-1.5 bg-paper/50"}`}
+                  className={`h-1.5 rounded-full transition-all ${i === imgIndex ? "w-4 bg-black" : "w-1.5 bg-black/50"}`}
                 />
               ))}
             </div>
