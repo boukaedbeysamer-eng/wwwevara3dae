@@ -2,6 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
+import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
+import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
+import flaskBlueAsset from "@/assets/flask-dry-stand.png.asset.json";
+
+const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
+
+const FLASK_IMAGES: Record<string, string> = {
+  Black: flaskBlackAsset.url,
+  White: flaskWhiteAsset.url,
+  Blue: flaskBlueAsset.url,
+};
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -22,6 +33,17 @@ function CartPage() {
   const remove = useCart((s) => s.remove);
   const setQty = useCart((s) => s.setQty);
   const total = cartTotal(items);
+  const flaskItems = items.filter((i) => i.productSlug === "flask-dry-stand");
+  const frameItems = items.filter((i) => i.productSlug !== "flask-dry-stand");
+  const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
+  const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
+
+  const payFlask = () => {
+    const url = `${FLASK_STRIPE_LINK}?quantity=${flaskQty}&client_reference_id=${encodeURIComponent(
+      flaskBreakdown.replace(/[^a-zA-Z0-9]/g, "-"),
+    )}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   if (items.length === 0) {
     return (
@@ -53,6 +75,12 @@ function CartPage() {
                     alt="Hyrox Hex 3D-printed hexagonal race display"
                     className="h-full w-full object-contain"
                   />
+                ) : i.productSlug === "flask-dry-stand" ? (
+                  <img
+                    src={FLASK_IMAGES[i.color ?? "Black"] ?? flaskBlackAsset.url}
+                    alt={`Flask Dry Stand — ${i.color ?? "Black"}`}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
                   <FrameVisual frameFinish={i.frameFinish} mapColor={i.mapColor} trackColor={i.trackColor} />
                 )}
@@ -60,7 +88,11 @@ function CartPage() {
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                  {i.productSlug === "hyrox-hex" ? "" : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
+                  {i.productSlug === "hyrox-hex"
+                    ? ""
+                    : i.productSlug === "flask-dry-stand"
+                      ? `Color: ${i.color ?? "Black"}`
+                      : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
                 </div>
                 <div className="mt-4 flex items-center gap-4">
                   <div className="flex items-center border border-foreground/30/30">
@@ -98,12 +130,23 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          <Link
-            to="/checkout"
-            className="mt-8 block bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
-          >
-            Send order request
-          </Link>
+          {flaskItems.length > 0 && (
+            <button
+              type="button"
+              onClick={payFlask}
+              className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Place Your Order &amp; Secure Your Payment
+            </button>
+          )}
+          {frameItems.length > 0 && (
+            <Link
+              to="/checkout"
+              className="mt-4 block bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain"
+            >
+              Send order request
+            </Link>
+          )}
           <p className="mt-4 text-xs text-foreground/70">
             We'll WhatsApp you to confirm details, shipping, and order specifications. Make sure you type your WhatsApp number correctly.
           </p>

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
@@ -8,7 +8,6 @@ import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
 import flaskDryStandBlack from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskDryStandWhite from "@/assets/flask-dry-stand-white.png.asset.json";
 
-const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
@@ -355,7 +354,6 @@ function FrameCarousel() {
 }
 
 function FlaskDryStandCard() {
-  const [qty, setQty] = useState(1);
   const [imgIndex, setImgIndex] = useState(0);
   const imgContainerRef = useRef<HTMLDivElement>(null);
 
@@ -376,10 +374,6 @@ function FlaskDryStandCard() {
     if (img) {
       container.scrollTo({ left: img.offsetLeft, behavior: "smooth" });
     }
-  };
-
-  const buy = () => {
-    window.open(`${FLASK_STRIPE_LINK}?quantity=${qty}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -446,36 +440,12 @@ function FlaskDryStandCard() {
         insulated flasks/bottles upright, keeping them stable and ventilated between uses.
       </p>
 
-      <div className="mt-5 flex items-center gap-4">
-        <span className="text-xs uppercase tracking-[0.22em] text-foreground/70">Qty</span>
-        <div className="flex items-center border border-foreground/30">
-          <button
-            type="button"
-            aria-label="Decrease quantity"
-            onClick={() => setQty((q) => Math.max(1, q - 1))}
-            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
-          >
-            <Minus className="h-4 w-4" />
-          </button>
-          <span className="w-10 text-center text-sm text-foreground">{qty}</span>
-          <button
-            type="button"
-            aria-label="Increase quantity"
-            onClick={() => setQty((q) => Math.min(20, q + 1))}
-            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
-          >
-            <Plus className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={buy}
-        className="mt-4 w-full bg-terrain px-6 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+      <Link
+        to="/flask-dry-stand"
+        className="mt-5 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
       >
-        Place Your Order & Secure Your Payment
-      </button>
+        Place Your Order
+      </Link>
     </div>
   );
 }

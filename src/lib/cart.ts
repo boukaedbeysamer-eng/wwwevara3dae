@@ -11,6 +11,7 @@ export type CartItem = {
   frameFinish: FrameFinish;
   mapColor: MapColor;
   trackColor: TrackColor;
+  color?: string;
   raceName?: string;
   customerName?: string;
   date?: string;
