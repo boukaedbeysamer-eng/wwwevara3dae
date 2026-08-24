@@ -5,6 +5,8 @@ import { ALL_PRODUCTS } from "@/data/products";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
 import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
+import flaskDryStandBlack from "@/assets/flask-dry-stand-black.png.asset.json";
+import flaskDryStandWhite from "@/assets/flask-dry-stand-white.png.asset.json";
 
 const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
