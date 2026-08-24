@@ -446,36 +446,12 @@ function FlaskDryStandCard() {
         insulated flasks/bottles upright, keeping them stable and ventilated between uses.
       </p>
 
-      <div className="mt-5 flex items-center gap-4">
-        <span className="text-xs uppercase tracking-[0.22em] text-foreground/70">Qty</span>
-        <div className="flex items-center border border-foreground/30">
-          <button
-            type="button"
-            aria-label="Decrease quantity"
-            onClick={() => setQty((q) => Math.max(1, q - 1))}
-            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
-          >
-            <Minus className="h-4 w-4" />
-          </button>
-          <span className="w-10 text-center text-sm text-foreground">{qty}</span>
-          <button
-            type="button"
-            aria-label="Increase quantity"
-            onClick={() => setQty((q) => Math.min(20, q + 1))}
-            className="grid h-9 w-9 place-items-center text-foreground transition-colors hover:bg-foreground/10"
-          >
-            <Plus className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={buy}
-        className="mt-4 w-full bg-terrain px-6 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+      <Link
+        to="/flask-dry-stand"
+        className="mt-5 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
       >
-        Place Your Order & Secure Your Payment
-      </button>
+        Place Your Order
+      </Link>
     </div>
   );
 }
