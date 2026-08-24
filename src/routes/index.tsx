@@ -430,7 +430,7 @@ function FlaskDryStandCard() {
                   type="button"
                   aria-label={`Go to image ${i + 1}`}
                   onClick={() => scrollToImage(i)}
-                  className={`h-1.5 rounded-full transition-all ${i === imgIndex ? "w-4 bg-paper" : "w-1.5 bg-paper/50"}`}
+                  className={`h-1.5 rounded-full transition-all ${i === imgIndex ? "w-4 bg-black" : "w-1.5 bg-black/50"}`}
                 />
               ))}
             </div>
