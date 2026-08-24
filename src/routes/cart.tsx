@@ -39,7 +39,7 @@ function CartPage() {
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
   const payFlask = () => {
-    const url = `${FLASK_STRIPE_LINK}?quantity=${flaskQty}&prefilled_promo_code=&client_reference_id=${encodeURIComponent(
+    const url = `${FLASK_STRIPE_LINK}?quantity=${flaskQty}&client_reference_id=${encodeURIComponent(
       flaskBreakdown.replace(/[^a-zA-Z0-9]/g, "-"),
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
