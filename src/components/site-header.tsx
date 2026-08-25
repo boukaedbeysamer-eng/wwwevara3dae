@@ -4,8 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import evaraLogo from "@/assets/evara-logo-blue-transparent.png.asset.json";
 
-const COLLECTION_LINKS = [
+type CollectionLink =
+  | { hash: string; label: string; to?: never }
+  | { to: string; label: string; hash?: never };
+
+const COLLECTION_LINKS: CollectionLink[] = [
   { hash: "frames", label: "Choose Your Frame Series" },
+  { to: "/flask-dry-stand", label: "Flask Dry Stand" },
   { hash: "glow", label: "Glow Series" },
   { hash: "hyrox", label: "Hyrox Series" },
   { hash: "custom", label: "Custom My Project" },
@@ -80,8 +85,8 @@ export function SiteHeader() {
               <div className="flex flex-col py-2">
                 {COLLECTION_LINKS.map((c) => (
                   <Link
-                    key={c.hash}
-                    to="/shop"
+                    key={c.hash ?? c.to}
+                    to={c.to ?? "/shop"}
                     hash={c.hash}
                     onClick={() => setCollectionOpen(false)}
                     className="px-5 py-3 text-xs uppercase tracking-[0.18em] text-foreground/80 transition-colors hover:bg-secondary/60 hover:text-terrain"
@@ -168,8 +173,8 @@ export function SiteHeader() {
               <div className="flex flex-col border-l border-border/60 pl-4">
                 {COLLECTION_LINKS.map((c) => (
                   <Link
-                    key={c.hash}
-                    to="/shop"
+                    key={c.hash ?? c.to}
+                    to={c.to ?? "/shop"}
                     hash={c.hash}
                     onClick={() => setOpen(false)}
                     className="py-3 text-xs uppercase tracking-[0.18em] text-foreground/70 transition-colors hover:text-terrain"
