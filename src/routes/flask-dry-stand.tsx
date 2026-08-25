@@ -4,7 +4,7 @@ import { Minus, Plus } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import flaskBlack from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskWhite from "@/assets/flask-dry-stand-white.png.asset.json";
-import flaskBlue from "@/assets/flask-dry-stand.png.asset.json";
+import flaskBlue from "@/assets/flask-dry-stand-blue.png.asset.json";
 
 export const FLASK_PRICE_AED = 75;
 export const FLASK_SLUG = "flask-dry-stand";
