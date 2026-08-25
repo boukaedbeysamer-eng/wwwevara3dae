@@ -81,8 +81,8 @@ export function SiteHeader() {
               <div className="flex flex-col py-2">
                 {COLLECTION_LINKS.map((c) => (
                   <Link
-                    key={c.hash}
-                    to="/shop"
+                    key={c.hash ?? c.to}
+                    to={c.to ?? "/shop"}
                     hash={c.hash}
                     onClick={() => setCollectionOpen(false)}
                     className="px-5 py-3 text-xs uppercase tracking-[0.18em] text-foreground/80 transition-colors hover:bg-secondary/60 hover:text-terrain"
@@ -169,8 +169,8 @@ export function SiteHeader() {
               <div className="flex flex-col border-l border-border/60 pl-4">
                 {COLLECTION_LINKS.map((c) => (
                   <Link
-                    key={c.hash}
-                    to="/shop"
+                    key={c.hash ?? c.to}
+                    to={c.to ?? "/shop"}
                     hash={c.hash}
                     onClick={() => setOpen(false)}
                     className="py-3 text-xs uppercase tracking-[0.18em] text-foreground/70 transition-colors hover:text-terrain"
