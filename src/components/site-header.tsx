@@ -6,6 +6,7 @@ import evaraLogo from "@/assets/evara-logo-blue-transparent.png.asset.json";
 
 const COLLECTION_LINKS = [
   { hash: "frames", label: "Choose Your Frame Series" },
+  { to: "/flask-dry-stand", label: "Flask Dry Stand" },
   { hash: "glow", label: "Glow Series" },
   { hash: "hyrox", label: "Hyrox Series" },
   { hash: "custom", label: "Custom My Project" },
