@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import evaraLogo from "@/assets/evara-logo-blue-transparent.png.asset.json";
 
-const COLLECTION_LINKS = [
+type CollectionLink =
+  | { hash: string; label: string; to?: never }
+  | { to: string; label: string; hash?: never };
+
+const COLLECTION_LINKS: CollectionLink[] = [
   { hash: "frames", label: "Choose Your Frame Series" },
   { to: "/flask-dry-stand", label: "Flask Dry Stand" },
   { hash: "glow", label: "Glow Series" },
