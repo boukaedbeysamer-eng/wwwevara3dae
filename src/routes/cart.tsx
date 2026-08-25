@@ -39,9 +39,16 @@ function CartPage() {
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
   const payFlask = () => {
-    const url = `${FLASK_STRIPE_LINK}?quantity=${flaskQty}&client_reference_id=${encodeURIComponent(
-      flaskBreakdown.replace(/[^a-zA-Z0-9]/g, "-"),
-    )}`;
+    // Stripe Payment Links prefill the line-item quantity via `__prefilled_quantity`
+    // (requires "adjustable quantity" to be enabled on the link).
+    // client_reference_id only accepts alphanumerics, `-` and `_`, max 200 chars.
+    const reference = flaskBreakdown
+      .replace(/[^a-zA-Z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 200);
+    const url = `${FLASK_STRIPE_LINK}?__prefilled_quantity=${Math.max(1, Math.min(99, flaskQty))}${
+      reference ? `&client_reference_id=${reference}` : ""
+    }`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
