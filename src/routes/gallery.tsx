@@ -87,6 +87,15 @@ const HYROX_IMAGES: GalleryImage[] = [
   { src: hyroxRawadAngle.url, title: "HYROX Istanbul — Hex Display Angle", caption: "Stand-mounted hex display, side view." },
 ];
 
+const FLASK_STAND_IMAGES: GalleryImage[] = [
+  { src: flaskWhiteStudio.url, title: "Soft Flask Drying Stand — White", caption: "White drying stand with honeycomb drainage tray." },
+  { src: flaskBlackStudio.url, title: "Soft Flask Drying Stand — Black", caption: "Matte black stand with twin drying posts." },
+  { src: flaskBlueStand.url, title: "Soft Flask Drying Stand — Blue", caption: "Blue stand with honeycomb tray and drip base." },
+  { src: flaskBlueStudio.url, title: "Soft Flask Drying Stand — In Use", caption: "Two soft flasks drying upside down on the blue tray." },
+  { src: flaskBlueCounter.url, title: "Soft Flask Drying Stand — Kitchen Counter", caption: "Blue stand keeping flasks and caps drying on marble." },
+  { src: flaskBlueReal.url, title: "Soft Flask Drying Stand — Everyday Use", caption: "Blue stand drying flasks and bite valves after a run." },
+];
+
 const FOLDERS: GalleryFolder[] = [
   {
     id: "trail-running",
