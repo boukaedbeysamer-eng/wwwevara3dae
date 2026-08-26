@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "@/components/responsive-image";
 import { ChevronDown, Mail, Phone } from "lucide-react";
 import { PRODUCTS, HYROX_PRODUCTS } from "@/data/products";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
