@@ -39,16 +39,17 @@ function CartPage() {
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
   const payFlask = () => {
-    // Stripe Payment Links prefill the line-item quantity via `__prefilled_quantity`
-    // (requires "adjustable quantity" to be enabled on the link).
-    // client_reference_id only accepts alphanumerics, `-` and `_`, max 200 chars.
-    const reference = flaskBreakdown
+    // Stripe Payment Links accept only utm_*, client_reference_id, prefilled_email
+    // and prefilled_promo_code as URL parameters — there is no quantity parameter.
+    // Quantity is changed on Stripe's page itself via "adjustable quantity"
+    // (https://docs.stripe.com/payments/checkout/adjustable-quantity), so we carry the
+    // cart breakdown in client_reference_id for reconciliation.
+    // client_reference_id: alphanumerics, dashes, underscores; max 200 chars.
+    const reference = `qty-${flaskQty}-${flaskBreakdown}`
       .replace(/[^a-zA-Z0-9]+/g, "-")
-      .replace(/^-|-$/g, "")
+      .replace(/^-+|-+$/g, "")
       .slice(0, 200);
-    const url = `${FLASK_STRIPE_LINK}?__prefilled_quantity=${Math.max(1, Math.min(99, flaskQty))}${
-      reference ? `&client_reference_id=${reference}` : ""
-    }`;
+    const url = `${FLASK_STRIPE_LINK}${reference ? `?client_reference_id=${reference}` : ""}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
