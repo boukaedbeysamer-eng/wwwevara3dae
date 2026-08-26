@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/responsive-image";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
@@ -73,9 +74,11 @@ function FlaskDryStandPage() {
     <section className="mx-auto max-w-6xl px-6 py-14">
       <div className="grid gap-12 md:grid-cols-2">
         <div className="bg-secondary/60">
-          <img
+          <ResponsiveImage
             src={activeImg}
-            alt={`Flask Dry Stand — ${active} 3D-printed soft flask drying stand`}
+            alt={`Soft Flask Drying Stand in ${active} — 3D-printed drying rack for running soft flasks`}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            priority
             className="aspect-square w-full object-cover"
             width={1024}
             height={1024}
@@ -91,7 +94,7 @@ function FlaskDryStandPage() {
                   active === c.name ? "border-terrain" : "border-foreground/20"
                 }`}
               >
-                <img src={c.img} alt="" className="h-full w-full object-cover" loading="lazy" />
+                <ResponsiveImage src={c.img} alt={`${c.name} Soft Flask Drying Stand thumbnail`} sizes="64px" className="h-full w-full object-cover" />
               </button>
             ))}
           </div>
