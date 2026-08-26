@@ -189,33 +189,38 @@ function Home() {
             >
               <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 2 || i === 3 ? "" : "p-8"}`}>
                 {i === 0 ? (
-                  <img
+                  <ResponsiveImage
                     src={frameKeepsakerGoat.url}
-                    alt={`${p.name} 3D-printed topographic frame`}
+                    alt={`${p.name} — 3D-printed topographic frame, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 1 ? (
-                  <img
+                  <ResponsiveImage
                     src={frameAchieverMedal.url}
-                    alt={`${p.name} 3D-printed topographic frame with medal`}
+                    alt={`${p.name} — 3D-printed topographic frame with race medal, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 2 ? (
-                  <img
+                  <ResponsiveImage
                     src={legacyFrame.url}
-                    alt={`${p.name} 3D-printed topographic frame with medal and BIB`}
+                    alt={`${p.name} — 3D-printed topographic frame with medal and race BIB, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 3 ? (
-                  <img
+                  <ResponsiveImage
                     src={frame3dHexMap.url}
-                    alt={`${p.name} 3D-printed topographic hex plaque`}
+                    alt={`${p.name} — 3D-printed hexagonal topographic map plaque, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 4 ? (
-                  <img
+                  <ResponsiveImage
                     src={hyroxHexProduct.url}
-                    alt={`${p.name} 3D-printed Hyrox hex display`}
+                    alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : null}
