@@ -1,0 +1,619 @@
+{
+  "/__l5e/assets-v1/02282165-bede-422a-8b8b-1b2c55f264d1/frame-milestone.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/07288c89-8566-4ebe-bfc9-f04a630ba7b1/frame-milestone-480.webp",
+      "960": "/__l5e/assets-v1/f4a92f8c-85ae-4fc4-ac5b-85c60a0bdb2e/frame-milestone-960.webp"
+    },
+    "width": 1122
+  },
+  "/__l5e/assets-v1/0264e044-4b58-44e7-a7fc-26e60383797c/frame-lis-kalba.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/db3db182-fa4b-49ee-a0b9-14182b2725b3/frame-lis-kalba-480.webp",
+      "960": "/__l5e/assets-v1/5b5b28da-08af-46f5-b6ea-53bdf9cf0c78/frame-lis-kalba-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/02eda4bb-96ac-48f1-8e40-67debceacabf/frame-keepsaker-photo.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/17a97c85-78fe-4c85-9645-230a192fb048/frame-keepsaker-photo-480.webp",
+      "960": "/__l5e/assets-v1/c15d6d35-e1e1-4f2e-82ab-5c31f740d862/frame-keepsaker-photo-960.webp"
+    },
+    "width": 1086
+  },
+  "/__l5e/assets-v1/06d98fa2-33f3-4724-af83-8d0d2123bfe9/IMG_7310.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/0b47be01-f443-4b90-8010-e06946033fa4/img_7310-1440.webp",
+      "480": "/__l5e/assets-v1/d95fbdc0-5d11-43f0-90a2-3e5daf62ba7c/img_7310-480.webp",
+      "960": "/__l5e/assets-v1/9e3aae2d-f329-404f-9c30-b1e0f2634aae/img_7310-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/082ac40a-cba0-4591-874b-28a170892179/goat-yellow-frame.png": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/e0fdafea-3cd4-48f2-8260-97a40aea41e8/goat-yellow-frame-1440.webp",
+      "480": "/__l5e/assets-v1/1777da3c-58a6-42d0-a88e-b45ee6036952/goat-yellow-frame-480.webp",
+      "960": "/__l5e/assets-v1/f5d1abee-1647-4fad-b4f1-5364ae0a0620/goat-yellow-frame-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/0c22e35c-0abf-4fe0-9444-802d028538c9/flask-dry-stand-white-v2.png": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/e4ddabd6-95fe-4ed8-9235-9e4d0f569d22/flask-dry-stand-white-1440.webp",
+      "480": "/__l5e/assets-v1/86ee6c2e-8bf1-4482-91a1-2bbc4527e32e/flask-dry-stand-white-480.webp",
+      "960": "/__l5e/assets-v1/47d0d2a9-1729-44d9-b7c3-6e94f7c437fe/flask-dry-stand-white-960.webp"
+    },
+    "width": 1547
+  },
+  "/__l5e/assets-v1/0d516b07-acd8-441e-a701-9fbd8455904c/frame-goat-ultra.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/b120b1da-fd56-4fcf-94a5-d3544a9b7cef/frame-goat-ultra-480.webp",
+      "960": "/__l5e/assets-v1/c0afca39-6175-450b-a6cd-9e3bb90d5609/frame-goat-ultra-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/0e6bfc15-ce14-4dde-8ac4-bb767f336c75/slmt-photoshoot.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/3c70672e-455a-46bb-918d-619942dfd08b/slmt-photoshoot-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/1c436528-f651-4570-9901-cb7ab21802f0/goat-ultra-medal-white-frame.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/ddaaa972-7871-4b90-b6ea-dea0bf237e1b/goat-ultra-medal-white-frame-1440.webp",
+      "480": "/__l5e/assets-v1/6f78f4ec-1e90-4508-b3cc-0b0e0cfb232c/goat-ultra-medal-white-frame-480.webp",
+      "960": "/__l5e/assets-v1/7764e5b5-c571-403a-b861-eebb9accf15a/goat-ultra-medal-white-frame-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/1e071611-1fa5-4062-b092-bea830f30ecc/legacy-goat-ultra.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/a05437ad-85fe-4879-bb4b-211b6f7c6d23/legacy-goat-ultra-480.webp",
+      "960": "/__l5e/assets-v1/80d6fa81-a7fa-418d-865d-63d74f5c7851/legacy-goat-ultra-960.webp"
+    },
+    "width": 960
+  },
+  "/__l5e/assets-v1/20020fe0-6b94-4b05-b935-911b2934df4e/frame-goat-ultra-stand.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/7256b39f-2be3-45a3-b290-ad44afd7c3e1/frame-goat-ultra-stand-480.webp",
+      "960": "/__l5e/assets-v1/5d266fe2-4149-4035-88e0-3ec98081b678/frame-goat-ultra-stand-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/2106c5f3-f402-4239-ae8f-688f89af9069/hyrox-istanbul-doubles-shelf.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/2ded1d41-77ee-4543-9e32-d8be44ccb641/hyrox-istanbul-doubles-shelf-480.webp"
+    },
+    "width": 900
+  },
+  "/__l5e/assets-v1/23e0ff76-a105-4a83-9ee8-c49715816d4d/goat-ultra-hex-0715.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/b5f9056b-061a-49b4-8fff-bf3b50a1f6ec/goat-ultra-hex-0715-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/26dcbc0c-bb48-4ff3-9c82-8a04949580cb/frame-achiever-goat.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/1f144fbf-5035-4e40-ae65-28ccb24f59b3/frame-achiever-goat-1440.webp",
+      "480": "/__l5e/assets-v1/cd9123e3-3824-436b-92a2-2dd0c27cbc52/frame-achiever-goat-480.webp",
+      "960": "/__l5e/assets-v1/c61185ae-0e1f-41c5-a302-3546c17367a0/frame-achiever-goat-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/2c63e60f-f1ff-46ba-8d8e-872bc1adb5c9/hyrox-istanbul-doubles-hand.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/e99df7b1-ffc7-403f-8afb-c8ab961ad974/hyrox-istanbul-doubles-hand-480.webp",
+      "960": "/__l5e/assets-v1/2abf78f1-200d-4062-a628-7e7fc9b6ae62/hyrox-istanbul-doubles-hand-960.webp"
+    },
+    "width": 1041
+  },
+  "/__l5e/assets-v1/2dd91b22-6d37-4353-b064-c28fab1db195/frame-legendary.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/1d15bfee-fdc0-447c-8155-59691330852e/frame-legendary-480.webp",
+      "960": "/__l5e/assets-v1/02258651-267f-4679-9117-92ab42387096/frame-legendary-960.webp"
+    },
+    "width": 1086
+  },
+  "/__l5e/assets-v1/2f7f4dbd-8114-42d0-90f5-4c631d5d0589/legacy-goat-ultra-race-director.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/9371b4be-bd83-42f0-9457-67ee79400daf/legacy-goat-ultra-race-director-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/394174db-eae4-4299-8acd-0f0b1659b83d/flask-dry-stand.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/d545ba25-5bab-47cd-ac04-25bf9eba8eca/flask-dry-stand-480.webp",
+      "960": "/__l5e/assets-v1/7d590549-2c66-45e1-b0cb-c03134bb9301/flask-dry-stand-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/4124f817-9015-499a-bb46-258a7128ef6a/hyrox-istanbul-doubles-studio.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/d4033db1-73c6-40f5-9a18-7744e19a1c25/hyrox-istanbul-doubles-studio-480.webp",
+      "960": "/__l5e/assets-v1/0d9efb5e-b7df-44f4-8f66-47f0ecfbc416/hyrox-istanbul-doubles-studio-960.webp"
+    },
+    "width": 1254
+  },
+  "/__l5e/assets-v1/414ed2d3-a607-489b-ae88-a3a7131180f6/map-sample.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/029d02a3-6096-4b6c-88d8-7f63b7bfb27d/map-sample-480.webp",
+      "960": "/__l5e/assets-v1/24d731df-423f-475f-ba9b-beb9346edffb/map-sample-960.webp"
+    },
+    "width": 1200
+  },
+  "/__l5e/assets-v1/45a3cfe3-2501-4b9f-97db-9b9d31935ca0/goat-ultra-karis-black-frame.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/7213ada8-b3b9-4952-adce-1d63332dbcbf/goat-ultra-karis-black-frame-1440.webp",
+      "480": "/__l5e/assets-v1/9373cd9d-eefc-43b1-a206-7fcbef9f76f9/goat-ultra-karis-black-frame-480.webp",
+      "960": "/__l5e/assets-v1/6c6c7405-56f3-4072-87c3-4d2dd13ed0ef/goat-ultra-karis-black-frame-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/496d123e-34a8-49fe-926a-f391b9fd3513/IMG_6592-4.PNG": {
+    "sources": {
+      "480": "/__l5e/assets-v1/7e5ef579-bb2e-4f67-9d24-260e39e4661f/img_6592-4-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/4b505738-68c8-4def-8caa-57f731d57a60/hyrox-hex.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/60432e9a-8912-48ef-989a-55a89f30aae8/hyrox-hex-480.webp",
+      "960": "/__l5e/assets-v1/ecc0c258-b09c-4cd7-98d0-40a480d4bd25/hyrox-hex-960.webp"
+    },
+    "width": 1254
+  },
+  "/__l5e/assets-v1/4ebf7b00-cca1-49b1-8d26-658246ef638e/frame-achiever-medal.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/95b630eb-ea79-4dff-ad77-8adb008b6bdc/frame-achiever-medal-1440.webp",
+      "480": "/__l5e/assets-v1/a8dfa454-674b-4434-b926-55cd4af86205/frame-achiever-medal-480.webp",
+      "960": "/__l5e/assets-v1/96a28ad4-086c-4932-9cd3-4e7e46c29d95/frame-achiever-medal-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/50722530-098a-4099-8ac6-4e2030e4b99a/legacy-goat-ultra-peaks.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/bb5698aa-97af-46db-a008-e7b02ee05297/legacy-goat-ultra-peaks-1440.webp",
+      "480": "/__l5e/assets-v1/2e4a4d8b-a414-47e5-bd61-c276bb761f1b/legacy-goat-ultra-peaks-480.webp",
+      "960": "/__l5e/assets-v1/e5da726b-d3bf-4f27-84df-9e361d27b9a1/legacy-goat-ultra-peaks-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/50ed3285-7551-479d-970f-103e3b3e8be8/flask-blue-studio.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/50f260cc-3204-4188-8549-b0212f5086dc/flask-blue-studio-480.webp",
+      "960": "/__l5e/assets-v1/d58015d7-c238-472b-a095-271d7322a44d/flask-blue-studio-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/513edab4-07c2-47bc-a951-04cd35b0a37e/hyrox-hex-product.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/793d1273-cd5b-4175-b735-dad4a5f56cdc/hyrox-hex-product-1440.webp",
+      "480": "/__l5e/assets-v1/73f47000-a6e4-438a-a41f-8337bd81e778/hyrox-hex-product-480.webp",
+      "960": "/__l5e/assets-v1/8cba68d0-8f8d-4d68-8668-a270d322f5ad/hyrox-hex-product-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/551dc4c9-2e44-4b77-a2ee-a4d6b672b81f/frame-keepsaker-goat.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/ee00fc11-40a2-45df-b5a6-8d34f6b72b3b/frame-keepsaker-goat-1440.webp",
+      "480": "/__l5e/assets-v1/72004cf2-e3f9-4fca-9ee5-87f117e65cba/frame-keepsaker-goat-480.webp",
+      "960": "/__l5e/assets-v1/e613b7e4-e72b-428f-b26a-121f277ea832/frame-keepsaker-goat-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/564eea39-5dad-40d2-9e23-c7fa4ee3bc10/frame-classic.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/a2801ddc-aaae-41d6-8a46-da8e7eea471d/frame-classic-1440.webp",
+      "480": "/__l5e/assets-v1/d766fa35-2cf0-43bc-8a98-4a2afb1abca6/frame-classic-480.webp",
+      "960": "/__l5e/assets-v1/22915a96-3452-48e2-a26c-566d8ca2bb73/frame-classic-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/59d31b34-22c2-4254-8e1c-dfafb7efb18f/legacy-goat-ultra-race-director-2.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/df8b11fd-c58c-404c-8660-9254175542aa/legacy-goat-ultra-race-director-2-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/5aae692a-5d23-4712-b138-2afe1b5625f8/IMG_7292.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/d713d201-324c-4417-bd19-06f598d80288/img_7292-1440.webp",
+      "480": "/__l5e/assets-v1/045cdcc6-f842-4db8-91ed-5ec003bc2910/img_7292-480.webp",
+      "960": "/__l5e/assets-v1/6402abd5-18d3-4fd9-bcc0-5c4b369d67f6/img_7292-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/5deb4683-17e5-45a4-a4f6-463e8768aa19/frame-3d-hex-goat-ultra.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/1372934c-b9a0-4c1f-86fd-e390b0f07ce4/frame-3d-hex-goat-ultra-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/625241b4-fa82-4542-838b-b5164ac9e185/collection-topo-bg.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/ed50a39b-931d-4aee-bde1-86905278cd21/collection-topo-bg-480.webp"
+    },
+    "width": 640
+  },
+  "/__l5e/assets-v1/650ddf33-36f4-4334-bb25-d6b76780d7a1/IMG_7292-2.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/bebf79f8-b2a3-4a42-872f-e6ba36babc1f/img_7292-2-1440.webp",
+      "480": "/__l5e/assets-v1/dfe72b94-11ac-40a7-aa5c-e1243c8eca5b/img_7292-2-480.webp",
+      "960": "/__l5e/assets-v1/1e535ff2-7020-4a2b-92d7-11608b21e1ff/img_7292-2-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/670ae619-6275-4cc2-a716-08257640379e/frame-keepsaker-hex.png": {
+    "sources": {
+      "465": "/__l5e/assets-v1/c02abc4c-698d-49f9-a063-aacf78f0ec3e/frame-keepsaker-hex-465.webp"
+    },
+    "width": 465
+  },
+  "/__l5e/assets-v1/6dc79672-5554-4620-a412-bd98809e05bd/frame-keepsaker.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/95d2b41e-fc60-455b-84b5-e48619ba3eda/frame-keepsaker-480.webp",
+      "960": "/__l5e/assets-v1/bc200f0d-9610-4dbe-8b41-622c0a56089d/frame-keepsaker-960.webp"
+    },
+    "width": 1055
+  },
+  "/__l5e/assets-v1/72acfd09-9e57-452b-8379-d215dfffa32b/goat-ultra-keepsaker.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/97061064-4129-4895-b58b-964adc14504b/goat-ultra-keepsaker-1440.webp",
+      "480": "/__l5e/assets-v1/4dc5e904-43fb-43ee-b95d-46d5b45f1130/goat-ultra-keepsaker-480.webp",
+      "960": "/__l5e/assets-v1/a555aa33-ed6e-4a4c-af9d-cd9cd4e04feb/goat-ultra-keepsaker-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/7323412b-0c5b-46e4-b131-3fd6e477d9a4/keepsaker-goat-ultra.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/e5d1dd61-e3f0-4043-a80f-0d588dca6ba6/keepsaker-goat-ultra-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/76c8242a-ffff-40d9-a1ad-c6ac764473f3/pomelli-photoshoot-0715_2.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/948d468e-a368-460b-b9e9-0f453c7bfd78/pomelli-photoshoot-0715_2-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/770f01a6-a83c-46d3-8f56-086434bf22ed/achiever-pomelli-photoshoot-2.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/5e73a1f6-658f-475a-960f-fe7ac26feaa5/achiever-pomelli-photoshoot-2-480.webp",
+      "960": "/__l5e/assets-v1/d098f163-3079-4337-98b3-d5c241111f12/achiever-pomelli-photoshoot-2-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/7a64fa1c-d0d2-440f-8ace-c5c59ba1a4e0/lis-kalba-hex-photoshoot.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/48ec108c-60a5-48b1-89c1-f14bec6f83ba/lis-kalba-hex-photoshoot-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/7be6f889-bb1a-43b4-8b5e-ef363d1c1344/frame-lis-kalba-closeup.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/2b08e5aa-6d45-4d69-9e10-0b8aa4a6bb5c/frame-lis-kalba-closeup-480.webp",
+      "960": "/__l5e/assets-v1/0d5f54c7-559a-443d-b205-93bf46c0f89b/frame-lis-kalba-closeup-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/7eadb76a-9173-47db-ab92-92d31537b711/hero-legacy-goat-ultra-peaks.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/40c49160-415f-4fbd-baa6-cede333a1f38/hero-legacy-goat-ultra-peaks-1440.webp",
+      "480": "/__l5e/assets-v1/81914b26-d7db-4307-8fcf-e7fdb9dc2922/hero-legacy-goat-ultra-peaks-480.webp",
+      "960": "/__l5e/assets-v1/8f372553-ccf7-475d-88b1-251ea6fa5ae1/hero-legacy-goat-ultra-peaks-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/7ff14cdc-ad8b-427d-a89a-2a5a1660ad48/hyrox-hex-stand.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/30c61bc3-ae24-4562-b9b5-8f9d69e1404a/hyrox-hex-stand-1440.webp",
+      "480": "/__l5e/assets-v1/5dc8d93d-7de1-4a7d-a4f2-90728adbed61/hyrox-hex-stand-480.webp",
+      "960": "/__l5e/assets-v1/365a4e68-3337-4d85-a98c-0473ee5bfb61/hyrox-hex-stand-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/8125c758-59d5-4817-b27d-90718f1a9239/flask-dry-stand-1.webp": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/691537f4-3238-4858-8ab7-14b2992f39c5/flask-dry-stand-1-1440.webp",
+      "480": "/__l5e/assets-v1/9f8331bc-6c21-4023-9bf8-3b2701cefcbf/flask-dry-stand-1-480.webp",
+      "960": "/__l5e/assets-v1/44cc0bee-5e80-49c7-a92d-64df2c4f5b2a/flask-dry-stand-1-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/88f13879-ad65-4cf6-bc4e-d4ecf2b8e559/frame-3d-map.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/9922b9ba-f84b-4aef-8924-4724d81429cc/frame-3d-map-480.webp",
+      "960": "/__l5e/assets-v1/96f18c15-2e64-481f-be2d-ea7f2fc5e28c/frame-3d-map-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/892b9f8d-c7ae-4b49-b22b-6ec6094f75ed/frame-mushrif.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/fad82ece-5030-488d-a6a0-cdfa9c2178de/frame-mushrif-480.webp",
+      "960": "/__l5e/assets-v1/21b85b16-c1f3-47ea-9794-f1f5fb7648ae/frame-mushrif-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/8b21d6b7-2872-4000-a157-63280cca0072/frame-goat-ultra-trail-race.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/cef425b6-084d-4815-8d84-fd25aba88f85/frame-goat-ultra-trail-race-1440.webp",
+      "480": "/__l5e/assets-v1/952fb04c-eb6b-49be-8b52-a9af71948c37/frame-goat-ultra-trail-race-480.webp",
+      "960": "/__l5e/assets-v1/68bb307a-dfe4-49e6-b258-5e5fc62bb1df/frame-goat-ultra-trail-race-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/8c0499e5-72b3-4365-91e2-845481c3e77e/hyrox-istanbul-rawad.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/6e519cb1-4e83-4b24-be8c-8c4db268a964/hyrox-istanbul-rawad-1440.webp",
+      "480": "/__l5e/assets-v1/aa43fce0-fcc5-420e-8a49-20bd9ca76c14/hyrox-istanbul-rawad-480.webp",
+      "960": "/__l5e/assets-v1/d710e09b-6f7e-43ac-8d97-5b511877373e/hyrox-istanbul-rawad-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/8c7a9308-1959-4af1-a974-0366a3b64e8f/IMG_6698-2.PNG": {
+    "sources": {
+      "480": "/__l5e/assets-v1/e93d2b91-c9ce-4067-b7f2-bc7ea323709b/img_6698-2-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/8ce8d13f-7764-4cff-8690-10cc9284d02e/hyrox-istanbul-arena.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/a24ef651-71bb-48ef-9ac6-8593a594eded/hyrox-istanbul-arena-480.webp",
+      "960": "/__l5e/assets-v1/87b35ef0-cb94-4c56-930e-ae06ebeae2c2/hyrox-istanbul-arena-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/91bee9a0-9299-47e7-bd3d-6e0e7088dd09/flask-blue-real.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/840ee664-59d6-41a5-b77a-e9f60bc8caa3/flask-blue-real-1440.webp",
+      "480": "/__l5e/assets-v1/4e3a3b89-fa5a-4d04-b273-d3c16967c1a4/flask-blue-real-480.webp",
+      "960": "/__l5e/assets-v1/f0f8beca-4177-4292-9780-6ab4920ab007/flask-blue-real-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/98972086-5be2-4844-a222-f084f6482d14/flask-dry-stand-blue.png": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/abcb4805-9058-4805-b45f-04aac3614d3c/flask-dry-stand-blue-1440.webp",
+      "480": "/__l5e/assets-v1/044ddbc8-0a1d-4854-920f-9d1ae0e69bd1/flask-dry-stand-blue-480.webp",
+      "960": "/__l5e/assets-v1/5fc9f0b3-63e6-49a6-a94b-da1e2140379a/flask-dry-stand-blue-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/9c80c8b6-735e-491d-9cee-b4488e7eab75/flask-blue-counter.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/e1d5de21-3d39-49ba-8b6c-6a749b9eb68a/flask-blue-counter-480.webp",
+      "960": "/__l5e/assets-v1/9d003a30-5e94-4ffb-918e-afa1626b14d7/flask-blue-counter-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/9d498153-11da-4861-9d75-4792d87743d5/pomelli-photoshoot-keepsaker.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/18fb9f78-ffe0-4118-9ff8-1411d4045fdb/pomelli-photoshoot-keepsaker-480.webp",
+      "960": "/__l5e/assets-v1/a9c630ea-e615-4ea9-a4c3-7fd288783763/pomelli-photoshoot-keepsaker-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/9f1fca4e-fa30-4109-aab1-d51e73a56bc9/IMG_7311.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/069735f4-d854-4ef9-9afb-8839152a35b8/img_7311-1440.webp",
+      "480": "/__l5e/assets-v1/9d25b891-bfac-4e97-8c07-bab4d649bf60/img_7311-480.webp",
+      "960": "/__l5e/assets-v1/ef2e05fd-1854-4043-a044-553dd3c49679/img_7311-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/9fde7969-36f0-422e-9635-7572b6f07830/mushrif-photoshoot.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/719af77a-5349-4d07-bffa-80884d6e6ccb/mushrif-photoshoot-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/a0b4739a-87dc-42b0-afb9-52f03e1a12f1/IMG_7290.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/6cbddf9d-3c3b-45c0-a9a5-cd767d3f0c07/img_7290-1440.webp",
+      "480": "/__l5e/assets-v1/5d2d160d-ff9e-4d86-9fe3-a1ab4143f764/img_7290-480.webp",
+      "960": "/__l5e/assets-v1/fb358e7b-fd1f-4f8f-9b1c-2af20c437630/img_7290-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/a3ac7014-3b42-48fd-820d-fd7467bd0fa1/frame-sample.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/e7e48576-84d2-4b86-80b9-8196babacf35/frame-sample-480.webp",
+      "960": "/__l5e/assets-v1/247ff7e6-1b44-4532-bbdd-f0ad912d08d5/frame-sample-960.webp"
+    },
+    "width": 1086
+  },
+  "/__l5e/assets-v1/aa8fa1e0-d2a0-4306-844f-2dfe96ec0878/frame-lis-kalba-stand.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/d9b7baa6-c2f6-46b8-a9f7-6f72b5f39d84/frame-lis-kalba-stand-480.webp",
+      "960": "/__l5e/assets-v1/490f725c-88af-4ccc-bf95-e89413990083/frame-lis-kalba-stand-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/ad7daa99-2ef8-4ed6-8c40-8f17dcba8dc6/frame-slmt.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/8a3300b8-44a8-4af0-92d6-c2f3fb3c665e/frame-slmt-480.webp",
+      "960": "/__l5e/assets-v1/dd023de1-97d9-460d-b729-66e2212307d4/frame-slmt-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/af2daab4-19d0-43e8-aef6-fe43165e9a03/hero-frame.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/0f862ef9-b1e1-4d60-abcc-e257f0a9ea07/hero-frame-480.webp",
+      "960": "/__l5e/assets-v1/2e81f3ea-1c07-48ec-8c38-a334505d0c7d/hero-frame-960.webp"
+    },
+    "width": 1086
+  },
+  "/__l5e/assets-v1/b7ed9a19-04fb-4686-9112-32415fde1313/pomelli-photoshoot-lis-kalba-0715.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/fe61ab96-b3d2-41a1-bac9-dcca4ca21480/pomelli-photoshoot-lis-kalba-0715-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/b95d1b0e-6ff8-42ff-8a83-2b6e25829e30/flask-black-studio.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/2f657830-3613-48ce-9c9b-fb704f631f0a/flask-black-studio-480.webp",
+      "960": "/__l5e/assets-v1/50bfdedb-4129-44d4-ac65-94c152069d34/flask-black-studio-960.webp"
+    },
+    "width": 1254
+  },
+  "/__l5e/assets-v1/ba1e6fa1-fc0d-41bd-a4d4-c00853219e7e/pomelli-photoshoot-image-9-16-0715.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/0f24c7cd-2404-423c-aa7c-d24e9f911dad/pomelli-photoshoot-image-9-16-0715-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/bb1a18e7-01e8-4127-8958-4fc910bd00e1/IMG_6699.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/0400ee34-98ba-4752-b047-64d519d24e5b/img_6699-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/be1a2459-84f8-4d6a-aaf3-5c77ad4c0e1a/keepsaker-frame.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/d1f3b4d8-3073-4524-bac1-748267bfa76d/keepsaker-frame-480.webp",
+      "960": "/__l5e/assets-v1/5c0102cf-87b0-43d9-b44d-4f49cac2b46f/keepsaker-frame-960.webp"
+    },
+    "width": 1086
+  },
+  "/__l5e/assets-v1/c175f6c4-bf1f-4cbc-afe4-f1c9794d01ac/evara-logo-blue-transparent.png": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/05977540-0630-46ae-bd87-39e95bccd2a9/evara-logo-blue-transparent-1440.webp",
+      "480": "/__l5e/assets-v1/641fbccf-d5b6-40e5-b7ca-a3317bde6a68/evara-logo-blue-transparent-480.webp",
+      "960": "/__l5e/assets-v1/2eac124f-23d1-4037-bc4b-c70e4e8287db/evara-logo-blue-transparent-960.webp"
+    },
+    "width": 2258
+  },
+  "/__l5e/assets-v1/c1ac6b6a-6b6e-428d-8474-34260ea61456/pomelli-photoshoot-image-1-1-0808_1.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/b7fdcba7-964c-46ab-8e68-4f459edbde7a/pomelli-photoshoot-image-1-1-0808_1-480.webp",
+      "960": "/__l5e/assets-v1/cf6a096a-43e6-42ea-986a-49f7316261ea/pomelli-photoshoot-image-1-1-0808_1-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/c5d54eb3-8d8e-4d31-b24d-65aa41a28b42/frame-goat-trail-race.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/c9b8d5cd-e4a7-4008-9311-3a78f7c8da42/frame-goat-trail-race-480.webp",
+      "960": "/__l5e/assets-v1/bff3afa5-0510-49ff-8147-749427ab4bbf/frame-goat-trail-race-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/c76defd9-e008-420f-a5d3-c9c3e6957c6f/frame-achiever-goat-v2.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/59e0d1f1-2a68-4393-9420-f2cfef440228/frame-achiever-goat-v2-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/c8848fb3-e36c-42b0-8f85-7dc698054da1/keepsaker-pomelli-photoshoot-3.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/6a29a121-482e-42b9-8c1b-5fa2dbd20b16/keepsaker-pomelli-photoshoot-3-480.webp",
+      "960": "/__l5e/assets-v1/ee15f135-a638-4194-8315-22d4412ae120/keepsaker-pomelli-photoshoot-3-960.webp"
+    },
+    "width": 1024
+  },
+  "/__l5e/assets-v1/cb2d3d64-9597-49dc-8163-5ac5dffa51f8/flask-white-studio.webp": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/ec7b5f37-c214-400b-aacb-db37c049b4cc/flask-white-studio-1440.webp",
+      "480": "/__l5e/assets-v1/73e7850c-f676-476a-974f-ddda9b0e94c0/flask-white-studio-480.webp",
+      "960": "/__l5e/assets-v1/7475d2ef-15e5-43ad-93f5-cb7a86e5decc/flask-white-studio-960.webp"
+    },
+    "width": 1547
+  },
+  "/__l5e/assets-v1/cc90e676-b937-4cff-8c50-ec7718c2fe9c/goat-ultra-trail-photoshoot.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/ce05c2c5-3d69-4bb8-a783-c37b6fd23eb9/goat-ultra-trail-photoshoot-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/ced04ae7-8a74-4198-b399-cec2671a1588/frame-3d-hex-map.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/bef595e5-ad90-4ce0-98e1-63a16ffb54a5/frame-3d-hex-map-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/d2567d24-a131-4ce8-947f-11138c183e18/frame-achiever-goat-ultra.webp": {
+    "sources": {
+      "480": "/__l5e/assets-v1/7ecccd04-7c2b-4456-a8b6-cfa745f8d1dc/frame-achiever-goat-ultra-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/d527fa4e-c9f2-4e68-9a02-4913cd234d55/flask-dry-stand-2.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/a9b16815-1c71-4775-9f12-6fa98fad0bfa/flask-dry-stand-2-1440.webp",
+      "480": "/__l5e/assets-v1/bd582825-6aea-4446-b989-070c3ba564c6/flask-dry-stand-2-480.webp",
+      "960": "/__l5e/assets-v1/30422056-b6e7-4f02-8aaf-1e5c10572860/flask-dry-stand-2-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/da64d467-07dd-4ca4-bddf-f2edee116848/flask-blue-stand.webp": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/75386749-3778-4650-92eb-f37d025275d6/flask-blue-stand-1440.webp",
+      "480": "/__l5e/assets-v1/e3f14f3a-15de-4101-9c8b-cebadd62de4a/flask-blue-stand-480.webp",
+      "960": "/__l5e/assets-v1/c7019afd-9db5-4671-8af3-45a6478e11ce/flask-blue-stand-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/e1acfd47-5f8f-4f5d-88a6-0c83cbbdd152/IMG_7292-4.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/545e6e72-20d2-4f13-a529-06d045670b52/img_7292-4-1440.webp",
+      "480": "/__l5e/assets-v1/432734c3-7c89-4913-a749-c8c93fbeb0a5/img_7292-4-480.webp",
+      "960": "/__l5e/assets-v1/c070dd9e-369b-4406-b4f5-bdfa92405c00/img_7292-4-960.webp"
+    },
+    "width": 1920
+  },
+  "/__l5e/assets-v1/e3582f6c-baa9-4b95-a913-46fc66c2b89f/frame-3dmap-goat-hex.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/4cf6dccd-2c90-4538-b37e-f3efb2725c1b/frame-3dmap-goat-hex-480.webp",
+      "960": "/__l5e/assets-v1/3bea677a-1a56-4756-81e1-7413e374fb80/frame-3dmap-goat-hex-960.webp"
+    },
+    "width": 1368
+  },
+  "/__l5e/assets-v1/e4e02861-4b2f-4c22-83ac-f6be27c5c7bc/hero-hex-mountain.jpg": {
+    "sources": {
+      "480": "/__l5e/assets-v1/6214a9bf-4e73-4357-bd16-b097b218e522/hero-hex-mountain-480.webp",
+      "960": "/__l5e/assets-v1/8130d84f-e2fb-41f9-89a1-ff2ff435c17b/hero-hex-mountain-960.webp"
+    },
+    "width": 1290
+  },
+  "/__l5e/assets-v1/e50676eb-4d2c-44c4-a32c-332ed63d1a13/frame-keepsaker-goat-ultra.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/d618acb9-dd21-4e33-ae3d-3d5816d2d6ce/frame-keepsaker-goat-ultra-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/f404b462-1627-47f2-9e36-6490aea29c2c/frame-goat-medal.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/51400744-5077-4010-a240-c594f602794e/frame-goat-medal-1440.webp",
+      "480": "/__l5e/assets-v1/f82582a2-5333-4812-b360-c640042e2522/frame-goat-medal-480.webp",
+      "960": "/__l5e/assets-v1/26576e92-47e3-4d4f-8ece-b05e51716346/frame-goat-medal-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/f4fb42e1-c4b7-4bb5-9365-4cd7bc3c66e4/flask-dry-stand-black.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/27b87212-9c0f-458b-b31d-bc816a762d11/flask-dry-stand-black-480.webp",
+      "960": "/__l5e/assets-v1/d6eb4f11-11c3-4a96-b474-084fc0418c9c/flask-dry-stand-black-960.webp"
+    },
+    "width": 1254
+  },
+  "/__l5e/assets-v1/f7ee8e16-dde3-4b22-b6b6-58cf59e5504f/hyrox-istanbul-amir.jpeg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/65695506-a7f1-4064-a449-6e886fa4f189/hyrox-istanbul-amir-1440.webp",
+      "480": "/__l5e/assets-v1/80f0bcce-e817-4b0e-9271-d40557f5c456/hyrox-istanbul-amir-480.webp",
+      "960": "/__l5e/assets-v1/f047af7a-e87c-43a5-a647-1f0ba12ffdce/hyrox-istanbul-amir-960.webp"
+    },
+    "width": 1440
+  },
+  "/__l5e/assets-v1/fdf2cdb5-687c-4a3c-8c0d-7d923c70218d/pomelli-photoshoot-0715.png": {
+    "sources": {
+      "480": "/__l5e/assets-v1/feb08762-28f3-4b71-809a-a7df90c7342c/pomelli-photoshoot-0715-480.webp"
+    },
+    "width": 768
+  },
+  "/__l5e/assets-v1/ffb6a842-7fbd-41f7-8f21-8dd82ffa80b9/hyrox-istanbul-rawad-angle.jpg": {
+    "sources": {
+      "1440": "/__l5e/assets-v1/02c792b1-d89c-4379-a855-4b808b678542/hyrox-istanbul-rawad-angle-1440.webp",
+      "480": "/__l5e/assets-v1/78cd3958-54c8-4a1f-b03e-44cdf036a643/hyrox-istanbul-rawad-angle-480.webp",
+      "960": "/__l5e/assets-v1/c16c43d0-d440-451d-b9c3-da9ae1a8a026/hyrox-istanbul-rawad-angle-960.webp"
+    },
+    "width": 1440
+  }
+}
