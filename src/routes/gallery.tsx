@@ -109,6 +109,12 @@ const FOLDERS: GalleryFolder[] = [
     description: "Custom 3D-printed Hyrox hex displays. Personalised with athlete name, division, race date, and finish time.",
     images: HYROX_IMAGES,
   },
+  {
+    id: "soft-flask-drying-stand",
+    label: "Soft Flask Drying Stand",
+    description: "3D-printed soft flask drying stands — honeycomb drainage tray and twin posts, available in white, black, and blue.",
+    images: FLASK_STAND_IMAGES,
+  },
 ];
 
 export const Route = createFileRoute("/gallery")({
