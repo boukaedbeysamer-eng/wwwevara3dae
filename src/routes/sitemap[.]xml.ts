@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { ALL_PRODUCTS } from "@/data/products";
+import { GALLERY_FOLDERS } from "@/data/gallery";
 
 const BASE_URL = "https://evara3d.ae";
 
@@ -18,6 +19,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/shop", changefreq: "weekly", priority: "0.9" },
           { path: "/gallery", changefreq: "monthly", priority: "0.7" },
+          ...GALLERY_FOLDERS.map((f) => ({
+            path: `/gallery/${f.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
           { path: "/about", changefreq: "monthly", priority: "0.6" },
           { path: "/faq", changefreq: "monthly", priority: "0.5" },
           ...ALL_PRODUCTS.map((p) => ({
