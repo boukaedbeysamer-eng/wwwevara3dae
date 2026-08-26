@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
+import { GALLERY_FOLDERS } from "@/data/gallery";
 import { ResponsiveImage } from "@/components/responsive-image";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
@@ -145,12 +146,49 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured frames carousel */}
+      {/* Gallery folders */}
       <section className="relative overflow-hidden bg-background border-b border-foreground/10">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <FrameCarousel />
+          <header className="text-center">
+            <span className="text-xs uppercase tracking-[0.28em] text-terrain">The work</span>
+            <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">Evara3D Gallery</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-foreground/70">
+              Browse the Evara3D gallery: 3D-printed trail running map frames, custom HYROX hex
+              displays, and soft flask drying stands made in Dubai. Pick a collection below to see
+              finished pieces, close-up details, and the finishes we print in.
+            </p>
+          </header>
+
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {GALLERY_FOLDERS.map((folder) => (
+              <article key={folder.slug} className="group">
+                <Link to="/gallery/$folder" params={{ folder: folder.slug }} className="block">
+                  <div className="aspect-[4/5] overflow-hidden bg-secondary/60">
+                    <ResponsiveImage
+                      src={folder.images[0].src}
+                      alt={`${folder.heading} — ${folder.images[0].title}`}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <h3 className="mt-5 font-display text-xl uppercase tracking-wide text-foreground">
+                    {folder.label}
+                  </h3>
+                </Link>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/70">{folder.description}</p>
+                <Link
+                  to="/gallery/$folder"
+                  params={{ folder: folder.slug }}
+                  className="mt-3 inline-block text-xs font-medium uppercase tracking-[0.2em] text-terrain hover:underline"
+                >
+                  View {folder.label} photos ({folder.images.length})
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* Trio of products */}
       <section className="relative bg-background overflow-hidden">
