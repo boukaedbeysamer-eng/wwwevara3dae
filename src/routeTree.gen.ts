@@ -19,6 +19,7 @@ import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
+import { Route as GalleryFolderRouteImport } from './routes/gallery_.$folder'
 import { Route as DashboardIndexingRouteImport } from './routes/dashboard.indexing'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
@@ -73,6 +74,11 @@ const ShopSlugRoute = ShopSlugRouteImport.update({
   path: '/shop/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryFolderRoute = GalleryFolderRouteImport.update({
+  id: '/gallery_/$folder',
+  path: '/gallery/$folder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexingRoute = DashboardIndexingRouteImport.update({
   id: '/dashboard/indexing',
   path: '/dashboard/indexing',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
+  '/gallery/$folder': typeof GalleryFolderRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
+  '/gallery/$folder': typeof GalleryFolderRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
+  '/gallery_/$folder': typeof GalleryFolderRoute
   '/shop_/$slug': typeof ShopSlugRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/dashboard/indexing'
+    | '/gallery/$folder'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/dashboard/indexing'
+    | '/gallery/$folder'
     | '/shop/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/dashboard/indexing'
+    | '/gallery_/$folder'
     | '/shop_/$slug'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
@@ -195,6 +207,7 @@ export interface RootRouteChildren {
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   DashboardIndexingRoute: typeof DashboardIndexingRoute
+  GalleryFolderRoute: typeof GalleryFolderRoute
   ShopSlugRoute: typeof ShopSlugRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
@@ -271,6 +284,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery_/$folder': {
+      id: '/gallery_/$folder'
+      path: '/gallery/$folder'
+      fullPath: '/gallery/$folder'
+      preLoaderRoute: typeof GalleryFolderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/indexing': {
       id: '/dashboard/indexing'
       path: '/dashboard/indexing'
@@ -318,6 +338,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   DashboardIndexingRoute: DashboardIndexingRoute,
+  GalleryFolderRoute: GalleryFolderRoute,
   ShopSlugRoute: ShopSlugRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }

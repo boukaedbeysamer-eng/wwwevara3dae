@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
 
-export const Route = createFileRoute("/gallery/$folder")({
+export const Route = createFileRoute("/gallery_/$folder")({
   loader: ({ params }) => {
     const folder = getGalleryFolder(params.folder);
     if (!folder) throw notFound();
