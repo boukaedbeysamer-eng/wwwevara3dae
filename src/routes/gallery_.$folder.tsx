@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
+import { ResponsiveImage } from "@/components/responsive-image";
 
 export const Route = createFileRoute("/gallery_/$folder")({
   loader: ({ params }) => {
