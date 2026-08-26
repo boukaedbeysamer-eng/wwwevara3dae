@@ -147,6 +147,12 @@ function CartPage() {
               Place Your Order &amp; Secure Your Payment
             </button>
           )}
+          {flaskItems.length > 0 && (
+            <p className="mt-3 text-xs text-foreground/70">
+              Flask Dry Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}). Set the
+              quantity to {flaskQty} on the Stripe payment page before paying.
+            </p>
+          )}
           {frameItems.length > 0 && (
             <Link
               to="/checkout"
