@@ -98,7 +98,7 @@ function FlaskDryStandPage() {
         </div>
 
         <div>
-          <h1 className="font-display text-4xl uppercase text-foreground md:text-5xl">SOFT FLASK DRYING STAND</h1>
+          <h1 className="font-display text-4xl uppercase text-foreground md:text-5xl">Flask Dry Stand</h1>
           <div className="mt-3 text-lg text-foreground/90">AED {FLASK_PRICE_AED} <span className="text-sm text-foreground/60">per unit</span></div>
           <p className="mt-6 text-sm leading-relaxed text-foreground/85">{DESCRIPTION}</p>
 
