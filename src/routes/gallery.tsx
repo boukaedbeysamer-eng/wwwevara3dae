@@ -33,6 +33,12 @@ import hyroxRawadAngle from "@/assets/gallery/hyrox-istanbul-rawad-angle.jpg.ass
 import hyroxDoublesStudio from "@/assets/gallery/hyrox-istanbul-doubles-studio.png.asset.json";
 import hyroxDoublesHand from "@/assets/gallery/hyrox-istanbul-doubles-hand.jpg.asset.json";
 import hyroxDoublesShelf from "@/assets/gallery/hyrox-istanbul-doubles-shelf.jpg.asset.json";
+import flaskWhiteStudio from "@/assets/gallery/flask-white-studio.webp.asset.json";
+import flaskBlackStudio from "@/assets/gallery/flask-black-studio.png.asset.json";
+import flaskBlueStand from "@/assets/gallery/flask-blue-stand.webp.asset.json";
+import flaskBlueStudio from "@/assets/gallery/flask-blue-studio.png.asset.json";
+import flaskBlueCounter from "@/assets/gallery/flask-blue-counter.png.asset.json";
+import flaskBlueReal from "@/assets/gallery/flask-blue-real.jpeg.asset.json";
 
 type GalleryImage = {
   src: string;
