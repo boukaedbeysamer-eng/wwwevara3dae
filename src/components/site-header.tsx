@@ -51,14 +51,15 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <Link to="/" className="flex items-center" aria-label="Evara — home">
-          <img src={evaraLogo.url} alt="Evara" className="h-14 w-auto" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6 md:py-5">
+        <Link to="/" className="flex shrink-0 items-center" aria-label="Evara — home">
+          <img src={evaraLogo.url} alt="Evara" className="h-10 w-auto md:h-11 lg:h-14" />
         </Link>
-        <nav className="hidden items-center gap-10 text-sm uppercase tracking-[0.18em] text-foreground/70 md:flex">
+        <nav className="hidden items-center gap-5 text-xs uppercase tracking-[0.12em] text-foreground/70 md:flex lg:gap-10 lg:text-sm lg:tracking-[0.18em]">
+
           <Link
             to="/about"
-            className={`transition-colors hover:text-terrain ${pathname.startsWith("/about") ? "text-terrain" : ""}`}
+            className={`whitespace-nowrap transition-colors hover:text-terrain ${pathname.startsWith("/about") ? "text-terrain" : ""}`}
           >
             Our Story
           </Link>
@@ -68,9 +69,10 @@ export function SiteHeader() {
               type="button"
               onClick={() => setCollectionOpen((v) => !v)}
               aria-expanded={collectionOpen}
-              className={`flex items-center gap-2 uppercase tracking-[0.18em] transition-colors hover:text-terrain ${
+              className={`flex items-center gap-1.5 whitespace-nowrap uppercase transition-colors hover:text-terrain ${
                 pathname.startsWith("/shop") ? "text-terrain" : ""
               }`}
+
             >
               PRODUCTS
               <ChevronDown
@@ -102,7 +104,7 @@ export function SiteHeader() {
             <Link
               key={n.to}
               to={n.to}
-              className={`transition-colors hover:text-terrain ${
+              className={`whitespace-nowrap transition-colors hover:text-terrain ${
                 pathname.startsWith(n.to) ? "text-terrain" : ""
               }`}
             >
@@ -110,16 +112,16 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden shrink-0 items-center gap-3 md:flex lg:gap-4">
           <Link
             to="/shop"
-            className="bg-terrain px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            className="whitespace-nowrap bg-terrain px-3 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-paper transition-opacity hover:opacity-90 lg:px-5 lg:py-3 lg:text-xs lg:tracking-[0.22em]"
           >
             Shop Online
           </Link>
           <Link
             to="/cart"
-            className="group relative inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-foreground hover:text-terrain"
+            className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs uppercase tracking-[0.12em] text-foreground hover:text-terrain lg:text-sm lg:tracking-[0.18em]"
           >
             Cart
             <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terrain px-2 text-xs text-paper">
@@ -127,6 +129,7 @@ export function SiteHeader() {
             </span>
           </Link>
         </div>
+
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
