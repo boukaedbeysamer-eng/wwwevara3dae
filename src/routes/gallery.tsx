@@ -33,6 +33,12 @@ import hyroxRawadAngle from "@/assets/gallery/hyrox-istanbul-rawad-angle.jpg.ass
 import hyroxDoublesStudio from "@/assets/gallery/hyrox-istanbul-doubles-studio.png.asset.json";
 import hyroxDoublesHand from "@/assets/gallery/hyrox-istanbul-doubles-hand.jpg.asset.json";
 import hyroxDoublesShelf from "@/assets/gallery/hyrox-istanbul-doubles-shelf.jpg.asset.json";
+import flaskWhiteStudio from "@/assets/gallery/flask-white-studio.webp.asset.json";
+import flaskBlackStudio from "@/assets/gallery/flask-black-studio.png.asset.json";
+import flaskBlueStand from "@/assets/gallery/flask-blue-stand.webp.asset.json";
+import flaskBlueStudio from "@/assets/gallery/flask-blue-studio.png.asset.json";
+import flaskBlueCounter from "@/assets/gallery/flask-blue-counter.png.asset.json";
+import flaskBlueReal from "@/assets/gallery/flask-blue-real.jpeg.asset.json";
 
 type GalleryImage = {
   src: string;
@@ -81,6 +87,15 @@ const HYROX_IMAGES: GalleryImage[] = [
   { src: hyroxRawadAngle.url, title: "HYROX Istanbul — Hex Display Angle", caption: "Stand-mounted hex display, side view." },
 ];
 
+const FLASK_STAND_IMAGES: GalleryImage[] = [
+  { src: flaskWhiteStudio.url, title: "Soft Flask Drying Stand — White", caption: "White drying stand with honeycomb drainage tray." },
+  { src: flaskBlackStudio.url, title: "Soft Flask Drying Stand — Black", caption: "Matte black stand with twin drying posts." },
+  { src: flaskBlueStand.url, title: "Soft Flask Drying Stand — Blue", caption: "Blue stand with honeycomb tray and drip base." },
+  { src: flaskBlueStudio.url, title: "Soft Flask Drying Stand — In Use", caption: "Two soft flasks drying upside down on the blue tray." },
+  { src: flaskBlueCounter.url, title: "Soft Flask Drying Stand — Kitchen Counter", caption: "Blue stand keeping flasks and caps drying on marble." },
+  { src: flaskBlueReal.url, title: "Soft Flask Drying Stand — Everyday Use", caption: "Blue stand drying flasks and bite valves after a run." },
+];
+
 const FOLDERS: GalleryFolder[] = [
   {
     id: "trail-running",
@@ -93,6 +108,12 @@ const FOLDERS: GalleryFolder[] = [
     label: "HYROX",
     description: "Custom 3D-printed Hyrox hex displays. Personalised with athlete name, division, race date, and finish time.",
     images: HYROX_IMAGES,
+  },
+  {
+    id: "soft-flask-drying-stand",
+    label: "Soft Flask Drying Stand",
+    description: "3D-printed soft flask drying stands — honeycomb drainage tray and twin posts, available in white, black, and blue.",
+    images: FLASK_STAND_IMAGES,
   },
 ];
 
@@ -125,7 +146,7 @@ function GalleryPage() {
         </h1>
       </div>
 
-      <div className="mt-10 flex justify-center gap-2">
+      <div className="mt-10 flex flex-wrap justify-center gap-2">
         {FOLDERS.map((folder) => (
           <button
             key={folder.id}
