@@ -205,7 +205,7 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.28em] text-terrain">OUR PRODUCTS</span>
+            <span className="text-xs uppercase tracking-[0.28em] text-terrain">ORDER OUR PRODUCTS</span>
             <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
               3D PRINTED PRODUCTS.
             </h2>
