@@ -152,9 +152,11 @@ function GalleryFolderPage() {
         <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
           <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
           {active && (
-            <img
+            <ResponsiveImage
               src={active.src}
               alt={`${active.title} — ${active.caption}`}
+              sizes="(min-width: 1024px) 1024px, 95vw"
+              priority
               className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
             />
           )}
