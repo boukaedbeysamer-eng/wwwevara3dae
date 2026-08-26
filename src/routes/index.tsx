@@ -432,7 +432,7 @@ function FlaskDryStandCard() {
         )}
       </div>
       <div className="mt-6 flex items-baseline justify-between">
-        <h3 className="font-display text-2xl text-foreground"> DRY FLASK STAND
+        <h3 className="font-display text-2xl text-foreground">SOFT FLASK DRYING STAND
 </h3>
         <span className="text-sm text-foreground/90">AED 75</span>
       </div>
