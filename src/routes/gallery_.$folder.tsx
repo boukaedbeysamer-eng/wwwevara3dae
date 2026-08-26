@@ -112,10 +112,10 @@ function GalleryFolderPage() {
                 className="group block aspect-[4/5] w-full overflow-hidden bg-secondary/60"
                 onClick={() => setOpenImage(img.src)}
               >
-                <img
+                <ResponsiveImage
                   src={img.src}
                   alt={`${img.title} — ${img.caption}`}
-                  loading="lazy"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </button>
