@@ -91,7 +91,7 @@ const FOLDERS: GalleryFolder[] = [
   {
     id: "hyrox",
     label: "HYROX",
-    description: "Custom 3D-printed Hyrox hex displays — personalised with athlete name, division, race date, and finish time.",
+    description: "Custom 3D-printed Hyrox hex displays. Personalised with athlete name, division, race date, and finish time.",
     images: HYROX_IMAGES,
   },
 ];
