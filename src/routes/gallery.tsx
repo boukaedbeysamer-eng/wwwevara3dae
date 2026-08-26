@@ -64,10 +64,10 @@ function GalleryIndexPage() {
               className="block"
             >
               <div className="aspect-[4/5] overflow-hidden bg-secondary/60">
-                <img
+                <ResponsiveImage
                   src={folder.images[0].src}
                   alt={`${folder.heading} — ${folder.images[0].title}`}
-                  loading="lazy"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
