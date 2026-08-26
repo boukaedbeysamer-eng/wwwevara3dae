@@ -146,7 +146,7 @@ function GalleryPage() {
         </h1>
       </div>
 
-      <div className="mt-10 flex justify-center gap-2">
+      <div className="mt-10 flex flex-wrap justify-center gap-2">
         {FOLDERS.map((folder) => (
           <button
             key={folder.id}
