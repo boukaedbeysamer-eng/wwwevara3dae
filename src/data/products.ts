@@ -91,7 +91,7 @@ export const HYROX_PRODUCTS: Product[] = [
       "Custom 3D-printed hexagonal Hyrox display",
       "Personalised athlete name, division/season",
       "Race date and finish time",
-      "Display stand included — wall-mountable",
+      "Display stand included with a wall-mountable.",
     ],
     story:
       "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalised with the athlete's name, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
