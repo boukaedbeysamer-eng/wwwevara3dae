@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/responsive-image";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
@@ -78,15 +79,17 @@ function CartPage() {
             <div key={i.id} className="grid grid-cols-[120px_1fr_auto] gap-6 py-8">
               <div className="bg-secondary/60 p-2 flex items-center justify-center">
                 {i.productSlug === "hyrox-hex" ? (
-                  <img
+                  <ResponsiveImage
                     src={hyroxHexAsset.url}
                     alt="Hyrox Hex 3D-printed hexagonal race display"
+                    sizes="120px"
                     className="h-full w-full object-contain"
                   />
                 ) : i.productSlug === "flask-dry-stand" ? (
-                  <img
+                  <ResponsiveImage
                     src={FLASK_IMAGES[i.color ?? "Black"] ?? flaskBlackAsset.url}
-                    alt={`Flask Dry Stand — ${i.color ?? "Black"}`}
+                    alt={`Soft Flask Drying Stand — ${i.color ?? "Black"}`}
+                    sizes="120px"
                     className="h-full w-full object-cover"
                   />
                 ) : (

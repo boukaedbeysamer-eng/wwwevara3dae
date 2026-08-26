@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/responsive-image";
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import {
@@ -113,9 +114,11 @@ function ProductPage() {
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
         <div className="bg-secondary/60 p-10 flex items-center justify-center">
           {product.slug === "hyrox-hex" ? (
-            <img
+            <ResponsiveImage
               src={hyroxHexAsset.url}
-              alt="Hyrox Hex 3D-printed hexagonal race display with stand"
+              alt="Hyrox Hex — 3D-printed hexagonal race result display with stand"
+              sizes="(min-width: 768px) 50vw, 100vw"
+              priority
               className="w-full max-w-lg object-contain"
             />
           ) : (

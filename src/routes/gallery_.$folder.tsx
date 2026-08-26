@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
+import { ResponsiveImage } from "@/components/responsive-image";
 
 export const Route = createFileRoute("/gallery_/$folder")({
   loader: ({ params }) => {
@@ -112,10 +113,10 @@ function GalleryFolderPage() {
                 className="group block aspect-[4/5] w-full overflow-hidden bg-secondary/60"
                 onClick={() => setOpenImage(img.src)}
               >
-                <img
+                <ResponsiveImage
                   src={img.src}
                   alt={`${img.title} — ${img.caption}`}
-                  loading="lazy"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </button>
@@ -151,9 +152,11 @@ function GalleryFolderPage() {
         <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
           <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
           {active && (
-            <img
+            <ResponsiveImage
               src={active.src}
               alt={`${active.title} — ${active.caption}`}
+              sizes="(min-width: 1024px) 1024px, 95vw"
+              priority
               className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
             />
           )}

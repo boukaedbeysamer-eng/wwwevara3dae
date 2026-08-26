@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "@/components/responsive-image";
 import { ChevronDown, Mail, Phone } from "lucide-react";
 import { PRODUCTS, HYROX_PRODUCTS } from "@/data/products";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
@@ -174,16 +175,16 @@ function FrameSeries() {
         <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="group block">
           <div className="bg-ink/5 transition-colors group-hover:bg-ink/10">
             {p.slug === "keepsaker" && (
-              <img src={keepsakerImg.url} alt={`${p.name} 3D-printed topographic frame`} className="aspect-square w-full object-cover" />
+              <ResponsiveImage src={keepsakerImg.url} alt={`${p.name} — 3D-printed topographic map frame, made in Dubai`} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square w-full object-cover" />
             )}
             {p.slug === "achiever" && (
-              <img src={achieverImg.url} alt={`${p.name} 3D-printed topographic frame with medal`} className="aspect-square w-full object-cover" />
+              <ResponsiveImage src={achieverImg.url} alt={`${p.name} — 3D-printed topographic frame with race medal, made in Dubai`} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square w-full object-cover" />
             )}
             {p.slug === "legacy" && (
-              <img src={legacyImg.url} alt={`${p.name} 3D-printed topographic frame with medal and BIB`} className="aspect-square w-full object-cover" />
+              <ResponsiveImage src={legacyImg.url} alt={`${p.name} — 3D-printed topographic frame with medal and race BIB, made in Dubai`} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square w-full object-cover" />
             )}
             {p.slug === "3d-map-display" && (
-              <img src={frame3dMap.url} alt={`${p.name} 3D-printed topographic hex plaque`} className="aspect-square w-full object-cover" />
+              <ResponsiveImage src={frame3dMap.url} alt={`${p.name} — 3D-printed hexagonal topographic map plaque, made in Dubai`} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-square w-full object-cover" />
             )}
           </div>
           <div className="mt-6 flex items-baseline justify-between">
@@ -263,9 +264,10 @@ function HyroxSeries() {
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <Link to="/shop/$slug" params={{ slug: p.slug }} className="group block">
             <div className="bg-foreground/5 transition-colors group-hover:bg-foreground/10">
-              <img
+              <ResponsiveImage
                 src={hyroxHexImg.url}
-                alt={`${p.name} 3D-printed hexagonal Hyrox race display`}
+                alt={`${p.name} — 3D-printed hexagonal Hyrox race result display`}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="aspect-square w-full object-cover"
               />
             </div>

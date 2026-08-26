@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
+import { ResponsiveImage } from "@/components/responsive-image";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
 import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
@@ -92,13 +93,14 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden border-b border-foreground/10">
-        <img
+        <ResponsiveImage
           src={heroTerrainBg.url}
           alt=""
+          sizes="100vw"
+          priority
           className="absolute inset-0 h-full w-full object-cover object-right"
           width={1920}
           height={1200}
-          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/60 to-background/30" />
         <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-center px-6 py-24 md:py-32">
@@ -187,33 +189,38 @@ function Home() {
             >
               <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 2 || i === 3 ? "" : "p-8"}`}>
                 {i === 0 ? (
-                  <img
+                  <ResponsiveImage
                     src={frameKeepsakerGoat.url}
-                    alt={`${p.name} 3D-printed topographic frame`}
+                    alt={`${p.name} — 3D-printed topographic frame, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 1 ? (
-                  <img
+                  <ResponsiveImage
                     src={frameAchieverMedal.url}
-                    alt={`${p.name} 3D-printed topographic frame with medal`}
+                    alt={`${p.name} — 3D-printed topographic frame with race medal, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 2 ? (
-                  <img
+                  <ResponsiveImage
                     src={legacyFrame.url}
-                    alt={`${p.name} 3D-printed topographic frame with medal and BIB`}
+                    alt={`${p.name} — 3D-printed topographic frame with medal and race BIB, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 3 ? (
-                  <img
+                  <ResponsiveImage
                     src={frame3dHexMap.url}
-                    alt={`${p.name} 3D-printed topographic hex plaque`}
+                    alt={`${p.name} — 3D-printed hexagonal topographic map plaque, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : i === 4 ? (
-                  <img
+                  <ResponsiveImage
                     src={hyroxHexProduct.url}
-                    alt={`${p.name} 3D-printed Hyrox hex display`}
+                    alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
                 ) : null}
@@ -314,7 +321,12 @@ function FrameCarousel() {
             key={item.name}
             className="snap-center shrink-0 w-[78%] sm:w-[60%] md:w-[78%] lg:w-[70%] shadow-2xl"
           >
-            <img src={item.img} alt={`${item.name} frame`} className="w-full h-auto object-cover" />
+            <ResponsiveImage
+              src={item.img}
+              alt={`${item.name} — ${item.desc}`}
+              sizes="(min-width: 1024px) 70vw, (min-width: 640px) 60vw, 78vw"
+              className="w-full h-auto object-cover"
+            />
           </article>
         ))}
       </div>
@@ -384,12 +396,12 @@ function FlaskDryStandCard() {
           className="flex aspect-square w-full snap-x snap-mandatory overflow-x-hidden scroll-smooth"
         >
           {images.map((img) => (
-            <img
+            <ResponsiveImage
               key={img.src}
               src={img.src}
               alt={img.alt}
+              sizes="(min-width: 768px) 33vw, 100vw"
               className="aspect-square w-full flex-shrink-0 snap-start object-cover"
-              loading="lazy"
               width={1024}
               height={1024}
             />
