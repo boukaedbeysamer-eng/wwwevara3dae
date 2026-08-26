@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { GALLERY_FOLDERS } from "@/data/gallery";
+import { ResponsiveImage } from "@/components/responsive-image";
 
 const TITLE = "Gallery — 3D Map Frames, HYROX Displays & Run Gear | Evara3D";
 const DESCRIPTION =
