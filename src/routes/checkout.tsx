@@ -187,9 +187,20 @@ function Checkout() {
               <Field label="Email" error={form.formState.errors.email?.message}>
                 <input type="email" className={inp} {...form.register("email")} maxLength={255} />
               </Field>
-              <Field label="WhatsApp number (with country code)" error={form.formState.errors.whatsapp?.message}>
-                <input className={inp} placeholder="+971 5X XXX XXXX" {...form.register("whatsapp")} maxLength={40} />
-              </Field>
+              <PhoneInput
+                dial={dial}
+                number={nationalNumber}
+                onDialChange={(d) => {
+                  setDial(d);
+                  form.setValue("whatsapp", buildE164(d, nationalNumber), { shouldValidate: form.formState.isSubmitted });
+                }}
+                onNumberChange={(n) => {
+                  setNationalNumber(n);
+                  form.setValue("whatsapp", buildE164(dial, n), { shouldValidate: form.formState.isSubmitted });
+                }}
+                error={form.formState.errors.whatsapp?.message}
+              />
+
               <Field label="Notes (optional)">
                 <textarea className={`${inp} min-h-24`} {...form.register("notes")} maxLength={2000} placeholder="Anything we should know — gift wrap, deadline, custom engraving…" />
               </Field>
