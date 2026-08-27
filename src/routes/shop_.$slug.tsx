@@ -5,6 +5,8 @@ import {
   FRAME_FINISHES,
   MAP_COLORS,
   TRACK_COLORS,
+  TEXT_COLORS,
+  HYROX_DISPLAY_COLORS,
   getProduct,
   type FrameFinish,
   type MapColor,
@@ -69,8 +71,9 @@ function ProductPage() {
   const add = useCart((s) => s.add);
 
   const [frameFinish, setFrameFinish] = useState<FrameFinish>("Wooden");
+  const isHyrox = product.slug === "hyrox-hex";
   const [mapColor, setMapColor] = useState<MapColor>("Black");
-  const [trackColor, setTrackColor] = useState<TrackColor>("Orange");
+  const [trackColor, setTrackColor] = useState<TrackColor>(isHyrox ? "White" : "Orange");
   const [qty, setQty] = useState(1);
 
   const [raceName, setRaceName] = useState("");
@@ -163,11 +166,11 @@ function ProductPage() {
               onChange={setFrameFinish} 
             />
           )}
-          <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? MAP_COLORS.filter(c => c !== "Green") : MAP_COLORS} onChange={setMapColor} />
+          <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? HYROX_DISPLAY_COLORS : MAP_COLORS} onChange={setMapColor} />
           <Selector 
             label={product.slug === "hyrox-hex" ? "TEXT COLOR" : "Strava track color"} 
             value={trackColor} 
-            options={product.slug === "hyrox-hex" ? ["White", "Black"] as any[] : TRACK_COLORS} 
+            options={product.slug === "hyrox-hex" ? TEXT_COLORS : TRACK_COLORS} 
             onChange={setTrackColor} 
           />
 

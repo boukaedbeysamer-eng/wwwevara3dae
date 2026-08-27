@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
-import { ALL_PRODUCTS, FRAME_FINISHES, MAP_COLORS, TRACK_COLORS } from "@/data/products";
+import { ALL_PRODUCTS, FRAME_FINISHES, MAP_COLORS, TRACK_COLORS, TEXT_COLORS } from "@/data/products";
 
 const contactSchema = z.object({
   fullName: z.string().trim().min(1).max(120),
@@ -15,7 +15,7 @@ const itemSchema = z.object({
   qty: z.number().int().min(1).max(20),
   frameFinish: z.enum(FRAME_FINISHES as [string, ...string[]]),
   mapColor: z.enum(MAP_COLORS as [string, ...string[]]),
-  trackColor: z.enum(TRACK_COLORS as [string, ...string[]]),
+  trackColor: z.enum([...new Set([...TRACK_COLORS, ...TEXT_COLORS])] as [string, ...string[]]),
   runName: z.string().max(200).optional().nullable(),
   runDistanceKm: z.number().min(0).max(10000).optional().nullable(),
   runElevationM: z.number().int().min(0).max(20000).optional().nullable(),
