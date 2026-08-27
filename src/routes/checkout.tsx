@@ -51,12 +51,18 @@ function Checkout() {
   const allItems = useCart((s) => s.items);
   // The Soft Flask Drying Stand is paid directly via Stripe from the cart and is
   // not part of the order-request flow, so it must not be submitted here.
-  const items = allItems.filter((i) => i.productSlug !== "flask-dry-stand");
+  // Stale carts may also hold slugs that no longer exist in the catalogue —
+  // those would fail server-side validation, so drop them here too.
+  const items = allItems.filter(
+    (i) => i.productSlug !== "flask-dry-stand" && Boolean(getProduct(i.productSlug)),
+  );
   const remove = useCart((s) => s.remove);
   const navigate = useNavigate();
   const sendRequest = useServerFn(submitOrderRequest);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [dial, setDial] = useState("+971");
+  const [nationalNumber, setNationalNumber] = useState("");
 
 
   const form = useForm<FormValues>({
@@ -69,6 +75,7 @@ function Checkout() {
       items: items.map(() => ({})),
     },
   });
+
 
   if (items.length === 0) {
     return (
