@@ -16,11 +16,15 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FlaskDryStandRouteImport } from './routes/flask-dry-stand'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as DashboardIndexingRouteImport } from './routes/dashboard.indexing'
 import { Route as GalleryFolderRouteImport } from './routes/gallery_.$folder'
 import { Route as ShopSlugRouteImport } from './routes/shop_.$slug'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as CheckoutSuccessIdRouteImport } from './routes/checkout.success.$id'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
@@ -59,6 +63,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
@@ -69,6 +78,18 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DashboardIndexingRoute = DashboardIndexingRouteImport.update({
   id: '/dashboard/indexing',
   path: '/dashboard/indexing',
@@ -84,6 +105,12 @@ const ShopSlugRoute = ShopSlugRouteImport.update({
   path: '/shop/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93InvokeToolToolRoute =
+  Char91DotmcpChar93InvokeToolToolRouteImport.update({
+    id: '/.mcp/invoke-tool/$tool',
+    path: '/.mcp/invoke-tool/$tool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CheckoutSuccessIdRoute = CheckoutSuccessIdRouteImport.update({
   id: '/success/$id',
   path: '/success/$id',
@@ -104,11 +131,15 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
   '/gallery/$folder': typeof GalleryFolderRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -120,11 +151,15 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
   '/gallery/$folder': typeof GalleryFolderRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -137,11 +172,15 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/flask-dry-stand': typeof FlaskDryStandRoute
   '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard/indexing': typeof DashboardIndexingRoute
   '/gallery_/$folder': typeof GalleryFolderRoute
   '/shop_/$slug': typeof ShopSlugRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/checkout/success/$id': typeof CheckoutSuccessIdRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
@@ -155,11 +194,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/flask-dry-stand'
     | '/gallery'
+    | '/mcp'
     | '/shop'
     | '/sitemap.xml'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/dashboard/indexing'
     | '/gallery/$folder'
     | '/shop/$slug'
+    | '/.mcp/invoke-tool/$tool'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
@@ -171,11 +214,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/flask-dry-stand'
     | '/gallery'
+    | '/mcp'
     | '/shop'
     | '/sitemap.xml'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/dashboard/indexing'
     | '/gallery/$folder'
     | '/shop/$slug'
+    | '/.mcp/invoke-tool/$tool'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
   id:
@@ -187,11 +234,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/flask-dry-stand'
     | '/gallery'
+    | '/mcp'
     | '/shop'
     | '/sitemap.xml'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/dashboard/indexing'
     | '/gallery_/$folder'
     | '/shop_/$slug'
+    | '/.mcp/invoke-tool/$tool'
     | '/checkout/success/$id'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
@@ -204,11 +255,15 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FlaskDryStandRoute: typeof FlaskDryStandRoute
   GalleryRoute: typeof GalleryRoute
+  McpRoute: typeof McpRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   DashboardIndexingRoute: typeof DashboardIndexingRoute
   GalleryFolderRoute: typeof GalleryFolderRoute
   ShopSlugRoute: typeof ShopSlugRoute
+  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
 
@@ -263,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop': {
       id: '/shop'
       path: '/shop'
@@ -275,6 +337,20 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/indexing': {
@@ -296,6 +372,13 @@ declare module '@tanstack/react-router' {
       path: '/shop/$slug'
       fullPath: '/shop/$slug'
       preLoaderRoute: typeof ShopSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout/success/$id': {
@@ -335,11 +418,16 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FlaskDryStandRoute: FlaskDryStandRoute,
   GalleryRoute: GalleryRoute,
+  McpRoute: McpRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   DashboardIndexingRoute: DashboardIndexingRoute,
   GalleryFolderRoute: GalleryFolderRoute,
   ShopSlugRoute: ShopSlugRoute,
+  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
 export const routeTree = rootRouteImport
