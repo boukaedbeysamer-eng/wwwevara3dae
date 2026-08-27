@@ -7,7 +7,10 @@ import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { useCart, cartTotal } from "@/lib/cart";
 import { submitOrderRequest } from "@/lib/requests.functions";
+import { getProduct } from "@/data/products";
+import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { supabase } from "@/integrations/supabase/client";
+
 
 
 export const Route = createFileRoute("/checkout")({
