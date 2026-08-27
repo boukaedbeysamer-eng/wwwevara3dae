@@ -98,6 +98,7 @@ export const submitOrderRequest = createServerFn({ method: "POST" })
         headers: {
           "content-type": "application/json",
           Authorization: `Bearer ${process.env.SUPABASE_PUBLISHABLE_KEY}`,
+          "x-webhook-secret": process.env.EMAIL_WEBHOOK_SECRET ?? "",
         },
         body: JSON.stringify({
           requestId: req.id,
