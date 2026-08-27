@@ -158,8 +158,10 @@ function Checkout() {
       items.forEach((i) => remove(i.id));
       navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
     } catch (err) {
-      console.error(err);
-      toast.error("Could not send your request. Please try again.");
+      console.error("checkout submit failed", err);
+      const message = err instanceof Error && err.message ? err.message : String(err);
+      toast.error(`Could not send your request: ${message}`);
+
     } finally {
       setSubmitting(false);
     }
