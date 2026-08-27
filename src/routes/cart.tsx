@@ -62,9 +62,42 @@ function CartPage() {
       .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
       .slice(0, 200);
-    const url = `${FLASK_STRIPE_LINK}${reference ? `?client_reference_id=${reference}` : ""}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    const params = new URLSearchParams();
+    if (reference) params.set("client_reference_id", reference);
+    if (email) params.set("prefilled_email", email);
+    const qs = params.toString();
+    window.open(`${FLASK_STRIPE_LINK}${qs ? `?${qs}` : ""}`, "_blank", "noopener,noreferrer");
   };
+
+  const submitFlask = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const whatsapp = buildE164(dial, nationalNumber);
+    if (!fullName.trim() || !/^\S+@\S+\.\S+$/.test(email) || !/^\+\d{7,16}$/.test(whatsapp)) {
+      toast.error("Please enter your name, a valid email and WhatsApp number.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitFlaskOrder({
+        data: {
+          contact: { fullName: fullName.trim(), email: email.trim(), whatsapp, notes: notes.trim() || null },
+          items: flaskItems.map((i) => ({
+            color: (i.color ?? "Black") as "Black" | "White" | "Blue",
+            qty: i.qty,
+          })),
+        },
+      });
+      toast.success("Order confirmed — check your email. Continuing to payment…");
+      setShowForm(false);
+      payFlask();
+    } catch (err) {
+      console.error(err);
+      toast.error(err instanceof Error ? err.message : "Could not submit your order.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
 
   if (items.length === 0) {
     return (
