@@ -30,9 +30,15 @@ export function sanitizeNationalNumber(value: string) {
 }
 
 export function buildE164(dial: string, national: string) {
-  const digits = sanitizeNationalNumber(national).replace(/^0+/, "");
+  const dialDigits = dial.replace(/\D/g, "");
+  let digits = sanitizeNationalNumber(national).replace(/^0+/, "");
+  // Tolerate people who paste the full international number into the field.
+  if (digits.startsWith(dialDigits) && digits.length > dialDigits.length) {
+    digits = digits.slice(dialDigits.length).replace(/^0+/, "");
+  }
   return digits ? `${dial}${digits}` : "";
 }
+
 
 type Props = {
   dial: string;
