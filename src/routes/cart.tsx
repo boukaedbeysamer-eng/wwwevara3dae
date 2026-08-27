@@ -186,14 +186,56 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && (
+          {flaskItems.length > 0 && !showForm && (
             <button
               type="button"
-              onClick={payFlask}
+              onClick={() => setShowForm(true)}
               className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
               Place Your Order &amp; Secure Your Payment
             </button>
+          )}
+          {flaskItems.length > 0 && showForm && (
+            <form onSubmit={submitFlask} className="mt-8 space-y-4">
+              <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Your details</div>
+              <input
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Full name"
+                maxLength={120}
+                autoComplete="name"
+                className="w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                maxLength={255}
+                autoComplete="email"
+                className="w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <PhoneInput
+                dial={dial}
+                number={nationalNumber}
+                onDialChange={setDial}
+                onNumberChange={setNationalNumber}
+              />
+              <textarea
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Notes (optional)"
+                maxLength={2000}
+                className="min-h-20 w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                className="block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90 disabled:opacity-60"
+              >
+                {submitting ? "Submitting…" : "Confirm order & continue to payment"}
+              </button>
+            </form>
           )}
           {flaskItems.length > 0 && (
             <p className="mt-3 text-xs text-foreground/70">
