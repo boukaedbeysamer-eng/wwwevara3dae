@@ -36,10 +36,14 @@ const itemDetailSchema = z.object({
 const formSchema = z.object({
   fullName: z.string().trim().min(1, "Required").max(120),
   email: z.string().trim().email("Enter a valid email").max(255),
-  whatsapp: z.string().trim().min(4, "Enter a valid WhatsApp number").max(40),
+  whatsapp: z
+    .string()
+    .trim()
+    .regex(/^\+\d{7,16}$/, "Enter your WhatsApp number (digits only)"),
   notes: z.string().trim().max(2000).optional().or(z.literal("")),
   items: z.array(itemDetailSchema),
 });
+
 
 type FormValues = z.infer<typeof formSchema>;
 
