@@ -3,7 +3,13 @@
   "sdk_version": "0.28.0",
   "path": "/mcp",
   "auth": {
-    "type": "none"
+    "type": "oauth",
+    "issuer": "https://tdnxhferbfmpumnbexsq.supabase.co/auth/v1",
+    "resource_name": "Evara3D catalog MCP",
+    "accepted_audiences": [
+      "authenticated"
+    ],
+    "jwks_uri": "https://tdnxhferbfmpumnbexsq.supabase.co/auth/v1/.well-known/jwks.json"
   },
   "mcp": {
     "server": {
