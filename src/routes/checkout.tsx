@@ -7,7 +7,10 @@ import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { useCart, cartTotal } from "@/lib/cart";
 import { submitOrderRequest } from "@/lib/requests.functions";
+import { getProduct } from "@/data/products";
+import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { supabase } from "@/integrations/supabase/client";
+
 
 
 export const Route = createFileRoute("/checkout")({
@@ -36,10 +39,14 @@ const itemDetailSchema = z.object({
 const formSchema = z.object({
   fullName: z.string().trim().min(1, "Required").max(120),
   email: z.string().trim().email("Enter a valid email").max(255),
-  whatsapp: z.string().trim().min(4, "Enter a valid WhatsApp number").max(40),
+  whatsapp: z
+    .string()
+    .trim()
+    .regex(/^\+\d{7,16}$/, "Enter your WhatsApp number (digits only)"),
   notes: z.string().trim().max(2000).optional().or(z.literal("")),
   items: z.array(itemDetailSchema),
 });
+
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -47,12 +54,18 @@ function Checkout() {
   const allItems = useCart((s) => s.items);
   // The Soft Flask Drying Stand is paid directly via Stripe from the cart and is
   // not part of the order-request flow, so it must not be submitted here.
-  const items = allItems.filter((i) => i.productSlug !== "flask-dry-stand");
+  // Stale carts may also hold slugs that no longer exist in the catalogue —
+  // those would fail server-side validation, so drop them here too.
+  const items = allItems.filter(
+    (i) => i.productSlug !== "flask-dry-stand" && Boolean(getProduct(i.productSlug)),
+  );
   const remove = useCart((s) => s.remove);
   const navigate = useNavigate();
   const sendRequest = useServerFn(submitOrderRequest);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [dial, setDial] = useState("+971");
+  const [nationalNumber, setNationalNumber] = useState("");
 
 
   const form = useForm<FormValues>({
@@ -65,6 +78,7 @@ function Checkout() {
       items: items.map(() => ({})),
     },
   });
+
 
   if (items.length === 0) {
     return (
@@ -144,8 +158,10 @@ function Checkout() {
       items.forEach((i) => remove(i.id));
       navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
     } catch (err) {
-      console.error(err);
-      toast.error("Could not send your request. Please try again.");
+      console.error("checkout submit failed", err);
+      const message = err instanceof Error && err.message ? err.message : String(err);
+      toast.error(`Could not send your request: ${message}`);
+
     } finally {
       setSubmitting(false);
     }
@@ -173,9 +189,20 @@ function Checkout() {
               <Field label="Email" error={form.formState.errors.email?.message}>
                 <input type="email" className={inp} {...form.register("email")} maxLength={255} />
               </Field>
-              <Field label="WhatsApp number (with country code)" error={form.formState.errors.whatsapp?.message}>
-                <input className={inp} placeholder="+971 5X XXX XXXX" {...form.register("whatsapp")} maxLength={40} />
-              </Field>
+              <PhoneInput
+                dial={dial}
+                number={nationalNumber}
+                onDialChange={(d) => {
+                  setDial(d);
+                  form.setValue("whatsapp", buildE164(d, nationalNumber), { shouldValidate: form.formState.isSubmitted });
+                }}
+                onNumberChange={(n) => {
+                  setNationalNumber(n);
+                  form.setValue("whatsapp", buildE164(dial, n), { shouldValidate: form.formState.isSubmitted });
+                }}
+                error={form.formState.errors.whatsapp?.message}
+              />
+
               <Field label="Notes (optional)">
                 <textarea className={`${inp} min-h-24`} {...form.register("notes")} maxLength={2000} placeholder="Anything we should know — gift wrap, deadline, custom engraving…" />
               </Field>
