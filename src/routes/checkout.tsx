@@ -44,12 +44,16 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function Checkout() {
-  const items = useCart((s) => s.items);
-  const clear = useCart((s) => s.clear);
+  const allItems = useCart((s) => s.items);
+  // The Soft Flask Drying Stand is paid directly via Stripe from the cart and is
+  // not part of the order-request flow, so it must not be submitted here.
+  const items = allItems.filter((i) => i.productSlug !== "flask-dry-stand");
+  const remove = useCart((s) => s.remove);
   const navigate = useNavigate();
   const sendRequest = useServerFn(submitOrderRequest);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
+
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
