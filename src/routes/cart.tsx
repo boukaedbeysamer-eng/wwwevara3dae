@@ -1,5 +1,9 @@
 import { ResponsiveImage } from "@/components/responsive-image";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { toast } from "sonner";
+import { PhoneInput, buildE164 } from "@/components/phone-input";
+import { submitFlaskOrder } from "@/lib/requests.functions";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
@@ -39,6 +43,14 @@ function CartPage() {
   const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
+  const [showForm, setShowForm] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dial, setDial] = useState("+971");
+  const [nationalNumber, setNationalNumber] = useState("");
+  const [notes, setNotes] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   const payFlask = () => {
     // Stripe Payment Links accept only utm_*, client_reference_id, prefilled_email
     // and prefilled_promo_code as URL parameters — there is no quantity parameter.
@@ -50,9 +62,42 @@ function CartPage() {
       .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
       .slice(0, 200);
-    const url = `${FLASK_STRIPE_LINK}${reference ? `?client_reference_id=${reference}` : ""}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    const params = new URLSearchParams();
+    if (reference) params.set("client_reference_id", reference);
+    if (email) params.set("prefilled_email", email);
+    const qs = params.toString();
+    window.open(`${FLASK_STRIPE_LINK}${qs ? `?${qs}` : ""}`, "_blank", "noopener,noreferrer");
   };
+
+  const submitFlask = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const whatsapp = buildE164(dial, nationalNumber);
+    if (!fullName.trim() || !/^\S+@\S+\.\S+$/.test(email) || !/^\+\d{7,16}$/.test(whatsapp)) {
+      toast.error("Please enter your name, a valid email and WhatsApp number.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitFlaskOrder({
+        data: {
+          contact: { fullName: fullName.trim(), email: email.trim(), whatsapp, notes: notes.trim() || null },
+          items: flaskItems.map((i) => ({
+            color: (i.color ?? "Black") as "Black" | "White" | "Blue",
+            qty: i.qty,
+          })),
+        },
+      });
+      toast.success("Order confirmed — check your email. Continuing to payment…");
+      setShowForm(false);
+      payFlask();
+    } catch (err) {
+      console.error(err);
+      toast.error(err instanceof Error ? err.message : "Could not submit your order.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
 
   if (items.length === 0) {
     return (
@@ -141,14 +186,56 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && (
+          {flaskItems.length > 0 && !showForm && (
             <button
               type="button"
-              onClick={payFlask}
+              onClick={() => setShowForm(true)}
               className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
               Place Your Order &amp; Secure Your Payment
             </button>
+          )}
+          {flaskItems.length > 0 && showForm && (
+            <form onSubmit={submitFlask} className="mt-8 space-y-4">
+              <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Your details</div>
+              <input
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Full name"
+                maxLength={120}
+                autoComplete="name"
+                className="w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                maxLength={255}
+                autoComplete="email"
+                className="w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <PhoneInput
+                dial={dial}
+                number={nationalNumber}
+                onDialChange={setDial}
+                onNumberChange={setNationalNumber}
+              />
+              <textarea
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Notes (optional)"
+                maxLength={2000}
+                className="min-h-20 w-full border border-foreground/30 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground/40"
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                className="block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90 disabled:opacity-60"
+              >
+                {submitting ? "Submitting…" : "Confirm order & continue to payment"}
+              </button>
+            </form>
           )}
           {flaskItems.length > 0 && (
             <p className="mt-3 text-xs text-foreground/70">
