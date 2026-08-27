@@ -141,7 +141,7 @@ function Checkout() {
         },
       });
 
-      clear();
+      items.forEach((i) => remove(i.id));
       navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
     } catch (err) {
       console.error(err);
