@@ -43,6 +43,14 @@ function CartPage() {
   const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
+  const [showForm, setShowForm] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dial, setDial] = useState("+971");
+  const [nationalNumber, setNationalNumber] = useState("");
+  const [notes, setNotes] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   const payFlask = () => {
     // Stripe Payment Links accept only utm_*, client_reference_id, prefilled_email
     // and prefilled_promo_code as URL parameters — there is no quantity parameter.
