@@ -100,7 +100,7 @@ function CartPage() {
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                   {i.productSlug === "hyrox-hex"
-                    ? ""
+                    ? `${i.mapColor} display · ${i.trackColor} text`
                     : i.productSlug === "flask-dry-stand"
                       ? `Color: ${i.color ?? "Black"}`
                       : `${i.frameFinish} · ${i.mapColor} relief · ${i.trackColor} track`}
