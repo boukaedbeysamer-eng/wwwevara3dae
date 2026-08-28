@@ -263,7 +263,14 @@ function CartPage() {
         </aside>
       </div>
 
-      {checkout && <FlaskEmbeddedCheckout {...checkout} />}
+      {payUrl && (
+        <p className="mt-8 text-center text-sm text-foreground/70">
+          Payment opens in a new tab.{" "}
+          <a href={payUrl} target="_blank" rel="noopener noreferrer" className="underline text-terrain">
+            Continue to secure payment
+          </a>
+        </p>
+      )}
     </section>
   );
 }
