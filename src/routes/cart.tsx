@@ -6,7 +6,9 @@ import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { submitFlaskOrder } from "@/lib/requests.functions";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
-import { FlaskEmbeddedCheckout, type FlaskCheckoutItem } from "@/components/flask-embedded-checkout";
+import { createFlaskCheckout } from "@/lib/payments.functions";
+import { getStripeEnvironment } from "@/lib/stripe";
+
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
@@ -49,16 +51,9 @@ function CartPage() {
   const [nationalNumber, setNationalNumber] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [checkout, setCheckout] = useState<
-    | {
-        requestId: string;
-        email: string;
-        fullName: string;
-        whatsapp: string;
-        items: FlaskCheckoutItem[];
-      }
-    | null
-  >(null);
+  const [payUrl, setPayUrl] = useState<string | null>(null);
+
+  type FlaskCheckoutItem = { color: "Black" | "White" | "Blue"; qty: number };
 
   const submitFlask = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,6 +63,8 @@ function CartPage() {
       return;
     }
     setSubmitting(true);
+    // Open the tab synchronously with the click so browsers don't block it.
+    const payWindow = window.open("", "_blank");
     try {
       const flaskPayload: FlaskCheckoutItem[] = flaskItems.map((i) => ({
         color: (i.color ?? "Black") as "Black" | "White" | "Blue",
@@ -79,22 +76,32 @@ function CartPage() {
           items: flaskPayload,
         },
       });
-      setCheckout({
-        requestId: res.id,
-        email: email.trim(),
-        fullName: fullName.trim(),
-        whatsapp,
-        items: flaskPayload,
+      const checkout = await createFlaskCheckout({
+        data: {
+          requestId: res.id,
+          email: email.trim(),
+          fullName: fullName.trim(),
+          whatsapp,
+          items: flaskPayload,
+          environment: getStripeEnvironment(),
+          origin: window.location.origin,
+        },
       });
+      if ("error" in checkout) throw new Error(checkout.error);
+      if (!checkout.url) throw new Error("Stripe did not return a payment link.");
+      setPayUrl(checkout.url);
       setShowForm(false);
-      toast.success("Order confirmed — check your email. Complete payment below.");
+      if (payWindow) payWindow.location.href = checkout.url;
+      toast.success("Order confirmed — complete payment in the new tab.");
     } catch (err) {
+      payWindow?.close();
       console.error(err);
       toast.error(err instanceof Error ? err.message : "Could not submit your order.");
     } finally {
       setSubmitting(false);
     }
   };
+
 
 
 
@@ -185,7 +192,7 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && !showForm && !checkout && (
+          {flaskItems.length > 0 && !showForm && !payUrl && (
             <button
               type="button"
               onClick={() => setShowForm(true)}
@@ -256,7 +263,14 @@ function CartPage() {
         </aside>
       </div>
 
-      {checkout && <FlaskEmbeddedCheckout {...checkout} />}
+      {payUrl && (
+        <p className="mt-8 text-center text-sm text-foreground/70">
+          Payment opens in a new tab.{" "}
+          <a href={payUrl} target="_blank" rel="noopener noreferrer" className="underline text-terrain">
+            Continue to secure payment
+          </a>
+        </p>
+      )}
     </section>
   );
 }
