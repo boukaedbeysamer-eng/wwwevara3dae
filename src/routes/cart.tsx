@@ -185,7 +185,15 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && !showForm && (
+          {flaskItems.length > 0 && payUrl && (
+            <a
+              href={payUrl}
+              className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Continue to secure payment
+            </a>
+          )}
+          {flaskItems.length > 0 && !showForm && !payUrl && (
             <button
               type="button"
               onClick={() => setShowForm(true)}
@@ -194,6 +202,7 @@ function CartPage() {
               Place Your Order &amp; Secure Your Payment
             </button>
           )}
+
           {flaskItems.length > 0 && showForm && (
             <form onSubmit={submitFlask} className="mt-8 space-y-4">
               <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Your details</div>
