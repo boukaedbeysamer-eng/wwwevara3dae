@@ -200,9 +200,11 @@ const flaskCheckoutSchema = z.object({
   origin: z.string().url(),
 });
 
+type FlaskCheckoutResult = { url: string; requestId: string } | { error: string };
+
 export const createFlaskCheckout = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => flaskCheckoutSchema.parse(d))
-  .handler(async ({ data }): Promise<CheckoutResult> => {
+  .handler(async ({ data }): Promise<FlaskCheckoutResult> => {
     const supabase = serverClient();
     try {
       const stripe = createStripeClient(data.environment as StripeEnv);
@@ -225,9 +227,10 @@ export const createFlaskCheckout = createServerFn({ method: "POST" })
 
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
-        ui_mode: "embedded_page",
         line_items: lineItems,
-        return_url: `${data.origin}/checkout/success/${data.requestId}?session_id={CHECKOUT_SESSION_ID}`,
+        allow_promotion_codes: true,
+        success_url: `${data.origin}/checkout/success/${data.requestId}?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${data.origin}/cart`,
         customer_email: data.email,
         client_reference_id: data.requestId,
         payment_intent_data: {
@@ -247,9 +250,10 @@ export const createFlaskCheckout = createServerFn({ method: "POST" })
         .update({ stripe_session_id: session.id })
         .eq("id", data.requestId);
 
-      return { clientSecret: session.client_secret ?? "", requestId: data.requestId };
+      return { url: session.url ?? "", requestId: data.requestId };
     } catch (error) {
       console.error("flask stripe checkout failed", error);
       return { error: getStripeErrorMessage(error) };
     }
   });
+
