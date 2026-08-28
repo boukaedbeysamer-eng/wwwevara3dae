@@ -175,3 +175,81 @@ export const getOrderStatus = createServerFn({ method: "POST" })
     const r = row as { status?: string; paid_at?: string } | null;
     return { status: r?.status ?? null, paidAt: r?.paid_at ?? null };
   });
+
+// --- Soft Flask Drying Stand: dynamic checkout session ---------------------
+// Replaces the old static Payment Link (which always defaulted to qty 1).
+// Builds one line item per colour so Stripe shows the exact cart contents.
+
+const FLASK_PRICE_AED = 75;
+
+const flaskCheckoutSchema = z.object({
+  requestId: z.string().uuid(),
+  email: z.string().trim().email().max(255),
+  fullName: z.string().trim().min(1).max(120),
+  whatsapp: z.string().trim().min(4).max(40),
+  items: z
+    .array(
+      z.object({
+        color: z.enum(["Black", "White", "Blue"]),
+        qty: z.number().int().min(1).max(50),
+      }),
+    )
+    .min(1)
+    .max(20),
+  environment: z.enum(["sandbox", "live"]),
+  origin: z.string().url(),
+});
+
+export const createFlaskCheckout = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => flaskCheckoutSchema.parse(d))
+  .handler(async ({ data }): Promise<CheckoutResult> => {
+    const supabase = serverClient();
+    try {
+      const stripe = createStripeClient(data.environment as StripeEnv);
+
+      // Merge duplicate colours so Stripe shows one clean line per colour.
+      const byColor = new Map<string, number>();
+      for (const i of data.items) byColor.set(i.color, (byColor.get(i.color) ?? 0) + i.qty);
+
+      const lineItems = [...byColor.entries()].map(([color, qty]) => ({
+        price_data: {
+          currency: "aed",
+          unit_amount: FLASK_PRICE_AED * 100,
+          product_data: { name: `Soft Flask Drying Stand — ${color}` },
+        },
+        quantity: qty,
+      }));
+
+      const breakdown = [...byColor.entries()].map(([c, q]) => `${q}x ${c}`).join(", ");
+      const totalQty = [...byColor.values()].reduce((s, q) => s + q, 0);
+
+      const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        ui_mode: "embedded_page",
+        line_items: lineItems,
+        return_url: `${data.origin}/checkout/success/${data.requestId}?session_id={CHECKOUT_SESSION_ID}`,
+        customer_email: data.email,
+        client_reference_id: data.requestId,
+        payment_intent_data: {
+          description: `Soft Flask Drying Stand — ${breakdown}`,
+        },
+        metadata: {
+          orderRequestId: data.requestId,
+          fullName: data.fullName,
+          whatsapp: data.whatsapp,
+          colorBreakdown: breakdown,
+          totalQty: String(totalQty),
+        },
+      });
+
+      await supabase
+        .from("order_requests")
+        .update({ stripe_session_id: session.id })
+        .eq("id", data.requestId);
+
+      return { clientSecret: session.client_secret ?? "", requestId: data.requestId };
+    } catch (error) {
+      console.error("flask stripe checkout failed", error);
+      return { error: getStripeErrorMessage(error) };
+    }
+  });
