@@ -6,12 +6,11 @@ import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { submitFlaskOrder } from "@/lib/requests.functions";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
+import { FlaskEmbeddedCheckout, type FlaskCheckoutItem } from "@/components/flask-embedded-checkout";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
 import flaskBlueAsset from "@/assets/flask-dry-stand.png.asset.json";
-
-const FLASK_STRIPE_LINK = "https://buy.stripe.com/fZu9AU5RwfVQcX11Ycf7i06";
 
 const FLASK_IMAGES: Record<string, string> = {
   Black: flaskBlackAsset.url,
@@ -50,19 +49,16 @@ function CartPage() {
   const [nationalNumber, setNationalNumber] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [payUrl, setPayUrl] = useState<string | null>(null);
-
-  const buildPayUrl = (requestId: string) => {
-    // Stripe Payment Links accept only utm_*, client_reference_id, prefilled_email
-    // and prefilled_promo_code as URL parameters — there is no quantity parameter.
-    // Quantity is changed on Stripe's page itself via "adjustable quantity"
-    // (https://docs.stripe.com/payments/checkout/adjustable-quantity).
-    // We carry our order id in client_reference_id so the webhook can mark it paid.
-    const params = new URLSearchParams();
-    params.set("client_reference_id", requestId);
-    if (email) params.set("prefilled_email", email.trim());
-    return `${FLASK_STRIPE_LINK}?${params.toString()}`;
-  };
+  const [checkout, setCheckout] = useState<
+    | {
+        requestId: string;
+        email: string;
+        fullName: string;
+        whatsapp: string;
+        items: FlaskCheckoutItem[];
+      }
+    | null
+  >(null);
 
   const submitFlask = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,21 +69,25 @@ function CartPage() {
     }
     setSubmitting(true);
     try {
+      const flaskPayload: FlaskCheckoutItem[] = flaskItems.map((i) => ({
+        color: (i.color ?? "Black") as "Black" | "White" | "Blue",
+        qty: i.qty,
+      }));
       const res = await submitFlaskOrder({
         data: {
           contact: { fullName: fullName.trim(), email: email.trim(), whatsapp, notes: notes.trim() || null },
-          items: flaskItems.map((i) => ({
-            color: (i.color ?? "Black") as "Black" | "White" | "Blue",
-            qty: i.qty,
-          })),
+          items: flaskPayload,
         },
       });
-      const url = buildPayUrl(res.id);
-      setPayUrl(url);
+      setCheckout({
+        requestId: res.id,
+        email: email.trim(),
+        fullName: fullName.trim(),
+        whatsapp,
+        items: flaskPayload,
+      });
       setShowForm(false);
-      toast.success("Order confirmed — check your email. Taking you to payment…");
-      // Same-tab navigation: never blocked by pop-up blockers.
-      window.location.assign(url);
+      toast.success("Order confirmed — check your email. Complete payment below.");
     } catch (err) {
       console.error(err);
       toast.error(err instanceof Error ? err.message : "Could not submit your order.");
@@ -185,15 +185,7 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && payUrl && (
-            <a
-              href={payUrl}
-              className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
-            >
-              Continue to secure payment
-            </a>
-          )}
-          {flaskItems.length > 0 && !showForm && !payUrl && (
+          {flaskItems.length > 0 && !showForm && !checkout && (
             <button
               type="button"
               onClick={() => setShowForm(true)}
@@ -247,8 +239,7 @@ function CartPage() {
           )}
           {flaskItems.length > 0 && (
             <p className="mt-3 text-xs text-foreground/70">
-              Flask Dry Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}). Set the
-              quantity to {flaskQty} on the Stripe payment page before paying.
+              Soft Flask Drying Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}).
             </p>
           )}
           {frameItems.length > 0 && (
@@ -264,6 +255,8 @@ function CartPage() {
           </p>
         </aside>
       </div>
+
+      {checkout && <FlaskEmbeddedCheckout {...checkout} />}
     </section>
   );
 }
