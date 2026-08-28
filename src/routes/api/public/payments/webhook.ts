@@ -128,7 +128,7 @@ async function handleSessionCompleted(session: any) {
 }
 
 async function handleSessionTerminal(session: any, newStatus: "expired" | "payment_failed") {
-  const requestId: string | undefined = session.metadata?.orderRequestId;
+  const requestId = resolveRequestId(session);
   if (!requestId) return;
   const supabase = getSupabase();
   const { data: existing } = await supabase
