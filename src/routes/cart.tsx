@@ -192,7 +192,7 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && !showForm && !checkout && (
+          {flaskItems.length > 0 && !showForm && !payUrl && (
             <button
               type="button"
               onClick={() => setShowForm(true)}
