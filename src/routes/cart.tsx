@@ -50,23 +50,18 @@ function CartPage() {
   const [nationalNumber, setNationalNumber] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [payUrl, setPayUrl] = useState<string | null>(null);
 
-  const payFlask = () => {
+  const buildPayUrl = (requestId: string) => {
     // Stripe Payment Links accept only utm_*, client_reference_id, prefilled_email
     // and prefilled_promo_code as URL parameters — there is no quantity parameter.
     // Quantity is changed on Stripe's page itself via "adjustable quantity"
-    // (https://docs.stripe.com/payments/checkout/adjustable-quantity), so we carry the
-    // cart breakdown in client_reference_id for reconciliation.
-    // client_reference_id: alphanumerics, dashes, underscores; max 200 chars.
-    const reference = `qty-${flaskQty}-${flaskBreakdown}`
-      .replace(/[^a-zA-Z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .slice(0, 200);
+    // (https://docs.stripe.com/payments/checkout/adjustable-quantity).
+    // We carry our order id in client_reference_id so the webhook can mark it paid.
     const params = new URLSearchParams();
-    if (reference) params.set("client_reference_id", reference);
-    if (email) params.set("prefilled_email", email);
-    const qs = params.toString();
-    window.open(`${FLASK_STRIPE_LINK}${qs ? `?${qs}` : ""}`, "_blank", "noopener,noreferrer");
+    params.set("client_reference_id", requestId);
+    if (email) params.set("prefilled_email", email.trim());
+    return `${FLASK_STRIPE_LINK}?${params.toString()}`;
   };
 
   const submitFlask = async (e: React.FormEvent) => {
@@ -78,7 +73,7 @@ function CartPage() {
     }
     setSubmitting(true);
     try {
-      await submitFlaskOrder({
+      const res = await submitFlaskOrder({
         data: {
           contact: { fullName: fullName.trim(), email: email.trim(), whatsapp, notes: notes.trim() || null },
           items: flaskItems.map((i) => ({
@@ -87,9 +82,12 @@ function CartPage() {
           })),
         },
       });
-      toast.success("Order confirmed — check your email. Continuing to payment…");
+      const url = buildPayUrl(res.id);
+      setPayUrl(url);
       setShowForm(false);
-      payFlask();
+      toast.success("Order confirmed — check your email. Taking you to payment…");
+      // Same-tab navigation: never blocked by pop-up blockers.
+      window.location.assign(url);
     } catch (err) {
       console.error(err);
       toast.error(err instanceof Error ? err.message : "Could not submit your order.");
@@ -97,6 +95,7 @@ function CartPage() {
       setSubmitting(false);
     }
   };
+
 
 
   if (items.length === 0) {
@@ -186,7 +185,15 @@ function CartPage() {
             <span>Total</span>
             <span>AED {total}</span>
           </div>
-          {flaskItems.length > 0 && !showForm && (
+          {flaskItems.length > 0 && payUrl && (
+            <a
+              href={payUrl}
+              className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Continue to secure payment
+            </a>
+          )}
+          {flaskItems.length > 0 && !showForm && !payUrl && (
             <button
               type="button"
               onClick={() => setShowForm(true)}
@@ -195,6 +202,7 @@ function CartPage() {
               Place Your Order &amp; Secure Your Payment
             </button>
           )}
+
           {flaskItems.length > 0 && showForm && (
             <form onSubmit={submitFlask} className="mt-8 space-y-4">
               <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">Your details</div>

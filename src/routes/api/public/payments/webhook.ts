@@ -83,10 +83,25 @@ async function sendOrderEmails(requestId: string) {
   }
 }
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// Payment Link checkouts can't carry metadata, so we pass the order id through
+// client_reference_id instead. Accept either source.
+function resolveRequestId(session: any): string | undefined {
+  const fromMeta: string | undefined = session.metadata?.orderRequestId;
+  if (fromMeta) return fromMeta;
+  const ref: string | undefined = session.client_reference_id ?? undefined;
+  if (ref && UUID_RE.test(ref)) return ref;
+  return undefined;
+}
+
 async function handleSessionCompleted(session: any) {
-  const requestId: string | undefined = session.metadata?.orderRequestId;
+  const requestId = resolveRequestId(session);
   if (!requestId) {
-    console.error("checkout.session.completed missing orderRequestId metadata", session.id);
+    console.error(
+      "checkout.session.completed missing orderRequestId metadata and client_reference_id",
+      session.id,
+    );
     return;
   }
   const supabase = getSupabase();
@@ -113,7 +128,7 @@ async function handleSessionCompleted(session: any) {
 }
 
 async function handleSessionTerminal(session: any, newStatus: "expired" | "payment_failed") {
-  const requestId: string | undefined = session.metadata?.orderRequestId;
+  const requestId = resolveRequestId(session);
   if (!requestId) return;
   const supabase = getSupabase();
   const { data: existing } = await supabase
