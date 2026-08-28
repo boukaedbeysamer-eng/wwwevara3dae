@@ -6,7 +6,9 @@ import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { submitFlaskOrder } from "@/lib/requests.functions";
 import { useCart, cartTotal } from "@/lib/cart";
 import { FrameVisual } from "@/components/frame-visual";
-import { FlaskEmbeddedCheckout, type FlaskCheckoutItem } from "@/components/flask-embedded-checkout";
+import { createFlaskCheckout } from "@/lib/payments.functions";
+import { getStripeEnvironment } from "@/lib/stripe";
+
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
 import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
