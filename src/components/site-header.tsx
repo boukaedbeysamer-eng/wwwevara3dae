@@ -12,7 +12,7 @@ const COLLECTION_LINKS: CollectionLink[] = [
   { hash: "frames", label: "Choose Your Frame Series" },
   { to: "/flask-dry-stand", label: "SOFT FLASK DRYING STAND" },
   { hash: "glow", label: "Glow Series" },
-   { hash: "hyrox", label: "HYROX HEX DISPLAY WITH STAND" },
+   { hash: "hyrox", label: "HYROX HEX DISPLAY SERIES" },
   { hash: "custom", label: "Custom My Project" },
 ];
 
