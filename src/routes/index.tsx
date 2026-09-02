@@ -257,11 +257,12 @@ function Home() {
                   />
                 ) : i === 4 || i === 5 ? (
                   <ResponsiveImage
-                    src={hyroxHexProduct.url}
+                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexProduct.url}
                     alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
+
                 ) : null}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
