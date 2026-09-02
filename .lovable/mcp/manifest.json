@@ -50,7 +50,7 @@
             "slug": {
               "type": "string",
               "minLength": 1,
-              "description": "Product slug. One of: keepsaker, achiever, legacy, 3d-map-display, hyrox-hex"
+              "description": "Product slug. One of: keepsaker, achiever, legacy, 3d-map-display, hyrox-hex, hyrox-hex-2pc"
             }
           },
           "required": [

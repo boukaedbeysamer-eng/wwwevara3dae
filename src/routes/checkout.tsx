@@ -224,13 +224,13 @@ function Checkout() {
                     </div>
                   </div>
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
-                    <Field label={it.productSlug === "hyrox-hex" ? "ATHLETE NAME" : "Run name"}>
-                      <input className={inp} {...form.register(`items.${idx}.runName`)} placeholder={it.productSlug === "hyrox-hex" ? "e.g. John Doe" : "Dubai Marathon 2025"} maxLength={200} />
+                    <Field label={it.productSlug.startsWith("hyrox-hex") ? "ATHLETE NAME" : "Run name"}>
+                      <input className={inp} {...form.register(`items.${idx}.runName`)} placeholder={it.productSlug.startsWith("hyrox-hex") ? "e.g. John Doe" : "Dubai Marathon 2025"} maxLength={200} />
                     </Field>
                     <Field label="Location">
                       <input className={inp} {...form.register(`items.${idx}.runLocation`)} placeholder="Dubai, UAE" maxLength={200} />
                     </Field>
-                    {it.productSlug !== "hyrox-hex" && (
+                    {!it.productSlug.startsWith("hyrox-hex") && (
                       <>
                         <Field label="Distance (km)">
                           <input type="number" step="0.01" min="0" className={inp} {...form.register(`items.${idx}.runDistanceKm`)} placeholder="42.20" />
@@ -246,7 +246,7 @@ function Checkout() {
                     <Field label="Run time (hh:mm:ss)">
                       <input className={inp} {...form.register(`items.${idx}.runTime`)} placeholder="03:42:11" maxLength={20} />
                     </Field>
-                    {it.productSlug !== "hyrox-hex" && (
+                    {!it.productSlug.startsWith("hyrox-hex") && (
                       <div className="md:col-span-2">
                         <Field label="">
                           <input

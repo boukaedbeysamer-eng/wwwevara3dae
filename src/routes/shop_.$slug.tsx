@@ -71,7 +71,7 @@ function ProductPage() {
   const add = useCart((s) => s.add);
 
   const [frameFinish, setFrameFinish] = useState<FrameFinish>("Wooden");
-  const isHyrox = product.slug === "hyrox-hex";
+  const isHyrox = product.slug === "hyrox-hex" || product.slug === "hyrox-hex-2pc";
   const [mapColor, setMapColor] = useState<MapColor>("Black");
   const [trackColor, setTrackColor] = useState<TrackColor>(isHyrox ? "White" : "Orange");
   const [qty, setQty] = useState(1);
@@ -103,6 +103,8 @@ function ProductPage() {
     if (goToCart) navigate({ to: "/cart" });
   };
 
+  const [photoName, setPhotoName] = useState("");
+  const photoId = useId();
   const raceNameId = useId();
   const dateId = useId();
   const distanceId = useId();
@@ -116,7 +118,7 @@ function ProductPage() {
 
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
         <div className="bg-secondary/60 p-10 flex items-center justify-center">
-          {product.slug === "hyrox-hex" ? (
+          {isHyrox ? (
             <ResponsiveImage
               src={hyroxHexAsset.url}
               alt="Hyrox Hex — 3D-printed hexagonal race result display with stand"
@@ -140,7 +142,7 @@ function ProductPage() {
 
         <div>
           <span className="text-xs uppercase tracking-[0.28em] text-terrain">{product.frameSize}</span>
-          <h1 className="mt-3 font-display text-5xl text-foreground">{product.slug === "hyrox-hex" ? "HYROX HEX DISPLAY WITH STAND." : `${product.name} — 3D Topographic Map Frame`}</h1>
+          <h1 className="mt-3 font-display text-5xl text-foreground">{product.slug === "hyrox-hex" ? "HYROX HEX DISPLAY WITH STAND." : isHyrox ? product.name : `${product.name} — 3D Topographic Map Frame`}</h1>
           <p className="mt-2 font-display text-lg text-foreground/70">{product.tagline}</p>
           <div className="mt-6 text-2xl text-foreground">AED {product.priceAed}</div>
 
@@ -158,7 +160,7 @@ function ProductPage() {
             </ul>
           </div>
 
-          {product.slug !== "3d-map-display" && product.slug !== "hyrox-hex" && (
+          {product.slug !== "3d-map-display" && !isHyrox && (
             <Selector 
               label="Frame finish" 
               value={frameFinish} 
@@ -166,69 +168,88 @@ function ProductPage() {
               onChange={setFrameFinish} 
             />
           )}
-          <Selector label={product.slug === "hyrox-hex" ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={product.slug === "hyrox-hex" ? HYROX_DISPLAY_COLORS : MAP_COLORS} onChange={setMapColor} />
+          <Selector label={isHyrox ? "3D\u00A0hexagonal Hyrox display color" : "3D relief color"} value={mapColor} options={isHyrox ? HYROX_DISPLAY_COLORS : MAP_COLORS} onChange={setMapColor} />
           <Selector 
-            label={product.slug === "hyrox-hex" ? "TEXT COLOR" : "Strava track color"} 
+            label={isHyrox ? "TEXT COLOR" : "Strava track color"} 
             value={trackColor} 
-            options={product.slug === "hyrox-hex" ? TEXT_COLORS : TRACK_COLORS} 
+            options={isHyrox ? TEXT_COLORS : TRACK_COLORS} 
             onChange={setTrackColor} 
           />
 
           <div className="mt-8 border-t border-foreground/30/10 pt-6">
             <div className="text-xs uppercase tracking-[0.22em] text-foreground/70">
-              {product.slug === "hyrox-hex" ? "Personalise your display" : product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
+              {isHyrox ? "Personalise your display" : product.slug === "3d-map-display" ? "Personalize your map" : "Personalize your frame"}
             </div>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="col-span-2">
                 <label htmlFor={raceNameId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
-                  {product.slug === "hyrox-hex" ? "ATHLETE NAME" : "Race name"}
+                  {isHyrox ? "ATHLETE NAME" : "Race name"}
                 </label>
                 <Input
                   id={raceNameId}
                   value={raceName}
                   onChange={(e) => setRaceName(e.target.value)}
-                  placeholder={product.slug === "hyrox-hex" ? "e.g. John Doe" : "e.g. Dubai Marathon"}
+                  placeholder={isHyrox ? "e.g. John Doe" : "e.g. Dubai Marathon"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
-              <div className={product.slug === "hyrox-hex" ? "col-span-2" : ""}>
+              <div className={isHyrox ? "col-span-2" : ""}>
                 <label htmlFor={dateId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
-                  {product.slug === "hyrox-hex" ? "RACE LOCATION & DIVISION / SEASON" : "Date"}
+                  {isHyrox ? "RACE LOCATION & DIVISION / SEASON" : "Date"}
                 </label>
                 <Input
                   id={dateId}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  placeholder={product.slug === "hyrox-hex" ? "e.g. Hyrox Istanbul - Pro Men" : "e.g. 12.03.2026"}
+                  placeholder={isHyrox ? "e.g. Hyrox Istanbul - Pro Men" : "e.g. 12.03.2026"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
               <div>
                 <label htmlFor={distanceId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
-                  {product.slug === "hyrox-hex" ? "TIME" : "Distance"}
+                  {isHyrox ? "TIME" : "Distance"}
                 </label>
                 <Input
                   id={distanceId}
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
-                  placeholder={product.slug === "hyrox-hex" ? "e.g. 1:06:56" : "e.g. 42.2 km"}
+                  placeholder={isHyrox ? "e.g. 1:06:56" : "e.g. 42.2 km"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
               <div>
                 <label htmlFor={elevationId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
-                  {product.slug === "hyrox-hex" ? "DATE" : "Elevation"}
+                  {isHyrox ? "DATE" : "Elevation"}
                 </label>
                 <Input
                   id={elevationId}
                   value={elevation}
                   onChange={(e) => setElevation(e.target.value)}
-                  placeholder={product.slug === "hyrox-hex" ? "e.g. 12.03.2026" : "e.g. 245 m"}
+                  placeholder={isHyrox ? "e.g. 12.03.2026" : "e.g. 245 m"}
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
+              {product.slug === "hyrox-hex-2pc" && (
+                <div className="col-span-2">
+                  <label htmlFor={photoId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                    PHOTO UPLOAD
+                  </label>
+                  <input
+                    id={photoId}
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setPhotoName(e.target.files?.[0]?.name ?? "")}
+                    className="mt-1 w-full border border-foreground/30 bg-transparent px-3 py-2 text-xs text-foreground file:mr-3 file:border-0 file:bg-terrain file:px-3 file:py-1 file:text-[10px] file:uppercase file:tracking-[0.18em] file:text-paper"
+                  />
+                  <p className="mt-2 text-[11px] text-foreground/60">
+                    {photoName ? `Selected: ${photoName}. ` : ""}
+                    We'll confirm and collect your final photo over WhatsApp after your order.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
+
 
           <div className="mt-10 flex items-center gap-4">
             <div className="flex items-center border border-foreground/30/30">
@@ -258,7 +279,7 @@ function ProductPage() {
             Add & request now
           </button>
 
-          {product.slug !== "hyrox-hex" && (
+          {!isHyrox && (
             <p className="mt-6 text-xs text-foreground/70">
               We'll collect your GPX file and run details on the next step.
             </p>

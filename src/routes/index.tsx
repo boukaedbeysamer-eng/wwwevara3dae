@@ -255,7 +255,7 @@ function Home() {
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
-                ) : i === 4 ? (
+                ) : i === 4 || i === 5 ? (
                   <ResponsiveImage
                     src={hyroxHexProduct.url}
                     alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
@@ -270,7 +270,7 @@ function Home() {
               </div>
               <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
             </Link>
-            {p.slug === "hyrox-hex" && (
+            {(p.slug === "hyrox-hex" || p.slug === "hyrox-hex-2pc") && (
               <Link
                 to="/shop/$slug"
                 params={{ slug: p.slug }}
@@ -279,6 +279,7 @@ function Home() {
                 Place Your Order
               </Link>
             )}
+
             </div>
           ))}
 
