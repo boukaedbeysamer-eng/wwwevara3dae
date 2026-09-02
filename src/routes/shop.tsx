@@ -9,6 +9,7 @@ import achieverImg from "@/assets/carousel/IMG_7292.jpeg.asset.json";
 import legacyImg from "@/assets/carousel/legacy-goat-ultra-race-director-2.jpg.asset.json";
 import bgImg from "@/assets/IMG_4007.jpeg.asset.json";
 import hyroxHexImg from "@/assets/hyrox/hyrox-hex.png.asset.json";
+import hyroxHex2pcImg from "@/assets/hyrox-hex-2pc-frame.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 export const Route = createFileRoute("/shop")({
@@ -264,7 +265,7 @@ function HyroxSeries() {
             <Link to="/shop/$slug" params={{ slug: p.slug }} className="group block">
               <div className="bg-ink/5 transition-colors group-hover:bg-ink/10">
                 <ResponsiveImage
-                  src={hyroxHexImg.url}
+                  src={p.slug === "hyrox-hex-2pc" ? hyroxHex2pcImg.url : hyroxHexImg.url}
                   alt={`${p.name} — 3D-printed hexagonal Hyrox race result display`}
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="aspect-square w-full object-cover"
