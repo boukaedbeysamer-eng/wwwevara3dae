@@ -227,8 +227,27 @@ function ProductPage() {
                   className="mt-1 rounded-none border-foreground/30 bg-transparent text-foreground placeholder:text-foreground/40"
                 />
               </div>
+              {product.slug === "hyrox-hex-2pc" && (
+                <div className="col-span-2">
+                  <label htmlFor={photoId} className="block text-[10px] uppercase tracking-[0.18em] text-foreground/70">
+                    PHOTO UPLOAD
+                  </label>
+                  <input
+                    id={photoId}
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setPhotoName(e.target.files?.[0]?.name ?? "")}
+                    className="mt-1 w-full border border-foreground/30 bg-transparent px-3 py-2 text-xs text-foreground file:mr-3 file:border-0 file:bg-terrain file:px-3 file:py-1 file:text-[10px] file:uppercase file:tracking-[0.18em] file:text-paper"
+                  />
+                  <p className="mt-2 text-[11px] text-foreground/60">
+                    {photoName ? `Selected: ${photoName}. ` : ""}
+                    We'll confirm and collect your final photo over WhatsApp after your order.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
+
 
           <div className="mt-10 flex items-center gap-4">
             <div className="flex items-center border border-foreground/30/30">
