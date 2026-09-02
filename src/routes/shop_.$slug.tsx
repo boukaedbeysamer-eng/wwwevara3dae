@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
+import hyroxHex2pcImg from "@/assets/hyrox-hex-2pc-frame.jpg.asset.json";
 
 export const Route = createFileRoute("/shop_/$slug")({
   loader: ({ params }) => {
@@ -120,7 +121,7 @@ function ProductPage() {
         <div className="bg-secondary/60 p-10 flex items-center justify-center">
           {isHyrox ? (
             <ResponsiveImage
-              src={hyroxHexAsset.url}
+              src={product.slug === "hyrox-hex-2pc" ? hyroxHex2pcImg.url : hyroxHexAsset.url}
               alt="Hyrox Hex — 3D-printed hexagonal race result display with stand"
               sizes="(min-width: 768px) 50vw, 100vw"
               priority

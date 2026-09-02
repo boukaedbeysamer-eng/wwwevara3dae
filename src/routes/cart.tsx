@@ -10,6 +10,7 @@ import { createFlaskCheckout } from "@/lib/payments.functions";
 import { getStripeEnvironment } from "@/lib/stripe";
 
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
+import hyroxHex2pcImg from "@/assets/hyrox-hex-2pc-frame.jpg.asset.json";
 import flaskBlackAsset from "@/assets/flask-dry-stand-black.png.asset.json";
 import flaskWhiteAsset from "@/assets/flask-dry-stand-white.png.asset.json";
 import flaskBlueAsset from "@/assets/flask-dry-stand.png.asset.json";
@@ -134,7 +135,7 @@ function CartPage() {
               <div className="bg-secondary/60 p-2 flex items-center justify-center">
                 {i.productSlug === "hyrox-hex" || i.productSlug === "hyrox-hex-2pc" ? (
                   <ResponsiveImage
-                    src={hyroxHexAsset.url}
+                    src={i.productSlug === "hyrox-hex-2pc" ? hyroxHex2pcImg.url : hyroxHexAsset.url}
                     alt="Hyrox Hex 3D-printed hexagonal race display"
                     sizes="120px"
                     className="h-full w-full object-contain"
