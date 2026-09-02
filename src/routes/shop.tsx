@@ -256,39 +256,39 @@ function CustomProject() {
 }
 
 function HyroxSeries() {
-  const p = HYROX_PRODUCTS[0];
   return (
     <div className="relative overflow-hidden border border-border/60 bg-paper px-6 py-12 md:px-12">
-      <div className="relative">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <Link to="/shop/$slug" params={{ slug: p.slug }} className="group block">
-            <div className="bg-ink/5 transition-colors group-hover:bg-ink/10">
-              <ResponsiveImage
-                src={hyroxHexImg.url}
-                alt={`${p.name} — 3D-printed hexagonal Hyrox race result display`}
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="aspect-square w-full object-cover"
-              />
-            </div>
-          </Link>
-          <div>
-            <span className="text-xs uppercase tracking-[0.28em] text-terrain">Hyrox series</span>
-            <h3 className="mt-3 font-display text-4xl uppercase text-ink md:text-5xl">{p.name}</h3>
-            <p className="mt-4 text-sm leading-relaxed text-ink/80">{p.story}</p>
-            <div className="mt-5 text-xs uppercase tracking-[0.22em] text-ink/60">{p.frameSize}</div>
-            <div className="mt-2 text-lg font-semibold text-terrain">AED {p.priceAed}</div>
-            <Link
-              to="/shop/$slug"
-              params={{ slug: p.slug }}
-              className="mt-7 inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
-            >
-              Order now
+      <div className="relative space-y-16">
+        {HYROX_PRODUCTS.map((p) => (
+          <div key={p.slug} className="grid gap-10 md:grid-cols-2 md:items-center">
+            <Link to="/shop/$slug" params={{ slug: p.slug }} className="group block">
+              <div className="bg-ink/5 transition-colors group-hover:bg-ink/10">
+                <ResponsiveImage
+                  src={hyroxHexImg.url}
+                  alt={`${p.name} — 3D-printed hexagonal Hyrox race result display`}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="aspect-square w-full object-cover"
+                />
+              </div>
             </Link>
+            <div>
+              <span className="text-xs uppercase tracking-[0.28em] text-terrain">Hyrox series</span>
+              <h3 className="mt-3 font-display text-4xl uppercase text-ink md:text-5xl">{p.name}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-ink/80">{p.story}</p>
+              <div className="mt-5 text-xs uppercase tracking-[0.22em] text-ink/60">{p.frameSize}</div>
+              <div className="mt-2 text-lg font-semibold text-terrain">AED {p.priceAed}</div>
+              <Link
+                to="/shop/$slug"
+                params={{ slug: p.slug }}
+                className="mt-7 inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+              >
+                Order now
+              </Link>
+            </div>
           </div>
-        </div>
-        <p className="mt-10 text-xs uppercase tracking-[0.28em] text-ink/50">{"\n"}</p>
+        ))}
       </div>
     </div>
-
   );
 }
+
