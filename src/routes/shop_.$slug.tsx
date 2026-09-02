@@ -140,7 +140,7 @@ function ProductPage() {
 
         <div>
           <span className="text-xs uppercase tracking-[0.28em] text-terrain">{product.frameSize}</span>
-          <h1 className="mt-3 font-display text-5xl text-foreground">{isHyrox ? "HYROX HEX DISPLAY WITH STAND." : `${product.name} — 3D Topographic Map Frame`}</h1>
+          <h1 className="mt-3 font-display text-5xl text-foreground">{product.slug === "hyrox-hex" ? "HYROX HEX DISPLAY WITH STAND." : isHyrox ? product.name : `${product.name} — 3D Topographic Map Frame`}</h1>
           <p className="mt-2 font-display text-lg text-foreground/70">{product.tagline}</p>
           <div className="mt-6 text-2xl text-foreground">AED {product.priceAed}</div>
 
