@@ -96,7 +96,7 @@ export const HYROX_PRODUCTS: Product[] = [
       "Display stand included with a wall-mountable.",
     ],
     story:
-      "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalised with the athlete's name, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
+      "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalized with the athlete's name, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
   },
 ];
 
