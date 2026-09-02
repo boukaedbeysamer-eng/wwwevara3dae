@@ -40,7 +40,10 @@ function CartPage() {
   const setQty = useCart((s) => s.setQty);
   const total = cartTotal(items);
   const flaskItems = items.filter((i) => i.productSlug === "flask-dry-stand");
-  const frameItems = items.filter((i) => i.productSlug !== "flask-dry-stand");
+  const hex2pcItems = items.filter((i) => i.productSlug === "hyrox-hex-2pc");
+  const frameItems = items.filter(
+    (i) => i.productSlug !== "flask-dry-stand" && i.productSlug !== "hyrox-hex-2pc",
+  );
   const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
@@ -129,7 +132,7 @@ function CartPage() {
           {items.map((i) => (
             <div key={i.id} className="grid grid-cols-[120px_1fr_auto] gap-6 py-8">
               <div className="bg-secondary/60 p-2 flex items-center justify-center">
-                {i.productSlug === "hyrox-hex" ? (
+                {i.productSlug === "hyrox-hex" || i.productSlug === "hyrox-hex-2pc" ? (
                   <ResponsiveImage
                     src={hyroxHexAsset.url}
                     alt="Hyrox Hex 3D-printed hexagonal race display"
@@ -150,7 +153,7 @@ function CartPage() {
               <div>
                 <div className="font-display text-2xl text-foreground">{i.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                  {i.productSlug === "hyrox-hex"
+                  {i.productSlug === "hyrox-hex" || i.productSlug === "hyrox-hex-2pc"
                     ? `${i.mapColor} display · ${i.trackColor} text`
                     : i.productSlug === "flask-dry-stand"
                       ? `Color: ${i.color ?? "Black"}`
@@ -248,6 +251,16 @@ function CartPage() {
             <p className="mt-3 text-xs text-foreground/70">
               Soft Flask Drying Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}).
             </p>
+          )}
+          {hex2pcItems.length > 0 && (
+            <a
+              href="https://buy.stripe.com/00waEY5RwaBw6yDeKYf7i08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Place Your Order and Secure Your Payment
+            </a>
           )}
           {frameItems.length > 0 && (
             <a
