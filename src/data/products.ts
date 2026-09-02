@@ -98,7 +98,26 @@ export const HYROX_PRODUCTS: Product[] = [
     story:
       "A custom 3D-printed hexagonal display piece commemorating a HYROX race. personalized with the athlete's name, division/season, race date, and finish time.",
   },
+  {
+    slug: "hyrox-hex-2pc",
+    name: "2PC HYROX HEX PATCH DISPLAY & PHOTO WITH CONNECTORS",
+    tagline:
+      "A custom 3D-printed wall-mounted hexagonal display, 2-piece with connectors — commemorating a HYROX race. Personalized with the athlete's name, division/season, race date, finish time & photo. Comes with connectors so it can be wall-mounted.",
+    priceAed: 140,
+    frameSize: "17 × 15 × 1.5 cm per hex (2 pieces)",
+    mapSize: "2-piece 3D-printed hexagonal display with connectors",
+    includes: [
+      "Custom 3D-printed hexagonal HYROX display (2-piece)",
+      "Personalised athlete name, division/season",
+      "Race date and finish time",
+      "Athlete photo insert",
+      "Wall-mount connectors included",
+    ],
+    story:
+      "A custom 3D-printed wall-mounted hexagonal display, 2-piece with connectors — commemorating a HYROX race. Personalized with the athlete's name, division/season, race date, finish time & photo. Comes with connectors so it can be wall-mounted.",
+  },
 ];
+
 
 export const ALL_PRODUCTS: Product[] = [...PRODUCTS, ...HYROX_PRODUCTS];
 
