@@ -103,6 +103,8 @@ function ProductPage() {
     if (goToCart) navigate({ to: "/cart" });
   };
 
+  const [photoName, setPhotoName] = useState("");
+  const photoId = useId();
   const raceNameId = useId();
   const dateId = useId();
   const distanceId = useId();
