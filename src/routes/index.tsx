@@ -270,7 +270,18 @@ function Home() {
               </div>
               <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
             </Link>
+            {p.slug === "hyrox-hex" && (
+              <Link
+                to="/shop/$slug"
+                params={{ slug: p.slug }}
+                className="mt-5 block w-full bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+              >
+                Place Your Order
+              </Link>
+            )}
+            </div>
           ))}
+
           <FlaskDryStandCard />
 
         </div>
