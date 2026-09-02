@@ -85,7 +85,7 @@ export const HYROX_PRODUCTS: Product[] = [
   {
     slug: "hyrox-hex",
     name: "HYROX HEX DISPLAY WITH STAND",
-    tagline: "Your HYROX race keepsake in 3D.",
+    tagline: "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalized with the athlete's name, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
     priceAed: 100,
     frameSize: "17 × 15 × 1.5 cm",
     mapSize: "3D-printed hexagonal display with stand",
@@ -96,7 +96,7 @@ export const HYROX_PRODUCTS: Product[] = [
       "Display stand included with a wall-mountable.",
     ],
     story:
-      "A custom 3D-printed hexagonal display piece commemorating a Hyrox race — personalized with the athlete's name, division/season, race date, and finish time. Comes with a stand and can also be wall-mounted.",
+      "A custom 3D-printed hexagonal display piece commemorating a HYROX race. personalized with the athlete's name, division/season, race date, and finish time.",
   },
 ];
 
