@@ -20,6 +20,8 @@ import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
 import hyroxHexProduct from "@/assets/hyrox-hex-stand.jpg.asset.json";
+import hyroxHex2pcCard from "@/assets/hyrox-hex-2pc-card.jpg.asset.json";
+
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
 import frameSlmt from "@/assets/carousel/frame-slmt.jpg.asset.json";
 import frameMushrif from "@/assets/carousel/frame-mushrif.jpg.asset.json";
@@ -257,11 +259,12 @@ function Home() {
                   />
                 ) : i === 4 || i === 5 ? (
                   <ResponsiveImage
-                    src={hyroxHexProduct.url}
+                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexProduct.url}
                     alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
                   />
+
                 ) : null}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
