@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 import hyroxHexAsset from "@/assets/hyrox/hyrox-hex.png.asset.json";
-import hyroxHex2pcImg from "@/assets/hyrox-hex-2pc-frame.jpg.asset.json";
+import hyroxHex2pcImg from "@/assets/hyrox-hex-2pc-main.jpg.asset.json";
 
 export const Route = createFileRoute("/shop_/$slug")({
   loader: ({ params }) => {
