@@ -185,33 +185,9 @@ export const submitFlaskOrder = createServerFn({ method: "POST" })
       throw new Error("Could not save your order items. Please try again.");
     }
 
-    try {
-      const emailRes = await fetch(`${process.env.SUPABASE_URL}/functions/v1/send-order-emails`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${process.env.SUPABASE_PUBLISHABLE_KEY}`,
-          "x-webhook-secret": process.env.EMAIL_WEBHOOK_SECRET ?? "",
-        },
-        body: JSON.stringify({
-          requestId,
-          contact: data.contact,
-          items: data.items.map((i) => ({
-            productName: FLASK_NAME,
-            qty: i.qty,
-            unitPriceAed: FLASK_PRICE_AED,
-            frameFinish: "—",
-            mapColor: i.color,
-            trackColor: "—",
-          })),
-          totalAed: total,
-        }),
-      });
-      if (!emailRes.ok)
-        console.error("send-order-emails non-ok", emailRes.status, await emailRes.text());
-    } catch (e) {
-      console.error("send-order-emails invoke failed", e);
-    }
+    // No email here: flask orders are created as `awaiting_payment` and the
+    // Stripe webhook sends the single order confirmation once payment succeeds.
+
 
     return { id: requestId };
   });
