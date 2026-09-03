@@ -20,6 +20,7 @@ const RELIEF_COLOR: Record<MapColor, string> = {
   White: "#ffffff",
   Green: "#4a7c59",
   Wooden: "#a26a36",
+  "\n": "transparent",
 };
 
 // Choose contrasting stroke for the route line drawn inside hexagon
@@ -28,6 +29,7 @@ const RELIEF_STROKE: Record<MapColor, string> = {
   White: "#111111",
   Green: "#ffffff",
   Wooden: "#ffffff",
+  "\n": "transparent",
 };
 
 const TRACK_COLOR_HEX: Record<TrackColor | "White", string> = {
