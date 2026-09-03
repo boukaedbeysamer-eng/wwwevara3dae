@@ -6,7 +6,7 @@ export const FRAME_FINISHES: FrameFinish[] = ["White Matte", "Matte Black", "Woo
 export const MAP_COLORS: MapColor[] = ["Black", "White", "Green", "Wooden"];
 export const TRACK_COLORS: TrackColor[] = ["Red", "Black", "Orange"];
 export const TEXT_COLORS: TrackColor[] = ["White", "Black"];
-export const HYROX_DISPLAY_COLORS: MapColor[] = ["Black", "White", "Wooden"];
+export const HYROX_DISPLAY_COLORS: MapColor[] = ["Black", "White", "\n"];
 
 export type Product = {
   slug: string;
