@@ -259,7 +259,7 @@ function Home() {
                   />
                 ) : i === 4 || i === 5 ? (
                   <ResponsiveImage
-                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexProduct.url}
+                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexStandPhoto.url}
                     alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
