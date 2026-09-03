@@ -19,7 +19,7 @@ import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.
 import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
 import frame3dMapGoatHex from "@/assets/carousel/frame-3dmap-goat-hex.jpg.asset.json";
 import frame3dHexMap from "@/assets/carousel/frame-3d-hex-map.png.asset.json";
-import hyroxHexProduct from "@/assets/hyrox-hex-stand.jpg.asset.json";
+import hyroxHexStandPhoto from "@/assets/hyrox-hex-stand-photo.jpg.asset.json";
 import hyroxHex2pcCard from "@/assets/hyrox-hex-2pc-card.jpg.asset.json";
 
 import frameLegendary from "@/assets/carousel/frame-legendary.jpg.asset.json";
@@ -259,7 +259,7 @@ function Home() {
                   />
                 ) : i === 4 || i === 5 ? (
                   <ResponsiveImage
-                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexProduct.url}
+                    src={i === 5 ? hyroxHex2pcCard.url : hyroxHexStandPhoto.url}
                     alt={`${p.name} — 3D-printed Hyrox hex race display, handmade in Dubai`}
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="aspect-square w-full object-cover"
