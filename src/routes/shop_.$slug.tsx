@@ -118,14 +118,14 @@ function ProductPage() {
       </Link>
 
       <div className="mt-8 grid gap-16 md:grid-cols-[1.05fr_1fr]">
-        <div className="bg-secondary/60 p-10 flex items-center justify-center">
+        <div className={isHyrox ? "bg-secondary/60" : "bg-secondary/60 p-10 flex items-center justify-center"}>
           {isHyrox ? (
             <ResponsiveImage
               src={product.slug === "hyrox-hex-2pc" ? hyroxHex2pcImg.url : hyroxHexAsset.url}
               alt="Hyrox Hex — 3D-printed hexagonal race result display with stand"
               sizes="(min-width: 768px) 50vw, 100vw"
               priority
-              className="w-full max-w-lg object-contain"
+              className="aspect-square h-full w-full object-cover"
             />
           ) : (
             <DynamicFrameSample
