@@ -132,13 +132,13 @@ function CartPage() {
         <div className="divide-y divide-ink/10 border-y border-foreground/30/10">
           {items.map((i) => (
             <div key={i.id} className="grid grid-cols-[120px_1fr_auto] gap-6 py-8">
-              <div className="bg-secondary/60 p-2 flex items-center justify-center">
+              <div className="aspect-square overflow-hidden bg-secondary/60">
                 {i.productSlug === "hyrox-hex" || i.productSlug === "hyrox-hex-2pc" ? (
                   <ResponsiveImage
                     src={i.productSlug === "hyrox-hex-2pc" ? hyroxHex2pcImg.url : hyroxHexAsset.url}
                     alt="Hyrox Hex 3D-printed hexagonal race display"
                     sizes="120px"
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 ) : i.productSlug === "flask-dry-stand" ? (
                   <ResponsiveImage
