@@ -1,5 +1,5 @@
 export type FrameFinish = "White Matte" | "Matte Black" | "Wooden";
-export type MapColor = "Black" | "White" | "Green" | "Wooden";
+export type MapColor = "Black" | "White" | "Green" | "Wooden" | "\n";
 export type TrackColor = "Red" | "Black" | "Orange" | "White";
 
 export const FRAME_FINISHES: FrameFinish[] = ["White Matte", "Matte Black", "Wooden"];
