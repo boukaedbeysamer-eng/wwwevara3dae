@@ -10,6 +10,8 @@ import { submitOrderRequest } from "@/lib/requests.functions";
 import { getProduct } from "@/data/products";
 import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { supabase } from "@/integrations/supabase/client";
+import { createCartCheckout } from "@/lib/payments.functions";
+import { getStripeEnvironment } from "@/lib/stripe";
 
 
 
@@ -155,8 +157,26 @@ function Checkout() {
         },
       });
 
+      const checkout = await startPayment({
+        data: {
+          requestId: res.id,
+          email: values.email,
+          fullName: values.fullName,
+          whatsapp: values.whatsapp,
+          items: items.map((it) => ({
+            productSlug: it.productSlug,
+            qty: it.qty,
+            variant: `${it.frameFinish} · ${it.mapColor} · ${it.trackColor}`,
+          })),
+          environment: getStripeEnvironment(),
+          origin: window.location.origin,
+        },
+      });
+      if ("error" in checkout) throw new Error(checkout.error);
+      if (!checkout.url) throw new Error("Stripe did not return a payment link.");
+
       items.forEach((i) => remove(i.id));
-      navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
+      window.location.assign(checkout.url);
     } catch (err) {
       console.error("checkout submit failed", err);
       const message = err instanceof Error && err.message ? err.message : String(err);
