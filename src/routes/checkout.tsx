@@ -157,6 +157,12 @@ function Checkout() {
         },
       });
 
+      if (payLaterOnly) {
+        items.forEach((i) => remove(i.id));
+        window.location.assign(`/checkout/success/${res.id}?request=1`);
+        return;
+      }
+
       const checkout = await startPayment({
         data: {
           requestId: res.id,
