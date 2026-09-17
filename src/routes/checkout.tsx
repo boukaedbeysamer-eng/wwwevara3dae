@@ -97,6 +97,10 @@ function Checkout() {
 
   const total = cartTotal(items);
 
+  // These products are ordered now and paid later (no Stripe checkout).
+  const PAY_LATER_SLUGS = ["keepsaker", "achiever", "legacy", "3d-map-display"];
+  const payLaterOnly = items.every((i) => PAY_LATER_SLUGS.includes(i.productSlug));
+
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
     try {
@@ -156,6 +160,12 @@ function Checkout() {
           items: payloadItems,
         },
       });
+
+      if (payLaterOnly) {
+        items.forEach((i) => remove(i.id));
+        window.location.assign(`/checkout/success/${res.id}?request=1`);
+        return;
+      }
 
       const checkout = await startPayment({
         data: {
@@ -304,11 +314,18 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Preparing payment…" : "Place your order and secure your payment"}
+            {submitting
+              ? payLaterOnly
+                ? "Sending order…"
+                : "Preparing payment…"
+              : payLaterOnly
+                ? "Place your order now and pay later"
+                : "Place your order and secure your payment"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            After payment, we'll WhatsApp you to confirm your design details, order specifications, and
-            shipping. Make sure you type your WhatsApp number correctly.
+            {payLaterOnly
+              ? "We'll WhatsApp you to confirm your design details, order specifications, and shipping, then send you a secure payment link. Make sure you type your WhatsApp number correctly."
+              : "After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly."}
           </p>
 
         </aside>

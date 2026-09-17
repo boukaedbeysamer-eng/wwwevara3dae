@@ -258,11 +258,15 @@ function CartPage() {
               to="/checkout"
               className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
-              Place Your Order and Secure Your Payment
+              {hex2pcItems.length === 0
+                ? "Place Your Order Now and Pay Later"
+                : "Place Your Order and Secure Your Payment"}
             </Link>
           )}
           <p className="mt-4 text-xs text-foreground/70">
-            After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly.
+            {frameItems.length > 0 && hex2pcItems.length === 0 && flaskItems.length === 0
+              ? "We'll WhatsApp you to confirm your design details, order specifications, and shipping, then send you a secure payment link. Make sure you type your WhatsApp number correctly."
+              : "After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly."}
           </p>
 
         </aside>
