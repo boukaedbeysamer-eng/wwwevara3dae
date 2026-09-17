@@ -257,3 +257,80 @@ export const createFlaskCheckout = createServerFn({ method: "POST" })
     }
   });
 
+
+// --- Generic cart checkout (frames + Hyrox displays) -----------------------
+// Builds a Stripe Checkout Session from the actual cart contents so the
+// charged amount always matches the site prices and quantities.
+
+const cartCheckoutSchema = z.object({
+  requestId: z.string().uuid(),
+  email: z.string().trim().email().max(255),
+  fullName: z.string().trim().min(1).max(120),
+  whatsapp: z.string().trim().min(4).max(40),
+  items: z
+    .array(
+      z.object({
+        productSlug: z.string().min(1).max(60),
+        qty: z.number().int().min(1).max(20),
+        variant: z.string().max(120).optional().nullable(),
+      }),
+    )
+    .min(1)
+    .max(20),
+  environment: z.enum(["sandbox", "live"]),
+  origin: z.string().url(),
+});
+
+type CartCheckoutResult = { url: string } | { error: string };
+
+export const createCartCheckout = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => cartCheckoutSchema.parse(d))
+  .handler(async ({ data }): Promise<CartCheckoutResult> => {
+    const supabase = serverClient();
+    try {
+      const stripe = createStripeClient(data.environment as StripeEnv);
+
+      const lineItems = data.items.map((i) => {
+        const product = ALL_PRODUCTS.find((p) => p.slug === i.productSlug);
+        if (!product) throw new Error(`Unknown product: ${i.productSlug}`);
+        return {
+          price_data: {
+            currency: "aed",
+            unit_amount: product.priceAed * 100,
+            product_data: {
+              name: i.variant ? `${product.name} — ${i.variant}` : product.name,
+            },
+          },
+          quantity: i.qty,
+        };
+      });
+
+      const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        line_items: lineItems,
+        allow_promotion_codes: true,
+        success_url: `${data.origin}/checkout/success/${data.requestId}?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${data.origin}/cart`,
+        customer_email: data.email,
+        client_reference_id: data.requestId,
+        payment_intent_data: {
+          description: `Evara3D order ${data.requestId.slice(0, 8).toUpperCase()}`,
+        },
+        metadata: {
+          orderRequestId: data.requestId,
+          fullName: data.fullName,
+          whatsapp: data.whatsapp,
+        },
+      });
+
+      await supabase
+        .from("order_requests")
+        .update({ stripe_session_id: session.id })
+        .eq("id", data.requestId);
+
+      return { url: session.url ?? "" };
+    } catch (error) {
+      console.error("cart stripe checkout failed", error);
+      return { error: getStripeErrorMessage(error) };
+    }
+  });
