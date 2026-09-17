@@ -1,138 +1,61 @@
-# Evara3D FZC — Build Plan
+# Fix cart payment for frames and the 2-piece Hyrox display
 
-Premium, minimal storefront in the spirit of Patagonia / high-end map studios. Guest "request a quote" checkout — no online payment in v1. All data + file uploads stored in Lovable Cloud.
+## The confirmed problem
 
-## Brand & design system
+On the cart page, the orange "Place Your Order and Secure Your Payment" button for frames
+and for the 2-piece Hyrox display opens one fixed Stripe payment page.
 
-- Palette: deep ink `#0E1A1F`, warm paper `#F4EFE7`, terrain orange `#D9622B`, moss `#3C5A3B`, stone `#8A8276`.
-- Typography: `@fontsource/fraunces` (display, serif) for headings + `@fontsource/inter` (body). Headings tight tracking, generous whitespace.
-- Subtle topographic SVG accents (concentric contour lines) used as background motifs on hero, product cards, and checkout.
-- Components extend shadcn primitives; tokens defined in `src/styles.css` (no hardcoded colors).
+That fixed page always charges the same amount, no matter what is in the cart. So:
 
-## Product catalogue (hardcoded in `src/data/products.ts`)
+- A cart with 2 frames, or a more expensive frame, is charged the wrong price.
+- No order is saved, so you get no record of the customer's name, WhatsApp number,
+  colours, race details, or GPX file.
+- No confirmation email is sent to you or the customer after payment.
 
-Three SKUs the customer can configure:
+The Soft Flask Drying Stand already works correctly: it collects details, saves the
+order, then opens a Stripe page built from the real cart contents.
 
-| Slug | Name | Price (AED) | Includes |
-|---|---|---|---|
-| `keepsaker` | Keepsaker Deep Frame | 220 | 21×30cm frame + 10×11cm 3D map |
-| `achiever` | Achiever Deep Frame | 260 | 30×40cm frame + 11×12cm 3D map + medal hanger |
-| `legacy` | Legacy Deep Frame | 350 | 28×50cm frame + 11×12cm 3D map + medal hanger + BIB number |
+## Proposed fix
 
-Per-order variant selections:
-- **Frame finish**: White Matt · Matte Black · Wooden
-- **Map relief color**: Black · White · Green · Wooden
-- **Strava track color**: Red · Black · Orange
+Make frames and the 2-piece Hyrox display behave like the Flask product.
 
-Background topography is always white with black contour lines (fixed, shown as "what's included").
+1. **Frames (Keepsaker, Achiever, Legacy, 3D Map, Hyrox Hex):** the cart button goes
+   back to the existing checkout page, where the customer enters their details and race
+   information. This is where the order gets saved and emailed to you.
+2. **After the order is saved,** send the customer to a Stripe payment page that is built
+   from their actual cart — correct items, quantities and total — instead of the fixed link.
+3. **Payment confirmation:** the existing payment webhook then marks the order paid and
+   triggers the confirmation emails, the same way the Flask orders already do.
+4. Keep the note under the button about confirming design details and shipping over
+   WhatsApp after payment.
 
-## Routes (TanStack Start, file-based)
+## What you need to decide
 
-```
-src/routes/
-  __root.tsx                 site shell, header/footer, newsletter
-  index.tsx                  /            hero, story, featured frames, how-it-works
-  shop.tsx                   /shop        product grid
-  shop.$slug.tsx             /shop/:slug  product detail + configurator + "Add to cart"
-  cart.tsx                   /cart        line items, edit/remove, totals (AED)
-  checkout.tsx               /checkout    guest form + GPX upload + run details
-  checkout.success.$id.tsx   /checkout/success/:id  confirmation + request id
-  about.tsx                  /about
-  faq.tsx                    /faq
-```
+The frames and the 2-piece Hyrox display need prices registered in Stripe so the
+payment page can charge the right amount. Two options:
 
-Each route sets its own `head()` meta (title, description, og:title/desc). Leaf product pages get og:image of the frame visual.
+- **A:** Charge directly from the prices shown on the site (AED 220 / 260 / 350 / 100 / 140).
+  Nothing extra to set up.
+- **B:** Set up each product formally in Stripe first, which gives tidier product names
+  on receipts and in the Stripe dashboard.
 
-## Cart
+Option A is faster and I recommend it; prices stay controlled from the site.
 
-- Zustand store persisted to `localStorage` (`evara-cart`).
-- Item shape: `{ id, productSlug, name, priceAed, qty, frameFinish, mapColor, trackColor }`.
-- Header shows item count; cart drawer + dedicated `/cart` page.
+## Alternative if you prefer today's behaviour
 
-## Checkout = "Request"
+If you deliberately want customers to pay a flat amount and sort out details later, I can
+instead keep the payment link but still save the order and send the emails first — so you
+always have the order on record. Say the word and I'll plan that instead.
 
-No payment. Single page form (zod + react-hook-form):
+## Technical notes
 
-1. **Contact** — full name, email, WhatsApp number (with country code), optional notes.
-2. **Run details** per cart line — run name, distance (km), elevation gain (m), run date, run time (hh:mm:ss), location name.
-3. **GPX upload** per cart line — `.gpx` file, max 5 MB, validated client-side.
-
-On submit:
-- Upload each GPX to Storage bucket `gpx-uploads` under `requests/{request_id}/{line_id}.gpx`.
-- Insert one row in `order_requests` + one row per line in `order_request_items` (with run metadata, variant choices, gpx storage path).
-- Redirect to `/checkout/success/:id` showing the request reference and "we'll WhatsApp you shortly".
-- Clear cart.
-
-A protected server function (`requireSupabaseAuth` + admin role) lists requests later — out of scope for v1 UI, but schema is admin-ready.
-
-## Database (migration)
-
-```sql
-create table public.order_requests (
-  id uuid primary key default gen_random_uuid(),
-  full_name text not null,
-  email text not null,
-  whatsapp text not null,
-  notes text,
-  total_aed numeric(10,2) not null,
-  status text not null default 'new',
-  created_at timestamptz not null default now()
-);
-
-create table public.order_request_items (
-  id uuid primary key default gen_random_uuid(),
-  request_id uuid not null references public.order_requests(id) on delete cascade,
-  product_slug text not null,
-  product_name text not null,
-  qty int not null,
-  unit_price_aed numeric(10,2) not null,
-  frame_finish text not null,
-  map_color text not null,
-  track_color text not null,
-  run_name text,
-  run_distance_km numeric(6,2),
-  run_elevation_m int,
-  run_date date,
-  run_time interval,
-  run_location text,
-  gpx_path text
-);
-
-create table public.newsletter_subscribers (
-  id uuid primary key default gen_random_uuid(),
-  email text not null unique,
-  created_at timestamptz not null default now()
-);
-```
-
-RLS: all three tables RLS-on. Anon gets `INSERT` only (so guests can submit). No `SELECT` for anon. `service_role` gets full access for the team. Grants written per `public-schema-grants`.
-
-Storage bucket `gpx-uploads` (private). RLS policy allows anon `INSERT` into `requests/*`, no `SELECT`.
-
-## Server functions (`src/lib/requests.functions.ts`)
-
-- `submitOrderRequest({ contact, items })` — public `createServerFn`, validates with zod, inserts request + items using server publishable client (anon insert policy). Returns `{ id }`.
-- `subscribeNewsletter({ email })` — public `createServerFn`, upserts into `newsletter_subscribers`.
-
-GPX upload happens client-side directly to Storage with the publishable key (anon insert policy on `gpx-uploads/requests/*`), then path is passed into `submitOrderRequest`.
-
-## Footer
-
-Brand blurb, nav links, newsletter signup (email + submit → `subscribeNewsletter`), social placeholders, AED currency note, "Made in UAE".
-
-## Out of scope (v1)
-
-- Stripe / online payment
-- Strava OAuth
-- Customer accounts / order history
-- Admin dashboard UI (data model supports it later)
-
-## Build order
-
-1. Enable Lovable Cloud.
-2. Migration (tables + RLS + grants) and create storage bucket.
-3. Install fonts (`@fontsource/fraunces`, `@fontsource/inter`), set up tokens in `src/styles.css`.
-4. Product data + Zustand cart store + zod schemas.
-5. Server functions.
-6. Routes: root shell → index → shop → product → cart → checkout → success → about/faq.
-7. Verify build, smoke-test the request flow.
+- `src/routes/cart.tsx`: replace both static `<a href="https://buy.stripe.com/...">` links
+  with the flow used by the Flask items (details form → `submitOrderRequest` /
+  `submitFlaskOrder` equivalent → dynamic Checkout Session → same-tab redirect).
+- `src/lib/payments.functions.ts`: add a generic `createCartCheckout` server function using
+  `price_data` line items derived from `ALL_PRODUCTS` prices, with `orderRequestId` metadata
+  and `allow_promotion_codes: true`.
+- Frame items keep routing through `/checkout` so the personalisation and GPX fields are
+  still collected; the payment redirect happens after the order request row is created.
+- `src/routes/api/public/payments/webhook.ts` already reconciles by `metadata.orderRequestId`
+  or `client_reference_id`, so no webhook change is needed.
