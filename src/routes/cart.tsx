@@ -42,9 +42,12 @@ function CartPage() {
   const total = cartTotal(items);
   const flaskItems = items.filter((i) => i.productSlug === "flask-dry-stand");
   const hex2pcItems = items.filter((i) => i.productSlug === "hyrox-hex-2pc");
-  const frameItems = items.filter(
-    (i) => i.productSlug !== "flask-dry-stand" && i.productSlug !== "hyrox-hex-2pc",
-  );
+  const hyroxHexOnly = items.length > 0 && items.every((i) => i.productSlug === "hyrox-hex");
+  const frameItems = hyroxHexOnly
+    ? []
+    : items.filter(
+        (i) => i.productSlug !== "flask-dry-stand" && i.productSlug !== "hyrox-hex-2pc",
+      );
   const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
@@ -252,6 +255,14 @@ function CartPage() {
             <p className="mt-3 text-xs text-foreground/70">
               Soft Flask Drying Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}).
             </p>
+          )}
+          {hyroxHexOnly && (
+            <a
+              href="https://buy.stripe.com/cNidRafs6bFA9KPfP2f7i07"
+              className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
+            >
+              Place Your Order and Secure Your Payment
+            </a>
           )}
           {(frameItems.length > 0 || hex2pcItems.length > 0) && (
             <Link
