@@ -97,6 +97,10 @@ function Checkout() {
 
   const total = cartTotal(items);
 
+  // These products are ordered now and paid later (no Stripe checkout).
+  const PAY_LATER_SLUGS = ["keepsaker", "achiever", "legacy", "3d-map-display"];
+  const payLaterOnly = items.every((i) => PAY_LATER_SLUGS.includes(i.productSlug));
+
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
     try {
