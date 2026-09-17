@@ -42,9 +42,12 @@ function CartPage() {
   const total = cartTotal(items);
   const flaskItems = items.filter((i) => i.productSlug === "flask-dry-stand");
   const hex2pcItems = items.filter((i) => i.productSlug === "hyrox-hex-2pc");
-  const frameItems = items.filter(
-    (i) => i.productSlug !== "flask-dry-stand" && i.productSlug !== "hyrox-hex-2pc",
-  );
+  const hyroxHexOnly = items.length > 0 && items.every((i) => i.productSlug === "hyrox-hex");
+  const frameItems = hyroxHexOnly
+    ? []
+    : items.filter(
+        (i) => i.productSlug !== "flask-dry-stand" && i.productSlug !== "hyrox-hex-2pc",
+      );
   const flaskQty = flaskItems.reduce((s, i) => s + i.qty, 0);
   const flaskBreakdown = flaskItems.map((i) => `${i.qty}x ${i.color ?? "Black"}`).join(", ");
 
