@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,6 +10,8 @@ import { submitOrderRequest } from "@/lib/requests.functions";
 import { getProduct } from "@/data/products";
 import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { supabase } from "@/integrations/supabase/client";
+import { createCartCheckout } from "@/lib/payments.functions";
+import { getStripeEnvironment } from "@/lib/stripe";
 
 
 
@@ -60,8 +62,8 @@ function Checkout() {
     (i) => i.productSlug !== "flask-dry-stand" && Boolean(getProduct(i.productSlug)),
   );
   const remove = useCart((s) => s.remove);
-  const navigate = useNavigate();
   const sendRequest = useServerFn(submitOrderRequest);
+  const startPayment = useServerFn(createCartCheckout);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
   const [dial, setDial] = useState("+971");
@@ -155,8 +157,26 @@ function Checkout() {
         },
       });
 
+      const checkout = await startPayment({
+        data: {
+          requestId: res.id,
+          email: values.email,
+          fullName: values.fullName,
+          whatsapp: values.whatsapp,
+          items: items.map((it) => ({
+            productSlug: it.productSlug,
+            qty: it.qty,
+            variant: `${it.frameFinish} · ${it.mapColor} · ${it.trackColor}`,
+          })),
+          environment: getStripeEnvironment(),
+          origin: window.location.origin,
+        },
+      });
+      if ("error" in checkout) throw new Error(checkout.error);
+      if (!checkout.url) throw new Error("Stripe did not return a payment link.");
+
       items.forEach((i) => remove(i.id));
-      navigate({ to: "/checkout/success/$id", params: { id: res.id }, search: { request: "1" } });
+      window.location.assign(checkout.url);
     } catch (err) {
       console.error("checkout submit failed", err);
       const message = err instanceof Error && err.message ? err.message : String(err);
@@ -173,8 +193,8 @@ function Checkout() {
     <section className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="font-display text-5xl text-foreground">Checkout</h1>
       <p className="mt-3 max-w-xl text-foreground/70">
-        Enter your details and run information, then send your request — no payment needed now. We'll
-        WhatsApp you within 24 hours with a payment link, production and shipping details.
+        Enter your details and run information, then continue to secure payment for exactly what's in
+        your cart. After payment we'll WhatsApp you to confirm design details and shipping.
       </p>
 
 
@@ -284,10 +304,11 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Sending request…" : "Send request now"}
+            {submitting ? "Preparing payment…" : "Place your order and secure your payment"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            No payment now. We'll receive your order and send you a secure payment link over WhatsApp.
+            After payment, we'll WhatsApp you to confirm your design details, order specifications, and
+            shipping. Make sure you type your WhatsApp number correctly.
           </p>
 
         </aside>

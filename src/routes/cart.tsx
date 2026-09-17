@@ -253,25 +253,13 @@ function CartPage() {
               Soft Flask Drying Stand: {flaskQty} unit{flaskQty === 1 ? "" : "s"} ({flaskBreakdown}).
             </p>
           )}
-          {hex2pcItems.length > 0 && (
-            <a
-              href="https://buy.stripe.com/00waEY5RwaBw6yDeKYf7i08"
-              target="_blank"
-              rel="noopener noreferrer"
+          {(frameItems.length > 0 || hex2pcItems.length > 0) && (
+            <Link
+              to="/checkout"
               className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
               Place Your Order and Secure Your Payment
-            </a>
-          )}
-          {frameItems.length > 0 && (
-            <a
-              href="https://buy.stripe.com/cNidRafs6bFA9KPfP2f7i07"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
-            >
-              Place Your Order and Secure Your Payment
-            </a>
+            </Link>
           )}
           <p className="mt-4 text-xs text-foreground/70">
             After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly.
