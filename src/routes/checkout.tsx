@@ -62,8 +62,8 @@ function Checkout() {
     (i) => i.productSlug !== "flask-dry-stand" && Boolean(getProduct(i.productSlug)),
   );
   const remove = useCart((s) => s.remove);
-  const navigate = useNavigate();
   const sendRequest = useServerFn(submitOrderRequest);
+  const startPayment = useServerFn(createCartCheckout);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
   const [dial, setDial] = useState("+971");
