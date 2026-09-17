@@ -259,6 +259,8 @@ function CartPage() {
           {hyroxHexOnly && (
             <a
               href="https://buy.stripe.com/cNidRafs6bFA9KPfP2f7i07"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 block bg-terrain px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
             >
               Place Your Order and Secure Your Payment
