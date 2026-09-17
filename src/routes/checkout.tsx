@@ -193,8 +193,8 @@ function Checkout() {
     <section className="mx-auto max-w-6xl px-6 py-14">
       <h1 className="font-display text-5xl text-foreground">Checkout</h1>
       <p className="mt-3 max-w-xl text-foreground/70">
-        Enter your details and run information, then send your request — no payment needed now. We'll
-        WhatsApp you within 24 hours with a payment link, production and shipping details.
+        Enter your details and run information, then continue to secure payment for exactly what's in
+        your cart. After payment we'll WhatsApp you to confirm design details and shipping.
       </p>
 
 
@@ -304,10 +304,11 @@ function Checkout() {
             disabled={submitting}
             className="mt-8 block w-full bg-terrain px-6 py-4 text-center text-xs uppercase tracking-[0.22em] text-paper hover:bg-terrain disabled:opacity-60"
           >
-            {submitting ? "Sending request…" : "Send request now"}
+            {submitting ? "Preparing payment…" : "Place your order and secure your payment"}
           </button>
           <p className="mt-4 text-xs text-foreground/70">
-            No payment now. We'll receive your order and send you a secure payment link over WhatsApp.
+            After payment, we'll WhatsApp you to confirm your design details, order specifications, and
+            shipping. Make sure you type your WhatsApp number correctly.
           </p>
 
         </aside>
