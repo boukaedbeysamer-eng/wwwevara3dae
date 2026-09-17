@@ -264,7 +264,9 @@ function CartPage() {
             </Link>
           )}
           <p className="mt-4 text-xs text-foreground/70">
-            After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly.
+            {frameItems.length > 0 && hex2pcItems.length === 0 && flaskItems.length === 0
+              ? "We'll WhatsApp you to confirm your design details, order specifications, and shipping, then send you a secure payment link. Make sure you type your WhatsApp number correctly."
+              : "After payment, we'll WhatsApp you to confirm your design details, order specifications, and shipping. Make sure you type your WhatsApp number correctly."}
           </p>
 
         </aside>
