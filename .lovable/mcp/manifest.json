@@ -107,7 +107,7 @@
             "slug": {
               "type": "string",
               "minLength": 1,
-              "description": "Gallery folder slug. One of: trail-running, hyrox, soft-flask-drying-stand"
+              "description": "Gallery folder slug. One of: ultra-trail-projects, trail-running, hyrox, soft-flask-drying-stand"
             }
           },
           "required": [
