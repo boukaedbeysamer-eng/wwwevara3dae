@@ -32,6 +32,10 @@ import flaskBlueStand from "@/assets/gallery/flask-blue-stand.webp.asset.json";
 import flaskBlueStudio from "@/assets/gallery/flask-blue-studio.png.asset.json";
 import flaskBlueCounter from "@/assets/gallery/flask-blue-counter.png.asset.json";
 import flaskBlueReal from "@/assets/gallery/flask-blue-real.jpeg.asset.json";
+import mdsFullFrame from "@/assets/gallery/mds-legendary-full-frame.png.asset.json";
+import mdsRelief from "@/assets/gallery/mds-legendary-relief.jpeg.asset.json";
+import mdsReliefAngle from "@/assets/gallery/mds-legendary-relief-angle.jpeg.asset.json";
+import mdsMedalHex from "@/assets/gallery/mds-legendary-medal-hex.png.asset.json";
 
 export type GalleryImage = {
   src: string;
