@@ -100,7 +100,27 @@ const FLASK_STAND_IMAGES: GalleryImage[] = [
   { src: flaskBlueReal.url, title: "Soft Flask Drying Stand — Everyday Use", caption: "Blue stand drying flasks and bite valves after a run." },
 ];
 
+const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
+  { src: mdsFullFrame.url, title: "MDS Legendary 40th — Marfe Tiu", caption: "Full oak frame: 3D relief of the 270KM route, finisher photo and medal in orange hexes." },
+  { src: mdsRelief.url, title: "MDS Legendary 40th — 3D Relief", caption: "3D-printed Sahara terrain with the orange route line across 270KM." },
+  { src: mdsReliefAngle.url, title: "MDS Legendary 40th — Relief Detail", caption: "Close-up angle showing the printed dunes, ridges and route." },
+  { src: mdsMedalHex.url, title: "MDS Legendary 40th — Medal Hex", caption: "40th anniversary finisher medal set in an orange hex mount." },
+];
+
 export const GALLERY_FOLDERS: GalleryFolder[] = [
+  {
+    slug: "ultra-trail-projects",
+    label: "Ultra Trail projects",
+    heading: "Ultra Trail Project Frames Gallery",
+    description:
+      "Custom ultra trail projects — full race frames with 3D relief maps, finisher photos and medals.",
+    intro:
+      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below is the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32.",
+    metaTitle: "Ultra Trail Project Frames Gallery — Evara3D Dubai",
+    metaDescription:
+      "Custom ultra trail race frames by Evara3D: 3D-printed route reliefs paired with finisher photos, medals and race stats — including MDS Legendary 40th.",
+    images: ULTRA_TRAIL_IMAGES,
+  },
   {
     slug: "trail-running",
     label: "Trail Running",
