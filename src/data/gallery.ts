@@ -113,7 +113,7 @@ export const GALLERY_FOLDERS: GalleryFolder[] = [
     label: "Ultra Trail projects",
     heading: "Ultra Trail Project Frames Gallery",
     description:
-      "Custom ultra trail projects — full race frames with 3D relief maps, finisher photos and medals.",
+      "Custom ultra trail projects. full race frames with 3D relief maps, finisher photos and medals.",
     intro:
       "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below is the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32.",
     metaTitle: "Ultra Trail Project Frames Gallery — Evara3D Dubai",
