@@ -36,6 +36,11 @@ import mdsFullFrame from "@/assets/gallery/mds-legendary-full-frame.png.asset.js
 import mdsRelief from "@/assets/gallery/mds-legendary-relief.jpeg.asset.json";
 import mdsReliefAngle from "@/assets/gallery/mds-legendary-relief-angle.jpeg.asset.json";
 import mdsMedalHex from "@/assets/gallery/mds-legendary-medal-hex.png.asset.json";
+import utmbFullFrame from "@/assets/gallery/img_7531.jpg.asset.json";
+import utmbFullFrameAlt from "@/assets/gallery/img_7530.jpg.asset.json";
+import utmbReliefTop from "@/assets/gallery/img_7533.jpg.asset.json";
+import utmbReliefAngle from "@/assets/gallery/img_7535.jpg.asset.json";
+import utmbReliefDetail from "@/assets/gallery/img_7536.jpg.asset.json";
 
 export type GalleryImage = {
   src: string;
