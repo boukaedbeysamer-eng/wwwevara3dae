@@ -37,7 +37,6 @@ import mdsRelief from "@/assets/gallery/mds-legendary-relief.jpeg.asset.json";
 import mdsReliefAngle from "@/assets/gallery/mds-legendary-relief-angle.jpeg.asset.json";
 import mdsMedalHex from "@/assets/gallery/mds-legendary-medal-hex.png.asset.json";
 import utmbFullFrame from "@/assets/gallery/img_7531.jpg.asset.json";
-import utmbFullFrameAlt from "@/assets/gallery/img_7530.jpg.asset.json";
 import utmbReliefTop from "@/assets/gallery/img_7533.jpg.asset.json";
 import utmbReliefAngle from "@/assets/gallery/img_7535.jpg.asset.json";
 import utmbReliefDetail from "@/assets/gallery/img_7536.jpg.asset.json";
@@ -111,7 +110,6 @@ const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
   { src: mdsReliefAngle.url, title: "MDS Legendary 40th — Relief Detail", caption: "Close-up angle showing the printed dunes, ridges and route." },
   { src: mdsMedalHex.url, title: "MDS Legendary 40th — Medal Hex", caption: "40th anniversary finisher medal set in an orange hex mount." },
   { src: utmbFullFrame.url, title: "UTMB Mont Blanc — Ahmad Al Janahi", caption: "White frame with the 3D relief of the 175.77KM UTMB loop, finisher photo and race stats." },
-  { src: utmbFullFrameAlt.url, title: "UTMB Mont Blanc — Full Frame", caption: "Complete display: date, distance, time 37:50:11 and 9700M+ elevation." },
   { src: utmbReliefTop.url, title: "UTMB Mont Blanc — 3D Relief", caption: "3D-printed Alpine terrain with the red route line tracing the Mont Blanc loop." },
   { src: utmbReliefAngle.url, title: "UTMB Mont Blanc — Relief Angle", caption: "Side angle showing the printed peaks, glaciers and raised red route." },
   { src: utmbReliefDetail.url, title: "UTMB Mont Blanc — Relief Detail", caption: "Close-up of the snow-capped summits and ridgelines along the course." },
