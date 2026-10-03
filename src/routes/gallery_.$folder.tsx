@@ -85,8 +85,25 @@ function FolderNotFound() {
 
 function GalleryFolderPage() {
   const { folder } = Route.useLoaderData();
-  const [openImage, setOpenImage] = useState<string | null>(null);
-  const active = folder.images.find((img) => img.src === openImage);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const active = openIndex !== null ? folder.images[openIndex] : undefined;
+
+  const goPrev = useCallback(() => {
+    setOpenIndex((i) => (i === null ? null : (i - 1 + folder.images.length) % folder.images.length));
+  }, [folder.images.length]);
+  const goNext = useCallback(() => {
+    setOpenIndex((i) => (i === null ? null : (i + 1) % folder.images.length));
+  }, [folder.images.length]);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIndex, goPrev, goNext]);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
