@@ -1,11 +1,16 @@
+// ============= Full file contents =============
+
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Share2, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
 import { ResponsiveImage } from "@/components/responsive-image";
 
 export const Route = createFileRoute("/gallery_/$folder")({
+  validateSearch: (search: Record<string, unknown>): { photo?: string } => ({
+    photo: typeof search.photo === "string" ? search.photo : undefined,
+  }),
   loader: ({ params }) => {
     const folder = getGalleryFolder(params.folder);
     if (!folder) throw notFound();
@@ -83,28 +88,82 @@ function FolderNotFound() {
   );
 }
 
+/** URL-safe slug for a photo, used as the ?photo= shareable link parameter. */
+function slugifyPhoto(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function GalleryFolderPage() {
   const { folder } = Route.useLoaderData();
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { photo } = Route.useSearch();
+  const navigate = Route.useNavigate();
   const touchStartX = useRef<number | null>(null);
-  const active = openIndex !== null ? folder.images[openIndex] : undefined;
+  const [copied, setCopied] = useState(false);
 
+  const requestedIndex = photo
+    ? folder.images.findIndex((img) => slugifyPhoto(img.title) === photo)
+    : -1;
+  const openIndex = requestedIndex !== -1 ? requestedIndex : null;
+  const active = openIndex !== null ? folder.images[openIndex] : undefined;
+  const imageCount = folder.images.length;
+
+  const openPhoto = useCallback(
+    (index: number) => {
+      navigate({ search: { photo: slugifyPhoto(folder.images[index].title) } });
+    },
+    [folder.images, navigate],
+  );
+  const closeViewer = useCallback(() => {
+    navigate({ search: {}, replace: true });
+  }, [navigate]);
   const goPrev = useCallback(() => {
-    setOpenIndex((i) => (i === null ? null : (i - 1 + folder.images.length) % folder.images.length));
-  }, [folder.images.length]);
+    if (openIndex === null) return;
+    const prev = (openIndex - 1 + imageCount) % imageCount;
+    navigate({ search: { photo: slugifyPhoto(folder.images[prev].title) }, replace: true });
+  }, [openIndex, imageCount, folder.images, navigate]);
   const goNext = useCallback(() => {
-    setOpenIndex((i) => (i === null ? null : (i + 1) % folder.images.length));
-  }, [folder.images.length]);
+    if (openIndex === null) return;
+    const next = (openIndex + 1) % imageCount;
+    navigate({ search: { photo: slugifyPhoto(folder.images[next].title) }, replace: true });
+  }, [openIndex, imageCount, folder.images, navigate]);
 
   useEffect(() => {
     if (openIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") goPrev();
       if (e.key === "ArrowRight") goNext();
+      if (e.key === "Escape") closeViewer();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [openIndex, goPrev, goNext]);
+  }, [openIndex, goPrev, goNext, closeViewer]);
+
+  useEffect(() => {
+    setCopied(false);
+  }, [openIndex]);
+
+  const sharePhoto = async () => {
+    if (!active) return;
+    const url = `${window.location.origin}/gallery/${folder.slug}?photo=${slugifyPhoto(active.title)}`;
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: active.title, text: active.caption, url });
+        return;
+      } catch {
+        // user dismissed the share sheet — fall through to copy
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard unavailable (e.g. insecure context) — nothing else to do
+    }
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -130,7 +189,7 @@ function GalleryFolderPage() {
             <figure key={img.title}>
               <button
                 className="group block aspect-[4/5] w-full overflow-hidden bg-secondary/60"
-                onClick={() => setOpenIndex(folder.images.indexOf(img))}
+                onClick={() => openPhoto(folder.images.indexOf(img))}
               >
                 <ResponsiveImage
                   src={img.src}
@@ -167,10 +226,10 @@ function GalleryFolderPage() {
         </ul>
       </section>
 
-      <Dialog open={openIndex !== null} onOpenChange={(open) => !open && setOpenIndex(null)}>
+      <Dialog open={openIndex !== null} onOpenChange={(open) => !open && closeViewer()}>
         <DialogContent
           className="fixed inset-0 left-0 top-0 h-dvh w-screen max-w-none translate-x-0 translate-y-0 border-none bg-black/95 p-0 shadow-none sm:rounded-none"
-          onClick={() => setOpenIndex(null)}
+          onClick={closeViewer}
         >
           <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
           {active && (
@@ -192,7 +251,7 @@ function GalleryFolderPage() {
               <button
                 aria-label="Close viewer"
                 className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25"
-                onClick={() => setOpenIndex(null)}
+                onClick={closeViewer}
               >
                 <X className="h-5 w-5" />
               </button>
@@ -217,14 +276,24 @@ function GalleryFolderPage() {
                 alt={`${active.title} — ${active.caption}`}
                 sizes="95vw"
                 priority
-                className="max-h-[75vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+                className="max-h-[70vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
               />
               <div className="mt-5 max-w-2xl text-center">
                 <p className="text-sm font-medium text-white">{active.title}</p>
                 <p className="mt-1 text-xs leading-relaxed text-white/70">{active.caption}</p>
                 <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-white/40">
-                  {openIndex! + 1} / {folder.images.length}
+                  {openIndex! + 1} / {imageCount}
                 </p>
+                <button
+                  className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs uppercase tracking-widest text-white transition hover:bg-white/25"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    sharePhoto();
+                  }}
+                >
+                  {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+                  {copied ? "Link copied" : "Share photo"}
+                </button>
               </div>
             </div>
           )}
