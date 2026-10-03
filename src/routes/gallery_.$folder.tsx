@@ -129,7 +129,7 @@ function GalleryFolderPage() {
             <figure key={img.title}>
               <button
                 className="group block aspect-[4/5] w-full overflow-hidden bg-secondary/60"
-                onClick={() => setOpenImage(img.src)}
+                onClick={() => setOpenIndex(folder.images.indexOf(img))}
               >
                 <ResponsiveImage
                   src={img.src}
