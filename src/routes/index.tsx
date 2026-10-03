@@ -12,7 +12,7 @@ import flaskDryStandWhite from "@/assets/flask-dry-stand-white.png.asset.json";
 
 
 
-import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
+import heroTerrainBg from "@/assets/vietnam-mountain-relief.jpg.asset.json";
 import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.json";
