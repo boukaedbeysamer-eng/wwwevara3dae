@@ -40,6 +40,13 @@ import utmbFullFrame from "@/assets/gallery/img_7531.jpg.asset.json";
 import utmbReliefTop from "@/assets/gallery/img_7533.jpg.asset.json";
 import utmbReliefAngle from "@/assets/gallery/img_7535.jpg.asset.json";
 import utmbReliefDetail from "@/assets/gallery/img_7536.jpg.asset.json";
+import berlinFrame from "@/assets/gallery/berlin-marathon-frame.jpg.asset.json";
+import berlinReliefCloseup from "@/assets/gallery/berlin-marathon-relief-closeup.jpg.asset.json";
+import berlinMedalHex from "@/assets/gallery/berlin-marathon-medal-hex.jpg.asset.json";
+import surfskiWinnerFrame from "@/assets/gallery/surfski-winner-frame.png.asset.json";
+import surfskiFloor from "@/assets/gallery/surfski-frame-floor.jpg.asset.json";
+import surfskiWall from "@/assets/gallery/surfski-frame-wall.webp.asset.json";
+import surfskiOutdoor from "@/assets/gallery/surfski-frame-outdoor.jpg.asset.json";
 
 export type GalleryImage = {
   src: string;
@@ -83,6 +90,13 @@ const TRAIL_RUNNING_IMAGES: GalleryImage[] = [
   { src: frameLisKalba.url, title: "Lis Kalba Hex", caption: "Hex relief plaque of the 8.7KM Kalba route." },
   { src: frameLisKalbaStand.url, title: "LIS KALBA HEX WITH STAND", caption: "Kalba hex paired with a honeycomb display stand." },
   { src: frameGoatYellow.url, title: "GOAT ULTRA TRAIL RACE 50KM — WHITE FRAME", caption: "50KM finisher medal display with a 3D Printed relief in a bold white frame." },
+  { src: berlinFrame.url, title: "Berlin Marathon 2024 — Estela Dumanot", caption: "Full oak frame with blue hex relief, finisher medal and photo — 42.195KM in 5:31:34." },
+  { src: berlinReliefCloseup.url, title: "Berlin Marathon 2024 — Relief Detail", caption: "Close-up of the blue hex relief with the orange Berlin route line." },
+  { src: berlinMedalHex.url, title: "Berlin Marathon 2024 — Medal Hex", caption: "50th anniversary Berlin Legend finisher medal in a blue hex mount." },
+  { src: surfskiWinnerFrame.url, title: "DOSC Surfski Dubai — Winner's Frame", caption: "White frame with 3D route relief and paddler crest for the Dubai Surfski Race winner." },
+  { src: surfskiFloor.url, title: "DOSC Surfski Dubai — Full Frame", caption: "Winner's display with 3D-printed race route and DOSC Surfski crest." },
+  { src: surfskiWall.url, title: "DOSC Surfski Dubai — Wall Display", caption: "The Surfski winner's frame mounted in a clubhouse beside the trophies." },
+  { src: surfskiOutdoor.url, title: "DOSC Surfski Dubai — Race Day", caption: "The winner's frame photographed at the Dubai Surfski Race venue." },
 ];
 
 const HYROX_IMAGES: GalleryImage[] = [
