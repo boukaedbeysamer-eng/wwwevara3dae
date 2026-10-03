@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ResponsiveImage } from "@/components/responsive-image";
-import { ChevronDown, Mail, Phone } from "lucide-react";
+import { ChevronDown, Mail, Phone, Mountain } from "lucide-react";
 import { PRODUCTS, HYROX_PRODUCTS } from "@/data/products";
 import frame3dMap from "@/assets/carousel/frame-3d-hex-goat-ultra.png.asset.json";
 import keepsakerImg from "@/assets/carousel/keepsaker-pomelli-photoshoot-3.png.asset.json";
@@ -244,6 +244,13 @@ function CustomProject() {
           >
             <Phone className="h-4 w-4" /> +971 55 394 9060
           </a>
+          <Link
+            to="/gallery/$folder"
+            params={{ folder: "ultra-trail-projects" }}
+            className="inline-flex items-center gap-2 border border-foreground/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-ink"
+          >
+            <Mountain className="h-4 w-4" /> Ultra Trail Projects
+          </Link>
           <a
             href="mailto:info@evara3d.ae"
             className="inline-flex items-center gap-2 border border-foreground/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-ink"
