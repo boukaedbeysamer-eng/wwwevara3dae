@@ -21,6 +21,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { InstagramButton } from "@/components/instagram-button";
 
 function NotFoundComponent() {
   return (
@@ -133,6 +134,7 @@ function RootComponent() {
       </div>
       <Toaster position="top-center" />
       <WhatsAppButton />
+      <InstagramButton />
     </QueryClientProvider>
   );
 }
