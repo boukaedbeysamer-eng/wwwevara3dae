@@ -228,9 +228,9 @@ function CustomProject() {
     <div className="relative overflow-hidden border border-border/60 bg-ink px-6 py-14 md:px-12">
       <TopoBackdrop />
       <div className="relative max-w-2xl">
-        <span className="text-xs uppercase tracking-[0.28em] text-terrain">Custom my project</span>
+        <span className="text-xs uppercase tracking-[0.28em] text-terrain">CUSTOMED ULTRA PROJECT</span>
         <h3 className="mt-4 font-display text-4xl uppercase text-foreground md:text-5xl">
-          Have something else in mind?
+          WE ARE READY TO FRAME YOUR ULTRA ACHIEVEMENT !
         </h3>
         <p className="mt-4 text-sm leading-relaxed text-foreground/80">
           Tell us about your idea — a bespoke route, a corporate gift set, an event trophy, or a
