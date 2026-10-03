@@ -247,7 +247,7 @@ function CustomProject() {
           <Link
             to="/gallery/$folder"
             params={{ folder: "ultra-trail-projects" }}
-            className="inline-flex items-center gap-2 border border-foreground/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:bg-foreground hover:text-ink"
+            className="inline-flex items-center gap-2 bg-terrain px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-90"
           >
             <Mountain className="h-4 w-4" /> Ultra Trail Projects
           </Link>
