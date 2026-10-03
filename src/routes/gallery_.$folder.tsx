@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
