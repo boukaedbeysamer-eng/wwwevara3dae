@@ -131,7 +131,7 @@ export const GALLERY_FOLDERS: GalleryFolder[] = [
   },
   {
     slug: "trail-running",
-    label: "Trail Running",
+    label: "ACHIEVER GALLERY",
     heading: "Trail Running Map Frames Gallery",
     description:
       "Every frame tells a story. Browse real pieces made for runners, athletes, and adventurers across the region.",
