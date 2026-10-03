@@ -1,11 +1,14 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share2, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
 import { ResponsiveImage } from "@/components/responsive-image";
 
 export const Route = createFileRoute("/gallery_/$folder")({
+  validateSearch: (search: Record<string, unknown>): { photo?: string } => ({
+    photo: typeof search.photo === "string" ? search.photo : undefined,
+  }),
   loader: ({ params }) => {
     const folder = getGalleryFolder(params.folder);
     if (!folder) throw notFound();
