@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ALL_PRODUCTS } from "@/data/products";
 import { GALLERY_FOLDERS } from "@/data/gallery";
 import { ResponsiveImage } from "@/components/responsive-image";
+import { InstagramSection } from "@/components/instagram-section";
 import flaskDryStand from "@/assets/flask-dry-stand.png.asset.json";
 import flaskDryStand1 from "@/assets/flask-dry-stand-1.webp.asset.json";
 import flaskDryStand2 from "@/assets/flask-dry-stand-2.jpg.asset.json";
@@ -315,6 +316,9 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Instagram showcase */}
+      <InstagramSection />
 
       {/* Quote block */}
       <section className="mx-auto max-w-4xl px-6 py-32 text-center">
