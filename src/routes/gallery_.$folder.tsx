@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
@@ -86,6 +86,7 @@ function FolderNotFound() {
 function GalleryFolderPage() {
   const { folder } = Route.useLoaderData();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
   const active = openIndex !== null ? folder.images[openIndex] : undefined;
 
   const goPrev = useCallback(() => {
@@ -174,8 +175,19 @@ function GalleryFolderPage() {
           <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
           {active && (
             <div
-              className="relative flex h-full w-full flex-col items-center justify-center px-14 py-6"
+              className="relative flex h-full w-full touch-pan-y flex-col items-center justify-center px-14 py-6"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                if (touchStartX.current === null) return;
+                const delta = e.changedTouches[0].clientX - touchStartX.current;
+                touchStartX.current = null;
+                if (Math.abs(delta) < 50) return;
+                if (delta > 0) goPrev();
+                else goNext();
+              }}
             >
               <button
                 aria-label="Close viewer"
