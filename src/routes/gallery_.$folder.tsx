@@ -86,6 +86,7 @@ function FolderNotFound() {
 function GalleryFolderPage() {
   const { folder } = Route.useLoaderData();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
   const active = openIndex !== null ? folder.images[openIndex] : undefined;
 
   const goPrev = useCallback(() => {
