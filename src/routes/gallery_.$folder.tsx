@@ -166,17 +166,55 @@ function GalleryFolderPage() {
         </ul>
       </section>
 
-      <Dialog open={!!openImage} onOpenChange={(open) => !open && setOpenImage(null)}>
-        <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
+      <Dialog open={openIndex !== null} onOpenChange={(open) => !open && setOpenIndex(null)}>
+        <DialogContent
+          className="fixed inset-0 left-0 top-0 h-dvh w-screen max-w-none translate-x-0 translate-y-0 border-none bg-black/95 p-0 shadow-none sm:rounded-none"
+          onClick={() => setOpenIndex(null)}
+        >
           <DialogTitle className="sr-only">{active?.title ?? "Gallery image"}</DialogTitle>
           {active && (
-            <ResponsiveImage
-              src={active.src}
-              alt={`${active.title} — ${active.caption}`}
-              sizes="(min-width: 1024px) 1024px, 95vw"
-              priority
-              className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
-            />
+            <div
+              className="relative flex h-full w-full flex-col items-center justify-center px-14 py-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                aria-label="Close viewer"
+                className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25"
+                onClick={() => setOpenIndex(null)}
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <button
+                aria-label="Previous photo"
+                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/25"
+                onClick={goPrev}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                aria-label="Next photo"
+                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/25"
+                onClick={goNext}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+
+              <ResponsiveImage
+                key={active.src}
+                src={active.src}
+                alt={`${active.title} — ${active.caption}`}
+                sizes="95vw"
+                priority
+                className="max-h-[75vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+              />
+              <div className="mt-5 max-w-2xl text-center">
+                <p className="text-sm font-medium text-white">{active.title}</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/70">{active.caption}</p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-white/40">
+                  {openIndex! + 1} / {folder.images.length}
+                </p>
+              </div>
+            </div>
           )}
         </DialogContent>
       </Dialog>
