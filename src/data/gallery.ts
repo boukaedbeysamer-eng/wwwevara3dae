@@ -47,6 +47,13 @@ import surfskiWinnerFrame from "@/assets/gallery/surfski-winner-frame.png.asset.
 import surfskiFloor from "@/assets/gallery/surfski-frame-floor.jpg.asset.json";
 import surfskiWall from "@/assets/gallery/surfski-frame-wall.webp.asset.json";
 import surfskiOutdoor from "@/assets/gallery/surfski-frame-outdoor.jpg.asset.json";
+import vmmFullDisplay from "@/assets/gallery/vmm-full-display.jpg.asset.json";
+import vmmFullFrame from "@/assets/gallery/vmm-full-frame.jpg.asset.json";
+import vmmReliefCloseup from "@/assets/gallery/vmm-relief-closeup.jpg.asset.json";
+import vmmFrameAngle from "@/assets/gallery/vmm-frame-angle.jpg.asset.json";
+import vmmReliefDetail from "@/assets/gallery/vmm-relief-detail.jpg.asset.json";
+import vmmPhotoHex from "@/assets/gallery/vmm-photo-hex.jpg.asset.json";
+import vmmMedalHex from "@/assets/gallery/vmm-medal-hex.jpg.asset.json";
 
 export type GalleryImage = {
   src: string;
@@ -127,6 +134,13 @@ const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
   { src: utmbReliefTop.url, title: "UTMB Mont Blanc — 3D Relief", caption: "3D-printed Alpine terrain with the red route line tracing the Mont Blanc loop." },
   { src: utmbReliefAngle.url, title: "UTMB Mont Blanc — Relief Angle", caption: "Side angle showing the printed peaks, glaciers and raised red route." },
   { src: utmbReliefDetail.url, title: "UTMB Mont Blanc — Relief Detail", caption: "Close-up of the snow-capped summits and ridgelines along the course." },
+  { src: vmmFullDisplay.url, title: "Vietnam Mountain Marathon 2026 — Toor Khan", caption: "Full white frame: 3D relief of the 100-mile Sapa loop, finisher photo and medal." },
+  { src: vmmFullFrame.url, title: "Vietnam Mountain Marathon 2026 — Full Frame", caption: "Green hex relief with the orange route line, finisher photo and medal mount in one display." },
+  { src: vmmReliefCloseup.url, title: "Vietnam Mountain Marathon 2026 — 3D Relief", caption: "Printed elevation contours of the 164KM course with the raised orange trail line." },
+  { src: vmmFrameAngle.url, title: "Vietnam Mountain Marathon 2026 — Frame Angle", caption: "Side view showing the depth of the printed terrain and the hex mounts." },
+  { src: vmmReliefDetail.url, title: "Vietnam Mountain Marathon 2026 — Relief Detail", caption: "Close-up of the ridgelines and route across the Sapa mountains." },
+  { src: vmmPhotoHex.url, title: "Vietnam Mountain Marathon 2026 — Finisher Photo", caption: "The finisher photo in a blue hex mount beside the printed relief." },
+  { src: vmmMedalHex.url, title: "Vietnam Mountain Marathon 2026 — Medal Hex", caption: "100 Miles, 8800m gain finisher medal from The Trails of Sapa." },
 ];
 
 export const GALLERY_FOLDERS: GalleryFolder[] = [
@@ -137,7 +151,7 @@ export const GALLERY_FOLDERS: GalleryFolder[] = [
     description:
       "Custom ultra trail projects. full race frames with 3D relief maps, finisher photos and medals.",
     intro:
-      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below is the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32.",
+      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below are the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32 — the UTMB Mont Blanc loop, and the Vietnam Mountain Marathon 2026 100-miles in Sapa.",
     metaTitle: "Ultra Trail Project Frames Gallery — Evara3D Dubai",
     metaDescription:
       "Custom ultra trail race frames by Evara3D: 3D-printed route reliefs paired with finisher photos, medals and race stats — including MDS Legendary 40th.",
