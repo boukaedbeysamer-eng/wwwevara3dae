@@ -52,9 +52,9 @@ export const PRODUCTS: Product[] = [
   {
     slug: "legacy",
     name: "Legacy",
-    tagline: "Map, medal, and BIB — together.\u00a0\n28 × 55 CM DEEP FRAME\u00a0",
+    tagline: "23 X 15 CM 3D map , medal holder, and your race photo frame all together in a 30 × 40 CM DEEP FRAME\u00a0",
     priceAed: 650,
-    frameSize: "28 × 55 CM DEEP FRAME",
+    frameSize: "30 × 4 0CM DEEP FRAME",
     mapSize: "11 × 12 cm 3D-printed terrain",
     includes: [
       "Custom 3D-printed topographic terrain of your run",
