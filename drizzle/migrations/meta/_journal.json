@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794556734900,
+      "tag": "0000_remove_guest_gpx_upload_policy",
+      "breakpoints": true
+    }
+  ]
+}
