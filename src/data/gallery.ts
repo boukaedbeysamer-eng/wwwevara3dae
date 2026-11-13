@@ -59,6 +59,11 @@ import uxjFullFrame from "@/assets/gallery/uxj-full-frame.jpg.asset.json";
 import uxjReliefAngle from "@/assets/gallery/uxj-relief-angle.jpg.asset.json";
 import uxjFrameAngle from "@/assets/gallery/uxj-frame-angle.jpg.asset.json";
 import uxjPhotoHex from "@/assets/gallery/uxj-photo-hex.jpg.asset.json";
+import badwaterFullFrame from "@/assets/gallery/badwater-full-frame.jpg.asset.json";
+import badwaterReliefDetail from "@/assets/gallery/badwater-relief-detail.jpeg.asset.json";
+import badwaterReliefTop from "@/assets/gallery/badwater-relief-top.jpeg.asset.json";
+import badwaterFrameAngle from "@/assets/gallery/badwater-frame-angle.jpeg.asset.json";
+import badwaterFrameCloseup from "@/assets/gallery/badwater-frame-closeup.jpeg.asset.json";
 
 export type GalleryImage = {
   src: string;
@@ -151,6 +156,11 @@ const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
   { src: uxjReliefAngle.url, title: "Ultra X Jordan 2026 — 3D Relief", caption: "Printed Wadi Rum sandstone and granite peaks with the raised orange trail." },
   { src: uxjFrameAngle.url, title: "Ultra X Jordan 2026 — Frame Angle", caption: "Side view showing the depth of the desert terrain and hex mounts." },
   { src: uxjPhotoHex.url, title: "Ultra X Jordan 2026 — Finisher Photo", caption: "1st Place Male finisher photo in a black hex mount beside the medal holder." },
+  { src: badwaterFullFrame.url, title: "Badwater Ultramarathon — João Andrade", caption: "Full black frame with 3D route relief and athlete photo — 217.3KM, 32:56:52, 19–21 JUL 2021." },
+  { src: badwaterReliefDetail.url, title: "Badwater Ultramarathon — Relief Detail", caption: "Close-up of the printed terrain, green mountain ridges, blue lakes and raised orange route line." },
+  { src: badwaterReliefTop.url, title: "Badwater Ultramarathon — 3D Relief", caption: "Top view of the rectangular terrain relief mounted inside the black frame." },
+  { src: badwaterFrameAngle.url, title: "Badwater Ultramarathon — Frame Angle", caption: "Side angle showing the depth of the printed mountains beside the athlete photo." },
+  { src: badwaterFrameCloseup.url, title: "Badwater Ultramarathon — Frame Close-up", caption: "The orange race route and terrain relief alongside João Andrade's race photo." },
 ];
 
 export const GALLERY_FOLDERS: GalleryFolder[] = [
