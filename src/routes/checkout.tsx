@@ -65,6 +65,7 @@ function Checkout() {
   const remove = useCart((s) => s.remove);
   const sendRequest = useServerFn(submitOrderRequest);
   const startPayment = useServerFn(createCartCheckout);
+  const getGpxUploadUrls = useServerFn(createGpxUploadUrls);
   const [files, setFiles] = useState<Record<number, File | null>>({});
   const [submitting, setSubmitting] = useState(false);
   const [dial, setDial] = useState("+971");
