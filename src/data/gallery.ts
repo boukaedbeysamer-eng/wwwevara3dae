@@ -167,6 +167,12 @@ const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
   { src: badwaterReliefTop.url, title: "Badwater Ultramarathon — 3D Relief", caption: "Top view of the rectangular terrain relief mounted inside the black frame." },
   { src: badwaterFrameAngle.url, title: "Badwater Ultramarathon — Frame Angle", caption: "Side angle showing the depth of the printed mountains beside the athlete photo." },
   { src: badwaterFrameCloseup.url, title: "Badwater Ultramarathon — Frame Close-up", caption: "The orange race route and terrain relief alongside João Andrade's race photo." },
+  { src: markhaFullFrame.url, title: "Markha Valley Trek — Cyrus Mehta", caption: "Full black frame: 3D relief of the Markha Valley route, trek photo and stats — 58KM, 5,250m, 25 SEP 2026." },
+  { src: markhaRelief.url, title: "Markha Valley Trek — 3D Relief", caption: "3D-printed Himalayan terrain with snow-capped ridges and the orange trek line." },
+  { src: markhaReliefCloseup.url, title: "Markha Valley Trek — Relief Close-up", caption: "Close-up of the printed ridges, valleys and raised orange route across the Markha Valley." },
+  { src: markhaReliefAngle.url, title: "Markha Valley Trek — Relief Angle", caption: "Low side angle showing the depth of the printed mountains and the winding orange trail." },
+  { src: markhaReliefTop.url, title: "Markha Valley Trek — Relief Top View", caption: "Top view of the terrain relief with white summits and the orange route line." },
+  { src: markhaFrameAngle.url, title: "Markha Valley Trek — Frame Angle", caption: "Angled view of the framed relief showing the layered print depth." },
 ];
 
 export const GALLERY_FOLDERS: GalleryFolder[] = [
