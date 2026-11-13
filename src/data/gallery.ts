@@ -54,6 +54,11 @@ import vmmFrameAngle from "@/assets/gallery/vmm-frame-angle.jpg.asset.json";
 import vmmReliefDetail from "@/assets/gallery/vmm-relief-detail.jpg.asset.json";
 import vmmPhotoHex from "@/assets/gallery/vmm-photo-hex.jpg.asset.json";
 import vmmMedalHex from "@/assets/gallery/vmm-medal-hex.jpg.asset.json";
+import uxjFullDisplay from "@/assets/gallery/uxj-full-display.jpg.asset.json";
+import uxjFullFrame from "@/assets/gallery/uxj-full-frame.jpg.asset.json";
+import uxjReliefAngle from "@/assets/gallery/uxj-relief-angle.jpg.asset.json";
+import uxjFrameAngle from "@/assets/gallery/uxj-frame-angle.jpg.asset.json";
+import uxjPhotoHex from "@/assets/gallery/uxj-photo-hex.jpg.asset.json";
 
 export type GalleryImage = {
   src: string;
@@ -141,6 +146,11 @@ const ULTRA_TRAIL_IMAGES: GalleryImage[] = [
   { src: vmmReliefDetail.url, title: "Vietnam Mountain Marathon 2026 — Relief Detail", caption: "Close-up of the ridgelines and route across the Sapa mountains." },
   { src: vmmPhotoHex.url, title: "Vietnam Mountain Marathon 2026 — Finisher Photo", caption: "The finisher photo in a blue hex mount beside the printed relief." },
   { src: vmmMedalHex.url, title: "Vietnam Mountain Marathon 2026 — Medal Hex", caption: "100 Miles, 8800m gain finisher medal from The Trails of Sapa." },
+  { src: uxjFullDisplay.url, title: "Ultra X Jordan 2026 — Kevin Higgins", caption: "Black frame: 3D relief of the 220KM Wadi Rum course, 1st place finisher photo and medal." },
+  { src: uxjFullFrame.url, title: "Ultra X Jordan 2026 — Full Frame", caption: "1st overall, 22:21:51, 2522m elevation: desert relief with the orange route line and hex mounts." },
+  { src: uxjReliefAngle.url, title: "Ultra X Jordan 2026 — 3D Relief", caption: "Printed Wadi Rum sandstone and granite peaks with the raised orange trail." },
+  { src: uxjFrameAngle.url, title: "Ultra X Jordan 2026 — Frame Angle", caption: "Side view showing the depth of the desert terrain and hex mounts." },
+  { src: uxjPhotoHex.url, title: "Ultra X Jordan 2026 — Finisher Photo", caption: "1st Place Male finisher photo in a black hex mount beside the medal holder." },
 ];
 
 export const GALLERY_FOLDERS: GalleryFolder[] = [
@@ -151,7 +161,7 @@ export const GALLERY_FOLDERS: GalleryFolder[] = [
     description:
       "Custom ultra trail projects. full race frames with 3D relief maps, finisher photos and medals.",
     intro:
-      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below are the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32 — the UTMB Mont Blanc loop, and the Vietnam Mountain Marathon 2026 100-miles in Sapa.",
+      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below are the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32 — the UTMB Mont Blanc loop, the Vietnam Mountain Marathon 2026 100-miles in Sapa, and Ultra X Jordan 2026 — 220KM across Wadi Rum.",
     metaTitle: "Ultra Trail Project Frames Gallery — Evara3D Dubai",
     metaDescription:
       "Custom ultra trail race frames by Evara3D: 3D-printed route reliefs paired with finisher photos, medals and race stats — including MDS Legendary 40th.",
