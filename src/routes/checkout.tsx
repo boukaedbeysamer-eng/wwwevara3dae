@@ -135,7 +135,12 @@ function Checkout() {
           const path = slot.path;
           const { error } = await supabase.storage
             .from("gpx-uploads")
-            .uploadToSignedUrl(path, slot.token, file, { contentType: "application/gpx+xml" });
+            .uploadToSignedUrl(
+              path,
+              slot.token,
+              new Blob([file], { type: "application/gpx+xml" }),
+              { contentType: "application/gpx+xml" },
+            );
           if (error) {
             console.error("gpx upload failed", error);
             toast.error(`Couldn't upload GPX for item ${idx + 1}.`);
