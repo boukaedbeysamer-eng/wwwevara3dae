@@ -183,7 +183,7 @@ export const GALLERY_FOLDERS: GalleryFolder[] = [
     description:
       "Custom ultra trail projects. full race frames with 3D relief maps, finisher photos and medals.",
     intro:
-      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below are the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32 — the UTMB Mont Blanc loop, the Vietnam Mountain Marathon 2026 100-miles in Sapa, and Ultra X Jordan 2026 — 220KM across Wadi Rum.",
+      "Bespoke ultra trail projects built by Evara3D. Each piece turns the athlete's race route into a 3D-printed topographic relief, then pairs it with the finisher photo, medal and race stats in one framed display. Below are the Marathon des Sables Legendary 40th edition project — 270KM across Morocco in 66:46:32 — the UTMB Mont Blanc loop, the Vietnam Mountain Marathon 2026 100-miles in Sapa, Ultra X Jordan 2026 — 220KM across Wadi Rum, the Badwater Ultramarathon, and the Markha Valley Trek — 58KM across the Indian Himalayas at 5,250m.",
     metaTitle: "Ultra Trail Project Frames Gallery — Evara3D Dubai",
     metaDescription:
       "Custom ultra trail race frames by Evara3D: 3D-printed route reliefs paired with finisher photos, medals and race stats — including MDS Legendary 40th.",
