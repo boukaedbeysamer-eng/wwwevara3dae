@@ -36,7 +36,7 @@ import frameGoatUltraStand from "@/assets/carousel/frame-goat-ultra-stand.jpg.as
 import frameGoatUltraTrailRace from "@/assets/carousel/frame-goat-ultra-trail-race.jpg.asset.json";
 import frameCarouselHexMedal from "@/assets/carousel/IMG_6592-4.PNG.asset.json";
 import heroLegacy from "@/assets/carousel/hero-legacy-goat-ultra-peaks.jpg.asset.json";
-import legacyFrame from "@/assets/carousel/legacy-vmm-home.jpeg.asset.json";
+import legacyFrame from "@/assets/carousel/legacy-home-card.jpg.asset.json";
 import legacyRaceDirector from "@/assets/carousel/legacy-goat-ultra-race-director.png.asset.json";
 
 
