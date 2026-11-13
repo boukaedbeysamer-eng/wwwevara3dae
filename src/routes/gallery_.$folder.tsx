@@ -2,7 +2,7 @@
 
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Check, ChevronLeft, ChevronRight, Share2, X } from "lucide-react";
+import { ArrowRight, Check, ChevronLeft, ChevronRight, Share2, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GALLERY_FOLDERS, getGalleryFolder } from "@/data/gallery";
 import { ResponsiveImage } from "@/components/responsive-image";
@@ -201,6 +201,14 @@ function GalleryFolderPage() {
               <figcaption className="mt-3">
                 <h3 className="text-sm font-medium text-foreground">{img.title}</h3>
                 <p className="mt-1 text-xs leading-relaxed text-foreground/65">{img.caption}</p>
+                <Link
+                  to="/shop"
+                  hash="custom"
+                  className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-terrain hover:underline"
+                >
+                  Start an order inspired by this route
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </figcaption>
             </figure>
           ))}
@@ -284,16 +292,27 @@ function GalleryFolderPage() {
                 <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-white/40">
                   {openIndex! + 1} / {imageCount}
                 </p>
-                <button
-                  className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs uppercase tracking-widest text-white transition hover:bg-white/25"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    sharePhoto();
-                  }}
-                >
-                  {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
-                  {copied ? "Link copied" : "Share photo"}
-                </button>
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs uppercase tracking-widest text-white transition hover:bg-white/25"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      sharePhoto();
+                    }}
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+                    {copied ? "Link copied" : "Share photo"}
+                  </button>
+                  <Link
+                    to="/shop"
+                    hash="custom"
+                    className="inline-flex items-center gap-2 rounded-full bg-terrain px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-paper transition hover:opacity-90"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Start an order inspired by this route
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           )}
