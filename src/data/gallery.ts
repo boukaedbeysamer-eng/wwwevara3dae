@@ -64,6 +64,12 @@ import badwaterReliefDetail from "@/assets/gallery/badwater-relief-detail.jpeg.a
 import badwaterReliefTop from "@/assets/gallery/badwater-relief-top.jpeg.asset.json";
 import badwaterFrameAngle from "@/assets/gallery/badwater-frame-angle.jpeg.asset.json";
 import badwaterFrameCloseup from "@/assets/gallery/badwater-frame-closeup.jpeg.asset.json";
+import markhaFullFrame from "@/assets/gallery/markha-full-frame.jpg.asset.json";
+import markhaRelief from "@/assets/gallery/markha-relief.jpg.asset.json";
+import markhaReliefCloseup from "@/assets/gallery/markha-relief-closeup.jpg.asset.json";
+import markhaReliefAngle from "@/assets/gallery/markha-relief-angle.jpg.asset.json";
+import markhaReliefTop from "@/assets/gallery/markha-relief-top.jpg.asset.json";
+import markhaFrameAngle from "@/assets/gallery/markha-frame-angle.jpg.asset.json";
 
 export type GalleryImage = {
   src: string;
