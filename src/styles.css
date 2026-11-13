@@ -37,10 +37,14 @@
   --color-terrain: var(--terrain);
   --color-moss: var(--moss);
   --color-stone: var(--stone);
+  --color-product-surface: var(--product-surface);
+  --color-product-text: var(--product-text);
 }
 
 :root {
   --radius: 0.25rem;
+  --product-surface: oklch(1 0 0);
+  --product-text: oklch(0 0 0);
 
   /* Brand palette — navy + orange */
   --ink: oklch(0.22 0.07 260);           /* #0E1E3A deep navy */

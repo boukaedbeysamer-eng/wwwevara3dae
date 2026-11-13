@@ -14,7 +14,6 @@ import flaskDryStandWhite from "@/assets/flask-dry-stand-white.png.asset.json";
 
 
 import heroTerrainBg from "@/assets/hero-hex-mountain.jpg.asset.json";
-import collectionTopoBg from "@/assets/collection-topo-bg.jpg.asset.json";
 
 import frameKeepsakerGoat from "@/assets/pomelli-photoshoot-keepsaker.png.asset.json";
 import frameAchieverMedal from "@/assets/IMG_7292-4.jpeg.asset.json";
@@ -194,28 +193,18 @@ function Home() {
 
 
       {/* Trio of products */}
-      <section className="relative bg-background overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${collectionTopoBg.url})`,
-            opacity: 0.6,
-            filter: "grayscale(100%) contrast(3) brightness(2.4) drop-shadow(0 0 3px rgba(255,255,255,0.55))",
-          }}
-        />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background/25 to-background" />
+      <section className="relative bg-product-surface text-product-text overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.28em] text-terrain">ORDER OUR PRODUCTS</span>
-            <h2 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
+            <span className="text-xs uppercase tracking-[0.28em] text-product-text">ORDER OUR PRODUCTS</span>
+            <h2 className="mt-3 font-display text-4xl text-product-text md:text-5xl">
               3D PRINTED PRODUCTS.
             </h2>
           </div>
           <Link
             to="/shop"
-            className="hidden text-xs uppercase tracking-[0.22em] text-foreground hover:text-foreground/80 md:inline"
+            className="hidden text-xs uppercase tracking-[0.22em] text-product-text hover:underline md:inline"
           >
             See all →
           </Link>
@@ -229,7 +218,7 @@ function Home() {
               className="group block"
             >
 
-              <div className={`bg-secondary/60 transition-colors group-hover:bg-secondary ${i === 0 || i === 1 || i === 2 || i === 3 ? "" : "p-8"}`}>
+              <div className={`bg-product-surface ${i === 0 || i === 1 || i === 2 || i === 3 ? "" : "p-8"}`}>
                 {i === 0 ? (
                   <ResponsiveImage
                     src={frameKeepsakerGoat.url}
@@ -269,10 +258,10 @@ function Home() {
                 ) : null}
               </div>
               <div className="mt-6 flex items-baseline justify-between">
-                <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
-                <span className="text-sm text-foreground/90">AED {p.priceAed}</span>
+                <h3 className="font-display text-2xl text-product-text">{p.name}</h3>
+                <span className="text-sm text-product-text">AED {p.priceAed}</span>
               </div>
-              <p className="mt-2 text-sm text-foreground/90 whitespace-pre-line">{p.tagline}</p>
+              <p className="mt-2 text-sm text-product-text whitespace-pre-line">{p.tagline}</p>
             </Link>
             {(p.slug === "hyrox-hex" || p.slug === "hyrox-hex-2pc") && (
               <Link
@@ -448,7 +437,7 @@ function FlaskDryStandCard() {
 
   return (
     <div className="group block">
-      <div className="relative bg-secondary/60 transition-colors group-hover:bg-secondary">
+      <div className="relative bg-product-surface">
         <div
           ref={imgContainerRef}
           className="flex aspect-square w-full snap-x snap-mandatory overflow-x-hidden scroll-smooth"
@@ -502,11 +491,11 @@ function FlaskDryStandCard() {
         )}
       </div>
       <div className="mt-6 flex items-baseline justify-between">
-        <h3 className="font-display text-2xl text-foreground">SOFT FLASK DRYING STAND
+        <h3 className="font-display text-2xl text-product-text">SOFT FLASK DRYING STAND
 </h3>
-        <span className="text-sm text-foreground/90">AED 75</span>
+        <span className="text-sm text-product-text">AED 75</span>
       </div>
-      <p className="mt-2 text-sm text-foreground/90">
+      <p className="mt-2 text-sm text-product-text">
         3D printed soft flask drying stand, fully detachable — designed to hold and air-dry
         insulated flasks/bottles upright, keeping them stable and ventilated between uses.
       </p>
