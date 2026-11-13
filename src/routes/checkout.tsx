@@ -12,6 +12,7 @@ import { PhoneInput, buildE164 } from "@/components/phone-input";
 import { supabase } from "@/integrations/supabase/client";
 import { createCartCheckout } from "@/lib/payments.functions";
 import { getStripeEnvironment } from "@/lib/stripe";
+import { createGpxUploadUrls } from "@/lib/gpx-upload.functions";
 
 
 
@@ -112,14 +113,28 @@ function Checkout() {
         }
       }
 
+      const fileIdx = items.map((_, idx) => idx).filter((idx) => !!files[idx]);
+      let signedUploads: { path: string; token: string }[] = [];
+      if (fileIdx.length > 0) {
+        try {
+          const res = await getGpxUploadUrls({ data: { count: fileIdx.length } });
+          signedUploads = res.uploads;
+        } catch (e) {
+          console.error("gpx upload prep failed", e);
+          toast.error("Couldn't prepare GPX upload.");
+        }
+      }
+
       const uploadedPaths: (string | null)[] = await Promise.all(
         items.map(async (_, idx) => {
           const file = files[idx];
           if (!file) return null;
-          const path = `requests/${crypto.randomUUID()}-${idx}.gpx`;
+          const slot = signedUploads[fileIdx.indexOf(idx)];
+          if (!slot) return null;
+          const path = slot.path;
           const { error } = await supabase.storage
             .from("gpx-uploads")
-            .upload(path, file, { contentType: "application/gpx+xml", upsert: false });
+            .uploadToSignedUrl(path, slot.token, file, { contentType: "application/gpx+xml" });
           if (error) {
             console.error("gpx upload failed", error);
             toast.error(`Couldn't upload GPX for item ${idx + 1}.`);
